@@ -2,7 +2,7 @@
 
 #include "msaParticleGroup.h"
 
-#define MAX_GROUP_PARTICLES 1000
+#define MAX_GROUP_PARTICLES 10000
 
 void MSAParticleGroup3D::setup()
 {
@@ -15,7 +15,7 @@ void MSAParticleGroup3D::setup()
     bounce_max = 1;
     
     node_min = 1;
-    node_max = 8;
+    node_max = 20;
     
     drag_min = .90;
     drag_max = .99;
@@ -47,7 +47,7 @@ void MSAParticleGroup3D::draw()
             ofPushStyle();
             ofFill();
             ofSetHexColor( particle_default_color );
-            ofCircle( p->getPosition().x, p->getPosition().y, p->getPosition().z ); //p->getRadius() );
+            ofCircle( p->getPosition().x, p->getPosition().y, p->getPosition().z, p->getRadius() );
             ofPopStyle();
             it++;
         }
@@ -79,7 +79,7 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle * _p )
     
     // took bounce out as it disables wrapping
     // setBounce(bounce)
-    
+        
 	_p->setMass(mass)->setRadius(radius)->setDrag(drag)->makeFree();
 
 }

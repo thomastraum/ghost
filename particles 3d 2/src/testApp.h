@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxGrabCam.h"
+#include "ofxSimpleGuiToo.h"
 
 #include "TT_3D_Plane.h"
 #include "MSAParticleSystem3D.h"
@@ -16,6 +17,8 @@ public:
 
     void keyPressed  (int key);
     void windowResized(int w, int h);
+    
+    ofxSimpleGuiToo gui;
     
 private:    
     
@@ -35,6 +38,11 @@ private:
     //---------------------------------------------- Particles
     
     MSAParticleSystem3D ps;
+    
+    //---------------------------------------------- Settings
+    void addAppSettings();
+    void loadXMLSettings();
+    
     
     
 };

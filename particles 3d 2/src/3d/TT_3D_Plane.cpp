@@ -12,10 +12,7 @@
 void TT_3D_Plane::customDraw()
 {
     glPushMatrix();
-    
     setScale(width,height,1);
-//    rotate(.05, getYAxis() );
     vbo.draw( GL_QUADS, 0, 4 );
-    
     glPopMatrix();
 }

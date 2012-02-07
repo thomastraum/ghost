@@ -1,7 +1,7 @@
 
 #include "MSAParticleSystem3D.h"
 
-#define GRAVITY         0.1
+#define GRAVITY         -0.1
 #define SECTOR_COUNT    1
 
 void MSAParticleSystem3D::setup()
@@ -65,7 +65,7 @@ void MSAParticleSystem3D::draw()
 void MSAParticleSystem3D::addParticles( Vec3f _pos, int _count)
 {
     for(int i=0; i<_count; i++)
-		addParticle( _pos + Rand::randVec3f() * 300 );
+		addParticle( Vec3f( _pos.x + ofRandom(-width,width), _pos.y + ofRandom(-height,height), _pos.z + ofRandom(-width,width)) ); // + Rand::randVec3f() * 300 );
 }
 
 void MSAParticleSystem3D::addParticle( Vec3f _pos  )
@@ -96,7 +96,7 @@ void MSAParticleSystem3D::addMouseParticle()
 	mouse_node.makeFixed();
 	mouse_node.setMass(1);
 	mouse_node.moveTo( Vec3f(0, 0, 0) );
-	mouse_node.setRadius( 30 );
+	mouse_node.setRadius( 1 );
     mouse_node.enableCollision();
 }
 
@@ -123,12 +123,9 @@ void MSAParticleSystem3D::killAll()
 //------------------------------------------------------ SETTINGS
 void MSAParticleSystem3D::addSettings( ofxSimpleGuiToo & _gui )
 {
-    gui_particle_page = &_gui.addPage("Particle Settings");
-    
+    gui_particle_page = &_gui.addPage("Particle System");
     _gui.addTitle( "Particle Settings"); //.setNewColumn(true);
-	_gui.addSlider( "gravity", gravity, .1, 10);
-//    _gui.addToggle( "constraining", constraining ); 
-    
+	_gui.addSlider( "gravity", gravity, -1, 1);
     maingroup->addSettings( "Main Group", _gui );
 }
 
