@@ -1,5 +1,5 @@
 //
-//  TT_Custom_MSAParticle.h
+//  TT_Custom_MSAParticle3D.h
 //  body-impact-1
 //
 //  Created by Thomas Eberwein on 03/06/2011.
@@ -12,18 +12,18 @@
 
 using namespace MSA;
 
-class TT_Custom_MSAParticle : public Physics::Particle3D {
+class TT_Custom_MSAParticle3D : public Physics::Particle3D {
 
 public:
         
-    TT_Custom_MSAParticle ()               : Physics::Particle3D() { 
+    TT_Custom_MSAParticle3D ()               : Physics::Particle3D() { 
         wrapping_enabled = false;
         color = Color::black();
         constraint=0;
         solvable = false;
     }
     
-    TT_Custom_MSAParticle ( Vec3f _pos )   : Physics::Particle3D( _pos ) { 
+    TT_Custom_MSAParticle3D ( Vec3f _pos )   : Physics::Particle3D( _pos ) { 
         wrapping_enabled = false;
         color = Color::black();
         constraint=0;
@@ -49,7 +49,7 @@ public:
     }
     
     //----------------------------------------------------------------- COLOR
-    TT_Custom_MSAParticle * setColor( Color _col )
+    TT_Custom_MSAParticle3D * setColor( Color _col )
     {
         color = _col;
         return this;
@@ -61,13 +61,13 @@ public:
     }
     
     //----------------------------------------------------------------- ALPHA
-    TT_Custom_MSAParticle * enableFadeOut( bool _is_fadeout_enabled )
+    TT_Custom_MSAParticle3D * enableFadeOut( bool _is_fadeout_enabled )
     {
         is_fadeout_enabled = _is_fadeout_enabled;
         return this;
     }
     
-    TT_Custom_MSAParticle * setAlpha( float _alpha )
+    TT_Custom_MSAParticle3D * setAlpha( float _alpha )
     {
         alpha = _alpha;
         return this;
@@ -107,7 +107,7 @@ public:
     
     //----------------------------------------------------------------- WRAPPING
     
-    TT_Custom_MSAParticle * setWrap( bool _wrap_x, bool _wrap_y )
+    TT_Custom_MSAParticle3D * setWrap( bool _wrap_x, bool _wrap_y )
     {
         wrapping_enabled = ( _wrap_x || _wrap_y ) ? true : false;
     }

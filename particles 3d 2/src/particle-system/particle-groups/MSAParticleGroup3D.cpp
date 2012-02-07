@@ -1,6 +1,6 @@
 
 
-#include "msaParticleGroup.h"
+#include "MSAParticleGroup3D.h"
 
 #define MAX_GROUP_PARTICLES 10000
 
@@ -37,10 +37,10 @@ void MSAParticleGroup3D::update()
 
 void MSAParticleGroup3D::draw()
 { 
-    vector<TT_Custom_MSAParticle*>::iterator it = group.begin();
+    vector<TT_Custom_MSAParticle3D*>::iterator it = group.begin();
     
     while( it != group.end() ) {
-        TT_Custom_MSAParticle * p = *it;
+        TT_Custom_MSAParticle3D * p = *it;
         if( p->isDead() ) {
             it = group.erase(it);
         } else {
@@ -54,13 +54,13 @@ void MSAParticleGroup3D::draw()
     }
 }
 
-void MSAParticleGroup3D::addParticle( TT_Custom_MSAParticle * _p )
+void MSAParticleGroup3D::addParticle( TT_Custom_MSAParticle3D * _p )
 {
     setParticleProperties(_p);
     group.push_back(_p);
 }
 
-void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle * _p )
+void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
 {
 	float mass		= ofRandom( mass_min, mass_max );
 	float bounce	= ofRandom( bounce_min, bounce_max );
@@ -88,7 +88,7 @@ void MSAParticleGroup3D::resizeParticleGroup()
 {
     int i = 0;
     while ( group.size() > max_particles && i < group.size() ) {
-        TT_Custom_MSAParticle * p = group[i];
+        TT_Custom_MSAParticle3D * p = group[i];
         if ( !p->isDead() ) {
             p->kill();
         }

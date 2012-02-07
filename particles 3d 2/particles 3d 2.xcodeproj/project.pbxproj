@@ -10,7 +10,7 @@
 		6484A7E914DF17D100E32064 /* TT_3D_Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6484A7E814DF17D100E32064 /* TT_3D_Plane.cpp */; };
 		6484A82614DF234500E32064 /* ofxGrabCam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6484A81D14DF234400E32064 /* ofxGrabCam.cpp */; };
 		64BF35A814DF644400524A79 /* MSAParticleSystem3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64BF35A114DF644400524A79 /* MSAParticleSystem3D.cpp */; };
-		64BF35A914DF644400524A79 /* msaParticleGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64BF35A414DF644400524A79 /* msaParticleGroup.cpp */; };
+		64BF35A914DF644400524A79 /* MSAParticleGroup3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64BF35A414DF644400524A79 /* MSAParticleGroup3D.cpp */; };
 		64BF363214DF646A00524A79 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64BF35B014DF646900524A79 /* Color.cpp */; };
 		64BF363314DF646A00524A79 /* MSACoreGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64BF35B714DF646900524A79 /* MSACoreGL.cpp */; };
 		64BF363914DF646A00524A79 /* ofxMSAInteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64BF35FD14DF646900524A79 /* ofxMSAInteractiveObject.cpp */; };
@@ -90,9 +90,9 @@
 		6484A81E14DF234400E32064 /* ofxGrabCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGrabCam.h; sourceTree = "<group>"; };
 		64BF35A114DF644400524A79 /* MSAParticleSystem3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleSystem3D.cpp; sourceTree = "<group>"; };
 		64BF35A214DF644400524A79 /* MSAParticleSystem3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D.h; sourceTree = "<group>"; };
-		64BF35A414DF644400524A79 /* msaParticleGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msaParticleGroup.cpp; sourceTree = "<group>"; };
-		64BF35A514DF644400524A79 /* msaParticleGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msaParticleGroup.h; sourceTree = "<group>"; };
-		64BF35A714DF644400524A79 /* tt-custom-msaparticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "tt-custom-msaparticle.h"; sourceTree = "<group>"; };
+		64BF35A414DF644400524A79 /* MSAParticleGroup3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleGroup3D.cpp; sourceTree = "<group>"; };
+		64BF35A514DF644400524A79 /* MSAParticleGroup3D.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MSAParticleGroup3D.h; sourceTree = "<group>"; };
+		64BF35A714DF644400524A79 /* TT_Custom_MSAParticle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TT_Custom_MSAParticle3D.h; sourceTree = "<group>"; };
 		64BF35AB14DF646900524A79 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		64BF35AE14DF646900524A79 /* ChanTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanTraits.h; sourceTree = "<group>"; };
 		64BF35AF14DF646900524A79 /* CinderMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderMath.h; sourceTree = "<group>"; };
@@ -254,8 +254,8 @@
 		64BF35A314DF644400524A79 /* particle-groups */ = {
 			isa = PBXGroup;
 			children = (
-				64BF35A414DF644400524A79 /* msaParticleGroup.cpp */,
-				64BF35A514DF644400524A79 /* msaParticleGroup.h */,
+				64BF35A414DF644400524A79 /* MSAParticleGroup3D.cpp */,
+				64BF35A514DF644400524A79 /* MSAParticleGroup3D.h */,
 			);
 			path = "particle-groups";
 			sourceTree = "<group>";
@@ -263,7 +263,7 @@
 		64BF35A614DF644400524A79 /* particles */ = {
 			isa = PBXGroup;
 			children = (
-				64BF35A714DF644400524A79 /* tt-custom-msaparticle.h */,
+				64BF35A714DF644400524A79 /* TT_Custom_MSAParticle3D.h */,
 			);
 			path = particles;
 			sourceTree = "<group>";
@@ -641,7 +641,7 @@
 				6484A7E914DF17D100E32064 /* TT_3D_Plane.cpp in Sources */,
 				6484A82614DF234500E32064 /* ofxGrabCam.cpp in Sources */,
 				64BF35A814DF644400524A79 /* MSAParticleSystem3D.cpp in Sources */,
-				64BF35A914DF644400524A79 /* msaParticleGroup.cpp in Sources */,
+				64BF35A914DF644400524A79 /* MSAParticleGroup3D.cpp in Sources */,
 				64BF363214DF646A00524A79 /* Color.cpp in Sources */,
 				64BF363314DF646A00524A79 /* MSACoreGL.cpp in Sources */,
 				64BF363914DF646A00524A79 /* ofxMSAInteractiveObject.cpp in Sources */,

@@ -3,7 +3,7 @@
 #pragma once
 #include "MSAPhysics3D.h"
 #include "MSAPhysicsParticle.h"
-#include "tt-custom-msaparticle.h"
+#include "TT_Custom_MSAParticle3D.h"
 #include "ofxSimpleGuiToo.h"
 
 using namespace MSA;
@@ -19,9 +19,9 @@ public:
     virtual void    setup();
     virtual void    update();
     virtual void    draw();
-    virtual void    setParticleProperties( TT_Custom_MSAParticle * _p );
+    virtual void    setParticleProperties( TT_Custom_MSAParticle3D * _p );
     
-    virtual void    addParticle( TT_Custom_MSAParticle * p );
+    virtual void    addParticle( TT_Custom_MSAParticle3D * p );
     void            resizeParticleGroup();
     void            killParticles();
     
@@ -54,6 +54,6 @@ protected:
     bool                                    enable_collision;
     bool                                    enable_wrapping;
     
-    vector<TT_Custom_MSAParticle*>          group;
+    vector<TT_Custom_MSAParticle3D*>          group;
     
 };

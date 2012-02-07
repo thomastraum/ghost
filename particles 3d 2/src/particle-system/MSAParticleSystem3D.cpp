@@ -71,7 +71,7 @@ void MSAParticleSystem3D::addParticles( Vec3f _pos, int _count)
 void MSAParticleSystem3D::addParticle( Vec3f _pos  )
 {
     MSAParticleGroup3D * current_group =  0;
-    TT_Custom_MSAParticle * p = createParticle(_pos);
+    TT_Custom_MSAParticle3D * p = createParticle(_pos);
     
     current_group = maingroup;
     current_group->addParticle( p );
@@ -80,11 +80,11 @@ void MSAParticleSystem3D::addParticle( Vec3f _pos  )
     p->release();
 }
 
-TT_Custom_MSAParticle * MSAParticleSystem3D::createParticle( Vec3f _pos )
+TT_Custom_MSAParticle3D * MSAParticleSystem3D::createParticle( Vec3f _pos )
 {
 //    MSA::Physics::Particle2D *p = new MSA::Physics::Particle2D( _pos );
     
-    TT_Custom_MSAParticle *p = new TT_Custom_MSAParticle( _pos );
+    TT_Custom_MSAParticle3D *p = new TT_Custom_MSAParticle3D( _pos );
     physics.addParticle(p);
     return p;
 }

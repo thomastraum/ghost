@@ -2,9 +2,7 @@
 #pragma once
 
 #include "MSAPhysics3D.h"
-//#include "MSAUtils.h"
-#include "msaParticleGroup.h"
-//#include "MSAParticleGroup2D_color.h"
+#include "MSAParticleGroup3D.h"
 
 using namespace MSA;
 
@@ -32,7 +30,7 @@ public:
     void addMouseParticle();
     void killAll();
     
-    TT_Custom_MSAParticle *     createParticle( Vec3f _pos );
+    TT_Custom_MSAParticle3D *   createParticle( Vec3f _pos );
     void                        moveMouseParticle( int x, int y, int z );
     
     Physics::World3D            physics;
