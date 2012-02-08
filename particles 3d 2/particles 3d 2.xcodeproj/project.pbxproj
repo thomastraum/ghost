@@ -91,8 +91,8 @@
 		64BF35A114DF644400524A79 /* MSAParticleSystem3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleSystem3D.cpp; sourceTree = "<group>"; };
 		64BF35A214DF644400524A79 /* MSAParticleSystem3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D.h; sourceTree = "<group>"; };
 		64BF35A414DF644400524A79 /* MSAParticleGroup3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleGroup3D.cpp; sourceTree = "<group>"; };
-		64BF35A514DF644400524A79 /* MSAParticleGroup3D.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MSAParticleGroup3D.h; sourceTree = "<group>"; };
-		64BF35A714DF644400524A79 /* TT_Custom_MSAParticle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TT_Custom_MSAParticle3D.h; sourceTree = "<group>"; };
+		64BF35A514DF644400524A79 /* MSAParticleGroup3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D.h; sourceTree = "<group>"; };
+		64BF35A714DF644400524A79 /* TT_Custom_MSAParticle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Custom_MSAParticle3D.h; sourceTree = "<group>"; };
 		64BF35AB14DF646900524A79 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		64BF35AE14DF646900524A79 /* ChanTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanTraits.h; sourceTree = "<group>"; };
 		64BF35AF14DF646900524A79 /* CinderMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderMath.h; sourceTree = "<group>"; };
@@ -165,6 +165,7 @@
 		64BF365714DF647500524A79 /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		64BF367C14DF656000524A79 /* MSAObjCPointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAObjCPointer.cpp; sourceTree = "<group>"; };
 		64BF367D14DF656000524A79 /* MSAObjCPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAObjCPointer.h; sourceTree = "<group>"; };
+		64BF369014E0ADE300524A79 /* MSAParticleGroup3D_PointSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_PointSprites.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -256,6 +257,7 @@
 			children = (
 				64BF35A414DF644400524A79 /* MSAParticleGroup3D.cpp */,
 				64BF35A514DF644400524A79 /* MSAParticleGroup3D.h */,
+				64BF369014E0ADE300524A79 /* MSAParticleGroup3D_PointSprites.h */,
 			);
 			path = "particle-groups";
 			sourceTree = "<group>";

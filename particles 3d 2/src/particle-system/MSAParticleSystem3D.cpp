@@ -40,12 +40,13 @@ void MSAParticleSystem3D::createParticleGroups()
 // ----------------------------------------------------- LOOPS 
 void MSAParticleSystem3D::update()
 {
-	physics.update();    
-    
+	physics.update();
     maingroup->update();
     
     // we show this number in the UI //
     numberOfParticles = physics.numberOfParticles();
+    
+    cout << "gravity: " << gravity << endl;
 }
 
 // ----------------------------------------------------- DRAW

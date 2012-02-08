@@ -20,7 +20,6 @@ void testApp::setup(){
     loadXMLSettings();
 }
 
-
 //--------------------------------------------------------------
 void testApp::update(){
     ps.update();
