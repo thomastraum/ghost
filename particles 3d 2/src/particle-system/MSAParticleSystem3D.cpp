@@ -18,7 +18,7 @@ void MSAParticleSystem3D::setup()
     
     physics.setDrag(0.97f);
     physics.setDrag(1);		// FIXTHIS
-    physics.enableCollision();
+    physics.disableCollision(); //enableCollision();
     
     initScene();
 }
@@ -33,7 +33,7 @@ void MSAParticleSystem3D::initScene()
 
 void MSAParticleSystem3D::createParticleGroups()
 {
-    maingroup = new MSAParticleGroup3D();
+    maingroup = new MSAParticleGroup3D_PointSprites();
     maingroup->setup();
 }
 
@@ -46,7 +46,7 @@ void MSAParticleSystem3D::update()
     // we show this number in the UI //
     numberOfParticles = physics.numberOfParticles();
     
-    cout << "gravity: " << gravity << endl;
+//    cout << "gravity: " << gravity << endl;
 }
 
 // ----------------------------------------------------- DRAW

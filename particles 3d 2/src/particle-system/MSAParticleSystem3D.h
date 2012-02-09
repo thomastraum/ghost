@@ -2,7 +2,8 @@
 #pragma once
 
 #include "MSAPhysics3D.h"
-#include "MSAParticleGroup3D.h"
+//#include "MSAParticleGroup3D.h"
+#include "MSAParticleGroup3D_PointSprites.h"
 
 using namespace MSA;
 

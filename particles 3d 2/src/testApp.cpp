@@ -32,9 +32,12 @@ void testApp::draw(){
 //    glEnable(GL_DEPTH_TEST);    
 //    glEnable(GL_LIGHTING);
     
+    ofBackground(0, 0, 0);
+    
     camera.begin();
     ofTranslate( 0,0, -width);
     
+    ofSetColor(255,255,255);
     plane_top.draw();
     plane_left.draw();
     plane_right.draw();
@@ -43,7 +46,7 @@ void testApp::draw(){
     
     ofSetColor(255,0,0);
     ofBox( 0,0,0, 10 );
-
+    
     ps.draw();
     
     camera.end();
