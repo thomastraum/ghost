@@ -28,8 +28,8 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     
-//    ofEnableAlphaBlending();
-//    glEnable(GL_DEPTH_TEST);    
+    ofEnableAlphaBlending();
+    glEnable(GL_DEPTH_TEST);    
 //    glEnable(GL_LIGHTING);
     
     ofBackground(0, 0, 0);

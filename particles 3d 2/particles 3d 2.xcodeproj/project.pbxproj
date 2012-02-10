@@ -84,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		642E2B6314E48FC6007AE7CF /* MSAParticleGroup3D_PointSpritesVbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_PointSpritesVbo.h; sourceTree = "<group>"; };
 		6458035714E2FA08008B8410 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		6458035A14E2FA08008B8410 /* ChanTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanTraits.h; sourceTree = "<group>"; };
 		6458035B14E2FA08008B8410 /* CinderMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderMath.h; sourceTree = "<group>"; };
@@ -432,6 +433,7 @@
 				6458042214E2FA48008B8410 /* MSAParticleGroup3D.cpp */,
 				6458042314E2FA48008B8410 /* MSAParticleGroup3D.h */,
 				6458042414E2FA48008B8410 /* MSAParticleGroup3D_PointSprites.h */,
+				642E2B6314E48FC6007AE7CF /* MSAParticleGroup3D_PointSpritesVbo.h */,
 			);
 			path = "particle-groups";
 			sourceTree = "<group>";

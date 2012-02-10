@@ -3,7 +3,7 @@
 
 #include "MSAPhysics3D.h"
 //#include "MSAParticleGroup3D.h"
-#include "MSAParticleGroup3D_PointSprites.h"
+#include "MSAParticleGroup3D_PointSpritesVBO.h"
 
 using namespace MSA;
 

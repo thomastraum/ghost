@@ -13,14 +13,15 @@
 #include "ofMain.h"
 #include "MSAParticleGroup3D.h"
 
-class MSAParticleGroup3D_PointSprites : public MSAParticleGroup3D {
+class MSAParticleGroup3D_PointSpritesVBO : public MSAParticleGroup3D {
     
     ofMesh      mesh;
     ofImage     texture;
+    ofVbo       vbo;
     
 public:
     
-    MSAParticleGroup3D_PointSprites() {
+    MSAParticleGroup3D_PointSpritesVBO() {
         
         mesh.clear();
         mesh.setMode(OF_PRIMITIVE_POINTS);
@@ -28,16 +29,14 @@ public:
         ofDisableArbTex();
         texture.loadImage("dot-8.png");
         
-        glPointSize(2);
-        
+        glPointSize(10);
     }
     
     virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
         MSAParticleGroup3D::setParticleProperties( _p );
-        
         mesh.addVertex( ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
-        mesh.addColor( ofColor( 255, 255, 255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
+        mesh.addColor( ofColor( 0, 255, 255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
     }
     
     virtual void update() {
@@ -48,6 +47,7 @@ public:
             TT_Custom_MSAParticle3D * p = *it;
             if( p->isDead() ) {
 //                mesh.removeVertex(i);
+                cout << "killed" << endl;
                 it = group.erase(it);
             } else {
                 mesh.setVertex( i, ofVec3f( p->getPosition().x, p->getPosition().y, p->getPosition().z ) );
@@ -60,10 +60,13 @@ public:
     virtual void draw()
     {
         ofEnableAlphaBlending();
+        ofEnableBlendMode(OF_BLENDMODE_ADD);
         ofEnablePointSprites();
         
         texture.getTextureReference().bind();
-        mesh.draw();
+        vbo.setMesh( mesh, GL_STATIC_DRAW );
+        vbo.draw( GL_POINTS, 0, mesh.getNumVertices() );
+        texture.getTextureReference().unbind();		// new in OF006
         
         ofDisablePointSprites();
     }

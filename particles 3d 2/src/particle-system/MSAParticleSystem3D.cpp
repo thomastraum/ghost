@@ -33,7 +33,7 @@ void MSAParticleSystem3D::initScene()
 
 void MSAParticleSystem3D::createParticleGroups()
 {
-    maingroup = new MSAParticleGroup3D_PointSprites();
+    maingroup = new MSAParticleGroup3D_PointSpritesVBO();
     maingroup->setup();
 }
 
