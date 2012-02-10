@@ -9,16 +9,7 @@ void MSAParticleSystem3D::setup()
 	width = ofGetWidth();
 	height = ofGetHeight();
     
-    physics.verbose = false;			// dump activity to log
-    gravity = GRAVITY;
-    physics.setGravity(Vec3f(0, gravity, 0) );
-    // set world dimensions, not essential, but speeds up collision
-	physics.setWorldSize(Vec3f(-width, -height, -width), Vec3f(width, height, width));
-	physics.setSectorCount(SECTOR_COUNT);
-    
-    physics.setDrag(0.97f);
-    physics.setDrag(1);		// FIXTHIS
-    physics.disableCollision(); //enableCollision();
+	ofAddListener(ofEvents.windowResized, this, &MSAParticleSystem3D::windowResized);
     
     initScene();
 }
@@ -28,7 +19,23 @@ void MSAParticleSystem3D::initScene()
     physics.clear();
     addMouseParticle();
     createParticleGroups();
+ 
+    physics.verbose = false;			// dump activity to log
+    gravity = GRAVITY;
     physics.setGravity(Vec3f(0, gravity, 0) );
+
+    
+    physics.setDrag(0.97f);
+    physics.setDrag(1);		// FIXTHIS
+    physics.disableCollision(); //enableCollision();
+    
+}
+
+void MSAParticleSystem3D::resizeScene()
+{
+    // set world dimensions, not essential, but speeds up collision
+	physics.setWorldSize(Vec3f(-width, -height, -width), Vec3f(width, height, width));
+	physics.setSectorCount(SECTOR_COUNT);
 }
 
 void MSAParticleSystem3D::createParticleGroups()
@@ -65,8 +72,11 @@ void MSAParticleSystem3D::draw()
 // ----------------------------------------------------- PARTICLE MANAGMENT
 void MSAParticleSystem3D::addParticles( Vec3f _pos, int _count)
 {
+    int max_x = width;
+    int max_y = height;
+    
     for(int i=0; i<_count; i++)
-		addParticle( Vec3f( _pos.x + ofRandom(-width,width), _pos.y + ofRandom(-height,height), _pos.z + ofRandom(-width,width)) ); // + Rand::randVec3f() * 300 );
+		addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(-max_x,max_x)) ); // + Rand::randVec3f() * 300 );
 }
 
 void MSAParticleSystem3D::addParticle( Vec3f _pos  )
@@ -76,15 +86,12 @@ void MSAParticleSystem3D::addParticle( Vec3f _pos  )
     
     current_group = maingroup;
     current_group->addParticle( p );
-    current_group->setParticleProperties(p);
     
     p->release();
 }
 
 TT_Custom_MSAParticle3D * MSAParticleSystem3D::createParticle( Vec3f _pos )
 {
-//    MSA::Physics::Particle2D *p = new MSA::Physics::Particle2D( _pos );
-    
     TT_Custom_MSAParticle3D *p = new TT_Custom_MSAParticle3D( _pos );
     physics.addParticle(p);
     return p;
@@ -137,4 +144,9 @@ void MSAParticleSystem3D::setXMLFilename( string _xml_filename )
 }
 
 
-
+void MSAParticleSystem3D::windowResized( ofResizeEventArgs&args )
+{
+    width = args.width;
+    height = args.height;
+    resizeScene();
+}

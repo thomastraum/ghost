@@ -1,15 +1,14 @@
 
 #pragma once
-
+#include "ofMain.h"
 #include "MSAPhysics3D.h"
-//#include "MSAParticleGroup3D.h"
 #include "MSAParticleGroup3D_PointSpritesVBO.h"
 
 using namespace MSA;
 
 #define MAX_USERS 1
 
-class MSAParticleSystem3D {
+class MSAParticleSystem3D : public ofBaseApp  {
 
 public:
     
@@ -20,9 +19,10 @@ public:
     void update();
     void draw();
     
-    void initScene();
-    
     // -------------------------------------------------- PARTICLES
+    
+    void initScene();
+    void resizeScene();
     
     void createParticleGroups();
     void addParticles( Vec3f _pos, int _count );
@@ -53,5 +53,9 @@ public:
     
     string                      xml_filename;
     ofxSimpleGuiPage *          gui_particle_page;
+    
+    //-----------
+    
+    void windowResized( ofResizeEventArgs&args );
     
 };

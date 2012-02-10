@@ -24,7 +24,7 @@ public:
     MSAParticleGroup3D_PointSpritesVBO() {
         
         mesh.clear();
-        mesh.setMode(OF_PRIMITIVE_POINTS);
+        mesh.setMode( OF_PRIMITIVE_POINTS );
         
         ofDisableArbTex();
         texture.loadImage("dot-8.png");
@@ -60,7 +60,6 @@ public:
     virtual void draw()
     {
         ofEnableAlphaBlending();
-        ofEnableBlendMode(OF_BLENDMODE_ADD);
         ofEnablePointSprites();
         
         texture.getTextureReference().bind();

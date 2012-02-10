@@ -79,7 +79,7 @@ void testApp::buildScene()
     
     // Position planes
 //    plane_bottom.rotate(90, plane_bottom.getXAxis() );
-    //    plane_bottom.move(0, height, 0);
+//    plane_bottom.move(0, height, 0);
     plane_bottom.setPosition(0, -height, 0);
     plane_bottom.setOrientation(ofVec3f(90,0,0));
     
@@ -119,7 +119,7 @@ void testApp::keyPressed(int key){
 		ofToggleFullscreen();
     
     if (key=='p')
-        ps.addParticles( Vec3f( 0,0,0 ), 100 );
+        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
     
     if (key=='k')
         ps.killAll();
