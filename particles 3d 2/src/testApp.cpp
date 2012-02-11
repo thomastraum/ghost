@@ -7,26 +7,36 @@ void testApp::setup(){
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofEnableSmoothing();
-	ofBackground(100, 100, 100);
+    
+    draw_debug = false;
     
     buildScene();
     
     ps.setup();
+    
+    fluid.setup();
     
     //-------------------------------------         SETTINGS
     
     addAppSettings();
     ps.addSettings( gui );
     loadXMLSettings();
+    
+    //-------------------------------------
+    
+    ofToggleFullscreen();
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
+void testApp::update()
+{
     ps.update();
+    fluid.update();
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void testApp::draw()
+{
     
     ofEnableAlphaBlending();
     glEnable(GL_DEPTH_TEST);    
@@ -37,19 +47,24 @@ void testApp::draw(){
     camera.begin();
     ofTranslate( 0,0, -width);
     
-    ofSetColor(255,255,255);
-    plane_top.draw();
-    plane_left.draw();
-    plane_right.draw();
-    plane_back.draw();
-    plane_bottom.draw();
+    if (draw_debug) {
     
-    ofSetColor(255,0,0);
-    ofBox( 0,0,0, 10 );
+        ofSetColor(255,255,255);
+        plane_top.draw();
+        plane_left.draw();
+        plane_right.draw();
+        plane_back.draw();
+        plane_bottom.draw();
+        
+        ofSetColor(255,0,0);
+        ofBox( 0,0,0, 10 );
+    }
     
     ps.draw();
     
     camera.end();
+    
+//    fluid.draw();
     
     gui.draw();
     
@@ -109,6 +124,9 @@ void testApp::buildScene()
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
 	
+    if (key== 'd' )
+        draw_debug = ! draw_debug;
+    
 	if (key=='c')
 		camera.toggleCursorDraw();
 	
@@ -179,6 +197,9 @@ void testApp::addAppSettings()
     
 //    main_page = & gui.currentPage();
 //    main_page->setXMLName( "settings_main.xml" );
+    
+    fluid.addSettings( gui );
+    
 }
 
 void testApp::loadXMLSettings()

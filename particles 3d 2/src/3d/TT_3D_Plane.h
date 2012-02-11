@@ -39,6 +39,8 @@ public:
         mesh.addColor(ofFloatColor(0,1,1,1));
         
         vbo.setMesh( mesh,GL_STATIC_DRAW );
+        
+        ofAddListener(ofEvents.keyPressed, this, &TT_3D_Plane::keyPressed );
     }
     
     int width;
@@ -46,6 +48,8 @@ public:
     
     void customDraw();
     
+    void toggleDebugDraw();
+    void keyPressed( ofKeyEventArgs&args );
     
 };
 

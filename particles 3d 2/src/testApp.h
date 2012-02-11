@@ -7,6 +7,8 @@
 #include "TT_3D_Plane.h"
 #include "MSAParticleSystem3D.h"
 
+#include "MSAFluidManager.h"
+
 class testApp : public ofBaseApp{
 
 public:
@@ -21,6 +23,8 @@ public:
     ofxSimpleGuiToo gui;
     
 private:    
+    
+    bool    draw_debug;
     
     int     width;
     int     height;
@@ -38,6 +42,9 @@ private:
     //---------------------------------------------- Particles
     
     MSAParticleSystem3D ps;
+    
+    //---------------------------------------------- Particles
+    MSAFluidManager     fluid;
     
     //---------------------------------------------- Settings
     void addAppSettings();

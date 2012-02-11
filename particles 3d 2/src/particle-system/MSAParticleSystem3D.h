@@ -8,7 +8,7 @@ using namespace MSA;
 
 #define MAX_USERS 1
 
-class MSAParticleSystem3D : public ofBaseApp  {
+class MSAParticleSystem3D  {
 
 public:
     
@@ -54,7 +54,7 @@ public:
     string                      xml_filename;
     ofxSimpleGuiPage *          gui_particle_page;
     
-    //-----------
+    //---------------------------------------------------- EVENTS
     
     void windowResized( ofResizeEventArgs&args );
     

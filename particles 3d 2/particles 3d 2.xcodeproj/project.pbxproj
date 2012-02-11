@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6423C92814E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C92614E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp */; };
+		6423C93114E56E7000B9C6A0 /* baseforce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C92B14E56E7000B9C6A0 /* baseforce.cpp */; };
+		6423C93214E56E7000B9C6A0 /* sinewaveforce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C92D14E56E7000B9C6A0 /* sinewaveforce.cpp */; };
+		6423C93314E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */; };
+		6423C9A414E56ED600B9C6A0 /* MSAFluidDrawerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C98414E56ED500B9C6A0 /* MSAFluidDrawerBase.cpp */; };
+		6423C9A514E56ED600B9C6A0 /* MSAFluidSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C98914E56ED500B9C6A0 /* MSAFluidSolver.cpp */; };
+		644B07A914E5826D002B15F0 /* MSAFluidManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 644B07A814E5826D002B15F0 /* MSAFluidManager.cpp */; };
 		645803EE14E2FA08008B8410 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458035C14E2FA08008B8410 /* Color.cpp */; };
 		645803EF14E2FA08008B8410 /* MSACoreGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458036314E2FA08008B8410 /* MSACoreGL.cpp */; };
 		645803F214E2FA08008B8410 /* MSAObjCPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458037414E2FA08008B8410 /* MSAObjCPointer.cpp */; };
@@ -84,7 +91,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6423C92614E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAPhysicsUpdater3D.cpp; sourceTree = "<group>"; };
+		6423C92714E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdater3D.h; sourceTree = "<group>"; };
+		6423C92B14E56E7000B9C6A0 /* baseforce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = baseforce.cpp; sourceTree = "<group>"; };
+		6423C92C14E56E7000B9C6A0 /* baseforce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseforce.h; sourceTree = "<group>"; };
+		6423C92D14E56E7000B9C6A0 /* sinewaveforce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinewaveforce.cpp; sourceTree = "<group>"; };
+		6423C92E14E56E7000B9C6A0 /* sinewaveforce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sinewaveforce.h; sourceTree = "<group>"; };
+		6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAPhysicsFluidUpdater.cpp; sourceTree = "<group>"; };
+		6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsFluidUpdater.h; sourceTree = "<group>"; };
+		6423C98314E56ED500B9C6A0 /* MSAFluid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluid.h; sourceTree = "<group>"; };
+		6423C98414E56ED500B9C6A0 /* MSAFluidDrawerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAFluidDrawerBase.cpp; sourceTree = "<group>"; };
+		6423C98514E56ED500B9C6A0 /* MSAFluidDrawerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidDrawerBase.h; sourceTree = "<group>"; };
+		6423C98614E56ED500B9C6A0 /* MSAFluidDrawerGl-Cinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSAFluidDrawerGl-Cinder.h"; sourceTree = "<group>"; };
+		6423C98714E56ED500B9C6A0 /* MSAFluidDrawerGl-OF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MSAFluidDrawerGl-OF.h"; sourceTree = "<group>"; };
+		6423C98814E56ED500B9C6A0 /* MSAFluidParticleUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidParticleUpdater.h; sourceTree = "<group>"; };
+		6423C98914E56ED500B9C6A0 /* MSAFluidSolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAFluidSolver.cpp; sourceTree = "<group>"; };
+		6423C98A14E56ED500B9C6A0 /* MSAFluidSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidSolver.h; sourceTree = "<group>"; };
+		6423C9B614E5715B00B9C6A0 /* MSATimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSATimer.h; sourceTree = "<group>"; };
 		642E2B6314E48FC6007AE7CF /* MSAParticleGroup3D_PointSpritesVbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_PointSpritesVbo.h; sourceTree = "<group>"; };
+		644B07A714E58255002B15F0 /* MSAFluidManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidManager.h; sourceTree = "<group>"; };
+		644B07A814E5826D002B15F0 /* MSAFluidManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAFluidManager.cpp; sourceTree = "<group>"; };
 		6458035714E2FA08008B8410 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		6458035A14E2FA08008B8410 /* ChanTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanTraits.h; sourceTree = "<group>"; };
 		6458035B14E2FA08008B8410 /* CinderMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderMath.h; sourceTree = "<group>"; };
@@ -215,6 +241,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6423C92514E56DAA00B9C6A0 /* msa-physics-updater */ = {
+			isa = PBXGroup;
+			children = (
+				6423C92614E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp */,
+				6423C92714E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.h */,
+			);
+			path = "msa-physics-updater";
+			sourceTree = "<group>";
+		};
+		6423C92914E56E6F00B9C6A0 /* fluid */ = {
+			isa = PBXGroup;
+			children = (
+				644B07A814E5826D002B15F0 /* MSAFluidManager.cpp */,
+				644B07A714E58255002B15F0 /* MSAFluidManager.h */,
+				6423C92A14E56E7000B9C6A0 /* forces */,
+				6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */,
+				6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */,
+			);
+			path = fluid;
+			sourceTree = "<group>";
+		};
+		6423C92A14E56E7000B9C6A0 /* forces */ = {
+			isa = PBXGroup;
+			children = (
+				6423C92B14E56E7000B9C6A0 /* baseforce.cpp */,
+				6423C92C14E56E7000B9C6A0 /* baseforce.h */,
+				6423C92D14E56E7000B9C6A0 /* sinewaveforce.cpp */,
+				6423C92E14E56E7000B9C6A0 /* sinewaveforce.h */,
+			);
+			path = forces;
+			sourceTree = "<group>";
+		};
+		6423C93414E56ED500B9C6A0 /* MSAFluid */ = {
+			isa = PBXGroup;
+			children = (
+				6423C98214E56ED500B9C6A0 /* src */,
+			);
+			name = MSAFluid;
+			path = ../../../addons/msalibs/MSAFluid;
+			sourceTree = "<group>";
+		};
+		6423C98214E56ED500B9C6A0 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6423C98314E56ED500B9C6A0 /* MSAFluid.h */,
+				6423C98414E56ED500B9C6A0 /* MSAFluidDrawerBase.cpp */,
+				6423C98514E56ED500B9C6A0 /* MSAFluidDrawerBase.h */,
+				6423C98614E56ED500B9C6A0 /* MSAFluidDrawerGl-Cinder.h */,
+				6423C98714E56ED500B9C6A0 /* MSAFluidDrawerGl-OF.h */,
+				6423C98814E56ED500B9C6A0 /* MSAFluidParticleUpdater.h */,
+				6423C98914E56ED500B9C6A0 /* MSAFluidSolver.cpp */,
+				6423C98A14E56ED500B9C6A0 /* MSAFluidSolver.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		6423C9B214E5715B00B9C6A0 /* MSATimer */ = {
+			isa = PBXGroup;
+			children = (
+				6423C9B514E5715B00B9C6A0 /* src */,
+			);
+			name = MSATimer;
+			path = ../../../addons/msalibs/MSATimer;
+			sourceTree = "<group>";
+		};
+		6423C9B514E5715B00B9C6A0 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6423C9B614E5715B00B9C6A0 /* MSATimer.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		6458035614E2FA08008B8410 /* MSACore */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +518,7 @@
 		6458041E14E2FA48008B8410 /* particle-system */ = {
 			isa = PBXGroup;
 			children = (
+				6423C92514E56DAA00B9C6A0 /* msa-physics-updater */,
 				6458041F14E2FA48008B8410 /* MSAParticleSystem3D.cpp */,
 				6458042014E2FA48008B8410 /* MSAParticleSystem3D.h */,
 				6458042114E2FA48008B8410 /* particle-groups */,
@@ -467,6 +567,8 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				6423C9B214E5715B00B9C6A0 /* MSATimer */,
+				6423C93414E56ED500B9C6A0 /* MSAFluid */,
 				6458042A14E2FA81008B8410 /* ofxGrabCam */,
 				6458040D14E2FA17008B8410 /* ofxXmlSettings */,
 				6458035614E2FA08008B8410 /* MSACore */,
@@ -538,6 +640,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6423C92914E56E6F00B9C6A0 /* fluid */,
 				6458041B14E2FA48008B8410 /* 3d */,
 				6458041E14E2FA48008B8410 /* particle-system */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
@@ -669,6 +772,13 @@
 				6458042814E2FA48008B8410 /* MSAParticleSystem3D.cpp in Sources */,
 				6458042914E2FA48008B8410 /* MSAParticleGroup3D.cpp in Sources */,
 				6458046614E2FA81008B8410 /* ofxGrabCam.cpp in Sources */,
+				6423C92814E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp in Sources */,
+				6423C93114E56E7000B9C6A0 /* baseforce.cpp in Sources */,
+				6423C93214E56E7000B9C6A0 /* sinewaveforce.cpp in Sources */,
+				6423C93314E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp in Sources */,
+				6423C9A414E56ED600B9C6A0 /* MSAFluidDrawerBase.cpp in Sources */,
+				6423C9A514E56ED600B9C6A0 /* MSAFluidSolver.cpp in Sources */,
+				644B07A914E5826D002B15F0 /* MSAFluidManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

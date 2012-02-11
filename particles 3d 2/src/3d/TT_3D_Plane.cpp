@@ -17,3 +17,16 @@ void TT_3D_Plane::customDraw()
     vbo.draw( GL_QUADS, 0, 4 );
     glPopMatrix();
 }
+
+void TT_3D_Plane::toggleDebugDraw()
+{
+    
+}
+
+
+void TT_3D_Plane::keyPressed( ofKeyEventArgs&args )
+{
+//    if ( args.key == "d" ) {
+//        color = ofColor( 
+//    }
+}
