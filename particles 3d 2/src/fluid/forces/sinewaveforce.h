@@ -8,6 +8,7 @@
 
 #pragma once
 #include "baseforce.h"
+#include "MSATimer.h"
 
 class SineWaveForce : public BaseForce {
     
@@ -18,13 +19,15 @@ public:
         classname = "SineWaveForce";
     };
     
-    virtual void update();
-    virtual void draw();
+    void setup( MSAFluidManager * manager );
+    void update();
+    void draw();
     
     void addSettings( string _instance_name, ofxSimpleGuiToo &_gui);
     
 protected:
     
+    Timer timer;
     float freq, offset;
     
 };

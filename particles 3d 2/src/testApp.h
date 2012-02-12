@@ -8,6 +8,7 @@
 #include "MSAParticleSystem3D.h"
 
 #include "MSAFluidManager.h"
+#include "MSAPhysicsFluidUpdater.h"
 
 class testApp : public ofBaseApp{
 
@@ -43,8 +44,10 @@ private:
     
     MSAParticleSystem3D ps;
     
-    //---------------------------------------------- Particles
-    MSAFluidManager     fluid;
+    //---------------------------------------------- FLUID
+    MSAFluidManager         fluid;
+    MSAPhysicsFluidUpdater  fluid_updater;
+    
     
     //---------------------------------------------- Settings
     void addAppSettings();

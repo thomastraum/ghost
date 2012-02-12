@@ -31,6 +31,8 @@ public:
     void addMouseParticle();
     void killAll();
     
+    void addUpdater( Physics::ParticleUpdater3D * _updater );
+    
     TT_Custom_MSAParticle3D *   createParticle( Vec3f _pos );
     void                        moveMouseParticle( int x, int y, int z );
     
@@ -55,7 +57,6 @@ public:
     ofxSimpleGuiPage *          gui_particle_page;
     
     //---------------------------------------------------- EVENTS
-    
     void windowResized( ofResizeEventArgs&args );
     
 };

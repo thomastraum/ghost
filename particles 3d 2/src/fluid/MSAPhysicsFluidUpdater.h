@@ -8,7 +8,6 @@
 
 
 #pragma once
-#include "MSAPhysics3D.h"
 #include "MSAPhysicsUpdater3D.h"
 #include "MSAFluidSolver.h"
 #include "ofxSimpleGuiToo.h"
@@ -24,7 +23,6 @@ class MSAPhysicsFluidUpdater : public MSAPhysicsUpdater3D {
     float   momentum;
     float   fluid_force;
     float   max_spring_speed;
-    
     
 public:
     

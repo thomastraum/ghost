@@ -11,28 +11,28 @@
 
 #pragma once
 #include "MSAFluid.h"
-#include "MSATimer.h"
 #include "baseforce.h"
 #include "sinewaveforce.h"
 
 
 class MSAFluidManager {
 
+private:
+    
     FluidSolver         fluidsolver;
     FluidDrawerGl       fluidDrawer;
     
     int                 fluidCellsX;
-    bool                drawFluid;
-    bool                resizeFluid;
     int                 velocityMult;
-    float               global_fluid_strength;
+
+    bool                draw_fluid;
+    bool                resize_fluid;
+    
     float               fixedforce_power;
     Vec2f               pMouse;
     
     // ---------------------------------------------- FORCES
-    
     vector<BaseForce*>  forces;
-    Timer               fluid_timer;
 
 public:
     
@@ -43,9 +43,15 @@ public:
 	void addToFluid( Vec2f pos, Vec2f vel );
     void addRandomPosForce();
     
+    FluidSolver * getSolver();
+    
     // ---------------------------------------------- SETTINGS
     void addSettings( ofxSimpleGuiToo & _gui );
     ofxSimpleGuiPage *  gui_page;
+    
+    // ---------------------------------------------- KEYS
+    void keyPressed( ofKeyEventArgs&args );
+
 
 };
 

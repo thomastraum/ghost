@@ -45,11 +45,6 @@ void  BaseForce::enable( bool _is_enabled )
     is_enabled = _is_enabled;
 }
 
-void BaseForce::setTimer( Timer * _timer )
-{
-    timer = _timer;
-}
-
 void BaseForce::setOrigin( Vec2f _origin )
 {
     origin = _origin;

@@ -8,7 +8,7 @@
 
 #pragma once
 #include "MSAPhysics3D.h"
-#include "TT_Custom_MSAParticle3D.h"
+//#include "TT_Custom_MSAParticle3D.h"
 
 using namespace MSA;
 
@@ -18,10 +18,11 @@ public:
     
     MSAPhysicsUpdater3D(){};
     
-    virtual void setup();
-    virtual void update( TT_Custom_MSAParticle3D * _p );
-    
-    void setWindowSize( Vec2f & _windowSize );
+    virtual void update( Physics::Particle3D * _p ) 
+    {
+        
+    }
+    void setWindowSize( Vec2f  _windowSize );
     
     Vec2f   invWindowSize;
     Vec2f   windowSize;

@@ -14,6 +14,7 @@ void MSAParticleSystem3D::setup()
     initScene();
 }
 
+// ----------------------------------------------------- 
 void MSAParticleSystem3D::initScene()   
 {
     physics.clear();
@@ -31,6 +32,7 @@ void MSAParticleSystem3D::initScene()
     
 }
 
+// ----------------------------------------------------- 
 void MSAParticleSystem3D::resizeScene()
 {
     // set world dimensions, not essential, but speeds up collision
@@ -38,6 +40,7 @@ void MSAParticleSystem3D::resizeScene()
 	physics.setSectorCount(SECTOR_COUNT);
 }
 
+// ----------------------------------------------------- 
 void MSAParticleSystem3D::createParticleGroups()
 {
     maingroup = new MSAParticleGroup3D_PointSpritesVBO();
@@ -79,6 +82,7 @@ void MSAParticleSystem3D::addParticles( Vec3f _pos, int _count)
 		addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(-max_x,max_x)) ); // + Rand::randVec3f() * 300 );
 }
 
+// ----------------------------------------------------- 
 void MSAParticleSystem3D::addParticle( Vec3f _pos  )
 {
     MSAParticleGroup3D * current_group =  0;
@@ -90,11 +94,48 @@ void MSAParticleSystem3D::addParticle( Vec3f _pos  )
     p->release();
 }
 
+// ----------------------------------------------------- 
 TT_Custom_MSAParticle3D * MSAParticleSystem3D::createParticle( Vec3f _pos )
 {
     TT_Custom_MSAParticle3D *p = new TT_Custom_MSAParticle3D( _pos );
     physics.addParticle(p);
     return p;
+}
+
+// ----------------------------------------------------- 
+void MSAParticleSystem3D::killAll()
+{
+    maingroup->killParticles();
+}
+
+// ----------------------------------------------------- 
+void MSAParticleSystem3D::addUpdater( Physics::ParticleUpdater3D * _updater )
+{
+    physics.addUpdater(_updater);
+}
+
+//------------------------------------------------------ SETTINGS
+void MSAParticleSystem3D::addSettings( ofxSimpleGuiToo & _gui )
+{
+    gui_particle_page = &_gui.addPage("Particle System");
+    _gui.addTitle( "Particle Settings"); //.setNewColumn(true);
+	_gui.addSlider( "gravity", gravity, -1, 1);
+    _gui.addSlider( "numberOfParticles", numberOfParticles, 0, 100000 );
+    maingroup->addSettings( "Main Group", _gui );
+}
+
+void MSAParticleSystem3D::setXMLFilename( string _xml_filename )
+{
+    xml_filename = _xml_filename;
+    gui_particle_page->setXMLName(xml_filename);
+}
+
+//------------------------------------------------------ EVENTS
+void MSAParticleSystem3D::windowResized( ofResizeEventArgs&args )
+{
+    width = args.width;
+    height = args.height;
+    resizeScene();
 }
 
 // ----------------------------------------------------- MOUSE PARTICLE
@@ -111,42 +152,13 @@ void MSAParticleSystem3D::addMouseParticle()
 void MSAParticleSystem3D::moveMouseParticle( int x, int y, int z )
 {
     
-//  static int oldMouseX = -10000;
-//	static int oldMouseY = -10000;
-//	int velX = x - oldMouseX;
-//	int velY = y - oldMouseY;
+    //  static int oldMouseX = -10000;
+    //	static int oldMouseY = -10000;
+    //	int velX = x - oldMouseX;
+    //	int velY = y - oldMouseY;
 	mouse_node.moveTo(Vec3f(x, y, z));
-//	mouseNode.moveBy(Vec3f(velX, 0, velY));
-//	oldMouseX = x;
-//	oldMouseY = y;
+    //	mouseNode.moveBy(Vec3f(velX, 0, velY));
+    //	oldMouseX = x;
+    //	oldMouseY = y;
     
-}
-
-// ----------------------------------------------------- UTILITY
-void MSAParticleSystem3D::killAll()
-{
-    maingroup->killParticles();
-}
-
-//------------------------------------------------------ SETTINGS
-void MSAParticleSystem3D::addSettings( ofxSimpleGuiToo & _gui )
-{
-    gui_particle_page = &_gui.addPage("Particle System");
-    _gui.addTitle( "Particle Settings"); //.setNewColumn(true);
-	_gui.addSlider( "gravity", gravity, -1, 1);
-    maingroup->addSettings( "Main Group", _gui );
-}
-
-void MSAParticleSystem3D::setXMLFilename( string _xml_filename )
-{
-    xml_filename = _xml_filename;
-    gui_particle_page->setXMLName(xml_filename);
-}
-
-
-void MSAParticleSystem3D::windowResized( ofResizeEventArgs&args )
-{
-    width = args.width;
-    height = args.height;
-    resizeScene();
 }

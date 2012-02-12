@@ -15,16 +15,17 @@ void testApp::setup(){
     ps.setup();
     
     fluid.setup();
+    fluid_updater.setup( fluid.getSolver() );
+    ps.addUpdater( &fluid_updater );
     
     //-------------------------------------         SETTINGS
     
     addAppSettings();
-    ps.addSettings( gui );
     loadXMLSettings();
     
     //-------------------------------------
     
-    ofToggleFullscreen();
+//    ofToggleFullscreen();
 }
 
 //--------------------------------------------------------------
@@ -64,7 +65,7 @@ void testApp::draw()
     
     camera.end();
     
-//    fluid.draw();
+    fluid.draw();
     
     gui.draw();
     
@@ -123,7 +124,7 @@ void testApp::buildScene()
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-	
+    
     if (key== 'd' )
         draw_debug = ! draw_debug;
     
@@ -178,28 +179,10 @@ void testApp::addAppSettings()
     gui.setDefaultKeys(true);
 	gui.setAutoSave(false);
     
-//    gui.addSlider("fluidCellsX", fluidCellsX, 20, 400);
-//	gui.addButton("resizeFluid", resizeFluid);
-//	gui.addSlider("fs.viscocity", fluidsolver.viscocity, 0.0, 0.001); 
-//	gui.addSlider("fs.colorDiffusion", fluidsolver.colorDiffusion, 0.0, 0.0003); 
-//	gui.addSlider("fs.fadeSpeed", fluidsolver.fadeSpeed, 0.0, 0.1); 
-//	gui.addSlider("fs.solverIterations", fluidsolver.solverIterations, 1, 50); 
-//	gui.addSlider("fs.deltaT", fluidsolver.deltaT, 0.1, 5);
-//    gui.addComboBox("fd.drawMode", (int&)fluidDrawer.drawMode, kFluidDrawCount, (string*)FluidDrawerGl::drawOptionTitles);
-//	gui.addToggle("fs.doRGB", fluidsolver.doRGB); 
-//	gui.addToggle("fs.doVorticityConfinement", fluidsolver.doVorticityConfinement); 
-//	gui.addToggle("drawFluid", drawFluid);
-//	gui.addToggle("fs.wrapX", fluidsolver.wrap_x);
-//	gui.addToggle("fs.wrapY", fluidsolver.wrap_y);
-	gui.addSlider("Particle Num", ps.numberOfParticles, 0, 100000 );
-    
-//    gui.addSlider( "Force Multiplier", fixedforce_power, 0, 0.1).setSmoothing( slider_smoothing );
-    
-//    main_page = & gui.currentPage();
-//    main_page->setXMLName( "settings_main.xml" );
-    
     fluid.addSettings( gui );
+    fluid_updater.addSettings(gui);
     
+    ps.addSettings( gui );
 }
 
 void testApp::loadXMLSettings()

@@ -15,31 +15,49 @@ void MSAFluidManager::setup()
     fluidsolver.enableRGB(false).setFadeSpeed(0.002).setDeltaT(.5).setVisc(0.00050).setColorDiffusion(0).enableVorticityConfinement(false).setWrap(false,false).setSolverIterations(40);
     
 	fluidDrawer.setup( &fluidsolver );
+    
 	fluidCellsX			= 70;
-	drawFluid			= false;
     velocityMult        = 30;
-    global_fluid_strength = 1.0;
+    
+	draw_fluid			= false;
+    resize_fluid        = false;
     
     // Sine setup 1
     BaseForce * force = new SineWaveForce();
     force->setup( this );
-    force->setTimer( &fluid_timer );
     force->setOrigin( Vec2f( 0, 0 ) );
     forces.push_back( force );
     
     fixedforce_power    = 0.006;
+    
 }
 
 //--------------------------------------------------------------------------
 void MSAFluidManager::update()
 {
-	fluidsolver.update();
+    if(resize_fluid) 	{
+		fluidsolver.setSize(fluidCellsX, fluidCellsX / getWindowAspectRatio() );
+		fluidDrawer.setup(&fluidsolver);
+		resize_fluid = false;
+	}
+    
+//    addRandomPosForce();
     
     for ( int i=0;i<forces.size(); i++ ) {
         forces[i]->update();
     }
+    
+	fluidsolver.update();
 }
 
+//--------------------------------------------------------------------------
+void MSAFluidManager::draw()
+{
+    if (draw_fluid) {
+        ofColor(255,255,255);
+        fluidDrawer.draw(0, 0, getWindowWidth(), getWindowHeight());
+    }
+}
 //-------------------------------------------------------------------------- HELPERS
 // Add force and dye to fluid, and create particles
 // takes normalized pos for Fluid //
@@ -47,6 +65,7 @@ void MSAFluidManager::addToFluid( Vec2f pos, Vec2f vel)
 {
     // balance the x and y components of speed with the screen aspect ratio
     float speed = vel.x * vel.x  + vel.y * vel.y * getWindowAspectRatio() * getWindowAspectRatio();
+//    cout << vel << endl;
     
     if(speed > 0) {
         
@@ -56,11 +75,13 @@ void MSAFluidManager::addToFluid( Vec2f pos, Vec2f vel)
         const float colorMult = 100;
         
         int index = fluidsolver.getIndexForPos(pos);
-        fluidsolver.addForceAtIndex(index, vel * velocityMult * global_fluid_strength);
+        
+        fluidsolver.addForceAtIndex(index, vel * velocityMult );
     }
 		
 }
 
+//-------------------------------------------------------------------------- 
 void MSAFluidManager::addRandomPosForce()
 {
     Vec2f pos = Vec2f( Rand::randFloat( 0,1), Rand::randFloat(0,1) );
@@ -69,12 +90,19 @@ void MSAFluidManager::addRandomPosForce()
     addToFluid( pos, vel );
 }
 
+//-------------------------------------------------------------------------- 
+FluidSolver * MSAFluidManager::getSolver()
+{
+    return &fluidsolver;
+}
+
+//-------------------------------------------------------------------------- SETTINGS
 void MSAFluidManager::addSettings( ofxSimpleGuiToo & _gui )
 {
     gui_page = & _gui.addPage("MSAFluidManager");
     
     _gui.addSlider("fluidCellsX", fluidCellsX, 20, 400);
-	_gui.addButton("resizeFluid", resizeFluid);
+	_gui.addButton("resize_fluid", resize_fluid);
 	_gui.addSlider("fs.viscocity", fluidsolver.viscocity, 0.0, 0.001); 
 	_gui.addSlider("fs.colorDiffusion", fluidsolver.colorDiffusion, 0.0, 0.0003); 
 	_gui.addSlider("fs.fadeSpeed", fluidsolver.fadeSpeed, 0.0, 0.1); 
@@ -83,7 +111,7 @@ void MSAFluidManager::addSettings( ofxSimpleGuiToo & _gui )
     _gui.addComboBox("fd.drawMode", (int&)fluidDrawer.drawMode, kFluidDrawCount, (string*)FluidDrawerGl::drawOptionTitles);
 	_gui.addToggle("fs.doRGB", fluidsolver.doRGB); 
 	_gui.addToggle("fs.doVorticityConfinement", fluidsolver.doVorticityConfinement); 
-	_gui.addToggle("drawFluid", drawFluid);
+	_gui.addToggle("draw_fluid", draw_fluid);
 	_gui.addToggle("fs.wrapX", fluidsolver.wrap_x);
 	_gui.addToggle("fs.wrapY", fluidsolver.wrap_y);
     
@@ -94,4 +122,13 @@ void MSAFluidManager::addSettings( ofxSimpleGuiToo & _gui )
     }
 
     
+}
+
+//-------------------------------------------------------------------------- 
+
+void MSAFluidManager::keyPressed( ofKeyEventArgs&args )
+{
+    if ( args.key == 'r' ) {
+        fluidsolver.reset();
+    }
 }

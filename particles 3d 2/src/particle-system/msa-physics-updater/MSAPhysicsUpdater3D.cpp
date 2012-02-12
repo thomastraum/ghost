@@ -9,7 +9,7 @@
 #include "MSAPhysicsUpdater3D.h"
 
 
-void MSAPhysicsUpdater3D::setWindowSize( Vec2f &_windowSize ) 
+void MSAPhysicsUpdater3D::setWindowSize( Vec2f _windowSize ) 
 {
     windowSize = _windowSize;
 	invWindowSize = Vec2f( 1.0f / _windowSize.x, 1.0f );

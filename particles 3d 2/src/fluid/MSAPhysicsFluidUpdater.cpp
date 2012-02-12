@@ -13,6 +13,8 @@ void MSAPhysicsFluidUpdater::setup(const MSA::FluidSolver * _solver)
     solver = _solver;
     momentum = .2f;
     fluid_force = 0.6f;
+    
+    MSAPhysicsUpdater3D::setWindowSize( Vec2f( ofGetWidth(), ofGetHeight() ) );
 }
 
 void MSAPhysicsFluidUpdater::update(Physics::Particle3D *_p)
@@ -22,7 +24,7 @@ void MSAPhysicsFluidUpdater::update(Physics::Particle3D *_p)
     
     vel_new = solver->getVelocityAtPos( pos_old * invWindowSize ) * (_p->getMass() * fluid_force ) * windowSize + vel_old * momentum;
     
-    vel3D_new = Vec3f( vel_new.x, vel_new.y, _p->getPosition().z );
+    vel3D_new = Vec3f( vel_new.x, vel_new.y, _p->getVelocity().z ); //Vec3f( vel_new.x, vel_new.y, _p->getVelocity().z );
     _p->setVelocity( vel3D_new );
     
 }

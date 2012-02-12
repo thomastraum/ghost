@@ -97,8 +97,8 @@
 		6423C92C14E56E7000B9C6A0 /* baseforce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseforce.h; sourceTree = "<group>"; };
 		6423C92D14E56E7000B9C6A0 /* sinewaveforce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinewaveforce.cpp; sourceTree = "<group>"; };
 		6423C92E14E56E7000B9C6A0 /* sinewaveforce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sinewaveforce.h; sourceTree = "<group>"; };
-		6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAPhysicsFluidUpdater.cpp; sourceTree = "<group>"; };
-		6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsFluidUpdater.h; sourceTree = "<group>"; };
+		6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MSAPhysicsFluidUpdater.cpp; path = ../../fluid/MSAPhysicsFluidUpdater.cpp; sourceTree = "<group>"; };
+		6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSAPhysicsFluidUpdater.h; path = ../../fluid/MSAPhysicsFluidUpdater.h; sourceTree = "<group>"; };
 		6423C98314E56ED500B9C6A0 /* MSAFluid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluid.h; sourceTree = "<group>"; };
 		6423C98414E56ED500B9C6A0 /* MSAFluidDrawerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAFluidDrawerBase.cpp; sourceTree = "<group>"; };
 		6423C98514E56ED500B9C6A0 /* MSAFluidDrawerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidDrawerBase.h; sourceTree = "<group>"; };
@@ -246,6 +246,8 @@
 			children = (
 				6423C92614E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp */,
 				6423C92714E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.h */,
+				6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */,
+				6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */,
 			);
 			path = "msa-physics-updater";
 			sourceTree = "<group>";
@@ -256,8 +258,6 @@
 				644B07A814E5826D002B15F0 /* MSAFluidManager.cpp */,
 				644B07A714E58255002B15F0 /* MSAFluidManager.h */,
 				6423C92A14E56E7000B9C6A0 /* forces */,
-				6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */,
-				6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */,
 			);
 			path = fluid;
 			sourceTree = "<group>";

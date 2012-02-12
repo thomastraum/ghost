@@ -33,14 +33,13 @@ public:
     void            enable( bool _is_enabled );
     bool            isEnabled();
     
-    void            setTimer( Timer * _timer );
     void            setOrigin( Vec2f _origin );
     void            setStrength( float _strength );
     
     void            addToFluid( Vec2f origin, Vec2f vel );
     
     // ------------------------------------------------------- Settings
-    void            addSettings( string _instance_name, ofxSimpleGuiToo & _gui );
+    virtual void    addSettings( string _instance_name, ofxSimpleGuiToo & _gui );
     string const    getClassName() { return classname; }
     
     
