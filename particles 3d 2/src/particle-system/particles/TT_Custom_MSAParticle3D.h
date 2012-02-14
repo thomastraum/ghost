@@ -141,17 +141,17 @@ public:
 //            _oldPos.y =  _pos.y - vel;
 //        }
         
-        if(_oldPos.x < _params->worldMin.x ) {
-            float vel = _pos.x - _oldPos.x;
-            _pos.x = _params->worldMax.x - 2*vel;
-            _oldPos.x =  _pos.x-vel;
-        } else 
-        
-        if(_oldPos.x > _params->worldMax.x) {
-            float vel = _pos.x - _oldPos.x;
-            _pos.x = _params->worldMin.x + 2*vel;
-            _oldPos.x =  _pos.x + vel;
-        }
+//        if(_oldPos.x < _params->worldMin.x ) {
+//            float vel = _pos.x - _oldPos.x;
+//            _pos.x = _params->worldMax.x - 2*vel;
+//            _oldPos.x =  _pos.x-vel;
+//        } else 
+//        
+//        if(_oldPos.x > _params->worldMax.x) {
+//            float vel = _pos.x - _oldPos.x;
+//            _pos.x = _params->worldMin.x + 2*vel;
+//            _oldPos.x =  _pos.x + vel;
+//        }
         
 //        if( _oldPos.y < _params->worldMin.y + _radius) {
 //            float vel = _pos.y - _oldPos.y;
@@ -162,6 +162,71 @@ public:
 //            _pos.y = _params->worldMin.y + _radius;
 //            _oldPos.y =  _pos.y - vel;
 //        }
+
+//        BOUNCE
+//			if(_pos.x < _params->worldMin.x + _radius) {
+//				float vel = _pos.x - _oldPos.x;
+//				_pos.x = _params->worldMin.x + _radius;
+//				_oldPos.x = _pos.x + vel * _bounce;
+//			} else if(_pos.x > _params->worldMax.x - _radius) {
+//				float vel = _pos.x - _oldPos.x;
+//				_pos.x = _params->worldMax.x - _radius;
+//				_oldPos.x = _pos.x + vel * _bounce;
+//			}
+//			
+//			if( _pos.y < _params->worldMin.y + _radius) {
+//				float vel = _pos.y - _oldPos.y;
+//				_pos.y = _params->worldMin.y + _radius;
+//				_oldPos.y = _pos.y + vel * _bounce;
+//			} else if(_pos.y > _params->worldMax.y - _radius) {
+//				float vel = _pos.y - _oldPos.y;
+//				_pos.y = _params->worldMax.y - _radius;
+//				_oldPos.y = _pos.y + vel * _bounce;
+//			}
+//			
+//			if(_pos.z < _params->worldMin.z + _radius) {
+//				float vel = _pos.z - _oldPos.z;
+//				_pos.z = _params->worldMin.z + _radius;
+//				_oldPos.z = _pos.z + vel * _bounce;
+//			} else if(_pos.z > _params->worldMax.z - _radius) {
+//				float vel = _pos.z - _oldPos.z;
+//				_pos.z = _params->worldMax.z - _radius;
+//				_oldPos.z = _pos.z + vel * _bounce;
+//			}
+            
+
+            if(_oldPos.x < _params->worldMin.x) {
+                float vel = _pos.x - _oldPos.x;
+                _pos.x = _params->worldMax.x;
+				_oldPos.x = _pos.x - vel; // * _bounce;
+            } else 
+            
+            if(_oldPos.x > _params->worldMax.x ) {
+				float vel = _pos.x - _oldPos.x;
+				_pos.x = _params->worldMin.x;
+				_oldPos.x = _pos.x - vel;
+			}
+			
+//			if( _pos.y < _params->worldMin.y + _radius) {
+//				float vel = _pos.y - _oldPos.y;
+//				_pos.y = _params->worldMin.y + _radius;
+//				_oldPos.y = _pos.y + vel * _bounce;
+//			} else if(_pos.y > _params->worldMax.y - _radius) {
+//				float vel = _pos.y - _oldPos.y;
+//				_pos.y = _params->worldMax.y - _radius;
+//				_oldPos.y = _pos.y + vel * _bounce;
+//			}
+//			
+//			if(_pos.z < _params->worldMin.z + _radius) {
+//				float vel = _pos.z - _oldPos.z;
+//				_pos.z = _params->worldMin.z + _radius;
+//				_oldPos.z = _pos.z + vel * _bounce;
+//			} else if(_pos.z > _params->worldMax.z - _radius) {
+//				float vel = _pos.z - _oldPos.z;
+//				_pos.z = _params->worldMax.z - _radius;
+//				_oldPos.z = _pos.z + vel * _bounce;
+//			}
+        
     }
     
     
