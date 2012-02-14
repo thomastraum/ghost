@@ -21,8 +21,8 @@ void MSAPhysicsFluidUpdater::setup(const MSA::FluidSolver * _solver)
 //--------------------------------------------------------------------- Update
 void MSAPhysicsFluidUpdater::update(Physics::Particle3D *_p)
 {
-    pos_old.x = _p->getPosition().x + ofGetWidth()/2;
-	pos_old.y = _p->getPosition().y + ofGetHeight()/2;
+    pos_old.x = _p->getPosition().x + windowSize.x/2;
+	pos_old.y = _p->getPosition().y + windowSize.y/2;
 	
     vel_old.x = _p->getVelocity().x;
 	vel_old.y = _p->getVelocity().y;
