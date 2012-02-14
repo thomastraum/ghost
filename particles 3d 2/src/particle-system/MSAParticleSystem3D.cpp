@@ -20,12 +20,11 @@ void MSAParticleSystem3D::initScene()
     physics.clear();
     addMouseParticle();
     createParticleGroups();
- 
+
     physics.verbose = false;			// dump activity to log
     gravity = GRAVITY;
     physics.setGravity(Vec3f(0, gravity, 0) );
 
-    
     physics.setDrag(0.97f);
     physics.setDrag(1);		// FIXTHIS
     physics.disableCollision(); //enableCollision();
@@ -36,7 +35,8 @@ void MSAParticleSystem3D::initScene()
 void MSAParticleSystem3D::resizeScene()
 {
     // set world dimensions, not essential, but speeds up collision
-	physics.setWorldSize(Vec3f(-width, -height, -width), Vec3f(width, height, width));
+    int offset = 0; //260;
+	physics.setWorldSize(Vec3f(-offset-width, -offset-height, -width), Vec3f(offset+width, offset+height, width));
 	physics.setSectorCount(SECTOR_COUNT);
 }
 
@@ -55,8 +55,6 @@ void MSAParticleSystem3D::update()
     
     // we show this number in the UI //
     numberOfParticles = physics.numberOfParticles();
-    
-//    cout << "gravity: " << gravity << endl;
 }
 
 // ----------------------------------------------------- DRAW
@@ -108,7 +106,7 @@ void MSAParticleSystem3D::killAll()
     maingroup->killParticles();
 }
 
-// ----------------------------------------------------- 
+// ----------------------------------------------------- UPDATERS
 void MSAParticleSystem3D::addUpdater( Physics::ParticleUpdater3D * _updater )
 {
     physics.addUpdater(_updater);
@@ -141,7 +139,7 @@ void MSAParticleSystem3D::windowResized( ofResizeEventArgs&args )
 // ----------------------------------------------------- MOUSE PARTICLE
 void MSAParticleSystem3D::addMouseParticle()
 {
-    physics.addParticle(&mouse_node);
+    physics.addParticle( &mouse_node );
 	mouse_node.makeFixed();
 	mouse_node.setMass(1);
 	mouse_node.moveTo( Vec3f(0, 0, 0) );

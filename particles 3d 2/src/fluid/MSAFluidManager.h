@@ -13,7 +13,7 @@
 #include "MSAFluid.h"
 #include "baseforce.h"
 #include "sinewaveforce.h"
-
+#include "ForceFromSide.h"
 
 class MSAFluidManager {
 
@@ -41,6 +41,7 @@ public:
     void draw();
     
 	void addToFluid( Vec2f pos, Vec2f vel );
+    
     void addRandomPosForce();
     
     FluidSolver * getSolver();

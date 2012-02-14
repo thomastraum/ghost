@@ -211,6 +211,8 @@
 		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		E9BE711814EAC604009568AE /* ForceFromSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForceFromSide.h; sourceTree = "<group>"; };
+		E9BE711914EAF662009568AE /* MSAPhysicsUpdaterShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterShake.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 			children = (
 				6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */,
 				6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */,
+				E9BE711914EAF662009568AE /* MSAPhysicsUpdaterShake.h */,
 			);
 			path = "msa-physics-updater";
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				6423C92C14E56E7000B9C6A0 /* baseforce.h */,
 				6423C92D14E56E7000B9C6A0 /* sinewaveforce.cpp */,
 				6423C92E14E56E7000B9C6A0 /* sinewaveforce.h */,
+				E9BE711814EAC604009568AE /* ForceFromSide.h */,
 			);
 			path = forces;
 			sourceTree = "<group>";

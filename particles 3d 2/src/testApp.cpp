@@ -17,6 +17,7 @@ void testApp::setup(){
     fluid.setup();
     fluid_updater.setup( fluid.getSolver() );
     ps.addUpdater( &fluid_updater );
+    ps.addUpdater( &shaker );
     
     //-------------------------------------         SETTINGS
     
@@ -33,12 +34,14 @@ void testApp::update()
 {
     ps.update();
     fluid.update();
+    
+    if ( shaker.isShaking() )
+        shaker.stopShaking();
 }
 
 //--------------------------------------------------------------
 void testApp::draw()
 {
-    
     ofEnableAlphaBlending();
     glEnable(GL_DEPTH_TEST);    
 //    glEnable(GL_LIGHTING);
@@ -157,6 +160,9 @@ void testApp::keyPressed(int key){
     
     if (key=='0' || '9' )
         gui.setPage(key - '0');
+    
+    if ( key=='s' )
+        shaker.startShaking();
     
 //	if (key=='s')
 //		savedPose = camera.getGlobalTransformMatrix();

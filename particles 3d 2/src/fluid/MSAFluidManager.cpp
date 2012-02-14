@@ -28,6 +28,11 @@ void MSAFluidManager::setup()
     force->setOrigin( Vec2f( 0, 0 ) );
     forces.push_back( force );
     
+    // force from left side //
+    BaseForce * force2 = new ForceFromSide();
+    force2->setup( this );
+    forces.push_back( force2 );
+    
     fixedforce_power    = 0.006;
     
 }
@@ -40,8 +45,8 @@ void MSAFluidManager::update()
 		fluidDrawer.setup(&fluidsolver);
 		resize_fluid = false;
 	}
-    
 //    addRandomPosForce();
+//    forceFromSide();
     
     for ( int i=0;i<forces.size(); i++ ) {
         forces[i]->update();
@@ -58,6 +63,7 @@ void MSAFluidManager::draw()
         fluidDrawer.draw(0, 0, getWindowWidth(), getWindowHeight());
     }
 }
+
 //-------------------------------------------------------------------------- HELPERS
 // Add force and dye to fluid, and create particles
 // takes normalized pos for Fluid //
@@ -65,7 +71,6 @@ void MSAFluidManager::addToFluid( Vec2f pos, Vec2f vel)
 {
     // balance the x and y components of speed with the screen aspect ratio
     float speed = vel.x * vel.x  + vel.y * vel.y * getWindowAspectRatio() * getWindowAspectRatio();
-//    cout << vel << endl;
     
     if(speed > 0) {
         
@@ -81,7 +86,7 @@ void MSAFluidManager::addToFluid( Vec2f pos, Vec2f vel)
 		
 }
 
-//-------------------------------------------------------------------------- 
+//-------------------------------------------------------------------------- FORCES
 void MSAFluidManager::addRandomPosForce()
 {
     Vec2f pos = Vec2f( Rand::randFloat( 0,1), Rand::randFloat(0,1) );
@@ -89,6 +94,7 @@ void MSAFluidManager::addRandomPosForce()
     //    Vec2f vel = Vec2f( Rand::randFloat( 0,1), Rand::randFloat(0,1) ) * fixedforce_power;
     addToFluid( pos, vel );
 }
+
 
 //-------------------------------------------------------------------------- 
 FluidSolver * MSAFluidManager::getSolver()
@@ -115,7 +121,7 @@ void MSAFluidManager::addSettings( ofxSimpleGuiToo & _gui )
 	_gui.addToggle("fs.wrapX", fluidsolver.wrap_x);
 	_gui.addToggle("fs.wrapY", fluidsolver.wrap_y);
     
-    _gui.addSlider( "Force Multiplier", fixedforce_power, 0, 0.1);
+//    _gui.addSlider( "Fluid Strength", fixedforce_power, 0, 0.1);
     
     for ( int i=0;i<forces.size(); i++ ) {
         forces[i]->addSettings( "force", _gui);

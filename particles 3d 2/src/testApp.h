@@ -9,6 +9,7 @@
 
 #include "MSAFluidManager.h"
 #include "MSAPhysicsFluidUpdater.h"
+#include "MSAPhysicsUpdaterShake.h"
 
 class testApp : public ofBaseApp{
 
@@ -48,6 +49,7 @@ private:
     MSAFluidManager         fluid;
     MSAPhysicsFluidUpdater  fluid_updater;
     
+    MSAPhysicsUpdaterShake  shaker;
     
     //---------------------------------------------- Settings
     void addAppSettings();

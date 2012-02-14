@@ -18,16 +18,19 @@ void SineWaveForce::setup(MSAFluidManager *manager)
 
 void SineWaveForce::update()
 {
-    int max = ofRandom( 5, 20 );
-    float step = 1.0f / max;
-    
-    Vec2f pos = origin;
-    vel.y = 0;
-    
-    for (int i=0; i<max; i++) {
-        pos.y += step;
-        vel.x = sin(pos.y * (PI/2) - (offset*PI/2) ) * sin(fmod(timer.getSeconds()*freq, TWO_PI)) * strength;
-        addToFluid( pos, vel );
+    if (is_enabled ) {
+        
+        int max = ofRandom( 5, 20 );
+        float step = 1.0f / max;
+        
+        Vec2f pos = origin;
+        vel.y = 0;
+        
+        for (int i=0; i<max; i++) {
+            pos.y += step;
+            vel.x = sin(pos.y * (PI/2) - (offset*PI/2) ) * sin(fmod(timer.getSeconds()*freq, TWO_PI)) * strength;
+            addToFluid( pos, vel );
+        }
     }
 }
 

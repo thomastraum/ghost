@@ -39,6 +39,8 @@ public:
 	
     void update()
     {
+//        wrap();
+        
 //        if (is_fadeout_enabled) {
 //            alpha*=0.9;
 //            if ( alpha <= 0.1 ) {
@@ -118,25 +120,48 @@ public:
 //        cout << "_params->worldMin.x " << _params->worldMin.x << endl;
 //        cout << "_radius " << _radius << endl;
         
-        if(_oldPos.x < _params->worldMin.x + _radius ) {
+        
+//        if(_oldPos.x < _params->worldMin.x + _radius ) {
+//            float vel = _pos.x - _oldPos.x;
+//            _pos.x = _params->worldMax.x - _radius;
+//            _oldPos.x =  _pos.x + vel;
+//        } else if(_oldPos.x > _params->worldMax.x - _radius) {
+//            float vel = _pos.x - _oldPos.x;
+//            _pos.x = _params->worldMin.x + _radius;
+//            _oldPos.x =  _pos.x - vel;
+//        }
+//        
+//        if( _oldPos.y < _params->worldMin.y + _radius) {
+//            float vel = _pos.y - _oldPos.y;
+//            _pos.y = _params->worldMax.y - _radius;
+//            _oldPos.y = _pos.y + vel;
+//        } else if(_oldPos.y > _params->worldMax.y - _radius) {
+//            float vel = _pos.y - _oldPos.y;
+//            _pos.y = _params->worldMin.y + _radius;
+//            _oldPos.y =  _pos.y - vel;
+//        }
+        
+        if(_oldPos.x < _params->worldMin.x ) {
             float vel = _pos.x - _oldPos.x;
-            _pos.x = _params->worldMax.x - _radius;
+            _pos.x = _params->worldMax.x - 2*vel;
+            _oldPos.x =  _pos.x-vel;
+        } else 
+        
+        if(_oldPos.x > _params->worldMax.x) {
+            float vel = _pos.x - _oldPos.x;
+            _pos.x = _params->worldMin.x + 2*vel;
             _oldPos.x =  _pos.x + vel;
-        } else if(_oldPos.x > _params->worldMax.x - _radius) {
-            float vel = _pos.x - _oldPos.x;
-            _pos.x = _params->worldMin.x + _radius;
-            _oldPos.x =  _pos.x - vel;
         }
         
-        if( _oldPos.y < _params->worldMin.y + _radius) {
-            float vel = _pos.y - _oldPos.y;
-            _pos.y = _params->worldMax.y - _radius;
-            _oldPos.y = _pos.y + vel;
-        } else if(_oldPos.y > _params->worldMax.y - _radius) {
-            float vel = _pos.y - _oldPos.y;
-            _pos.y = _params->worldMin.y + _radius;
-            _oldPos.y =  _pos.y - vel;
-        }
+//        if( _oldPos.y < _params->worldMin.y + _radius) {
+//            float vel = _pos.y - _oldPos.y;
+//            _pos.y = _params->worldMax.y - _radius;
+//            _oldPos.y = _pos.y + vel;
+//        } else if(_oldPos.y > _params->worldMax.y - _radius) {
+//            float vel = _pos.y - _oldPos.y;
+//            _pos.y = _params->worldMin.y + _radius;
+//            _oldPos.y =  _pos.y - vel;
+//        }
     }
     
     

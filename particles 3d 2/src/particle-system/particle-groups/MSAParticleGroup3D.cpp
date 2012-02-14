@@ -86,14 +86,14 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
 
 void MSAParticleGroup3D::resizeParticleGroup()
 {
-    int i = 0;
-    while ( group.size() > max_particles && i < group.size() ) {
-        TT_Custom_MSAParticle3D * p = group[i];
+    int i = group.size()-1;
+    while ( group.size() > max_particles ) {
+        TT_Custom_MSAParticle3D * p = group[ i ];
         if ( !p->isDead() ) {
             p->kill();
         }
         group.erase( group.begin() + i );
-        i++;
+        i--;
     }
     
 }

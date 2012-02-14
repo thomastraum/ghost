@@ -21,7 +21,7 @@ class MSAPhysicsFluidUpdater : public Physics::ParticleUpdater3D {
     Vec3f   vel3D_new;
     
     float   momentum;
-    float   fluid_force;
+    float   fluid_influence;
     float   max_spring_speed;
 	
     Vec2f   invWindowSize;

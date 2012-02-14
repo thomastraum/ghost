@@ -13,6 +13,8 @@ void BaseForce::setup( MSAFluidManager * _manager )
 {
     manager = _manager;
     
+    strength = .016;
+    
     origin = Vec2f(0,0);
     vel = Vec2f(0,0);
 
@@ -20,19 +22,17 @@ void BaseForce::setup( MSAFluidManager * _manager )
     add_particles   = true;
     add_fluid       = true;
 
-    slider_smoothing = 0.9;
+    slider_smoothing = 0.1;
 
     cout << getClassName() << endl;
 }
 
 void BaseForce::update()
 {
-    //
 }
 
 void BaseForce::draw()
 {
-    
 }
 
 bool BaseForce::isEnabled( )
@@ -67,7 +67,4 @@ void BaseForce::addSettings( string _instance_name, ofxSimpleGuiToo & _gui )
 	_gui.addSlider( _instance_name + " Strength", strength, -.1, 0.1).setSmoothing(slider_smoothing);
     _gui.addToggle( _instance_name + " Enabled", is_enabled );
     _gui.addToggle( _instance_name + " Fluid", add_fluid );
-    _gui.addToggle( _instance_name + " Particles", add_particles );
-    
-    strength = .016;
 }

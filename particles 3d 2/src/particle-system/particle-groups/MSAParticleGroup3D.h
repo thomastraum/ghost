@@ -22,7 +22,7 @@ public:
     virtual void    setParticleProperties( TT_Custom_MSAParticle3D * _p );
     
     virtual void    addParticle( TT_Custom_MSAParticle3D * p );
-    void            resizeParticleGroup();
+    virtual void    resizeParticleGroup();
     void            killParticles();
     
     //------------------------------------------------- Settings
