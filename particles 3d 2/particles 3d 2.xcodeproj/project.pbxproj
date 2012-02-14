@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6423C92814E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C92614E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp */; };
 		6423C93114E56E7000B9C6A0 /* baseforce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C92B14E56E7000B9C6A0 /* baseforce.cpp */; };
 		6423C93214E56E7000B9C6A0 /* sinewaveforce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C92D14E56E7000B9C6A0 /* sinewaveforce.cpp */; };
 		6423C93314E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */; };
@@ -91,8 +90,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6423C92614E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAPhysicsUpdater3D.cpp; sourceTree = "<group>"; };
-		6423C92714E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdater3D.h; sourceTree = "<group>"; };
 		6423C92B14E56E7000B9C6A0 /* baseforce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = baseforce.cpp; sourceTree = "<group>"; };
 		6423C92C14E56E7000B9C6A0 /* baseforce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseforce.h; sourceTree = "<group>"; };
 		6423C92D14E56E7000B9C6A0 /* sinewaveforce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinewaveforce.cpp; sourceTree = "<group>"; };
@@ -244,8 +241,6 @@
 		6423C92514E56DAA00B9C6A0 /* msa-physics-updater */ = {
 			isa = PBXGroup;
 			children = (
-				6423C92614E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp */,
-				6423C92714E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.h */,
 				6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */,
 				6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */,
 			);
@@ -772,7 +767,6 @@
 				6458042814E2FA48008B8410 /* MSAParticleSystem3D.cpp in Sources */,
 				6458042914E2FA48008B8410 /* MSAParticleGroup3D.cpp in Sources */,
 				6458046614E2FA81008B8410 /* ofxGrabCam.cpp in Sources */,
-				6423C92814E56DAA00B9C6A0 /* MSAPhysicsUpdater3D.cpp in Sources */,
 				6423C93114E56E7000B9C6A0 /* baseforce.cpp in Sources */,
 				6423C93214E56E7000B9C6A0 /* sinewaveforce.cpp in Sources */,
 				6423C93314E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp in Sources */,

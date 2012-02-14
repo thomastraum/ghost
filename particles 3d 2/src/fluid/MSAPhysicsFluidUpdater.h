@@ -8,13 +8,13 @@
 
 
 #pragma once
-#include "MSAPhysicsUpdater3D.h"
+#include "MSAPhysics3D.h"
 #include "MSAFluidSolver.h"
 #include "ofxSimpleGuiToo.h"
 
 using namespace MSA;
 
-class MSAPhysicsFluidUpdater : public MSAPhysicsUpdater3D {
+class MSAPhysicsFluidUpdater : public Physics::ParticleUpdater3D {
     
     Vec2f   pos_old;
     Vec2f   vel_new, vel_old;
@@ -23,6 +23,9 @@ class MSAPhysicsFluidUpdater : public MSAPhysicsUpdater3D {
     float   momentum;
     float   fluid_force;
     float   max_spring_speed;
+	
+    Vec2f   invWindowSize;
+    Vec2f   windowSize;
     
 public:
     
@@ -31,6 +34,12 @@ public:
     void setup( const FluidSolver * _solver );
     void update( Physics::Particle3D * _p );
     
+	
+    void setWindowSize( Vec2f  _windowSize );
     void addSettings( ofxSimpleGuiToo & _gui );
 
+	
+    //---------------------------------------------------- EVENTS
+    void windowResized( ofResizeEventArgs&args );
+	
 };

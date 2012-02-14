@@ -14,9 +14,11 @@ void MSAPhysicsFluidUpdater::setup(const MSA::FluidSolver * _solver)
     momentum = .2f;
     fluid_force = 0.6f;
     
-    MSAPhysicsUpdater3D::setWindowSize( Vec2f( ofGetWidth(), ofGetHeight() ) );
+	setWindowSize( Vec2f( ofGetWidth(), ofGetHeight() ) );
+    ofAddListener(ofEvents.windowResized, this, &MSAPhysicsFluidUpdater::windowResized);
 }
 
+//--------------------------------------------------------------------- Update
 void MSAPhysicsFluidUpdater::update(Physics::Particle3D *_p)
 {
     pos_old = Vec2f(_p->getPosition().x, _p->getPosition().y );
@@ -29,9 +31,23 @@ void MSAPhysicsFluidUpdater::update(Physics::Particle3D *_p)
     
 }
 
+//--------------------------------------------------------------------- SETTINGS
 void MSAPhysicsFluidUpdater::addSettings( ofxSimpleGuiToo & _gui )
 {
     _gui.addTitle( "Fluid Updater Settings").setNewColumn(true);
     _gui.addSlider( "Fluid Force", fluid_force, 0,1);
     _gui.addSlider( "Momentum", momentum, 0,1);
+}
+
+//--------------------------------------------------------------------- Resize
+void MSAPhysicsFluidUpdater::windowResized(ofResizeEventArgs&args )
+{	
+	setWindowSize( Vec2f( args.width, args.height ) );
+}
+
+//--------------------------------------------------------------------- 
+void MSAPhysicsFluidUpdater::setWindowSize( Vec2f _windowSize ) 
+{
+    windowSize = _windowSize;
+	invWindowSize = Vec2f( 1.0f / _windowSize.x, 1.0f );
 }
