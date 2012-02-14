@@ -141,7 +141,7 @@ void testApp::keyPressed(int key){
 		ofToggleFullscreen();
     
     if (key=='p')
-        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
+        ps.addParticles( Vec3f( 0,0,0 ), 10 );
     
     if (key=='k')
         ps.killAll();

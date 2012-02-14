@@ -35,8 +35,9 @@ public:
     virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
         MSAParticleGroup3D::setParticleProperties( _p );
-        _p->setRadius(10);
-        _p->setVelocity( Vec3f(200,0,0) );
+        _p->setRadius(0);
+		
+        _p->setVelocity( Vec3f(ofRandom(-200,200),ofRandom(-10,10),0) );
         mesh.addVertex( ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
         mesh.addColor( ofColor( 0, 255, 255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
     }

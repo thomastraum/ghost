@@ -77,7 +77,8 @@ void MSAParticleSystem3D::addParticles( Vec3f _pos, int _count)
     int max_y = height;
     
     for(int i=0; i<_count; i++)
-		addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(-max_x,max_x)) ); // + Rand::randVec3f() * 300 );
+//		addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(-max_x,max_x)) ); // + Rand::randVec3f() * 300 );
+		addParticle( Vec3f( _pos.x , _pos.y, _pos.z ) ); // + Rand::randVec3f() * 300 );
 }
 
 // ----------------------------------------------------- 
