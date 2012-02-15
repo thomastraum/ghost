@@ -211,6 +211,9 @@
 		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		E902C86C14EC13D2000B2A40 /* TT_Fog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Fog.h; sourceTree = "<group>"; };
+		E902C86D14EC359F000B2A40 /* MSAParticleGroup3D_Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_Lines.h; sourceTree = "<group>"; };
+		E902C87814EC6988000B2A40 /* MSAParticleGroups3D_quads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroups3D_quads.h; sourceTree = "<group>"; };
 		E9BE711814EAC604009568AE /* ForceFromSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForceFromSide.h; sourceTree = "<group>"; };
 		E9BE711914EAF662009568AE /* MSAPhysicsUpdaterShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterShake.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -510,6 +513,7 @@
 			children = (
 				6458041C14E2FA48008B8410 /* TT_3D_Plane.cpp */,
 				6458041D14E2FA48008B8410 /* TT_3D_Plane.h */,
+				E902C86C14EC13D2000B2A40 /* TT_Fog.h */,
 			);
 			path = 3d;
 			sourceTree = "<group>";
@@ -533,6 +537,8 @@
 				6458042314E2FA48008B8410 /* MSAParticleGroup3D.h */,
 				6458042414E2FA48008B8410 /* MSAParticleGroup3D_PointSprites.h */,
 				642E2B6314E48FC6007AE7CF /* MSAParticleGroup3D_PointSpritesVbo.h */,
+				E902C86D14EC359F000B2A40 /* MSAParticleGroup3D_Lines.h */,
+				E902C87814EC6988000B2A40 /* MSAParticleGroups3D_quads.h */,
 			);
 			path = "particle-groups";
 			sourceTree = "<group>";

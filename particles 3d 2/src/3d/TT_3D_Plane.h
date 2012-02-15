@@ -33,12 +33,25 @@ public:
         mesh.addVertex( ofVec3f( 1,1,0) );
         mesh.addVertex( ofVec3f( -1,1,0) );
         
+        // debug colors
         mesh.addColor(ofFloatColor(1,0,0,1));
         mesh.addColor(ofFloatColor(1,1,0,1));
         mesh.addColor(ofFloatColor(0,1,0,1));
         mesh.addColor(ofFloatColor(0,1,1,1));
         
+        // colors
+        ofFloatColor col[4];
+        col[0] = ofFloatColor(.5,.5,.5,1);
+        col[1] = ofFloatColor(.5,.5,.5,1);
+        col[2] = ofFloatColor(.5,.5,.5,1);
+        col[3] = ofFloatColor(.5,.5,.5,1);
+        
+        
         vbo.setMesh( mesh,GL_STATIC_DRAW );
+        vbo.setColorData( &col[0], 4, GL_STATIC_DRAW );
+        
+//        ofFloatColor * mesh_cols = mesh.getColors();
+//        vbo.setColorData( mesh_cols, 4, GL_STATIC_DRAW );
         
         ofAddListener(ofEvents.keyPressed, this, &TT_3D_Plane::keyPressed );
     }

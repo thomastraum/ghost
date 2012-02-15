@@ -11,11 +11,16 @@
 //--------------------------------------------------------------
 void TT_3D_Plane::customDraw()
 {
+    ofEnableAlphaBlending();
+    glEnable(GL_DEPTH_TEST);
+    
     glPushMatrix();
     setScale(width,height,1);
-    ofEnableAlphaBlending();
     vbo.draw( GL_QUADS, 0, 4 );
     glPopMatrix();
+
+    ofDisableAlphaBlending();
+    glDisable(GL_DEPTH_TEST);
 }
 
 void TT_3D_Plane::toggleDebugDraw()

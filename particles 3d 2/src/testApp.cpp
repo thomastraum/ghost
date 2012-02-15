@@ -10,6 +10,10 @@ void testApp::setup(){
     
     draw_debug = false;
     
+    camera.setNearClip( -width );
+    camera.setFarClip( width );
+//    fog.setup();
+    
     buildScene();
     
     ps.setup();
@@ -18,6 +22,7 @@ void testApp::setup(){
     fluid_updater.setup( fluid.getSolver() );
     ps.addUpdater( &fluid_updater );
     ps.addUpdater( &shaker );
+    
     
     //-------------------------------------         SETTINGS
     
@@ -37,19 +42,22 @@ void testApp::update()
     
     if ( shaker.isShaking() )
         shaker.stopShaking();
+    
 }
 
 //--------------------------------------------------------------
 void testApp::draw()
 {
-    ofEnableAlphaBlending();
-    glEnable(GL_DEPTH_TEST);    
+//    ofEnableAlphaBlending();
+//    glEnable(GL_DEPTH_TEST);
 //    glEnable(GL_LIGHTING);
     
     ofBackground(0, 0, 0);
     
     camera.begin();
     ofTranslate( 0,0, -width);
+    
+    fog.draw();
     
     if (draw_debug) {
     
@@ -61,7 +69,11 @@ void testApp::draw()
         plane_bottom.draw();
         
         ofSetColor(255,0,0);
+        ofPushMatrix();
+        ofRotateX(25);
+        ofRotateY(49);
         ofBox( 0,0,0, 10 );
+        ofPopMatrix();
     }
     
     ps.draw();
@@ -79,6 +91,8 @@ void testApp::buildScene()
 {
 	width = ofGetWidth();
 	height = ofGetHeight();
+    
+    fog.defineStartAndEnd( 0, width*1.9 );
     
     plane_bottom.width = width;
     plane_bottom.height = height;
@@ -141,7 +155,7 @@ void testApp::keyPressed(int key){
 		ofToggleFullscreen();
     
     if (key=='p')
-        ps.addParticles( Vec3f( 0,0,0 ), 10 );
+        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
     
     if (key=='k')
         ps.killAll();
@@ -184,6 +198,14 @@ void testApp::addAppSettings()
     
     gui.setDefaultKeys(true);
 	gui.setAutoSave(false);
+    
+    fog.addSettings( gui );
+//    fog.color = ofFloatColor( 1,1,1,1);
+//	gui.addColorPicker("Fog Color Red", &fog.color.r);
+	
+//	gui.addColorPicker("Plane Color R", &plane_color.r);
+//	gui.addColorPicker("Plane Color G", &plane_color.g);
+//	gui.addColorPicker("Plane Color B", &plane_color.b);
     
     fluid.addSettings( gui );
     fluid_updater.addSettings(gui);

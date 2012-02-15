@@ -6,12 +6,14 @@
 
 void MSAParticleSystem3D::setup()
 {
-	width = ofGetWidth();
-	height = ofGetHeight();
+	width           = ofGetWidth();
+	height          = ofGetHeight();
+    update_gravity  = false;
     
 	ofAddListener(ofEvents.windowResized, this, &MSAParticleSystem3D::windowResized);
     
     initScene();
+    
 }
 
 // ----------------------------------------------------- 
@@ -43,13 +45,18 @@ void MSAParticleSystem3D::resizeScene()
 // ----------------------------------------------------- 
 void MSAParticleSystem3D::createParticleGroups()
 {
-    maingroup = new MSAParticleGroup3D_PointSpritesVBO();
+    maingroup = new MSAParticleGroup3D_Lines(); //MSAParticleGroup3D_PointSpritesVBO
     maingroup->setup();
 }
 
 // ----------------------------------------------------- LOOPS 
 void MSAParticleSystem3D::update()
 {
+    if (update_gravity) {
+        update_gravity = false;
+        physics.setGravity( gravity );
+    }
+    
 	physics.update();
     maingroup->update();
     
@@ -77,8 +84,8 @@ void MSAParticleSystem3D::addParticles( Vec3f _pos, int _count)
     int max_y = height;
     
     for(int i=0; i<_count; i++)
-//		addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(-max_x,max_x)) ); // + Rand::randVec3f() * 300 );
-		addParticle( Vec3f( _pos.x , _pos.y, _pos.z ) ); // + Rand::randVec3f() * 300 );
+		addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(max_x/2,-max_x/2)) ); // + Rand::randVec3f() * 300 );
+//		addParticle( Vec3f( _pos.x , _pos.y, _pos.z ) ); // + Rand::randVec3f() * 300 );
 }
 
 // ----------------------------------------------------- 
@@ -118,7 +125,8 @@ void MSAParticleSystem3D::addSettings( ofxSimpleGuiToo & _gui )
 {
     gui_particle_page = &_gui.addPage("Particle System");
     _gui.addTitle( "Particle Settings"); //.setNewColumn(true);
-	_gui.addSlider( "gravity", gravity, -1, 1);
+	_gui.addSlider( "gravity", gravity, -5, 5);
+    _gui.addButton( "Update Gravity", update_gravity );
     _gui.addSlider( "numberOfParticles", numberOfParticles, 0, 100000 );
     maingroup->addSettings( "Main Group", _gui );
 }

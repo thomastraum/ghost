@@ -64,7 +64,8 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
 {
 	float mass		= ofRandom( mass_min, mass_max );
 	float bounce	= ofRandom( bounce_min, bounce_max );
-	float radius	= ofMap( mass, mass_min, mass_max, node_min, node_max );
+    // when there is a radius I can't manage to wrap the particles //
+	float radius	= 0; // ofMap( mass, mass_min, mass_max, node_min, node_max );
     float drag      = ofRandom(drag_min, drag_max);
     
     if (enable_collision) {
@@ -79,9 +80,11 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
     
     // took bounce out as it disables wrapping
     // setBounce(bounce)
-        
+    
 	_p->setMass(mass)->setRadius(radius)->setDrag(drag)->makeFree();
-
+    
+    // give them a push
+    _p->setVelocity( Vec3f(ofRandom(-100,100),ofRandom(-10,10),0 ) );
 }
 
 void MSAParticleGroup3D::resizeParticleGroup()

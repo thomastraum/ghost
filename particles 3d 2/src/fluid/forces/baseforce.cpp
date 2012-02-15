@@ -66,5 +66,4 @@ void BaseForce::addSettings( string _instance_name, ofxSimpleGuiToo & _gui )
     _gui.addTitle( _instance_name + " Settings").setNewColumn(true);
 	_gui.addSlider( _instance_name + " Strength", strength, -.1, 0.1).setSmoothing(slider_smoothing);
     _gui.addToggle( _instance_name + " Enabled", is_enabled );
-    _gui.addToggle( _instance_name + " Fluid", add_fluid );
 }

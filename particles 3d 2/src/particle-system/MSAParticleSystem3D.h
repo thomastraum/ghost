@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "MSAPhysics3D.h"
 #include "MSAParticleGroup3D_PointSpritesVBO.h"
+#include "MSAParticleGroup3D_Lines.h"
 
 using namespace MSA;
 
@@ -55,6 +56,7 @@ public:
     
     string                      xml_filename;
     ofxSimpleGuiPage *          gui_particle_page;
+    bool                        update_gravity;
     
     //---------------------------------------------------- EVENTS
     void windowResized( ofResizeEventArgs&args );

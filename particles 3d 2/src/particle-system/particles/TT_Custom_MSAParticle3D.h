@@ -118,21 +118,39 @@ public:
     
     void wrap()
     {
-
-            if(_oldPos.x > _params->worldMax.x + _radius ) {
-				
-				float vel = _pos.x - _oldPos.x;
-				_pos.x = _params->worldMin.x - vel;
-				_oldPos.x = _params->worldMin.x ;
-				
-			} else if ( _oldPos.x < _params->worldMin.x - _radius ) {
-				float vel = _pos.x - _oldPos.x;
-				cout << "sssmaller" << vel << endl;
-				_pos.x = _params->worldMax.x - vel;
-				_oldPos.x = _params->worldMax.x;
-			}
-
+        if(_oldPos.x > _params->worldMax.x ) {
+            float vel = _pos.x - _oldPos.x;
+            _pos.x = _params->worldMin.x - vel;
+            _oldPos.x = _params->worldMin.x ;
+            
+        } else if ( _oldPos.x < _params->worldMin.x ) {
+            float vel = _pos.x - _oldPos.x;
+            _pos.x = _params->worldMax.x - vel;
+            _oldPos.x = _params->worldMax.x;
+        }
         
+//        if(_oldPos.y > _params->worldMax.y ) {
+//            float vel = _pos.y - _oldPos.y;
+//            _pos.y = _params->worldMin.y - vel;
+//            _oldPos.y = _params->worldMin.y ;
+//            
+//        } else if ( _oldPos.x < _params->worldMin.x ) {
+//            float vel = _pos.y - _oldPos.y;
+//            _pos.y = _params->worldMax.y - vel;
+//            _oldPos.y = _params->worldMax.y;
+//        }
+        
+//        if(_oldPos.z > _params->worldMax.z ) {
+//            float vel = _pos.z - _oldPos.z;
+//            _pos.z = _params->worldMin.z - vel;
+//            _oldPos.z = _params->worldMin.z ;
+//            
+//        } else if ( _oldPos.x < _params->worldMin.x ) {
+//            float vel = _pos.z - _oldPos.z;
+//            _pos.z = _params->worldMax.z - vel;
+//            _oldPos.z = _params->worldMax.z;
+//        }
+
     }
     
     

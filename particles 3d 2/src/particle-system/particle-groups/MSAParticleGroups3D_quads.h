@@ -1,4 +1,12 @@
 //
+//  MSAParticleGroups3D_Quads.h
+//  particles 3d 2
+//
+//  Created by Thomas Eberwein on 15/02/2012.
+//  Copyright 2012 __MyCompanyName__. All rights reserved.
+//
+
+//
 //  MSAParticleGroup3D_PointSprites.h
 //  particles 3d 2
 //
@@ -6,14 +14,14 @@
 //  Copyright 2012 --. All rights reserved.
 //
 
-#ifndef particles_3d_2_MSAParticleGroup3D_PointSprites_h
-#define particles_3d_2_MSAParticleGroup3D_PointSprites_h
+#ifndef particles_3d_2_MSAParticleGroups3D_Quads
+#define particles_3d_2_MSAParticleGroups3D_Quads
 
 #pragma once
 #include "ofMain.h"
 #include "MSAParticleGroup3D.h"
 
-class MSAParticleGroup3D_PointSpritesVBO : public MSAParticleGroup3D {
+class MSAParticleGroups3D_Quads : public MSAParticleGroup3D {
     
     ofMesh      mesh;
     ofImage     texture;
@@ -21,7 +29,7 @@ class MSAParticleGroup3D_PointSpritesVBO : public MSAParticleGroup3D {
     
 public:
     
-    MSAParticleGroup3D_PointSpritesVBO() {
+    MSAParticleGroups3D_Quads() {
         
         mesh.clear();
         mesh.setMode( OF_PRIMITIVE_POINTS );
@@ -56,14 +64,14 @@ public:
         
         ofEnablePointSprites();
         ofEnableAlphaBlending();
-
-//        OF_BLENDMODE_DISABLED = 0,
-//        OF_BLENDMODE_ALPHA 	  = 1,
-//        OF_BLENDMODE_ADD 	  = 2,
-//        OF_BLENDMODE_SUBTRACT = 3,
-//        OF_BLENDMODE_MULTIPLY = 4,
-//        OF_BLENDMODE_SCREEN   = 5
-//        ofEnableBlendMode( OF_BLENDMODE_ADD );
+        
+        //        OF_BLENDMODE_DISABLED = 0,
+        //        OF_BLENDMODE_ALPHA 	  = 1,
+        //        OF_BLENDMODE_ADD 	  = 2,
+        //        OF_BLENDMODE_SUBTRACT = 3,
+        //        OF_BLENDMODE_MULTIPLY = 4,
+        //        OF_BLENDMODE_SCREEN   = 5
+        //        ofEnableBlendMode( OF_BLENDMODE_ADD );
         
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_ALPHA_TEST);

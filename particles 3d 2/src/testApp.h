@@ -5,6 +5,7 @@
 #include "ofxSimpleGuiToo.h"
 
 #include "TT_3D_Plane.h"
+#include "TT_Fog.h"
 #include "MSAParticleSystem3D.h"
 
 #include "MSAFluidManager.h"
@@ -36,8 +37,10 @@ private:
     TT_3D_Plane plane_top;
     TT_3D_Plane plane_right;
     TT_3D_Plane plane_back;
+    ofColor     plane_color;
     
 	ofxGrabCam  camera;
+    TT_Fog      fog;
     
     void        buildScene();
 

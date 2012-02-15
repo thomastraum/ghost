@@ -11,19 +11,23 @@
 
 class ForceFromSide : public BaseForce {
     
-    float steps;
+    float     steps;
+    int     steps_min;
+    int     steps_max;
     
 public:
     
     ForceFromSide(){
         classname = "ForceFromSide";
-        steps = 10;
+        steps_min = 5;
+        steps_max = 15;
     };
     
     void update()
     {
         if (is_enabled ) {
-            float step = 1 / steps;
+            steps = ofRandom( steps_min, steps_max );
+            float step = 1.0 / steps;
 
             for (int i=0; i<steps; i++) {
                 addToFluid( Vec2f(origin.x, step*i), Vec2f(strength, 0) );
@@ -34,7 +38,7 @@ public:
     void addSettings( string _instance_name, ofxSimpleGuiToo &_gui)
     {
         BaseForce::addSettings( _instance_name, _gui );
-        _gui.addSlider( "Steps", steps, 0, 40 ).setSmoothing(slider_smoothing);
+//        _gui.addSlider( "Steps", steps, 0, 40 ).setSmoothing(slider_smoothing);
     }
     
 };
