@@ -27,12 +27,15 @@ class MSAParticleGroups3D_Quads : public MSAParticleGroup3D {
     ofImage     texture;
     ofVbo       vbo;
     
+    ofColor     color;
     ofVec3f     pos, top, right, bottom, left;
     
     
 public:
     
     MSAParticleGroups3D_Quads() {
+        
+        color = ofColor(255,255,255 );
         
         mesh.clear();
         mesh.setMode( OF_PRIMITIVE_POINTS );
@@ -44,39 +47,41 @@ public:
     virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
         MSAParticleGroup3D::setParticleProperties( _p );
+        addQuadForParticle( _p );
+    }
+    
+    void addQuadForParticle( TT_Custom_MSAParticle3D * _p )
+    {
+        float radius = _p->getRadius();
+        pos =  ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z );
         
-//        float radius = _p->getRadius();
-//        pos =  ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z );
-//        
-//        top     = ofVec3f( pos.x-radius, pos.y-radius, pos.z );
-//        right   = ofVec3f( pos.x+radius, pos.y-radius, pos.z );
-//        bottom  = ofVec3f( pos.x+radius, pos.y+radius, pos.z );
-//        left    = ofVec3f( pos.x-radius, pos.y+radius, pos.z );
-//        
-//        mesh.addVertex( top );
-//        mesh.addVertex( right );
-//        mesh.addVertex( bottom );
-//        mesh.addVertex( left );
-//        
-//        mesh.addTexCoord( ofVec2f( 0,0 ) );
-//        mesh.addTexCoord( ofVec2f( 1,0 ) );
-//        mesh.addTexCoord( ofVec2f( 1,1 ) );
-//        mesh.addTexCoord( ofVec2f( 0,1 ) );
+        top     = ofVec3f( pos.x-radius, pos.y-radius, pos.z );
+        right   = ofVec3f( pos.x+radius, pos.y-radius, pos.z );
+        bottom  = ofVec3f( pos.x+radius, pos.y+radius, pos.z );
+        left    = ofVec3f( pos.x-radius, pos.y+radius, pos.z );
         
-//        for (int i=0; i<4; i++) {
-//            mesh.addColor( ofColor(255,255,255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
-//        }
+        mesh.addVertex( top );
+        mesh.addVertex( right );
+        mesh.addVertex( bottom );
+        mesh.addVertex( left );
+        
+        mesh.addTexCoord( ofVec2f( 0,0 ) );
+        mesh.addTexCoord( ofVec2f( 1,0 ) );
+        mesh.addTexCoord( ofVec2f( 1,1 ) );
+        mesh.addTexCoord( ofVec2f( 0,1 ) );
+        
+        mesh.addColor( color );
+        mesh.addColor( color );
+        mesh.addColor( color );
+        mesh.addColor( color );
     }
     
     virtual void update() {
         
         MSAParticleGroup3D::update();
-        
+
         vector<TT_Custom_MSAParticle3D*>::iterator it = group.begin();
         int i=0;
-        mesh.clear();
-        ofColor color = ofColor(255,255,255 );
-        
         while( it != group.end() ) {
             TT_Custom_MSAParticle3D * p = *it;
             
@@ -88,20 +93,10 @@ public:
             bottom  = ofVec3f( pos.x+radius, pos.y+radius, pos.z );
             left    = ofVec3f( pos.x-radius, pos.y+radius, pos.z );
             
-            mesh.addVertex( top );
-            mesh.addVertex( right );
-            mesh.addVertex( bottom );
-            mesh.addVertex( left );
-            
-            mesh.addTexCoord( ofVec2f( 0,0 ) );
-            mesh.addTexCoord( ofVec2f( 1,0 ) );
-            mesh.addTexCoord( ofVec2f( 1,1 ) );
-            mesh.addTexCoord( ofVec2f( 0,1 ) );
-            
-            mesh.addColor( color );
-            mesh.addColor( color );
-            mesh.addColor( color );
-            mesh.addColor( color );
+            mesh.setVertex( i++, top );
+            mesh.setVertex( i++, right );
+            mesh.setVertex( i++, bottom );
+            mesh.setVertex( i++, left );
             
             it++;
         }
@@ -137,7 +132,18 @@ public:
     virtual void resizeParticleGroup()
     {
         MSAParticleGroup3D::resizeParticleGroup();
-        mesh.clearVertices();
+        mesh.clear();
+        
+        //
+        vector<TT_Custom_MSAParticle3D*>::iterator it = group.begin();
+        int i=0;
+        while( it != group.end() ) {
+            TT_Custom_MSAParticle3D * p = *it;
+            addQuadForParticle( p );
+            it++;
+        }
+        
+    
     }
 };
 
