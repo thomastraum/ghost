@@ -35,6 +35,11 @@ public:
     virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
         MSAParticleGroup3D::setParticleProperties( _p );
+        addPointForParticle(_p);
+    }
+    
+    void addPointForParticle( TT_Custom_MSAParticle3D * _p )
+    {
         mesh.addVertex( ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
         mesh.addColor( ofColor(255,255,255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
     }
@@ -70,7 +75,6 @@ public:
         glAlphaFunc(GL_GREATER, 0.1);
         
         
-        
         texture.getTextureReference().bind();
         vbo.setMesh( mesh, GL_STATIC_DRAW );
         vbo.draw( GL_POINTS, 0, mesh.getNumVertices() );
@@ -87,6 +91,16 @@ public:
     {
         MSAParticleGroup3D::resizeParticleGroup();
         mesh.clearVertices();
+        
+        // we recreate all the vertices as we cleared the whole mesh before //
+        // we do this so we have a faster update loop //
+        vector<TT_Custom_MSAParticle3D*>::iterator it = group.begin();
+        int i=0;
+        while( it != group.end() ) {
+            TT_Custom_MSAParticle3D * p = *it;
+            addPointForParticle( p );
+            it++;
+        }
     }
 };
 

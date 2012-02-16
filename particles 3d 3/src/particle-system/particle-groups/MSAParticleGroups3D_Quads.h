@@ -134,7 +134,8 @@ public:
         MSAParticleGroup3D::resizeParticleGroup();
         mesh.clear();
         
-        //
+        // we recreate all the vertices as we cleared the whole mesh before //
+        // we do this so we have a faster update loop //
         vector<TT_Custom_MSAParticle3D*>::iterator it = group.begin();
         int i=0;
         while( it != group.end() ) {
@@ -142,8 +143,6 @@ public:
             addQuadForParticle( p );
             it++;
         }
-        
-    
     }
 };
 

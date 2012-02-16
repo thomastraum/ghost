@@ -216,6 +216,7 @@
 		E9BE711814EAC604009568AE /* ForceFromSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForceFromSide.h; sourceTree = "<group>"; };
 		E9BE711914EAF662009568AE /* MSAPhysicsUpdaterShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterShake.h; sourceTree = "<group>"; };
 		E9DFBDFD14ED15630086BD51 /* MSAParticleGroups3D_Quads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroups3D_Quads.h; sourceTree = "<group>"; };
+		E9DFBE5114ED3A6A0086BD51 /* MSAParticleGroup3DMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,6 +540,7 @@
 				642E2B6314E48FC6007AE7CF /* MSAParticleGroup3D_PointSpritesVbo.h */,
 				E902C86D14EC359F000B2A40 /* MSAParticleGroup3D_Lines.h */,
 				E9DFBDFD14ED15630086BD51 /* MSAParticleGroups3D_Quads.h */,
+				E9DFBE5114ED3A6A0086BD51 /* MSAParticleGroup3DMesh.h */,
 			);
 			path = "particle-groups";
 			sourceTree = "<group>";
