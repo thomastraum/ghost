@@ -1,0 +1,18 @@
+<controls>
+    <SliderFloat_Fog_Red>
+        <name>Fog Red</name>
+        <value>0.695000</value>
+    </SliderFloat_Fog_Red>
+    <SliderFloat_Fog_Green>
+        <name>Fog Green</name>
+        <value>0.225000</value>
+    </SliderFloat_Fog_Green>
+    <SliderFloat_Fog_Blue>
+        <name>Fog Blue</name>
+        <value>0.210000</value>
+    </SliderFloat_Fog_Blue>
+    <SliderFloat_Fog_Alpha>
+        <name>Fog Alpha</name>
+        <value>0.000000</value>
+    </SliderFloat_Fog_Alpha>
+</controls>

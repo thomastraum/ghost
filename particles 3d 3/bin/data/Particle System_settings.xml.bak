@@ -1,0 +1,46 @@
+<controls>
+    <SliderFloat_gravity>
+        <name>gravity</name>
+        <value>0.000000</value>
+    </SliderFloat_gravity>
+    <Button_Update_Gravity>
+        <name>Update Gravity</name>
+        <value>0</value>
+    </Button_Update_Gravity>
+    <SliderInt_numberOfParticles>
+        <name>numberOfParticles</name>
+        <value>1001</value>
+    </SliderInt_numberOfParticles>
+    <SliderFloat_mass_min>
+        <name>mass min</name>
+        <value>0.212500</value>
+    </SliderFloat_mass_min>
+    <SliderFloat_mass_max>
+        <name>mass max</name>
+        <value>1.000000</value>
+    </SliderFloat_mass_max>
+    <SliderFloat_drag_min>
+        <name>drag min</name>
+        <value>0.932500</value>
+    </SliderFloat_drag_min>
+    <SliderFloat_drag_max>
+        <name>drag max</name>
+        <value>0.968500</value>
+    </SliderFloat_drag_max>
+    <SliderFloat_node_min>
+        <name>node min</name>
+        <value>4.570000</value>
+    </SliderFloat_node_min>
+    <SliderFloat_node_max>
+        <name>node max</name>
+        <value>150.000000</value>
+    </SliderFloat_node_max>
+    <Toggle_collision>
+        <name>collision</name>
+        <value>0</value>
+    </Toggle_collision>
+    <Toggle_wrapping>
+        <name>wrapping</name>
+        <value>1</value>
+    </Toggle_wrapping>
+</controls>

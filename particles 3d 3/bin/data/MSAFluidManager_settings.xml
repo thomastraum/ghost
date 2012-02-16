@@ -1,0 +1,84 @@
+<controls>
+    <SliderInt_fluidCellsX>
+        <name>fluidCellsX</name>
+        <value>70</value>
+    </SliderInt_fluidCellsX>
+    <Button_resize_fluid>
+        <name>resize_fluid</name>
+        <value>0</value>
+    </Button_resize_fluid>
+    <SliderFloat_fs.viscocity>
+        <name>fs.viscocity</name>
+        <value>0.000950</value>
+    </SliderFloat_fs.viscocity>
+    <SliderFloat_fs.colorDiffusion>
+        <name>fs.colorDiffusion</name>
+        <value>0.000137</value>
+    </SliderFloat_fs.colorDiffusion>
+    <SliderFloat_fs.fadeSpeed>
+        <name>fs.fadeSpeed</name>
+        <value>0.022000</value>
+    </SliderFloat_fs.fadeSpeed>
+    <SliderInt_fs.solverIterations>
+        <name>fs.solverIterations</name>
+        <value>20</value>
+    </SliderInt_fs.solverIterations>
+    <SliderFloat_fs.deltaT>
+        <name>fs.deltaT</name>
+        <value>1.055500</value>
+    </SliderFloat_fs.deltaT>
+    <ComboBox_fd.drawMode>
+        <name>fd.drawMode</name>
+        <value>3</value>
+    </ComboBox_fd.drawMode>
+    <Toggle_fs.doRGB>
+        <name>fs.doRGB</name>
+        <value>0</value>
+    </Toggle_fs.doRGB>
+    <Toggle_fs.doVorticityConfinement>
+        <name>fs.doVorticityConfinement</name>
+        <value>1</value>
+    </Toggle_fs.doVorticityConfinement>
+    <Toggle_draw_fluid>
+        <name>draw_fluid</name>
+        <value>0</value>
+    </Toggle_draw_fluid>
+    <Toggle_fs.wrapX>
+        <name>fs.wrapX</name>
+        <value>0</value>
+    </Toggle_fs.wrapX>
+    <Toggle_fs.wrapY>
+        <name>fs.wrapY</name>
+        <value>0</value>
+    </Toggle_fs.wrapY>
+    <SliderFloat_force_Strength>
+        <name>force Strength</name>
+        <value>0.100000</value>
+        <name>force Strength</name>
+        <value>0.100000</value>
+    </SliderFloat_force_Strength>
+    <Toggle_force_Enabled>
+        <name>force Enabled</name>
+        <value>1</value>
+        <name>force Enabled</name>
+        <value>1</value>
+    </Toggle_force_Enabled>
+    <SliderFloat_force_Freq>
+        <name>force Freq</name>
+        <value>1.521000</value>
+    </SliderFloat_force_Freq>
+    <SliderFloat_force_Offset>
+        <name>force Offset</name>
+        <value>1.000000</value>
+    </SliderFloat_force_Offset>
+    <SliderFloat_force_Strength></SliderFloat_force_Strength>
+    <Toggle_force_Enabled></Toggle_force_Enabled>
+    <SliderFloat_Fluid_Influence>
+        <name>Fluid Influence</name>
+        <value>0.040000</value>
+    </SliderFloat_Fluid_Influence>
+    <SliderFloat_Momentum>
+        <name>Momentum</name>
+        <value>0.000000</value>
+    </SliderFloat_Momentum>
+</controls>
