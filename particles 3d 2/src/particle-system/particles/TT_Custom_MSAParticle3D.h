@@ -129,16 +129,16 @@ public:
             _oldPos.x = _params->worldMax.x;
         }
         
-//        if(_oldPos.y > _params->worldMax.y ) {
-//            float vel = _pos.y - _oldPos.y;
-//            _pos.y = _params->worldMin.y - vel;
-//            _oldPos.y = _params->worldMin.y ;
-//            
-//        } else if ( _oldPos.x < _params->worldMin.x ) {
-//            float vel = _pos.y - _oldPos.y;
-//            _pos.y = _params->worldMax.y - vel;
-//            _oldPos.y = _params->worldMax.y;
-//        }
+        if(_oldPos.y > _params->worldMax.y ) {
+            float vel = _pos.y - _oldPos.y;
+            _pos.y = _params->worldMin.y - vel;
+            _oldPos.y = _params->worldMin.y ;
+            
+        } else if ( _oldPos.x < _params->worldMin.x ) {
+            float vel = _pos.y - _oldPos.y;
+            _pos.y = _params->worldMax.y - vel;
+            _oldPos.y = _params->worldMax.y;
+        }
         
 //        if(_oldPos.z > _params->worldMax.z ) {
 //            float vel = _pos.z - _oldPos.z;

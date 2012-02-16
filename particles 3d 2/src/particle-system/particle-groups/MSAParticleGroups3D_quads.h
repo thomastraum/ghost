@@ -27,6 +27,9 @@ class MSAParticleGroups3D_Quads : public MSAParticleGroup3D {
     ofImage     texture;
     ofVbo       vbo;
     
+    ofVec3f     pos, top, right, bottom, left;
+    
+    
 public:
     
     MSAParticleGroups3D_Quads() {
@@ -36,15 +39,33 @@ public:
         
         ofDisableArbTex();
         texture.loadImage("dot-8.png");
-        
-        glPointSize(40);
     }
     
     virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
         MSAParticleGroup3D::setParticleProperties( _p );
-        mesh.addVertex( ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
-        mesh.addColor( ofColor(255,255,255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
+        
+        float radius = _p->getRadius();
+        pos =  ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z );
+        
+        top     = ofVec3f( pos.x-radius, pos.y-radius, pos.z );
+        right   = ofVec3f( pos.x+radius, pos.y-radius, pos.z );
+        bottom  = ofVec3f( pos.x+radius, pos.y+radius, pos.z );
+        left    = ofVec3f( pos.x-radius, pos.y+radius, pos.z );
+        
+        mesh.addVertex( top );
+        mesh.addVertex( right );
+        mesh.addVertex( bottom );
+        mesh.addVertex( left );
+        
+        mesh.addTexCoord( ofVec2f( 0,0 ) );
+        mesh.addTexCoord( ofVec2f( 1,0 ) );
+        mesh.addTexCoord( ofVec2f( 1,1 ) );
+        mesh.addTexCoord( ofVec2f( 0,1 ) );
+        
+        for (int i=0; i<4; i++) {
+            mesh.addColor( ofColor(255,255,255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
+        }
     }
     
     virtual void update() {
@@ -53,16 +74,26 @@ public:
         int i=0;
         while( it != group.end() ) {
             TT_Custom_MSAParticle3D * p = *it;
-            mesh.setVertex( i, ofVec3f( p->getPosition().x, p->getPosition().y, p->getPosition().z ) );
-            i++;
+            
+            float radius = p->getRadius();
+            pos =  ofVec3f( p->getPosition().x, p->getPosition().y, p->getPosition().z );
+            
+            top     = ofVec3f( pos.x-radius, pos.y-radius, pos.z );
+            right   = ofVec3f( pos.x+radius, pos.y-radius, pos.z );
+            bottom  = ofVec3f( pos.x+radius, pos.y+radius, pos.z );
+            left    = ofVec3f( pos.x-radius, pos.y+radius, pos.z );
+            
+            mesh.setVertex( i++, top );
+            mesh.setVertex( i++, right );
+            mesh.setVertex( i++, bottom );
+            mesh.setVertex( i++, left );
+        
             it++;
         }
     };
     
     virtual void draw()
     {
-        
-        ofEnablePointSprites();
         ofEnableAlphaBlending();
         
         //        OF_BLENDMODE_DISABLED = 0,
@@ -77,17 +108,14 @@ public:
         glEnable(GL_ALPHA_TEST);
         glAlphaFunc(GL_GREATER, 0.1);
         
-        
-        
         texture.getTextureReference().bind();
         vbo.setMesh( mesh, GL_STATIC_DRAW );
-        vbo.draw( GL_POINTS, 0, mesh.getNumVertices() );
+        vbo.draw( GL_QUADS, 0, mesh.getNumVertices() );
         texture.getTextureReference().unbind();		// new in OF006
         
         glDisable(GL_ALPHA_TEST);
         glDisable(GL_DEPTH_TEST);
         
-        ofDisablePointSprites();
         ofDisableAlphaBlending();
     }
     

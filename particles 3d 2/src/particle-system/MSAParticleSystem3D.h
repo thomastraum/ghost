@@ -4,6 +4,7 @@
 #include "MSAPhysics3D.h"
 #include "MSAParticleGroup3D_PointSpritesVBO.h"
 #include "MSAParticleGroup3D_Lines.h"
+#include "MSAParticleGroups3D_Quads.h"
 
 using namespace MSA;
 

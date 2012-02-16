@@ -65,7 +65,7 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
 	float mass		= ofRandom( mass_min, mass_max );
 	float bounce	= ofRandom( bounce_min, bounce_max );
     // when there is a radius I can't manage to wrap the particles //
-	float radius	= 0; // ofMap( mass, mass_min, mass_max, node_min, node_max );
+	float radius	= ofMap( mass, mass_min, mass_max, node_min, node_max );
     float drag      = ofRandom(drag_min, drag_max);
     
     if (enable_collision) {
@@ -121,7 +121,7 @@ void MSAParticleGroup3D::addSettings( string _instance_name, ofxSimpleGuiToo & _
 	_gui.addSlider( "drag max", drag_max, 0.1, 1);
     
 	_gui.addSlider( "node min", node_min, .1, 15);
-	_gui.addSlider( "node max", node_max, .1, 50);
+	_gui.addSlider( "node max", node_max, .1, 150);
     
 //    _gui.addSlider( "bounce min", bounce_min, 0, 1);
 //	_gui.addSlider( "bounce max", bounce_max, 0, 1);

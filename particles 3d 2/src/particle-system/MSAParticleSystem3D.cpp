@@ -45,7 +45,7 @@ void MSAParticleSystem3D::resizeScene()
 // ----------------------------------------------------- 
 void MSAParticleSystem3D::createParticleGroups()
 {
-    maingroup = new MSAParticleGroup3D_Lines(); //MSAParticleGroup3D_PointSpritesVBO
+    maingroup = new MSAParticleGroups3D_Quads(); //MSAParticleGroup3D_PointSpritesVBO
     maingroup->setup();
 }
 
