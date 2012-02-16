@@ -55,7 +55,7 @@
         <name>force Strength</name>
         <value>0.100000</value>
         <name>force Strength</name>
-        <value>0.100000</value>
+        <value>0.010000</value>
     </SliderFloat_force_Strength>
     <Toggle_force_Enabled>
         <name>force Enabled</name>
@@ -71,8 +71,8 @@
         <name>force Offset</name>
         <value>1.000000</value>
     </SliderFloat_force_Offset>
-    <SliderFloat_force_Strength />
-    <Toggle_force_Enabled />
+    <SliderFloat_force_Strength></SliderFloat_force_Strength>
+    <Toggle_force_Enabled></Toggle_force_Enabled>
     <SliderFloat_Fluid_Influence>
         <name>Fluid Influence</name>
         <value>0.040000</value>

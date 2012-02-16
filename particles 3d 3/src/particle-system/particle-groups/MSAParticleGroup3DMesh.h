@@ -12,9 +12,12 @@
 
 
 #pragma once
+#include "ofMain.h"
 #include "MSAParticleGroup3D.h"
     
 class MSAParticleGroup3DMesh : public MSAParticleGroup3D {
+
+protected: 
     
     ofMesh  mesh;
     
@@ -29,10 +32,29 @@ public:
         MSAParticleGroup3D::setParticleProperties( _p );
         addParticleToMesh( _p );
     }
+
+    //-------------------------------------------------------------------------
+    virtual void update() 
+    {
+        MSAParticleGroup3D::update();
+        
+        vector<TT_Custom_MSAParticle3D*>::iterator it = group.begin();
+        int i=0;
+        while( it != group.end() ) {
+            TT_Custom_MSAParticle3D * p = *it;
+            updateIndexWithParticle( p, i );
+            i++;
+            it++;
+        }
+    };
     
     //-------------------------------------------------------------------------
     // implemented in child classes
     virtual void addParticleToMesh( TT_Custom_MSAParticle3D * _p ){};
+    
+    //-------------------------------------------------------------------------
+    // implemented in child classes
+    virtual void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ){};
     
     //-------------------------------------------------------------------------
     void resizeParticleGroup()

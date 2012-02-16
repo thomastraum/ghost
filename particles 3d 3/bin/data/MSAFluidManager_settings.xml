@@ -55,7 +55,7 @@
         <name>force Strength</name>
         <value>0.100000</value>
         <name>force Strength</name>
-        <value>0.100000</value>
+        <value>0.010000</value>
     </SliderFloat_force_Strength>
     <Toggle_force_Enabled>
         <name>force Enabled</name>

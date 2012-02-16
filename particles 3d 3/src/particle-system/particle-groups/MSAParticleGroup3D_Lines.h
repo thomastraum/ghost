@@ -25,7 +25,7 @@ public:
     
     MSAParticleGroup3D_Lines() {   
         mesh.clear();
-        mesh.setMode( OF_PRIMITIVE_POINTS );
+        mesh.setMode( OF_PRIMITIVE_LINES );
     }
     
     void setParticleProperties( TT_Custom_MSAParticle3D * _p )

@@ -105,7 +105,6 @@
 		6423C98914E56ED500B9C6A0 /* MSAFluidSolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAFluidSolver.cpp; sourceTree = "<group>"; };
 		6423C98A14E56ED500B9C6A0 /* MSAFluidSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidSolver.h; sourceTree = "<group>"; };
 		6423C9B614E5715B00B9C6A0 /* MSATimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSATimer.h; sourceTree = "<group>"; };
-		642E2B6314E48FC6007AE7CF /* MSAParticleGroup3D_PointSpritesVbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_PointSpritesVbo.h; sourceTree = "<group>"; };
 		644B07A714E58255002B15F0 /* MSAFluidManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidManager.h; sourceTree = "<group>"; };
 		644B07A814E5826D002B15F0 /* MSAFluidManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAFluidManager.cpp; sourceTree = "<group>"; };
 		6458035714E2FA08008B8410 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
@@ -186,7 +185,6 @@
 		6458042014E2FA48008B8410 /* MSAParticleSystem3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D.h; sourceTree = "<group>"; };
 		6458042214E2FA48008B8410 /* MSAParticleGroup3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleGroup3D.cpp; sourceTree = "<group>"; };
 		6458042314E2FA48008B8410 /* MSAParticleGroup3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D.h; sourceTree = "<group>"; };
-		6458042414E2FA48008B8410 /* MSAParticleGroup3D_PointSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_PointSprites.h; sourceTree = "<group>"; };
 		6458042614E2FA48008B8410 /* TT_Custom_MSAParticle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Custom_MSAParticle3D.h; sourceTree = "<group>"; };
 		6458045D14E2FA81008B8410 /* ofxGrabCam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGrabCam.cpp; sourceTree = "<group>"; };
 		6458045E14E2FA81008B8410 /* ofxGrabCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGrabCam.h; sourceTree = "<group>"; };
@@ -212,11 +210,12 @@
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E902C86C14EC13D2000B2A40 /* TT_Fog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Fog.h; sourceTree = "<group>"; };
-		E902C86D14EC359F000B2A40 /* MSAParticleGroup3D_Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_Lines.h; sourceTree = "<group>"; };
 		E9BE711814EAC604009568AE /* ForceFromSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForceFromSide.h; sourceTree = "<group>"; };
 		E9BE711914EAF662009568AE /* MSAPhysicsUpdaterShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterShake.h; sourceTree = "<group>"; };
-		E9DFBDFD14ED15630086BD51 /* MSAParticleGroups3D_Quads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroups3D_Quads.h; sourceTree = "<group>"; };
 		E9DFBE5114ED3A6A0086BD51 /* MSAParticleGroup3DMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh.h; sourceTree = "<group>"; };
+		E9DFBE5214ED3D7A0086BD51 /* MSAParticleGroup3DMesh_Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Quad.h; sourceTree = "<group>"; };
+		E9DFBE5314ED43940086BD51 /* MSAParticleGroup3DMesh_PointSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_PointSprites.h; sourceTree = "<group>"; };
+		E9DFBE5414ED45430086BD51 /* MSAParticleGroup3DMesh_Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Lines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -536,11 +535,10 @@
 			children = (
 				6458042214E2FA48008B8410 /* MSAParticleGroup3D.cpp */,
 				6458042314E2FA48008B8410 /* MSAParticleGroup3D.h */,
-				6458042414E2FA48008B8410 /* MSAParticleGroup3D_PointSprites.h */,
-				642E2B6314E48FC6007AE7CF /* MSAParticleGroup3D_PointSpritesVbo.h */,
-				E902C86D14EC359F000B2A40 /* MSAParticleGroup3D_Lines.h */,
-				E9DFBDFD14ED15630086BD51 /* MSAParticleGroups3D_Quads.h */,
 				E9DFBE5114ED3A6A0086BD51 /* MSAParticleGroup3DMesh.h */,
+				E9DFBE5214ED3D7A0086BD51 /* MSAParticleGroup3DMesh_Quad.h */,
+				E9DFBE5314ED43940086BD51 /* MSAParticleGroup3DMesh_PointSprites.h */,
+				E9DFBE5414ED45430086BD51 /* MSAParticleGroup3DMesh_Lines.h */,
 			);
 			path = "particle-groups";
 			sourceTree = "<group>";

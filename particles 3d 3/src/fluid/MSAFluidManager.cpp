@@ -45,7 +45,7 @@ void MSAFluidManager::update()
 		fluidDrawer.setup(&fluidsolver);
 		resize_fluid = false;
 	}
-//    addRandomPosForce();
+    addRandomPosForce();
 //    forceFromSide();
     
     for ( int i=0;i<forces.size(); i++ ) {
