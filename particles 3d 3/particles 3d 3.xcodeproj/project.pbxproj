@@ -57,6 +57,7 @@
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
 		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
 		E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		E9E0831A14ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E0831814ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,9 @@
 		E9DFBE5214ED3D7A0086BD51 /* MSAParticleGroup3DMesh_Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Quad.h; sourceTree = "<group>"; };
 		E9DFBE5314ED43940086BD51 /* MSAParticleGroup3DMesh_PointSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_PointSprites.h; sourceTree = "<group>"; };
 		E9DFBE5414ED45430086BD51 /* MSAParticleGroup3DMesh_Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Lines.h; sourceTree = "<group>"; };
+		E9E0831814ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleSystem3D_Abstract.cpp; sourceTree = "<group>"; };
+		E9E0831914ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_Abstract.h; sourceTree = "<group>"; };
+		E9E0831B14ED605D00DEFFE7 /* MSAParticleSystem3D_tt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_tt.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +525,7 @@
 		6458041E14E2FA48008B8410 /* particle-system */ = {
 			isa = PBXGroup;
 			children = (
+				E9E0831714ED593400DEFFE7 /* particle-system */,
 				6423C92514E56DAA00B9C6A0 /* msa-physics-updater */,
 				6458041F14E2FA48008B8410 /* MSAParticleSystem3D.cpp */,
 				6458042014E2FA48008B8410 /* MSAParticleSystem3D.h */,
@@ -664,6 +669,16 @@
 			name = openFrameworks;
 			sourceTree = "<group>";
 		};
+		E9E0831714ED593400DEFFE7 /* particle-system */ = {
+			isa = PBXGroup;
+			children = (
+				E9E0831814ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp */,
+				E9E0831914ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.h */,
+				E9E0831B14ED605D00DEFFE7 /* MSAParticleSystem3D_tt.h */,
+			);
+			name = "particle-system";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -783,6 +798,7 @@
 				6423C9A414E56ED600B9C6A0 /* MSAFluidDrawerBase.cpp in Sources */,
 				6423C9A514E56ED600B9C6A0 /* MSAFluidSolver.cpp in Sources */,
 				644B07A914E5826D002B15F0 /* MSAFluidManager.cpp in Sources */,
+				E9E0831A14ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

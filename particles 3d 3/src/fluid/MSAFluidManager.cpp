@@ -31,7 +31,14 @@ void MSAFluidManager::setup()
     // force from left side //
     BaseForce * force2 = new ForceFromSide();
     force2->setup( this );
+    force2->setOrigin( Vec2f(0,0) );
     forces.push_back( force2 );
+    
+    // force from left side //
+    BaseForce * force3 = new ForceFromSide();
+    force3->setup( this );
+    force3->setOrigin( Vec2f(1,0) );
+    forces.push_back( force3 );
     
     fixedforce_power    = 0.006;
     
@@ -45,8 +52,7 @@ void MSAFluidManager::update()
 		fluidDrawer.setup(&fluidsolver);
 		resize_fluid = false;
 	}
-    addRandomPosForce();
-//    forceFromSide();
+//    addRandomPosForce();
     
     for ( int i=0;i<forces.size(); i++ ) {
         forces[i]->update();
@@ -65,7 +71,7 @@ void MSAFluidManager::draw()
 }
 
 //-------------------------------------------------------------------------- HELPERS
-// Add force and dye to fluid, and create particles
+// Add force and dye to fluid
 // takes normalized pos for Fluid //
 void MSAFluidManager::addToFluid( Vec2f pos, Vec2f vel) 
 {
@@ -77,7 +83,7 @@ void MSAFluidManager::addToFluid( Vec2f pos, Vec2f vel)
         pos.x = constrain(pos.x, 0.0f, 1.0f);
         pos.y = constrain(pos.y, 0.0f, 1.0f);
         
-        const float colorMult = 100;
+//        const float colorMult = 100;
         
         int index = fluidsolver.getIndexForPos(pos);
         
@@ -127,14 +133,4 @@ void MSAFluidManager::addSettings( ofxSimpleGuiToo & _gui )
         forces[i]->addSettings( "force", _gui);
     }
 
-    
-}
-
-//-------------------------------------------------------------------------- 
-
-void MSAFluidManager::keyPressed( ofKeyEventArgs&args )
-{
-    if ( args.key == 'r' ) {
-        fluidsolver.reset();
-    }
 }

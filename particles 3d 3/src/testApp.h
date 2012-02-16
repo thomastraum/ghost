@@ -6,7 +6,8 @@
 
 #include "TT_3D_Plane.h"
 #include "TT_Fog.h"
-#include "MSAParticleSystem3D.h"
+//#include "MSAParticleSystem3D.h"
+#include "MSAParticleSystem3D_tt.h"
 
 #include "MSAFluidManager.h"
 #include "MSAPhysicsFluidUpdater.h"
@@ -46,7 +47,7 @@ private:
 
     //---------------------------------------------- Particles
     
-    MSAParticleSystem3D ps;
+    MSAParticleSystem3D_tt ps;
     
     //---------------------------------------------- FLUID
     MSAFluidManager         fluid;

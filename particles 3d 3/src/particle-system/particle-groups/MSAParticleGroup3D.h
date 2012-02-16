@@ -13,7 +13,7 @@ class MSAParticleGroup3D {
 public:
     
     MSAParticleGroup3D(){
-        cout << "MSAParticleGroup3D contructor" << endl;
+        instance_name = "No Name yet!";
     };
     
     virtual void    setup();
@@ -26,8 +26,11 @@ public:
     void            killParticles();
     
     //------------------------------------------------- Settings
-    virtual void    addSettings( string _instance_name, ofxSimpleGuiToo & _gui );
-    
+    virtual void    addSettings( ofxSimpleGuiToo & _gui );
+    void            setInstanceName( string _instance_name )
+    {
+        instance_name = _instance_name;
+    };
     
     //------------------------------------------------- Variables
     
@@ -54,6 +57,8 @@ protected:
     bool                                    enable_collision;
     bool                                    enable_wrapping;
     
-    vector<TT_Custom_MSAParticle3D*>          group;
+    vector<TT_Custom_MSAParticle3D*>        group;
+    
+    string                                  instance_name;
     
 };

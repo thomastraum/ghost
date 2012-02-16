@@ -24,15 +24,30 @@ public:
     MSAParticleGroup3DMesh_Quad() {
         
         color = ofColor(255,255,255 );
-        
         mesh.clear();
-//        mesh.setMode( OF_PR );
-        
         ofDisableArbTex();
         texture.loadImage("dot-8.png");
         
     }
     
+    //---------------------------------------------------------------
+    // Quads have a radius size //
+    void setParticleProperties( TT_Custom_MSAParticle3D * _p )
+    {
+        MSAParticleGroup3DMesh::setParticleProperties( _p );
+        float radius	= ofMap( _p->getMass(), mass_min, mass_max, node_min, node_max );
+        _p->setRadius( radius );
+    }
+    
+    //---------------------------------------------------------------
+    void addSettings( ofxSimpleGuiToo & _gui )
+    {
+        MSAParticleGroup3DMesh::addSettings( _gui );
+        _gui.addSlider( "node min", node_min, 1, 15);
+        _gui.addSlider( "node max", node_max, 1, 150);
+    }
+    
+    //---------------------------------------------------------------
     void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
     {
         float radius = _p->getRadius();
@@ -59,6 +74,7 @@ public:
         mesh.addColor( color );
     }
     
+    //---------------------------------------------------------------
     void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index )
     {
         float radius = _p->getRadius();
@@ -76,6 +92,7 @@ public:
         mesh.setVertex( i++, left );
     }
     
+    //---------------------------------------------------------------
     void draw()
     {
         ofEnableAlphaBlending();
@@ -102,6 +119,5 @@ public:
         
         ofDisableAlphaBlending();
     }
-    
     
 };

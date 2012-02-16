@@ -2,7 +2,7 @@
 
 #include "MSAParticleGroup3D.h"
 
-#define MAX_GROUP_PARTICLES 2000
+#define MAX_GROUP_PARTICLES 5000
 
 void MSAParticleGroup3D::setup()
 {
@@ -64,8 +64,6 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
 {
 	float mass		= ofRandom( mass_min, mass_max );
 	float bounce	= ofRandom( bounce_min, bounce_max );
-    // when there is a radius I can't manage to wrap the particles //
-	float radius	= ofMap( mass, mass_min, mass_max, node_min, node_max );
     float drag      = ofRandom(drag_min, drag_max);
     
     if (enable_collision) {
@@ -80,11 +78,11 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
     
     // took bounce out as it disables wrapping
     // setBounce(bounce)
-    
-	_p->setMass(mass)->setRadius(radius)->setDrag(drag)->makeFree();
+	_p->setMass(mass)->setDrag(drag)->makeFree();
     
     // give them a push
     _p->setVelocity( Vec3f(ofRandom(-100,100),ofRandom(-10,10),0 ) );
+    
 }
 
 void MSAParticleGroup3D::resizeParticleGroup()
@@ -110,9 +108,9 @@ void MSAParticleGroup3D::killParticles()
 }
 
 //------------------------------------------------- SETTINGS
-void MSAParticleGroup3D::addSettings( string _instance_name, ofxSimpleGuiToo & _gui )
+void MSAParticleGroup3D::addSettings( ofxSimpleGuiToo & _gui )
 {
-    _gui.addTitle( _instance_name + " Settings").setNewColumn(true);
+    _gui.addTitle( instance_name + " Settings").setNewColumn(true);
     
 	_gui.addSlider( "mass min", mass_min, 0.1, 1);
 	_gui.addSlider( "mass max", mass_max, 0.1, 1);
@@ -120,8 +118,6 @@ void MSAParticleGroup3D::addSettings( string _instance_name, ofxSimpleGuiToo & _
 	_gui.addSlider( "drag min", drag_min, 0.1, 1);
 	_gui.addSlider( "drag max", drag_max, 0.1, 1);
     
-	_gui.addSlider( "node min", node_min, .1, 15);
-	_gui.addSlider( "node max", node_max, .1, 150);
     
 //    _gui.addSlider( "bounce min", bounce_min, 0, 1);
 //	_gui.addSlider( "bounce max", bounce_max, 0, 1);

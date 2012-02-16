@@ -14,18 +14,26 @@ class MSAParticleGroup3DMesh_PointSprites : public MSAParticleGroup3DMesh {
 private:
 
     ofImage     texture;
-    ofVbo       vbo;    
+    ofVbo       vbo;
+    
+    int         gl_point_size;
 
 public:
     
     MSAParticleGroup3DMesh_PointSprites() {
         
         mesh.setMode(OF_PRIMITIVE_POINTS);
-        
         ofDisableArbTex();
         texture.loadImage("dot-8.png");
         
-        glPointSize(40);
+        gl_point_size = 20;
+    }
+    
+    //---------------------------------------------------------------
+    void addSettings( ofxSimpleGuiToo & _gui )
+    {
+        MSAParticleGroup3DMesh::addSettings( _gui );
+        _gui.addSlider( "Point Size", gl_point_size, 1, 500);
     }
     
     void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
@@ -41,8 +49,11 @@ public:
     
     virtual void draw()
     {
+        glPointSize( gl_point_size );
+        
         ofEnablePointSprites();
         ofEnableAlphaBlending();
+        
         
         //        OF_BLENDMODE_DISABLED = 0,
         //        OF_BLENDMODE_ALPHA 	  = 1,

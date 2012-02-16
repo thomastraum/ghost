@@ -29,7 +29,9 @@ public:
     void initScene();
     void resizeScene();
     
-    void createParticleGroups();
+    // overload this if you want to add your own particle groups // 
+    virtual void createParticleGroups();
+    
     void addParticles( Vec3f _pos, int _count );
     void addParticle( Vec3f _pos  );
     
@@ -47,7 +49,8 @@ public:
     int                         numberOfParticles;
     
     MSAParticleGroup3D *        maingroup;
-    MSAParticleGroup3D *        linegroup;
+    vector<MSAParticleGroup3D*> groups;
+    
     Physics::Particle3D         mouse_node;
     
     int                         width;

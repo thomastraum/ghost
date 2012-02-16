@@ -49,10 +49,6 @@ public:
     // ---------------------------------------------- SETTINGS
     void addSettings( ofxSimpleGuiToo & _gui );
     ofxSimpleGuiPage *  gui_page;
-    
-    // ---------------------------------------------- KEYS
-    void keyPressed( ofKeyEventArgs&args );
-
 
 };
 

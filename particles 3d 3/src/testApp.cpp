@@ -157,6 +157,15 @@ void testApp::keyPressed(int key){
     if (key=='p')
         ps.addParticles( Vec3f( 0,0,0 ), 1000 );
     
+    if (key=='l')
+        ps.addLines( Vec3f( 0,0,0 ), 1000 );
+    
+    if (key=='q')
+        ps.addQuads( Vec3f( 0,0,0 ), 1000 );
+    
+    if (key=='p')
+        ps.addPoints( Vec3f( 0,0,0 ), 1000 );
+
     if (key=='k')
         ps.killAll();
     

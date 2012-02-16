@@ -45,7 +45,7 @@
     </Toggle_draw_fluid>
     <Toggle_fs.wrapX>
         <name>fs.wrapX</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_fs.wrapX>
     <Toggle_fs.wrapY>
         <name>fs.wrapY</name>
@@ -53,11 +53,15 @@
     </Toggle_fs.wrapY>
     <SliderFloat_force_Strength>
         <name>force Strength</name>
-        <value>0.012000</value>
+        <value>0.100000</value>
         <name>force Strength</name>
-        <value>0.001000</value>
+        <value>0.100000</value>
+        <name>force Strength</name>
+        <value>0.100000</value>
     </SliderFloat_force_Strength>
     <Toggle_force_Enabled>
+        <name>force Enabled</name>
+        <value>0</value>
         <name>force Enabled</name>
         <value>1</value>
         <name>force Enabled</name>
@@ -73,9 +77,32 @@
     </SliderFloat_force_Offset>
     <SliderFloat_force_Strength></SliderFloat_force_Strength>
     <Toggle_force_Enabled></Toggle_force_Enabled>
+    <SliderInt_Steps_Min>
+        <name>Steps Min</name>
+        <value>5</value>
+        <name>Steps Min</name>
+        <value>5</value>
+    </SliderInt_Steps_Min>
+    <SliderInt_Steps_Max>
+        <name>Steps Max</name>
+        <value>26</value>
+        <name>Steps Max</name>
+        <value>26</value>
+    </SliderInt_Steps_Max>
+    <Toggle_Direction>
+        <name>Direction</name>
+        <value>1</value>
+        <name>Direction</name>
+        <value>0</value>
+    </Toggle_Direction>
+    <SliderFloat_force_Strength></SliderFloat_force_Strength>
+    <Toggle_force_Enabled></Toggle_force_Enabled>
+    <SliderInt_Steps_Min></SliderInt_Steps_Min>
+    <SliderInt_Steps_Max></SliderInt_Steps_Max>
+    <Toggle_Direction></Toggle_Direction>
     <SliderFloat_Fluid_Influence>
         <name>Fluid Influence</name>
-        <value>0.040000</value>
+        <value>0.030000</value>
     </SliderFloat_Fluid_Influence>
     <SliderFloat_Momentum>
         <name>Momentum</name>

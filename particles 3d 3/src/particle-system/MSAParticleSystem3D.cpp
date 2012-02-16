@@ -47,6 +47,8 @@ void MSAParticleSystem3D::createParticleGroups()
 {
     maingroup = new MSAParticleGroup3DMesh_Quad(); //MSAParticleGroups3D_Quads(); //MSAParticleGroup3D_PointSpritesVBO
     maingroup->setup();
+    
+    groups.push_back(maingroup);
 }
 
 // ----------------------------------------------------- LOOPS 
@@ -58,7 +60,11 @@ void MSAParticleSystem3D::update()
     }
     
 	physics.update();
-    maingroup->update();
+    
+    //    maingroup->update();
+    for (int i=0; i<groups.size(); i++) {
+        groups[i]->update(); 
+    }
     
     // we show this number in the UI //
     numberOfParticles = physics.numberOfParticles();
@@ -67,7 +73,10 @@ void MSAParticleSystem3D::update()
 // ----------------------------------------------------- DRAW
 void MSAParticleSystem3D::draw()
 {
-    maingroup->draw();
+//    maingroup->draw();
+    for (int i=0; i<groups.size(); i++) {
+        groups[i]->draw(); 
+    }
     
     // draw mouse //
     ofPushStyle();
@@ -128,7 +137,7 @@ void MSAParticleSystem3D::addSettings( ofxSimpleGuiToo & _gui )
 	_gui.addSlider( "gravity", gravity, -5, 5);
     _gui.addButton( "Update Gravity", update_gravity );
     _gui.addSlider( "numberOfParticles", numberOfParticles, 0, 100000 );
-    maingroup->addSettings( "Main Group", _gui );
+    maingroup->addSettings( _gui );
 }
 
 void MSAParticleSystem3D::setXMLFilename( string _xml_filename )
