@@ -2,7 +2,7 @@
 
 #include "MSAParticleGroup3D.h"
 
-#define MAX_GROUP_PARTICLES 5000
+#define MAX_GROUP_PARTICLES 15000
 
 void MSAParticleGroup3D::setup()
 {

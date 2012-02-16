@@ -55,7 +55,6 @@ public:
         vbo.setMesh( mesh, GL_STATIC_DRAW );
         vbo.draw( GL_LINES, 0, mesh.getNumVertices() );
         
-//      glDisable(GL_ALPHA_TEST);
 //      glDisable(GL_DEPTH_TEST);
         ofDisableAlphaBlending();
     }

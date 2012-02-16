@@ -32,7 +32,7 @@ public:
         glFogi(GL_FOG_MODE, GL_LINEAR);
         glFogfv(GL_FOG_COLOR, fogColor);
         glFogf(GL_FOG_DENSITY, 1);
-        glHint(GL_FOG_HINT, GL_NICEST);
+        glHint(GL_FOG_HINT, GL_DONT_CARE);
         glFogf(GL_FOG_START, start);
         glFogf(GL_FOG_END, end);
         glEnable(GL_FOG);

@@ -9,7 +9,7 @@
     </Button_Update_Gravity>
     <SliderInt_numberOfParticles>
         <name>numberOfParticles</name>
-        <value>11001</value>
+        <value>5001</value>
     </SliderInt_numberOfParticles>
     <SliderFloat_mass_min>
         <name>mass min</name>
@@ -81,6 +81,6 @@
     <Toggle_wrapping></Toggle_wrapping>
     <SliderInt_Point_Size>
         <name>Point Size</name>
-        <value>38</value>
+        <value>30</value>
     </SliderInt_Point_Size>
 </controls>

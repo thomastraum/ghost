@@ -65,7 +65,7 @@
         <name>force Enabled</name>
         <value>1</value>
         <name>force Enabled</name>
-        <value>1</value>
+        <value>0</value>
     </Toggle_force_Enabled>
     <SliderFloat_force_Freq>
         <name>force Freq</name>
@@ -93,7 +93,7 @@
         <name>Direction</name>
         <value>1</value>
         <name>Direction</name>
-        <value>0</value>
+        <value>1</value>
     </Toggle_Direction>
     <SliderFloat_force_Strength></SliderFloat_force_Strength>
     <Toggle_force_Enabled></Toggle_force_Enabled>

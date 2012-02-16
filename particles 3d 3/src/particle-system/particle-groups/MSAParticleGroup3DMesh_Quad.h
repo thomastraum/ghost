@@ -105,7 +105,7 @@ public:
         //        OF_BLENDMODE_SCREEN   = 5
         //        ofEnableBlendMode( OF_BLENDMODE_ADD );
         
-        glEnable(GL_DEPTH_TEST);
+//        glEnable(GL_DEPTH_TEST);
         glEnable(GL_ALPHA_TEST);
         glAlphaFunc(GL_GREATER, 0.1);
         
@@ -115,7 +115,7 @@ public:
         texture.getTextureReference().unbind();		// new in OF006
         
         glDisable(GL_ALPHA_TEST);
-        glDisable(GL_DEPTH_TEST);
+//        glDisable(GL_DEPTH_TEST);
         
         ofDisableAlphaBlending();
     }

@@ -154,8 +154,8 @@ void testApp::keyPressed(int key){
     if (key=='f')
 		ofToggleFullscreen();
     
-    if (key=='p')
-        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
+//    if (key=='p')
+//        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
     
     if (key=='l')
         ps.addLines( Vec3f( 0,0,0 ), 1000 );
