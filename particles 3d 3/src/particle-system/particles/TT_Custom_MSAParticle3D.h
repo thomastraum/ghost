@@ -118,23 +118,23 @@ public:
     
     void wrap()
     {
-        if(_oldPos.x > _params->worldMax.x ) {
+        if(_oldPos.x > _params->worldMax.x - _radius ) {
             float vel = _pos.x - _oldPos.x;
             _pos.x = _params->worldMin.x - vel;
-            _oldPos.x = _params->worldMin.x ;
+            _oldPos.x = _params->worldMin.x;
             
-        } else if ( _oldPos.x < _params->worldMin.x ) {
+        } else if ( _oldPos.x < _params->worldMin.x - _radius) {
             float vel = _pos.x - _oldPos.x;
             _pos.x = _params->worldMax.x - vel;
             _oldPos.x = _params->worldMax.x;
         }
         
-        if(_oldPos.y > _params->worldMax.y ) {
+        if(_oldPos.y > _params->worldMax.y -_radius ) {
             float vel = _pos.y - _oldPos.y;
             _pos.y = _params->worldMin.y - vel;
             _oldPos.y = _params->worldMin.y ;
             
-        } else if ( _oldPos.x < _params->worldMin.x ) {
+        } else if ( _oldPos.x < _params->worldMin.x - _radius ) {
             float vel = _pos.y - _oldPos.y;
             _pos.y = _params->worldMax.y - vel;
             _oldPos.y = _params->worldMax.y;

@@ -13,7 +13,7 @@
     </SliderInt_numberOfParticles>
     <SliderFloat_mass_min>
         <name>mass min</name>
-        <value>0.212500</value>
+        <value>0.838000</value>
     </SliderFloat_mass_min>
     <SliderFloat_mass_max>
         <name>mass max</name>
@@ -21,11 +21,11 @@
     </SliderFloat_mass_max>
     <SliderFloat_drag_min>
         <name>drag min</name>
-        <value>0.932500</value>
+        <value>0.977500</value>
     </SliderFloat_drag_min>
     <SliderFloat_drag_max>
         <name>drag max</name>
-        <value>0.968500</value>
+        <value>0.991000</value>
     </SliderFloat_drag_max>
     <SliderFloat_node_min>
         <name>node min</name>

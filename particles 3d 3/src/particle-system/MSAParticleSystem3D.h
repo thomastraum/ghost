@@ -47,6 +47,7 @@ public:
     int                         numberOfParticles;
     
     MSAParticleGroup3D *        maingroup;
+    MSAParticleGroup3D *        linegroup;
     Physics::Particle3D         mouse_node;
     
     int                         width;
