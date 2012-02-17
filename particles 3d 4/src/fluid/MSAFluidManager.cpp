@@ -143,5 +143,17 @@ void MSAFluidManager::addSettings( ofxSimpleGuiToo & _gui )
     for ( int i=0;i<forces.size(); i++ ) {
         forces[i]->addSettings( _gui);
     }
-
 }
+
+void MSAFluidManager::setXMLFilename( string _name )
+{
+//    xml_filename = _xml_filename;
+    gui_page->setXMLName( _name );
+}
+
+
+
+
+
+
+

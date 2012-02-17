@@ -28,6 +28,13 @@ void testApp::setup(){
     
     addAppSettings();
     
+    xml_filename    = "schnitzel.xml";
+    ps_xml_name     = "Particle TT.xml";
+    fluid_xml_name  = "MSAFluidManager_settings.xml";
+    preset_path     = "presets/";
+    
+    loadXMLSettingsFromPath( preset_path + my_presets.getNextPresetName() );
+    
     //-------------------------------------
     
 //    ofToggleFullscreen();
@@ -186,6 +193,10 @@ void testApp::keyPressed(int key){
     if ( key=='s' )
         shaker.startShaking();
     
+    if ( key == '.' ) {
+        loadXMLSettingsFromPath( preset_path + my_presets.getNextPresetName() );
+    }
+    
 //	if (key=='s')
 //		savedPose = camera.getGlobalTransformMatrix();
 //	
@@ -205,25 +216,57 @@ void testApp::addAppSettings()
     float slider_smoothing = 0.9;
     
     gui.setDefaultKeys(true);
-	gui.setAutoSave(false);
+	gui.setAutoSave(true);
     
-    fog.addSettings( gui );
-//    fog.color = ofFloatColor( 1,1,1,1);
-//	gui.addColorPicker("Fog Color Red", &fog.color.r);
-	
-//	gui.addColorPicker("Plane Color R", &plane_color.r);
-//	gui.addColorPicker("Plane Color G", &plane_color.g);
-//	gui.addColorPicker("Plane Color B", &plane_color.b);
+    addMainSettings();
     
-    fluid_updater.addSettings(gui);
     fluid.addSettings( gui );
-    
     ps.addSettings( gui );
-    ps.setXMLFilename( "Particle TT.xml" );
+    
+}
+
+// ----------------------------------------------------- 
+void testApp::addMainSettings()
+{
+    fog.addSettings( gui );
+    fluid_updater.addSettings(gui);
+    main_page = & gui.currentPage();
+}
+
+// ----------------------------------------------------- 
+void testApp::setXMLFilename( string _xml_filename )
+{
+    cout << xml_filename << endl;
+    main_page->setXMLName( _xml_filename );
+}
+
+// ----------------------------------------------------- 
+void testApp::loadXMLSettingsFromPath( string _path )
+{
+    cout << "loadXMLSettingsFromPath: " + _path << endl;
+    
+    setXMLFilename( _path + xml_filename );
+    ps.setXMLFilename( _path + ps_xml_name );
+    fluid.setXMLFilename( _path + fluid_xml_name );
+    
     loadXMLSettings();
 }
 
+// ----------------------------------------------------- 
 void testApp::loadXMLSettings()
 {
     gui.loadFromXML();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

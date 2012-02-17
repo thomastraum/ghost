@@ -54,5 +54,8 @@ public:
         _gui.addSlider( "Fog Alpha", color.a, 0,1);
     }
     
-    
+    void setXMLFilename( string _name )
+    {
+        
+    }
 };

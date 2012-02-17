@@ -1,7 +1,7 @@
 <controls>
     <SliderFloat_gravity>
         <name>gravity</name>
-        <value>0.000000</value>
+        <value>0.500000</value>
     </SliderFloat_gravity>
     <Button_Update_Gravity>
         <name>Update Gravity</name>
@@ -9,39 +9,39 @@
     </Button_Update_Gravity>
     <SliderInt_numberOfParticles>
         <name>numberOfParticles</name>
-        <value>5001</value>
+        <value>1</value>
     </SliderInt_numberOfParticles>
     <SliderFloat_mass_min>
         <name>mass min</name>
-        <value>0.838000</value>
+        <value>0.900000</value>
         <name>mass min</name>
-        <value>0.838000</value>
+        <value>0.900000</value>
         <name>mass min</name>
-        <value>0.838000</value>
+        <value>0.900000</value>
     </SliderFloat_mass_min>
     <SliderFloat_mass_max>
         <name>mass max</name>
-        <value>1.000000</value>
+        <value>0.990000</value>
         <name>mass max</name>
-        <value>1.000000</value>
+        <value>0.990000</value>
         <name>mass max</name>
-        <value>1.000000</value>
+        <value>0.990000</value>
     </SliderFloat_mass_max>
     <SliderFloat_drag_min>
         <name>drag min</name>
-        <value>0.617500</value>
+        <value>0.900000</value>
         <name>drag min</name>
-        <value>0.617500</value>
+        <value>0.900000</value>
         <name>drag min</name>
-        <value>0.617500</value>
+        <value>0.900000</value>
     </SliderFloat_drag_min>
     <SliderFloat_drag_max>
         <name>drag max</name>
-        <value>0.991000</value>
+        <value>0.990000</value>
         <name>drag max</name>
-        <value>0.991000</value>
+        <value>0.990000</value>
         <name>drag max</name>
-        <value>0.991000</value>
+        <value>0.990000</value>
     </SliderFloat_drag_max>
     <Toggle_collision>
         <name>collision</name>
@@ -61,26 +61,26 @@
     </Toggle_wrapping>
     <SliderFloat_node_min>
         <name>node min</name>
-        <value>2.260000</value>
+        <value>1.000000</value>
     </SliderFloat_node_min>
     <SliderFloat_node_max>
         <name>node max</name>
-        <value>150.000000</value>
+        <value>20.000000</value>
     </SliderFloat_node_max>
-    <SliderFloat_mass_min></SliderFloat_mass_min>
-    <SliderFloat_mass_max></SliderFloat_mass_max>
-    <SliderFloat_drag_min></SliderFloat_drag_min>
-    <SliderFloat_drag_max></SliderFloat_drag_max>
-    <Toggle_collision></Toggle_collision>
-    <Toggle_wrapping></Toggle_wrapping>
-    <SliderFloat_mass_min></SliderFloat_mass_min>
-    <SliderFloat_mass_max></SliderFloat_mass_max>
-    <SliderFloat_drag_min></SliderFloat_drag_min>
-    <SliderFloat_drag_max></SliderFloat_drag_max>
-    <Toggle_collision></Toggle_collision>
-    <Toggle_wrapping></Toggle_wrapping>
+    <SliderFloat_mass_min />
+    <SliderFloat_mass_max />
+    <SliderFloat_drag_min />
+    <SliderFloat_drag_max />
+    <Toggle_collision />
+    <Toggle_wrapping />
+    <SliderFloat_mass_min />
+    <SliderFloat_mass_max />
+    <SliderFloat_drag_min />
+    <SliderFloat_drag_max />
+    <Toggle_collision />
+    <Toggle_wrapping />
     <SliderInt_Point_Size>
         <name>Point Size</name>
-        <value>30</value>
+        <value>3</value>
     </SliderInt_Point_Size>
 </controls>

@@ -1,7 +1,7 @@
 <controls>
     <SliderInt_fluidCellsX>
         <name>fluidCellsX</name>
-        <value>70</value>
+        <value>63</value>
     </SliderInt_fluidCellsX>
     <Button_resize_fluid>
         <name>resize_fluid</name>
@@ -13,11 +13,11 @@
     </SliderFloat_fs.viscocity>
     <SliderFloat_fs.colorDiffusion>
         <name>fs.colorDiffusion</name>
-        <value>0.000018</value>
+        <value>0.000086</value>
     </SliderFloat_fs.colorDiffusion>
     <SliderFloat_fs.fadeSpeed>
         <name>fs.fadeSpeed</name>
-        <value>0.097500</value>
+        <value>0.032000</value>
     </SliderFloat_fs.fadeSpeed>
     <SliderInt_fs.solverIterations>
         <name>fs.solverIterations</name>
@@ -45,67 +45,80 @@
     </Toggle_draw_fluid>
     <Toggle_fs.wrapX>
         <name>fs.wrapX</name>
-        <value>0</value>
+        <value>1</value>
     </Toggle_fs.wrapX>
     <Toggle_fs.wrapY>
         <name>fs.wrapY</name>
-        <value>0</value>
+        <value>1</value>
     </Toggle_fs.wrapY>
-    <SliderFloat_force_Strength>
-        <name>force Strength</name>
-        <value>0.100000</value>
-        <name>force Strength</name>
-        <value>0.100000</value>
-        <name>force Strength</name>
-        <value>0.100000</value>
-    </SliderFloat_force_Strength>
-    <Toggle_force_Enabled>
-        <name>force Enabled</name>
+    <SliderFloat_Sine_1_Strength>
+        <name>Sine 1 Strength</name>
+        <value>0.097000</value>
+    </SliderFloat_Sine_1_Strength>
+    <Toggle_Sine_1_Enabled>
+        <name>Sine 1 Enabled</name>
         <value>0</value>
-        <name>force Enabled</name>
-        <value>1</value>
-        <name>force Enabled</name>
+    </Toggle_Sine_1_Enabled>
+    <SliderFloat_Freq>
+        <name>Freq</name>
+        <value>1.129000</value>
+        <name>Freq</name>
+        <value>1.570000</value>
+    </SliderFloat_Freq>
+    <SliderFloat_Offset>
+        <name>Offset</name>
+        <value>0.000000</value>
+        <name>Offset</name>
+        <value>0.700000</value>
+    </SliderFloat_Offset>
+    <SliderFloat_Sine_2_Strength>
+        <name>Sine 2 Strength</name>
+        <value>-0.014000</value>
+    </SliderFloat_Sine_2_Strength>
+    <Toggle_Sine_2_Enabled>
+        <name>Sine 2 Enabled</name>
         <value>0</value>
-    </Toggle_force_Enabled>
-    <SliderFloat_force_Freq>
-        <name>force Freq</name>
-        <value>1.521000</value>
-    </SliderFloat_force_Freq>
-    <SliderFloat_force_Offset>
-        <name>force Offset</name>
-        <value>0.000000</value>
-    </SliderFloat_force_Offset>
-    <SliderFloat_force_Strength></SliderFloat_force_Strength>
-    <Toggle_force_Enabled></Toggle_force_Enabled>
-    <SliderInt_Steps_Min>
-        <name>Steps Min</name>
-        <value>5</value>
-        <name>Steps Min</name>
-        <value>5</value>
-    </SliderInt_Steps_Min>
-    <SliderInt_Steps_Max>
-        <name>Steps Max</name>
-        <value>26</value>
-        <name>Steps Max</name>
-        <value>26</value>
-    </SliderInt_Steps_Max>
-    <Toggle_Direction>
-        <name>Direction</name>
+    </Toggle_Sine_2_Enabled>
+    <SliderFloat_Freq></SliderFloat_Freq>
+    <SliderFloat_Offset></SliderFloat_Offset>
+    <SliderFloat_Side_1_Strength>
+        <name>Side 1 Strength</name>
+        <value>0.069000</value>
+    </SliderFloat_Side_1_Strength>
+    <Toggle_Side_1_Enabled>
+        <name>Side 1 Enabled</name>
+        <value>0</value>
+    </Toggle_Side_1_Enabled>
+    <SliderInt_Side_1_Steps_Min>
+        <name>Side 1 Steps Min</name>
+        <value>8</value>
+    </SliderInt_Side_1_Steps_Min>
+    <SliderInt_Side_1_Steps_Max>
+        <name>Side 1 Steps Max</name>
+        <value>18</value>
+    </SliderInt_Side_1_Steps_Max>
+    <Toggle_Side_1_Direction>
+        <name>Side 1 Direction</name>
         <value>1</value>
-        <name>Direction</name>
+    </Toggle_Side_1_Direction>
+    <SliderFloat_Side_2_Strength>
+        <name>Side 2 Strength</name>
+        <value>0.007000</value>
+    </SliderFloat_Side_2_Strength>
+    <Toggle_Side_2_Enabled>
+        <name>Side 2 Enabled</name>
         <value>1</value>
-    </Toggle_Direction>
-    <SliderFloat_force_Strength></SliderFloat_force_Strength>
-    <Toggle_force_Enabled></Toggle_force_Enabled>
-    <SliderInt_Steps_Min></SliderInt_Steps_Min>
-    <SliderInt_Steps_Max></SliderInt_Steps_Max>
-    <Toggle_Direction></Toggle_Direction>
-    <SliderFloat_Fluid_Influence>
-        <name>Fluid Influence</name>
-        <value>0.030000</value>
-    </SliderFloat_Fluid_Influence>
-    <SliderFloat_Momentum>
-        <name>Momentum</name>
-        <value>0.000000</value>
-    </SliderFloat_Momentum>
+    </Toggle_Side_2_Enabled>
+    <SliderInt_Side_2_Steps_Min>
+        <name>Side 2 Steps Min</name>
+        <value>1</value>
+    </SliderInt_Side_2_Steps_Min>
+    <SliderInt_Side_2_Steps_Max>
+        <name>Side 2 Steps Max</name>
+        <value>13</value>
+    </SliderInt_Side_2_Steps_Max>
+    <Toggle_Side_2_Direction>
+        <name>Side 2 Direction</name>
+        <value>1</value>
+    </Toggle_Side_2_Direction>
 </controls>
