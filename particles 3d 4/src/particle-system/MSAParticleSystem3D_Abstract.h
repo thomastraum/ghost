@@ -34,6 +34,8 @@ public:
     virtual void addSettings( ofxSimpleGuiToo & _gui );
     virtual void setXMLFilename( string _xml_filename );
     
+    bool                        update_gravity;
+    
 protected:
     
     vector<MSAParticleGroup3D*> groups;
@@ -72,6 +74,5 @@ private:
     //---------------------------------------------------- SETTINGS
     string                      xml_filename;
     ofxSimpleGuiPage *          gui_particle_page;
-    bool                        update_gravity;
         
 };

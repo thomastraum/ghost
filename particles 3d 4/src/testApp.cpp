@@ -28,11 +28,7 @@ void testApp::setup(){
     
     addAppSettings();
     
-    xml_filename    = "schnitzel.xml";
-    ps_xml_name     = "Particle TT.xml";
-    fluid_xml_name  = "MSAFluidManager_settings.xml";
     preset_path     = "presets/";
-    
     loadXMLSettingsFromPath( preset_path + my_presets.getNextPresetName() );
     
     //-------------------------------------
@@ -195,6 +191,7 @@ void testApp::keyPressed(int key){
     
     if ( key == '.' ) {
         loadXMLSettingsFromPath( preset_path + my_presets.getNextPresetName() );
+        ps.update_gravity = true;
     }
     
 //	if (key=='s')
@@ -236,7 +233,7 @@ void testApp::addMainSettings()
 // ----------------------------------------------------- 
 void testApp::setXMLFilename( string _xml_filename )
 {
-    cout << xml_filename << endl;
+    cout << _xml_filename << endl;
     main_page->setXMLName( _xml_filename );
 }
 
@@ -245,9 +242,9 @@ void testApp::loadXMLSettingsFromPath( string _path )
 {
     cout << "loadXMLSettingsFromPath: " + _path << endl;
     
-    setXMLFilename( _path + xml_filename );
-    ps.setXMLFilename( _path + ps_xml_name );
-    fluid.setXMLFilename( _path + fluid_xml_name );
+    setXMLFilename( _path + "schnitzel.xml" );
+    ps.setXMLFilename( _path + "Particle TT.xml" );
+    fluid.setXMLFilename( _path + "MSAFluidManager_settings.xml" );
     
     loadXMLSettings();
 }

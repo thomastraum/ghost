@@ -68,10 +68,6 @@ private:
     
     string preset_path;
     
-    string xml_filename;
-    string ps_xml_name;
-    string fluid_xml_name;
-    
     //--------------
     
     TT_Presets my_presets;

@@ -27,6 +27,10 @@ public:
         preset_2->preset_name = "stormy/";
         presets.push_back(preset_2);
         
+        Preset * preset_3 = new Preset();
+        preset_3->preset_name = "stormy-2/";
+        presets.push_back(preset_3);
+
         preset_counter = 0;
     }
     
@@ -40,21 +44,3 @@ public:
     
     
 };
-
-
-
-//vector<TT_Custom_MSAParticle3D*>::iterator it = group.begin();
-//
-//while( it != group.end() ) {
-//    TT_Custom_MSAParticle3D * p = *it;
-//    if( p->isDead() ) {
-//        it = group.erase(it);
-//    } else {
-//        ofPushStyle();
-//        ofFill();
-//        ofSetHexColor( particle_default_color );
-//        ofCircle( p->getPosition().x, p->getPosition().y, p->getPosition().z, p->getRadius() );
-//        ofPopStyle();
-//        it++;
-//    }
-//}
