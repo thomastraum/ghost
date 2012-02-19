@@ -16,6 +16,8 @@ class TT_Fog  {
     int start;
     int end;
     
+    float   gui_smoothing;
+    
 public:
     
     ofFloatColor    color;
@@ -23,6 +25,8 @@ public:
     TT_Fog()
     {
         color = ofFloatColor( 1,1,1,1 );
+        gui_smoothing = .9;
+        start = 0;
     }
     
     void draw()
@@ -33,7 +37,7 @@ public:
         glFogfv(GL_FOG_COLOR, fogColor);
         glFogf(GL_FOG_DENSITY, 1);
         glHint(GL_FOG_HINT, GL_DONT_CARE);
-        glFogf(GL_FOG_START, 800);
+        glFogf(GL_FOG_START, start);
         glFogf(GL_FOG_END, end);
         glEnable(GL_FOG);
     }
@@ -48,10 +52,13 @@ public:
     {
 //        _gui.addColorPicker("Fog Color Red", &color.r);        
         _gui.addTitle( "Fog Colors" );
-        _gui.addSlider( "Fog Red", color.r, 0,1).setSmoothing(.98);
-        _gui.addSlider( "Fog Green", color.g, 0,1).setSmoothing(.98);
-        _gui.addSlider( "Fog Blue", color.b, 0,1).setSmoothing(.98);
-        _gui.addSlider( "Fog Alpha", color.a, 0,1).setSmoothing(.98);
+        _gui.addSlider( "Fog Red", color.r, 0,1).setSmoothing( gui_smoothing );
+        _gui.addSlider( "Fog Green", color.g, 0,1).setSmoothing( gui_smoothing );
+        _gui.addSlider( "Fog Blue", color.b, 0,1).setSmoothing( gui_smoothing );
+        _gui.addSlider( "Fog Alpha", color.a, 0,1).setSmoothing( gui_smoothing );
+        
+//        _gui.addSlider( "Fog End", end, 0,10000).setSmoothing( gui_smoothing );
+//        _gui.addSlider( "Fog Start", start, -1000,1000).setSmoothing( gui_smoothing );
     }
     
     void setXMLFilename( string _name )

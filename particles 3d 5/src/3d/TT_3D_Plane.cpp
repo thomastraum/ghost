@@ -23,15 +23,14 @@ void TT_3D_Plane::customDraw()
     glDisable(GL_DEPTH_TEST);
 }
 
-void TT_3D_Plane::toggleDebugDraw()
+
+void TT_3D_Plane::setPlaneColor( ofColor _c )
 {
+    // colors
+    col[0] = ofFloatColor( _c.r, _c.g, _c.b, _c.a );
+    col[1] = ofFloatColor( _c.r, _c.g, _c.b, _c.a );
+    col[2] = ofFloatColor( _c.r, _c.g, _c.b, _c.a );
+    col[3] = ofFloatColor( _c.r, _c.g, _c.b, _c.a );
     
-}
-
-
-void TT_3D_Plane::keyPressed( ofKeyEventArgs&args )
-{
-//    if ( args.key == "d" ) {
-//        color = ofColor( 
-//    }
+    vbo.setColorData( &col[0], 4, GL_STATIC_DRAW );
 }

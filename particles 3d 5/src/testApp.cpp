@@ -70,8 +70,6 @@ void testApp::draw()
         
         ofSetColor(255,0,0);
         ofPushMatrix();
-        ofRotateX(25);
-        ofRotateY(49);
         ofBox( 0,0,0, 10 );
         ofPopMatrix();
     
@@ -91,7 +89,7 @@ void testApp::buildScene()
 	width = ofGetWidth();
 	height = ofGetHeight();
     
-    fog.defineStartAndEnd( 0, width*1.9 );
+    fog.defineStartAndEnd( 1000, width*1.8 );
     
     plane_bottom.width = width;
     plane_bottom.height = height;
@@ -144,11 +142,11 @@ void testApp::keyPressed(int key){
     if (key== 'd' )
         draw_debug = ! draw_debug;
     
-	if (key=='c')
-		camera.toggleCursorDraw();
+//	if (key=='c')
+//		camera.toggleCursorDraw();
 	
-	if (key=='u')
-		camera.toggleFixUpwards();
+//	if (key=='u')
+//		camera.toggleFixUpwards();
     
     if (key=='f')
 		ofToggleFullscreen();
@@ -189,6 +187,7 @@ void testApp::keyPressed(int key){
     if ( key == '.' )
         nextPreset();
     
+    
 //	if (key=='s')
 //		savedPose = camera.getGlobalTransformMatrix();
 //	
@@ -208,7 +207,6 @@ void testApp::addAppSettings()
     float slider_smoothing = 0.5;
     
     gui.setDefaultKeys(true);
-	gui.setAutoSave(true);
     
     addMainSettings();
     
@@ -241,6 +239,9 @@ void testApp::loadXMLSettingsFromPath( string _path )
     fluid.setXMLFilename( _path + "MSAFluidManager_settings.xml" );
     
     loadXMLSettings();
+    
+	gui.setAutoSave(false);
+    gui.show();
 }
 
 //-------------------------------------------------------------- 

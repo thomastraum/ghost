@@ -42,7 +42,7 @@ private:
     TT_3D_Plane plane_back;
     ofColor     plane_color;
     
-	ofxGrabCam  camera;
+	ofEasyCam   camera;
     TT_Fog      fog;
     
     void        buildScene();
