@@ -56,6 +56,7 @@
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
 		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
 		E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
+		E9137AF414F1199300FF3BA8 /* TT_Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9137AF314F1199300FF3BA8 /* TT_Box.cpp */; };
 		E9E0831A14ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9E0831814ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +210,9 @@
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E902C86C14EC13D2000B2A40 /* TT_Fog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Fog.h; sourceTree = "<group>"; };
 		E9137AF214F1182800FF3BA8 /* TT_Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Box.h; sourceTree = "<group>"; };
+		E9137AF314F1199300FF3BA8 /* TT_Box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TT_Box.cpp; sourceTree = "<group>"; };
+		E9137AF514F134C400FF3BA8 /* TT_BoxGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_BoxGui.h; sourceTree = "<group>"; };
+		E9137AF614F19A7E00FF3BA8 /* MSAPhysicsFluidUpdater3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsFluidUpdater3D.h; sourceTree = "<group>"; };
 		E99C54BD14EFD82900358B40 /* TT_Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Presets.h; sourceTree = "<group>"; };
 		E9BE711814EAC604009568AE /* ForceFromSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForceFromSide.h; sourceTree = "<group>"; };
 		E9BE711914EAF662009568AE /* MSAPhysicsUpdaterShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterShake.h; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 			children = (
 				6423C92F14E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.cpp */,
 				6423C93014E56E7000B9C6A0 /* MSAPhysicsFluidUpdater.h */,
+				E9137AF614F19A7E00FF3BA8 /* MSAPhysicsFluidUpdater3D.h */,
 				E9BE711914EAF662009568AE /* MSAPhysicsUpdaterShake.h */,
 			);
 			path = "msa-physics-updater";
@@ -517,7 +522,9 @@
 				6458041C14E2FA48008B8410 /* TT_3D_Plane.cpp */,
 				6458041D14E2FA48008B8410 /* TT_3D_Plane.h */,
 				E902C86C14EC13D2000B2A40 /* TT_Fog.h */,
+				E9137AF314F1199300FF3BA8 /* TT_Box.cpp */,
 				E9137AF214F1182800FF3BA8 /* TT_Box.h */,
+				E9137AF514F134C400FF3BA8 /* TT_BoxGui.h */,
 			);
 			path = 3d;
 			sourceTree = "<group>";
@@ -805,6 +812,7 @@
 				6423C9A514E56ED600B9C6A0 /* MSAFluidSolver.cpp in Sources */,
 				644B07A914E5826D002B15F0 /* MSAFluidManager.cpp in Sources */,
 				E9E0831A14ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp in Sources */,
+				E9137AF414F1199300FF3BA8 /* TT_Box.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

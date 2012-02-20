@@ -52,6 +52,6 @@ void MSAPhysicsFluidUpdater::setWindowSize( Vec2f _windowSize )
 void MSAPhysicsFluidUpdater::addSettings( ofxSimpleGuiToo & _gui )
 {
     _gui.addTitle( "Fluid Updater Settings"); //.setNewColumn(true);
-    _gui.addSlider( "Fluid Influence", fluid_influence, 0,1);
-    _gui.addSlider( "Momentum", momentum, 0,1);
+    _gui.addSlider( "Fluid Influence", fluid_influence, 0,.25);
+    _gui.addSlider( "Momentum", momentum, 0,.25);
 }

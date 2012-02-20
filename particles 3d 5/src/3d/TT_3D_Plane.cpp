@@ -24,13 +24,13 @@ void TT_3D_Plane::customDraw()
 }
 
 
-void TT_3D_Plane::setPlaneColor( ofColor _c )
+void TT_3D_Plane::setColor( ofFloatColor _c )
 {
     // colors
-    col[0] = ofFloatColor( _c.r, _c.g, _c.b, _c.a );
-    col[1] = ofFloatColor( _c.r, _c.g, _c.b, _c.a );
-    col[2] = ofFloatColor( _c.r, _c.g, _c.b, _c.a );
-    col[3] = ofFloatColor( _c.r, _c.g, _c.b, _c.a );
+    col[0] = _c; //ofFloatColor( _c.r, _c.g, _c.b, _c.a );
+    col[1] = _c; //ofFloatColor( _c.r, _c.g, _c.b, _c.a );
+    col[2] = _c; //ofFloatColor( _c.r, _c.g, _c.b, _c.a );
+    col[3] = _c; //ofFloatColor( _c.r, _c.g, _c.b, _c.a );
     
     vbo.setColorData( &col[0], 4, GL_STATIC_DRAW );
 }

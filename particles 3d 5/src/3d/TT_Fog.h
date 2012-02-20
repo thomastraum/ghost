@@ -25,7 +25,7 @@ public:
     TT_Fog()
     {
         color = ofFloatColor( 1,1,1,1 );
-        gui_smoothing = .9;
+        gui_smoothing = .5;
         start = 0;
     }
     
@@ -58,11 +58,7 @@ public:
         _gui.addSlider( "Fog Alpha", color.a, 0,1).setSmoothing( gui_smoothing );
         
 //        _gui.addSlider( "Fog End", end, 0,10000).setSmoothing( gui_smoothing );
-//        _gui.addSlider( "Fog Start", start, -1000,1000).setSmoothing( gui_smoothing );
+        _gui.addSlider( "Fog Start", start, -1000,4500).setSmoothing( gui_smoothing );
     }
     
-    void setXMLFilename( string _name )
-    {
-        
-    }
 };

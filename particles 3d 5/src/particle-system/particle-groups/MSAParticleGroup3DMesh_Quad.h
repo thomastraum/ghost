@@ -26,25 +26,17 @@ public:
         color = ofColor(255,255,255 );
         mesh.clear();
         ofDisableArbTex();
-        texture.loadImage("dot-8.png");
+        texture.loadImage("dot-8.png"); // -black
         
     }
     
     //---------------------------------------------------------------
-    // Quads have a radius size //
+    // Quads have a radius size
     void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
         MSAParticleGroup3DMesh::setParticleProperties( _p );
         float radius	= ofMap( _p->getMass(), mass_min, mass_max, node_min, node_max );
         _p->setRadius( radius );
-    }
-    
-    //---------------------------------------------------------------
-    void addSettings( ofxSimpleGuiToo & _gui )
-    {
-        MSAParticleGroup3DMesh::addSettings( _gui );
-        _gui.addSlider( "node min", node_min, 1, 15);
-        _gui.addSlider( "node max", node_max, 1, 150);
     }
     
     //---------------------------------------------------------------
@@ -106,18 +98,26 @@ public:
         //        ofEnableBlendMode( OF_BLENDMODE_ADD );
         
 //        glEnable(GL_DEPTH_TEST);
-        glEnable(GL_ALPHA_TEST);
-        glAlphaFunc(GL_GREATER, 0.1);
+//        glEnable(GL_ALPHA_TEST);
+//        glAlphaFunc(GL_GREATER, 0.1);
         
         texture.getTextureReference().bind();
         vbo.setMesh( mesh, GL_STATIC_DRAW );
         vbo.draw( GL_QUADS, 0, mesh.getNumVertices() );
         texture.getTextureReference().unbind();		// new in OF006
         
-        glDisable(GL_ALPHA_TEST);
+//        glDisable(GL_ALPHA_TEST);
 //        glDisable(GL_DEPTH_TEST);
         
         ofDisableAlphaBlending();
+    }
+    
+    //--------------------------------------------------------------- SETTINGS
+    void addSettings( ofxSimpleGuiToo & _gui )
+    {
+        MSAParticleGroup3DMesh::addSettings( _gui );
+        _gui.addSlider( "node min", node_min, 1, 15);
+        _gui.addSlider( "node max", node_max, 1, 300);
     }
     
 };

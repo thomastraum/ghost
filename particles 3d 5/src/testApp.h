@@ -4,13 +4,14 @@
 #include "ofxGrabCam.h"
 #include "ofxSimpleGuiToo.h"
 
-#include "TT_3D_Plane.h"
+#include "TT_BoxGui.h"
 #include "TT_Fog.h"
 //#include "MSAParticleSystem3D.h"
 #include "MSAParticleSystem3D_tt.h"
 
 #include "MSAFluidManager.h"
-#include "MSAPhysicsFluidUpdater.h"
+//#include "MSAPhysicsFluidUpdater.h"
+#include "MSAPhysicsFluidUpdater3D.h"
 #include "MSAPhysicsUpdaterShake.h"
 
 #include "TT_Presets.h"
@@ -35,12 +36,7 @@ private:
     int     width;
     int     height;
     
-    TT_3D_Plane plane_bottom;
-    TT_3D_Plane plane_left;
-    TT_3D_Plane plane_top;
-    TT_3D_Plane plane_right;
-    TT_3D_Plane plane_back;
-    ofColor     plane_color;
+    TT_BoxGui   box;
     
 	ofEasyCam   camera;
     TT_Fog      fog;
@@ -52,9 +48,9 @@ private:
     MSAParticleSystem3D_tt ps;
     
     //---------------------------------------------- FLUID
-    MSAFluidManager         fluid;
-    MSAPhysicsFluidUpdater  fluid_updater;
-    MSAPhysicsUpdaterShake  shaker;
+    MSAFluidManager             fluid;
+    MSAPhysicsFluidUpdater3D    fluid_updater;
+    MSAPhysicsUpdaterShake      shaker;
     
     //---------------------------------------------- Settings
     void addAppSettings();

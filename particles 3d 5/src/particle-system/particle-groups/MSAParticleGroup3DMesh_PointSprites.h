@@ -24,44 +24,39 @@ public:
         
         mesh.setMode(OF_PRIMITIVE_POINTS);
         ofDisableArbTex();
-        texture.loadImage("ps-1.png");
+//        texture.loadImage("ps-1.png");
+        texture.loadImage("dot-8.png");
         
-        gl_point_size = 20;
+        gl_point_size = 4;
     }
     
     //---------------------------------------------------------------
     void addSettings( ofxSimpleGuiToo & _gui )
     {
         MSAParticleGroup3DMesh::addSettings( _gui );
-        _gui.addSlider( "Point Size", gl_point_size, 1, 500);
+        _gui.addSlider( "Point Size", gl_point_size, 1, 50);
     }
     
+    //---------------------------------------------------------------
     void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
     {
         mesh.addVertex( ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
         mesh.addColor( ofColor(255,255,255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
     }
     
+    //---------------------------------------------------------------
     void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ) 
     {
         mesh.setVertex( index, ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
     };
     
+    //---------------------------------------------------------------
     virtual void draw()
     {
         glPointSize( gl_point_size );
         
         ofEnablePointSprites();
         ofEnableAlphaBlending();
-        
-        
-        //        OF_BLENDMODE_DISABLED = 0,
-        //        OF_BLENDMODE_ALPHA 	  = 1,
-        //        OF_BLENDMODE_ADD 	  = 2,
-        //        OF_BLENDMODE_SUBTRACT = 3,
-        //        OF_BLENDMODE_MULTIPLY = 4,
-        //        OF_BLENDMODE_SCREEN   = 5
-        //        ofEnableBlendMode( OF_BLENDMODE_ADD );
         
 //        glEnable(GL_DEPTH_TEST);
 //        glEnable(GL_ALPHA_TEST);

@@ -10,7 +10,7 @@
 #pragma once
 #include "MSAPhysics3D.h"
 
-#define STRENGTH 50
+#define STRENGTH 150
 
 class MSAPhysicsUpdaterShake : public Physics::ParticleUpdater3D {
     

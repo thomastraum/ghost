@@ -15,6 +15,8 @@
 using namespace MSA;
 
 class MSAPhysicsFluidUpdater : public Physics::ParticleUpdater3D {
+
+protected:
     
     Vec2f   pos_old;
     Vec2f   vel_new, vel_old;
@@ -32,9 +34,8 @@ public:
     const FluidSolver * solver;
     
     void setup( const FluidSolver * _solver );
-    void update( Physics::Particle3D * _p );
+    virtual void update( Physics::Particle3D * _p );
     
-	
     void setWindowSize( Vec2f  _windowSize );
     void addSettings( ofxSimpleGuiToo & _gui );
 

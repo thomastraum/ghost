@@ -17,7 +17,6 @@ void testApp::setup(){
     buildScene();
     
     ps.setup();
-    
     fluid.setup();
     fluid_updater.setup( fluid.getSolver() );
     ps.addUpdater( &fluid_updater );
@@ -61,17 +60,18 @@ void testApp::draw()
     
     fog.draw();
     
-        ofSetColor(255,255,255);
-        plane_top.draw();
-        plane_left.draw();
-        plane_right.draw();
-        plane_back.draw();
-        plane_bottom.draw();
-        
-        ofSetColor(255,0,0);
-        ofPushMatrix();
-        ofBox( 0,0,0, 10 );
-        ofPopMatrix();
+    ofSetColor(255,255,255);
+    box.draw();
+//    plane_top.draw();
+//    plane_left.draw();
+//    plane_right.draw();
+//    plane_back.draw();
+//    plane_bottom.draw();
+    
+    ofSetColor(255,0,0);
+    ofPushMatrix();
+    ofBox( 0,0,0, 10 );
+    ofPopMatrix();
     
     ps.draw();
     
@@ -89,51 +89,12 @@ void testApp::buildScene()
 	width = ofGetWidth();
 	height = ofGetHeight();
     
-    fog.defineStartAndEnd( 1000, width*1.8 );
+    fog.defineStartAndEnd( width, width*1.8 );
     
-    plane_bottom.width = width;
-    plane_bottom.height = height;
+    box.width = width;
+    box.height = height;
     
-    plane_left.width = height;
-    plane_left.height = height;
-    
-    plane_top.width = width;
-    plane_top.height = height;
-    
-    plane_right.width = height;
-    plane_right.height = height;
-    
-    plane_back.width = width;
-    plane_back.height = height;
-    
-    
-    // Position planes
-//    plane_bottom.rotate(90, plane_bottom.getXAxis() );
-//    plane_bottom.move(0, height, 0);
-    plane_bottom.setPosition(0, -height, 0);
-    plane_bottom.setOrientation(ofVec3f(90,0,0));
-    
-    
-//    plane_left.rotate(90, plane_left.getYAxis() );
-//    plane_left.move(-width,0, 0);
-    plane_left.setPosition(-width, 0, 0);
-    plane_left.setOrientation(ofVec3f(0,90,0));
-    
-        
-//    plane_top.rotate(90, plane_bottom.getXAxis() );
-//    plane_top.move(0, -height, 0);
-    plane_top.setPosition(0, height, 0);
-    plane_top.setOrientation(ofVec3f(90,0,0));
-    
-    
-//    plane_right.rotate(90, plane_right.getYAxis() );
-//    plane_right.move(width, 0, 0);
-    plane_right.setPosition(width, 0, 0);
-    plane_right.setOrientation(ofVec3f(0,90,0));
-    
-//    plane_back.move(0, 0, -height);
-    plane_back.setPosition(0, 0, -height);
-    
+    box.build();    
 }
 
 //--------------------------------------------------------------
@@ -218,6 +179,7 @@ void testApp::addAppSettings()
 //-------------------------------------------------------------- 
 void testApp::addMainSettings()
 {
+    box.addSettings( gui );
     fog.addSettings( gui );
     fluid_updater.addSettings(gui);
     main_page = & gui.currentPage();
@@ -240,7 +202,7 @@ void testApp::loadXMLSettingsFromPath( string _path )
     
     loadXMLSettings();
     
-	gui.setAutoSave(false);
+//	gui.setAutoSave(false);
     gui.show();
 }
 
