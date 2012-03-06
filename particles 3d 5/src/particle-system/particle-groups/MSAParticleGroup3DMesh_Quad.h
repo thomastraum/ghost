@@ -26,7 +26,8 @@ public:
         color = ofColor(255,255,255 );
         mesh.clear();
         ofDisableArbTex();
-        texture.loadImage("dot-8.png"); // -black
+//        texture.loadImage("dot-8-black.png");
+        texture.loadImage("dot-8.png");
         
     }
     

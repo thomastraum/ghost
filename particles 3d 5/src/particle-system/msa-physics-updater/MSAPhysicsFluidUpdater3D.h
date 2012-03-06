@@ -35,11 +35,12 @@ public:
         vel_new = solver->getVelocityAtPos( pos_old * invWindowSize ) * (_p->getMass() * fluid_influence ) * windowSize + vel_old * momentum;
         
         
-        vel3D_new.x = sin(rad) * _p->getVelocity().z  - cos(rad)*vel_new.x;
-        vel3D_new.y = vel_new.y;
-        vel3D_new.z = cos(rad)*_p->getVelocity().z + sin(rad)*vel_new.x;
+//        vel3D_new.x = sin(rad) * _p->getVelocity().z  - cos(rad)*vel_new.x;
+//        vel3D_new.y = vel_new.y;
+//        vel3D_new.z = cos(rad)*_p->getVelocity().z + sin(rad)*vel_new.x;        
+//        vel3D_new = Vec3f( vel_new.x, vel_new.y, vel_new.z );
         
-//        vel3D_new = Vec3f( vel_new.x, vel_new.y, vel_new.z ); //Vec3f( vel_new.x, vel_new.y, _p->getVelocity().z );
+        vel3D_new = Vec3f( vel_new.x, vel_new.y, _p->getVelocity().z );
         
         _p->addVelocity(vel3D_new);
     }

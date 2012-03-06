@@ -25,7 +25,8 @@ public:
         mesh.setMode(OF_PRIMITIVE_POINTS);
         ofDisableArbTex();
 //        texture.loadImage("ps-1.png");
-        texture.loadImage("dot-8.png");
+//        texture.loadImage("pt-8-black.png");
+        texture.loadImage("pt-8.png");
         
         gl_point_size = 4;
     }
