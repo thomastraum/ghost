@@ -61,7 +61,7 @@ void MSAFluidManager::update()
 		fluidDrawer.setup(&fluidsolver);
 		resize_fluid = false;
 	}
-//    addRandomPosForce();
+    addRandomPosForce();
     
     for ( int i=0;i<forces.size(); i++ ) {
         forces[i]->update();
@@ -136,7 +136,7 @@ void MSAFluidManager::addSettings( ofxSimpleGuiToo & _gui )
 	_gui.addToggle("fs.wrapX", fluidsolver.wrap_x);
 	_gui.addToggle("fs.wrapY", fluidsolver.wrap_y);
     
-//    _gui.addSlider( "Fluid Strength", fixedforce_power, 0, 0.1);
+    _gui.addSlider( "Fluid Strength", fixedforce_power, 0, 0.1);
     
     for ( int i=0;i<forces.size(); i++ ) {
         forces[i]->addSettings( _gui);

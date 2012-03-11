@@ -34,7 +34,7 @@ void TT_Box::customDraw()
 
 void TT_Box::drawBox()
 {
-    ofEnableAlphaBlending();
+//    ofEnableAlphaBlending();
     glEnable(GL_DEPTH_TEST);
     
     glPushMatrix();
@@ -48,7 +48,7 @@ void TT_Box::drawBox()
     
     glPopMatrix();
     
-    ofDisableAlphaBlending();
+//    ofDisableAlphaBlending();
     glDisable(GL_DEPTH_TEST);
 }
 

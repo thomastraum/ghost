@@ -10,10 +10,6 @@ void testApp::setup(){
     
     draw_debug = false;
     
-    camera.setNearClip( -width );
-    camera.setFarClip( width );
-//    fog.setup();
-    
     buildScene();
     
     ps.setup();
@@ -31,6 +27,11 @@ void testApp::setup(){
     loadXMLSettingsFromPath( preset_path + my_presets.getNextPresetName() );
     
     //-------------------------------------
+    
+//    camera.setNearClip( 2*width );
+//    camera.setFarClip( -2*width );
+    //    fog.setup();
+    
     
 //    ofToggleFullscreen();
 }
@@ -62,6 +63,7 @@ void testApp::draw()
     
     ofSetColor(255,255,255);
     box.draw();
+    
 //    plane_top.draw();
 //    plane_left.draw();
 //    plane_right.draw();
@@ -81,6 +83,7 @@ void testApp::draw()
     
     gui.draw();
     
+//    ofDisableAlphaBlending();
 }
 
 //--------------------------------------------------------------

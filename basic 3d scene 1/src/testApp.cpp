@@ -28,20 +28,44 @@ void testApp::draw(){
 //    glEnable(GL_DEPTH_TEST);    
 //    glEnable(GL_LIGHTING);
     
-    camera.begin();
-    ofTranslate( 0,0, -width);
+//    camera.begin();
+//    ofTranslate( 0,0, -width);
+//    
+//    plane_top.draw();
+//    plane_left.draw();
+//    plane_right.draw();
+//    plane_back.draw();
+//    plane_bottom.draw();
+//    
+//    ofSetColor(255,0,0);
+//    ofBox( 0,0,0, 10 );
+//
+//    camera.end();
+
     
-    plane_top.draw();
-    plane_left.draw();
-    plane_right.draw();
-    plane_back.draw();
-    plane_bottom.draw();
+    camera.begin();
+    ofTranslate( 0,0, -ofGetWidth() );
+    
+    //    fog.draw();
+    
+    //    ofSetColor(255,255,255);
+    //    box.draw();
+    
+    //    plane_top.draw();
+    //    plane_left.draw();
+    //    plane_right.draw();
+    //    plane_back.draw();
+    //    plane_bottom.draw();
     
     ofSetColor(255,0,0);
-    ofBox( 0,0,0, 10 );
-
+    ofPushMatrix();
+    ofBox( 0,0,0, 50 );
+    ofPopMatrix();
+    
+    //    ps.draw();
+    
     camera.end();
-
+    
 }
 
 //--------------------------------------------------------------

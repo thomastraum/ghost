@@ -11,8 +11,8 @@ void MSAParticleGroup3D::setup()
     mass_min = .9;
     mass_max = .99;
     
-    bounce_min = 1;
-    bounce_max = 1;
+    bounce_min = 0.1;
+    bounce_max = 0.1;
     
     node_min = 1;
     node_max = 20;
@@ -76,8 +76,7 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
         _p->setWrap(true, true);
     }
     
-    // took bounce out as it disables wrapping
-    // setBounce(bounce)
+    _p->setBounce(bounce);
 	_p->setMass(mass)->setDrag(drag)->makeFree();
     
     // give them a push

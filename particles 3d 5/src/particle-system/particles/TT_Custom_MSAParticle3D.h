@@ -32,9 +32,6 @@ public:
     
 	void collidedWithEdgeOfWorld(Vec3f collisionForce) 
 	{
-        if( wrapping_enabled ) {
-            wrap();
-        }
 	}
 	
     void update()
@@ -116,30 +113,71 @@ public:
         wrapping_enabled = ( _wrap_x || _wrap_y ) ? true : false;
     }
     
+    void checkWorldEdges()
+    {
+        if( wrapping_enabled ) {
+            wrap();
+        } else {
+            Physics::Particle3D::checkWorldEdges();
+        }
+    }
+    
     void wrap()
     {
-        if(_oldPos.x > _params->worldMax.x - _radius ) {
-            float vel = _pos.x - _oldPos.x;
-            _pos.x = _params->worldMin.x - vel;
-            _oldPos.x = _params->worldMin.x;
+        
+        bool collided = false;
+        Vec3f oldVel = getVelocity();
+        
+        // TT wrapping
+        for(int i=0; i<3; i++) {
             
-        } else if ( _oldPos.x < _params->worldMin.x - _radius) {
-            float vel = _pos.x - _oldPos.x;
-            _pos.x = _params->worldMax.x - vel;
-            _oldPos.x = _params->worldMax.x;
+            float vel = _pos[i] - _oldPos[i];
+            if(_pos[i] < _params->worldMin[i] + _radius) {
+                _oldPos[i] = _params->worldMax[i] - _radius;
+                _pos[i] = _oldPos[i] + vel * _bounce;
+                collided = true;
+            } else if(_pos[i] > _params->worldMax[i] - _radius) {
+                _oldPos[i] = _params->worldMin[i] + _radius;
+                _pos[i] = _oldPos[i] + vel * _bounce;
+                collided = true;
+            }
         }
         
-        if(_oldPos.y > _params->worldMax.y -_radius ) {
-            float vel = _pos.y - _oldPos.y;
-            _pos.y = _params->worldMin.y - vel;
-            _oldPos.y = _params->worldMin.y ;
-            
-        } else if ( _oldPos.x < _params->worldMin.x - _radius ) {
-            float vel = _pos.y - _oldPos.y;
-            _pos.y = _params->worldMax.y - vel;
-            _oldPos.y = _params->worldMax.y;
-        }
+//        if(_pos[i] < _params->worldMin[i] + _radius) {
+//        _pos[i] = _params->worldMin[i] + _radius;
+//        _oldPos[i] = _pos[i] + vel * _bounce;
         
+//        else if(_pos[i] > _params->worldMax[i] - _radius) {
+//            _pos[i] = _params->worldMax[i] - _radius;
+//            _oldPos[i] = _pos[i] + vel * _bounce;
+//            collided = true;
+//        }
+        
+        
+        
+//        if(  _pos.x == _params->worldMin.x + _radius ) {
+//            float vel = _pos.x - _oldPos.x;
+//            _pos.x = _params->worldMax.x + _radius*2;
+//            _oldPos.x = _pos.x + vel * _bounce;
+//        } else if(_pos.x == _params->worldMax.x - _radius) {
+//            float vel = _pos.x - _oldPos.x;
+//            _pos.x = _params->worldMin.x - _radius*2;
+//            _oldPos.x = _pos.x + vel * _bounce;
+//        }
+
+            
+            //        
+//        if(_oldPos.y > _params->worldMax.y -_radius ) {
+//            float vel = _pos.y - _oldPos.y;
+//            _pos.y = _params->worldMin.y - vel;
+//            _oldPos.y = _params->worldMin.y ;
+//            
+//        } else if ( _oldPos.x < _params->worldMin.x - _radius ) {
+//            float vel = _pos.y - _oldPos.y;
+//            _pos.y = _params->worldMax.y - vel;
+//            _oldPos.y = _params->worldMax.y;
+//        }
+    
 //        if(_oldPos.z > _params->worldMax.z ) {
 //            float vel = _pos.z - _oldPos.z;
 //            _pos.z = _params->worldMin.z - vel;
