@@ -18,6 +18,14 @@ void testApp::setup(){
     ps.addUpdater( &fluid_updater );
     ps.addUpdater( &shaker );
     
+    //-------------------------------------         SOUNDS
+    
+    soundmanager.setup();
+    soundmanager.loadSound("sounds/39048__ls__sparkles_2.wav");
+    soundmanager.setVolume(0);
+    soundmanager.changeVolume(1, 2);
+//    soundmanager.setPanning(1.0);
+//    soundmanager.changePanning(0, 10);
     
     //-------------------------------------         SETTINGS
     
@@ -45,6 +53,7 @@ void testApp::update()
     if ( shaker.isShaking() )
         shaker.stopShaking();
     
+    soundmanager.update();
 }
 
 //--------------------------------------------------------------
@@ -82,6 +91,8 @@ void testApp::draw()
     fluid.draw();
     
     gui.draw();
+    
+    soundmanager.draw();
     
 //    ofDisableAlphaBlending();
 }
@@ -206,7 +217,7 @@ void testApp::loadXMLSettingsFromPath( string _path )
     loadXMLSettings();
     
 //	gui.setAutoSave(false);
-    gui.show();
+//    gui.show();
 }
 
 //-------------------------------------------------------------- 

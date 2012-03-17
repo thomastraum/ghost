@@ -14,6 +14,8 @@
 #include "MSAPhysicsFluidUpdater3D.h"
 #include "MSAPhysicsUpdaterShake.h"
 
+#include "TT_SoundManager.h"
+
 #include "TT_Presets.h"
 
 class testApp : public ofBaseApp{
@@ -51,6 +53,10 @@ private:
     MSAFluidManager             fluid;
     MSAPhysicsFluidUpdater3D    fluid_updater;
     MSAPhysicsUpdaterShake      shaker;
+    
+    //---------------------------------------------- SOUND MANAGER
+    TT_SoundManager             soundmanager;
+    
     
     //---------------------------------------------- Settings
     void addAppSettings();
