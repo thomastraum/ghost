@@ -14,7 +14,7 @@
 #include "MSAPhysicsFluidUpdater3D.h"
 #include "MSAPhysicsUpdaterShake.h"
 
-#include "TT_SoundManager.h"
+#include "TT_SoundManager_gui.h"
 
 #include "TT_Presets.h"
 
@@ -55,7 +55,7 @@ private:
     MSAPhysicsUpdaterShake      shaker;
     
     //---------------------------------------------- SOUND MANAGER
-    TT_SoundManager             soundmanager;
+    TT_SoundManager_gui             soundmanager;
     
     
     //---------------------------------------------- Settings

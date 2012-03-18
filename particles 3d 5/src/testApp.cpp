@@ -24,7 +24,7 @@ void testApp::setup(){
     soundmanager.loadSound("sounds/39048__ls__sparkles_2.wav");
     soundmanager.setVolume(0);
     soundmanager.changeVolume(1, 2);
-//    soundmanager.setPanning(1.0);
+    soundmanager.setPanning(.5);
 //    soundmanager.changePanning(0, 10);
     
     //-------------------------------------         SETTINGS
@@ -187,6 +187,7 @@ void testApp::addAppSettings()
     
     fluid.addSettings( gui );
     ps.addSettings( gui );
+    soundmanager.addSettings( gui );
     
 }
 

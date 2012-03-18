@@ -27,6 +27,7 @@ class TT_SoundManager {
     float vol_target, vol_start;
     float pan_target, pan_start;
     
+protected:
     
     ofSoundPlayer   sound;
     
