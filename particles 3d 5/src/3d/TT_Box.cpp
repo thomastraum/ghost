@@ -54,9 +54,15 @@ void TT_Box::drawBox()
 
 void TT_Box::setColor( ofFloatColor _c )
 {
+    c = _c;
     bottom.setColor( _c );
     left.setColor( _c );
     top.setColor( _c );
     right.setColor( _c );
     back.setColor( _c );
+}
+
+ofFloatColor TT_Box::getColor()
+{
+    return c;
 }

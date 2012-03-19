@@ -4,7 +4,7 @@
 #include "ofxGrabCam.h"
 #include "ofxSimpleGuiToo.h"
 
-#include "TT_BoxGui.h"
+#include "TT_DiscoBox.h"
 #include "TT_Fog.h"
 //#include "MSAParticleSystem3D.h"
 #include "MSAParticleSystem3D_tt.h"
@@ -14,7 +14,9 @@
 #include "MSAPhysicsFluidUpdater3D.h"
 #include "MSAPhysicsUpdaterShake.h"
 
-#include "TT_SoundManager_gui.h"
+#include "TT_SoundPlayer.h"
+#include "TT_SoundPlayer_gui.h"
+#include "TT_SoundManager.h"
 
 #include "TT_Presets.h"
 
@@ -38,7 +40,7 @@ private:
     int     width;
     int     height;
     
-    TT_BoxGui   box;
+    TT_DiscoBox box;
     
 	ofEasyCam   camera;
     TT_Fog      fog;
@@ -55,7 +57,7 @@ private:
     MSAPhysicsUpdaterShake      shaker;
     
     //---------------------------------------------- SOUND MANAGER
-    TT_SoundManager_gui             sm;
+    TT_SoundManager             sm;
     
     
     //---------------------------------------------- Settings

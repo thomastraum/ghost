@@ -22,9 +22,9 @@ public:
     
     void update()
     {
-            if ( getDiffN() > 1  ) {
-                stop();
-            }
+        if ( getDiffN() >= 1  ) {
+            stop();
+        }
     }
     
     void setDuration( float _duration )

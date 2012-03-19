@@ -16,23 +16,25 @@
 
 class TT_Box : public ofNode {
     
-    TT_3D_Plane                 top, right, bottom, left, back;
+    ofFloatColor    c;
+    TT_3D_Plane     top, right, bottom, left, back;
     
 public:
     
     TT_Box() {
-        
         width = WIDTH;
         height = HEIGHT;
+        c = ofFloatColor( 1,1,1,1);
     }
     
     int width;
     int height;
     
-    void build();
-    virtual void customDraw();
-    void drawBox();
+    void            build();
+    virtual void    customDraw();
+    void            drawBox();
     
-    void setColor( ofFloatColor color );
+    void            setColor( ofFloatColor color );
+    ofFloatColor    getColor();
     
 };

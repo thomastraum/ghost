@@ -2,129 +2,56 @@
 //  TT_SoundManager.h
 //  particles 3d 5
 //
-//  Created by Thomas Eberwein on 13/03/2012.
+//  Created by Thomas Eberwein on 19/03/2012.
 //  Copyright 2012 --. All rights reserved.
 //
 
 #ifndef particles_3d_5_TT_SoundManager_h
 #define particles_3d_5_TT_SoundManager_h
 
-#pragma once
+#pragma once 
 #include "ofMain.h"
-#include "ofxTween.h"
-#include "TT_Timer.h"
-
-using namespace MSA;
+#include "TT_SoundPlayer.h"
 
 class TT_SoundManager {
     
-    int     volume;
-    float   pan;
-    
-    TT_Timer   vol_timer;
-    TT_Timer   pan_timer;
-    
-    float vol_target, vol_start;
-    float pan_target, pan_start;
-    
-protected:
-    
-    ofSoundPlayer   sound;
-    
-    //---------------------------------------------------------------
-    void setVolTarget( float _target )
-    {
-        vol_start = vol_target;
-        vol_target = _target;
-        
-        vol_timer.stop();
-    }
-    
-    //---------------------------------------------------------------
-    void setPanTarget( float _target )
-    {
-        pan_start = pan_target;
-        pan_target = _target;
-        
-        pan_timer.stop();
-    }
+    vector<TT_SoundPlayer*> loops;
+    vector<ofSoundPlayer*>  event_sounds;
     
 public:
     
-    void setup()
+    TT_SoundManager()
     {
-        vol_target = vol_start = 1;
-        pan_target = pan_start = 0.5;
-    }
-    
-    //---------------------------------------------------------------
-    void update() 
-    {
-        if( vol_timer.isTimerRunning() ) {
-            vol_timer.update();
-            sound.setVolume( vol_start + ((vol_target-vol_start) * vol_timer.getDiffN()) );
-        }
-        
-        if( pan_timer.isTimerRunning() ) {
-            pan_timer.update();
-            sound.setPan( pan_start + ((pan_target-pan_start) * pan_timer.getDiffN()) );
-            
-            cout << "_pan: " << sound.getPan() << endl;
-        }
-        
-//        cout << vol_timer.getSeconds() << endl;
         
     }
     
-    //---------------------------------------------------------------
-    void draw()
+    //--------------------------------------------
+    void addLoop( string _path )
     {
-//        ofRect(20,350,200,20);
+        TT_SoundPlayer * loop = new TT_SoundPlayer();
+        loop->loadSound( _path );
+        loops.push_back( loop );
     }
     
-    //---------------------------------------------------------------
-    void loadSound( string _path_to_sound )
+    //-------------------------------------------- 
+    void addEventSound( string _path )
     {
-        sound.loadSound( _path_to_sound );
-        sound.play();
-        sound.setLoop( true );
-        sound.setPan(0.01);
+        ofSoundPlayer * event_sound = new ofSoundPlayer();
+        event_sound->loadSound( _path );
+        event_sounds.push_back( event_sound );
     }
     
-    //---------------------------------------------------------------
-    void changePanning( float _pan, float _duration ) 
-    {
-        setPanTarget( _pan );
-        pan_timer.setDuration( _duration );
-        pan_timer.start();
-    }
+    //-------------------------------------------- 
     
-    //---------------------------------------------------------------
-    void changeVolume( int _volume, float _duration )
-    {
-        setVolTarget( _volume );
-        vol_timer.setDuration( _duration );
-        vol_timer.start();
-    t};
+    // Add custom event system, where we listen for events and decide which one we play
+    // new user event
+    //  loop through event sounds
+    // 
     
-    //---------------------------------------------------------------
-    void setVolume( float _vol )
-    {
-        setVolTarget( _vol );
-        sound.setVolume(_vol);
-        cout << "_vol: " << _vol << endl;
-    }
     
-    //---------------------------------------------------------------
-    void setPanning( float _pan )
-    {
-        cout << "_pan: " << _pan << endl;
-        setPanTarget( _pan );
-        sound.setPan(_pan);
-    }
-
+protected:
+    
     
 };
-
 
 #endif

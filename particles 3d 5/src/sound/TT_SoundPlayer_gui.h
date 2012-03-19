@@ -1,19 +1,19 @@
 //
-//  TT_SoundManager_gui.h
+//  TT_SoundPlayer_gui.h
 //  particles 3d 5
 //
 //  Created by Thomas Eberwein on 17/03/2012.
 //  Copyright 2012 --. All rights reserved.
 //
 
-#ifndef particles_3d_5_TT_SoundManager_gui_h
-#define particles_3d_5_TT_SoundManager_gui_h
+#ifndef particles_3d_5_TT_SoundPlayer_gui_h
+#define particles_3d_5_TT_SoundPlayer_gui_h
 
 #pragma once
-#include "TT_SoundManager.h"
+#include "TT_SoundPlayer.h"
 #include "ofxSimpleGuiToo.h"
 
-class TT_SoundManager_gui : public TT_SoundManager {
+class TT_SoundPlayer_gui : public TT_SoundPlayer {
     
 private:
     
@@ -23,7 +23,7 @@ public:
     
     void update()
     {
-        TT_SoundManager::update();
+        TT_SoundPlayer::update();
 
         gui_volume = sound.getVolume();
         gui_pan = sound.getPan();

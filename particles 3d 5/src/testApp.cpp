@@ -17,20 +17,10 @@ void testApp::setup(){
     fluid_updater.setup( fluid.getSolver() );
     ps.addUpdater( &fluid_updater );
     ps.addUpdater( &shaker );
-    
-    //-------------------------------------         SOUNDS
-    
-    sm.setup();
-    sm.loadSound("sounds/39048__ls__sparkles_2.wav");
-    sm.setVolume(0);
-    sm.changeVolume(1, 2);
-    sm.setPanning(.5);
-//    sm.changePanning(0, 10);
-    
+
     //-------------------------------------         SETTINGS
     
     addAppSettings();
-    
     preset_path     = "presets/";
     loadXMLSettingsFromPath( preset_path + my_presets.getNextPresetName() );
     
@@ -38,10 +28,22 @@ void testApp::setup(){
     
 //    camera.setNearClip( 2*width );
 //    camera.setFarClip( -2*width );
-    //    fog.setup();
-    
-    
+//    fog.setup();
 //    ofToggleFullscreen();
+    
+    //-------------------------------------         SOUNDS
+    
+    //    sm.setup();
+    //    sm.loadSound("sounds/39048__ls__sparkles_2.wav");
+    //    sm.setVolume(0);
+    //    sm.fadeVolume(1, 2);
+    //    sm.setPanning(.5);
+    
+    sm.addLoop( "sounds/storm-tt-loop.wav" );
+    sm.addLoop( "sounds/synths-tt-loop.wav" );
+    
+//    box.fadeToColor( ofFloatColor(1,0,1), 10, 0 );
+    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 5.0 );
 }
 
 //--------------------------------------------------------------
@@ -49,11 +51,10 @@ void testApp::update()
 {
     ps.update();
     fluid.update();
+    box.update();
     
-    if ( shaker.isShaking() )
-        shaker.stopShaking();
-    
-    sm.update();
+    if ( shaker.isShaking() ) shaker.stopShaking();
+//    sm.update();
 }
 
 //--------------------------------------------------------------
@@ -84,7 +85,7 @@ void testApp::draw()
     
     fluid.draw();
     gui.draw();
-    sm.draw();
+//    sm.draw();
     
 //    ofDisableAlphaBlending();
 }
@@ -179,14 +180,14 @@ void testApp::addAppSettings()
     
     fluid.addSettings( gui );
     ps.addSettings( gui );
-    sm.addSettings( gui );
+//    sm.addSettings( gui );
     
 }
 
 //-------------------------------------------------------------- 
 void testApp::addMainSettings()
 {
-    box.addSettings( gui );
+//    box.addSettings( gui );
     fog.addSettings( gui );
     fluid_updater.addSettings(gui);
     main_page = & gui.currentPage();

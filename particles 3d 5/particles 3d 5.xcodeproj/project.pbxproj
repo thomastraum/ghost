@@ -104,7 +104,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6410F2DB150ED7A300371424 /* TT_SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundManager.h; sourceTree = "<group>"; };
 		6410F34D150EE18500371424 /* easing_terms_of_use.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = easing_terms_of_use.html; sourceTree = "<group>"; };
 		6410F34E150EE18500371424 /* ofxEasing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxEasing.cpp; sourceTree = "<group>"; };
 		6410F34F150EE18500371424 /* ofxEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxEasing.h; sourceTree = "<group>"; };
@@ -228,8 +227,11 @@
 		6458042614E2FA48008B8410 /* TT_Custom_MSAParticle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Custom_MSAParticle3D.h; sourceTree = "<group>"; };
 		6458045D14E2FA81008B8410 /* ofxGrabCam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGrabCam.cpp; sourceTree = "<group>"; };
 		6458045E14E2FA81008B8410 /* ofxGrabCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGrabCam.h; sourceTree = "<group>"; };
+		64B505701517798B00154113 /* TT_SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundPlayer.h; sourceTree = "<group>"; };
+		64B5057115177A1400154113 /* TT_SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundManager.h; sourceTree = "<group>"; };
+		64B5057215179CB400154113 /* TT_DiscoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_DiscoBox.h; sourceTree = "<group>"; };
 		64F45A6F1512C78600B35B0C /* TT_Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Timer.h; sourceTree = "<group>"; };
-		64F45A7A1514CBFF00B35B0C /* TT_SoundManager_gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundManager_gui.h; sourceTree = "<group>"; };
+		64F45A7A1514CBFF00B35B0C /* TT_SoundPlayer_gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundPlayer_gui.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -296,9 +298,10 @@
 		6410F2DA150ED78E00371424 /* sound */ = {
 			isa = PBXGroup;
 			children = (
-				6410F2DB150ED7A300371424 /* TT_SoundManager.h */,
 				64F45A6F1512C78600B35B0C /* TT_Timer.h */,
-				64F45A7A1514CBFF00B35B0C /* TT_SoundManager_gui.h */,
+				64B505701517798B00154113 /* TT_SoundPlayer.h */,
+				64F45A7A1514CBFF00B35B0C /* TT_SoundPlayer_gui.h */,
+				64B5057115177A1400154113 /* TT_SoundManager.h */,
 			);
 			path = sound;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				E9137AF314F1199300FF3BA8 /* TT_Box.cpp */,
 				E9137AF214F1182800FF3BA8 /* TT_Box.h */,
 				E9137AF514F134C400FF3BA8 /* TT_BoxGui.h */,
+				64B5057215179CB400154113 /* TT_DiscoBox.h */,
 			);
 			path = 3d;
 			sourceTree = "<group>";

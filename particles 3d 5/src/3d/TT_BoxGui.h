@@ -18,7 +18,7 @@ class TT_BoxGui : public TT_Box {
     
 public:
     
-    TT_BoxGui(){
+    TT_BoxGui() {
         gui_smoothing = .8;
         color = ofFloatColor(1,1,1,1);
         prev_color = color;
