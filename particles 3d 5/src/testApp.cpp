@@ -20,12 +20,12 @@ void testApp::setup(){
     
     //-------------------------------------         SOUNDS
     
-    soundmanager.setup();
-    soundmanager.loadSound("sounds/39048__ls__sparkles_2.wav");
-    soundmanager.setVolume(0);
-    soundmanager.changeVolume(1, 2);
-    soundmanager.setPanning(.5);
-//    soundmanager.changePanning(0, 10);
+    sm.setup();
+    sm.loadSound("sounds/39048__ls__sparkles_2.wav");
+    sm.setVolume(0);
+    sm.changeVolume(1, 2);
+    sm.setPanning(.5);
+//    sm.changePanning(0, 10);
     
     //-------------------------------------         SETTINGS
     
@@ -53,7 +53,7 @@ void testApp::update()
     if ( shaker.isShaking() )
         shaker.stopShaking();
     
-    soundmanager.update();
+    sm.update();
 }
 
 //--------------------------------------------------------------
@@ -73,12 +73,6 @@ void testApp::draw()
     ofSetColor(255,255,255);
     box.draw();
     
-//    plane_top.draw();
-//    plane_left.draw();
-//    plane_right.draw();
-//    plane_back.draw();
-//    plane_bottom.draw();
-    
     ofSetColor(255,0,0);
     ofPushMatrix();
     ofBox( 0,0,0, 10 );
@@ -89,10 +83,8 @@ void testApp::draw()
     camera.end();
     
     fluid.draw();
-    
     gui.draw();
-    
-    soundmanager.draw();
+    sm.draw();
     
 //    ofDisableAlphaBlending();
 }
@@ -187,7 +179,7 @@ void testApp::addAppSettings()
     
     fluid.addSettings( gui );
     ps.addSettings( gui );
-    soundmanager.addSettings( gui );
+    sm.addSettings( gui );
     
 }
 

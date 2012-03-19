@@ -55,7 +55,7 @@ private:
     MSAPhysicsUpdaterShake      shaker;
     
     //---------------------------------------------- SOUND MANAGER
-    TT_SoundManager_gui             soundmanager;
+    TT_SoundManager_gui             sm;
     
     
     //---------------------------------------------- Settings

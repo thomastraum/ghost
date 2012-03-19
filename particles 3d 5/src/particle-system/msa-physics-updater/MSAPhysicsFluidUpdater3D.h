@@ -15,6 +15,9 @@ class MSAPhysicsFluidUpdater3D : public MSAPhysicsFluidUpdater {
     float   rad;
     Vec3f   vel3d_new;
     
+    Vec3f   pos3d;
+    Vec3f   vel3d;
+    
 public:
     
     MSAPhysicsFluidUpdater3D() {
@@ -24,11 +27,13 @@ public:
     
     void update(Physics::Particle3D *_p)
     {
-        pos_old.x = _p->getPosition().x + windowSize.x/2;
-        pos_old.y = _p->getPosition().y + windowSize.y/2;
+        pos3d = _p->getPosition(); // + (windowSize/2);
+        pos_old.x = pos3d.x + windowSize.x/2;
+        pos_old.y = pos3d.y + windowSize.y/2;
         
-        vel_old.x = _p->getVelocity().x;
-        vel_old.y = _p->getVelocity().y;
+        vel3d = _p->getVelocity();
+        vel_old.x = vel3d.x;
+        vel_old.y = vel3d.y;
         
         // original solver equation
         // vel = solver.getVelocityAtPos( pos * invWindowSize ) * (mass * fluid_influence ) * windowSize + vel * MOMENTUM;
