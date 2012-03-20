@@ -10,23 +10,39 @@
 #define particles_3d_5_TT_Timer_h
 
 #pragma once
+#include "ofMain.h"
 #include "MSATimer.h"
+#include "ofEvents.h"
 
-using namespace MSA;
-
-class TT_Timer : public Timer {
+class TT_Timer : public MSA::Timer {
     
     float duration;
     
 public:
     
-    void update()
+    void update(ofEventArgs & args)
     {
-        if ( getDiffN() >= 1  ) {
-            stop();
+        float diff = getDiffN();
+        ofNotifyEvent( onTimerUpdated,  diff );
+        
+        if ( diff >= 1  ) {
+            stopTimer();
+            ofNotifyEvent(onTimerFinished, duration );
         }
     }
     
+    void startTimer()
+    {
+        start();
+	    ofAddListener(ofEvents.update, this, &TT_Timer::update);
+	}
+    
+	void stopTimer()
+    {
+        stop();
+	    ofRemoveListener(ofEvents.update, this, &TT_Timer::update);
+	}
+
     void setDuration( float _duration )
     {
         duration = _duration;
@@ -38,12 +54,14 @@ public:
     }
     
     float getDiffN() {
-        return (float)getElapsedSeconds()/(float)duration;
+        float p = (float)getSeconds()/(float)duration;
+        return (p<1) ? p : 1;
     }
     
-    
-    
-    
+    //------------------------------------------------------- EVENTS
+    ofEvent<float> onTimerFinished;
+    ofEvent<float> onTimerUpdated;
+        
 };
 
 

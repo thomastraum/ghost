@@ -69,7 +69,7 @@ private:
     void                setXMLFilename( string _xml_filename );
     ofxSimpleGuiPage *  main_page;
     
-    string preset_path;
+    string              preset_path;
     
     //---------------------------------------------- Presets
     void        nextPreset();

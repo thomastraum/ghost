@@ -41,6 +41,14 @@ public:
         event_sounds.push_back( event_sound );
     }
     
+    
+    //--------------------------------------------
+    void fadeLoopVolume( int _id, float _volume, float _duration=0.5 )
+    {
+        cout << "fadeLoopVolume id: " << _id << " v: " << _volume << " d: " << _duration << endl;
+        loops[_id]->fadeVolume( _volume, _duration );
+    }
+    
     //-------------------------------------------- 
     
     // Add custom event system, where we listen for events and decide which one we play

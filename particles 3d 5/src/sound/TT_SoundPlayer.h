@@ -11,13 +11,13 @@
 
 #pragma once
 #include "ofMain.h"
-#include "ofxTween.h"
+#include "ofEvents.h"
 #include "TT_Timer.h"
 
 using namespace MSA;
 
 //-----------------------------
-// Good for loops only
+// Good for loop sounds only
 //-----------------------------
 
 class TT_SoundPlayer {
@@ -40,8 +40,6 @@ protected:
     {
         vol_start = vol_target;
         vol_target = _target;
-        
-        vol_timer.stop();
     }
     
     //---------------------------------------------------------------
@@ -49,8 +47,6 @@ protected:
     {
         pan_start = pan_target;
         pan_target = _target;
-        
-        pan_timer.stop();
     }
     
 public:
@@ -59,25 +55,23 @@ public:
     {
         vol_target = vol_start = 1;
         pan_target = pan_start = 0.5;
+        
+	    ofAddListener(pan_timer.onTimerUpdated, this, &TT_SoundPlayer::updatePan);
+	    ofAddListener(vol_timer.onTimerUpdated, this, &TT_SoundPlayer::updateVolume);
     }
     
     //---------------------------------------------------------------
-    void update() 
+    void updatePan( float &p ) 
     {
-        if( vol_timer.isTimerRunning() ) {
-            vol_timer.update();
-            sound.setVolume( vol_start + ((vol_target-vol_start) * vol_timer.getDiffN()) );
-        }
-        
-        if( pan_timer.isTimerRunning() ) {
-            pan_timer.update();
-            sound.setPan( pan_start + ((pan_target-pan_start) * pan_timer.getDiffN()) );
-            
-            cout << "_pan: " << sound.getPan() << endl;
-        }
-        
-//        cout << vol_timer.getSeconds() << endl;
-        
+        sound.setPan( pan_start + ((pan_target-pan_start) * p) );
+    }
+    
+    //---------------------------------------------------------------
+    void updateVolume( float &p ) 
+    {
+//        cout << "updateVolume " << vol_timer.getSeconds() << " p: " << p << endl;
+//        cout << "vol_start " << vol_start << " vol_target " << vol_target << endl;
+        sound.setVolume( vol_start + ((vol_target-vol_start) * p) );
     }
     
     //---------------------------------------------------------------
@@ -99,21 +93,27 @@ public:
     void fadePan( float _pan, float _duration ) 
     {
         setPanTarget( _pan );
+        
+        pan_timer.stopTimer();
         pan_timer.setDuration( _duration );
-        pan_timer.start();
+        pan_timer.startTimer();
     }
     
     //---------------------------------------------------------------
-    void fadeVolume( int _volume, float _duration )
+    void fadeVolume( float _volume, float _duration )
     {
         setVolTarget( _volume );
+        
+        vol_timer.stopTimer();
         vol_timer.setDuration( _duration );
-        vol_timer.start();
+        vol_timer.startTimer();
     };
     
     //---------------------------------------------------------------
     void setVolume( float _vol )
     {
+        vol_timer.stopTimer();
+        
         setVolTarget( _vol );
         sound.setVolume(_vol);
         cout << "_vol: " << _vol << endl;
@@ -123,6 +123,8 @@ public:
     void setPanning( float _pan )
     {
         cout << "_pan: " << _pan << endl;
+        pan_timer.stopTimer();
+        
         setPanTarget( _pan );
         sound.setPan(_pan);
     }
@@ -130,5 +132,19 @@ public:
     
 };
 
+//  OLD
+////---------------------------------------------------------------
+//void update() 
+//{
+//    if( vol_timer.isTimerRunning() ) {
+//        sound.setVolume( vol_start + ((vol_target-vol_start) * vol_timer.getDiffN()) );
+//    }
+//    
+//    if( pan_timer.isTimerRunning() ) {
+//        sound.setPan( pan_start + ((pan_target-pan_start) * pan_timer.getDiffN()) );            
+//        cout << "_pan: " << sound.getPan() << endl;
+//    }
+//    
+//}
 
 #endif

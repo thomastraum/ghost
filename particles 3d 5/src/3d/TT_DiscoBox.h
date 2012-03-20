@@ -18,7 +18,7 @@ class TT_DiscoBox : public TT_Box {
     
     ofFloatColor    start;
     ofFloatColor    target;
-    ofFloatColor    temp;
+    ofFloatColor    old;
     TT_Timer        timer;
     
 protected:
@@ -28,40 +28,47 @@ protected:
     {
         start   = getColor();
         target  = _target;
-        timer.stop();
     }
     
 public:
     
     TT_DiscoBox()
     {
-        
+        ofAddListener( timer.onTimerUpdated,this,&TT_DiscoBox::onTimerUpdated );
     }
-    
+
     //---------------------------------------------------------------
-    void update() 
-    {
-        if( timer.isTimerRunning() ) {
-            timer.update();
-            setColor( start.getLerped(target, timer.getDiffN()) );
-        }
-    }
-    
-    //---------------------------------------------------------------
-    void fadeToColor( ofFloatColor _col, float _duration, float delay=0.0 )
+    void fadeToColor( ofFloatColor _col, float _duration )
     {
         setColTarget( _col );
+        timer.stopTimer();
         timer.setDuration( _duration );
-        timer.start();
+        timer.startTimer();
     };
     
     //---------------------------------------------------------------
-    void flashUp( ofFloatColor _col, int _duration )
+    void flashUp( ofFloatColor _col, float _duration )
     {
-        setColTarget( _col );
-        timer.setDuration( _duration );
-        timer.start();    }
+        if ( timer.isTimerRunning() ) return;
+        
+        fadeToColor( _col, _duration);
+        ofRemoveListener( timer.onTimerFinished,this,&TT_DiscoBox::onTimerFinished );
+        ofAddListener( timer.onTimerFinished,this,&TT_DiscoBox::onTimerFinished );
+    }
     
+    //---------------------------------------------------------------
+    void onTimerUpdated( float &p )
+    {
+        setColor( start.getLerped(target, p) );
+    }
+    
+    //--------------------------------------------------------------- EVENT
+    void onTimerFinished( float &_duration )
+    {
+        cout << "onTimerFinished " << _duration << endl;
+        ofRemoveListener(timer.onTimerFinished,this,&TT_DiscoBox::onTimerFinished);
+        fadeToColor( start,  _duration );
+    }
 };
 
 

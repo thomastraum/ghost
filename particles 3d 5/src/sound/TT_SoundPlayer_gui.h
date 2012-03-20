@@ -23,7 +23,7 @@ public:
     
     void update()
     {
-        TT_SoundPlayer::update();
+//        TT_SoundPlayer::update();
 
         gui_volume = sound.getVolume();
         gui_pan = sound.getPan();
