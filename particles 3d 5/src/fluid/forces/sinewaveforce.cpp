@@ -34,11 +34,6 @@ void SineWaveForce::update()
     }
 }
 
-void SineWaveForce::draw()
-{
-    
-}
-
 void SineWaveForce::addSettings( ofxSimpleGuiToo & _gui)
 {
     BaseForce::addSettings( _gui );

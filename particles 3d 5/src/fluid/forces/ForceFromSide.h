@@ -7,9 +7,10 @@
 //
 
 #pragma once
-#include "baseforce.h"
+//#include "baseforce.h"
+#include "BaseForceAnimated.h"
 
-class ForceFromSide : public BaseForce {
+class ForceFromSide : public BaseForceAnimated {
     
     float   steps;
     int     steps_min;

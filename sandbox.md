@@ -36,8 +36,12 @@ there are things which are set and there are things which need to be dynamic. Tr
 		set volume for loops
 
 ## Idle state
-- alternate between presets over time
-	
+- small guts of wind
+- flickr bg
+- load different presets for forces
+- load different presets for particles
+
+
 ## Active state (with users)
 
 ### generally

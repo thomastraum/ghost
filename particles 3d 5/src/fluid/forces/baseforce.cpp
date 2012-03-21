@@ -25,14 +25,6 @@ void BaseForce::setup( MSAFluidManager * _manager )
     slider_smoothing = 0.1;
 }
 
-void BaseForce::update()
-{
-}
-
-void BaseForce::draw()
-{
-}
-
 bool BaseForce::isEnabled( )
 {
     return is_enabled;

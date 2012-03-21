@@ -61,7 +61,6 @@ void MSAFluidManager::update()
 		fluidDrawer.setup(&fluidsolver);
 		resize_fluid = false;
 	}
-    addRandomPosForce();
     
     for ( int i=0;i<forces.size(); i++ ) {
         forces[i]->update();
@@ -100,16 +99,6 @@ void MSAFluidManager::addToFluid( Vec2f pos, Vec2f vel)
     }
 		
 }
-
-//-------------------------------------------------------------------------- FORCES
-void MSAFluidManager::addRandomPosForce()
-{
-    Vec2f pos = Vec2f( Rand::randFloat( 0,1), Rand::randFloat(0,1) );
-    Vec2f vel = Vec2f( Rand::randVec2f() ) * fixedforce_power;
-    //    Vec2f vel = Vec2f( Rand::randFloat( 0,1), Rand::randFloat(0,1) ) * fixedforce_power;
-    addToFluid( pos, vel );
-}
-
 
 //-------------------------------------------------------------------------- 
 FluidSolver * MSAFluidManager::getSolver()

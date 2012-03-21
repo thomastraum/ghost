@@ -62,7 +62,7 @@ public:
         setColor( start.getLerped(target, p) );
     }
     
-    //--------------------------------------------------------------- EVENT
+    //--------------------------------------------------------------- 
     void onTimerFinished( float &_duration )
     {
         cout << "onTimerFinished " << _duration << endl;

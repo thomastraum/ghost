@@ -30,19 +30,19 @@ private:
     
     float               fixedforce_power;
     Vec2f               pMouse;
-    
+
+protected:
     // ---------------------------------------------- FORCES
     vector<BaseForce*>  forces;
 
 public:
     
-    void setup();
+    virtual void setup();
+    
     void update();
     void draw();
     
 	void addToFluid( Vec2f pos, Vec2f vel );
-    
-    void addRandomPosForce();
     
     FluidSolver * getSolver();
     

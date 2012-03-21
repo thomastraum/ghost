@@ -7,16 +7,16 @@
 //
 
 #pragma once
-#include "baseforce.h"
+//#include "baseforce.h"
+#include "BaseForceAnimated.h"
 #include "MSATimer.h"
 
-class SineWaveForce : public BaseForce {
+class SineWaveForce : public BaseForceAnimated {
     
 public:
     
     void setup( MSAFluidManager * manager );
     void update();
-    void draw();
     
     void addSettings( ofxSimpleGuiToo &_gui);
     

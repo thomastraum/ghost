@@ -9,7 +9,9 @@
 //#include "MSAParticleSystem3D.h"
 #include "MSAParticleSystem3D_tt.h"
 
-#include "MSAFluidManager.h"
+//#include "MSAFluidManager.h"
+#include "MSAFluidManagerApp.h"
+
 //#include "MSAPhysicsFluidUpdater.h"
 #include "MSAPhysicsFluidUpdater3D.h"
 #include "MSAPhysicsUpdaterShake.h"
@@ -19,6 +21,8 @@
 #include "TT_SoundManager.h"
 
 #include "TT_Presets.h"
+
+#include "TT_Tempo.h"
 
 class testApp : public ofBaseApp{
 
@@ -52,7 +56,7 @@ private:
     MSAParticleSystem3D_tt ps;
     
     //---------------------------------------------- FLUID
-    MSAFluidManager             fluid;
+    MSAFluidManagerApp          fluid;
     MSAPhysicsFluidUpdater3D    fluid_updater;
     MSAPhysicsUpdaterShake      shaker;
     
@@ -74,6 +78,9 @@ private:
     //---------------------------------------------- Presets
     void        nextPreset();
     TT_Presets  my_presets;
+    
+    //---------------------------------------------- Presets    
+    TT_Tempo    tempo;
     
 };
 

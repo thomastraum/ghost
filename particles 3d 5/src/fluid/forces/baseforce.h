@@ -27,9 +27,13 @@ public:
     };
     
     virtual void    setup( MSAFluidManager * manager );
-    virtual void    update();
-    virtual void    draw();
+    //--------------------------------------------------------- Empty virtual functions
+    virtual void    update(){};
+    virtual void    draw(){};
+    virtual void    fadeForce( float _target, float _duration){};
+    virtual void    fadeForceUpAndDown( float _target, float _duration) {};
     
+    //---------------------------------------------------------
     void            enable( bool _is_enabled );
     bool            isEnabled();
     
@@ -38,12 +42,19 @@ public:
     
     void            addToFluid( Vec2f origin, Vec2f vel );
     
-    // ------------------------------------------------------- Settings
-    virtual void    addSettings( ofxSimpleGuiToo & _gui );
-    void            setInstanceName( string _instance_name )
-    {
+    // ------------------------------------------------------- Getter / Setter
+    void setInstanceName( string _instance_name ) {
         instance_name = _instance_name;
     };
+    
+    string  getInstanceName( string _instance_name ) {
+        return instance_name;
+    };
+
+    
+    // ------------------------------------------------------- Settings
+    virtual void    addSettings( ofxSimpleGuiToo & _gui );
+
     
     
 protected:

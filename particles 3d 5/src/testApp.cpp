@@ -38,6 +38,8 @@ void testApp::setup(){
     
 //    box.fadeToColor( ofFloatColor(1,0,1), 10);
 //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
+    
+    tempo.start();
 }
 
 //--------------------------------------------------------------
@@ -47,7 +49,9 @@ void testApp::update()
     fluid.update();
     
     if ( shaker.isShaking() ) shaker.stopShaking();
-//    sm.update();
+
+    tempo.update();
+
 }
 
 //--------------------------------------------------------------
@@ -152,16 +156,17 @@ void testApp::keyPressed(int key){
         box.flashUp( ofFloatColor( ofRandom(0,1),ofRandom(0,1),ofRandom(0,1) ), 0.4);
     
     if ( key == 'v' ) {
-        sm.fadeLoopVolume( 0, ofRandom( 0,1 ), ofRandom(0,3) );
-        sm.fadeLoopVolume( 1, ofRandom( 0,1 ), ofRandom(0,3) );
+//        sm.fadeLoopVolume( 0, ofRandom( 0,1 ), ofRandom(0,3) );
+//        sm.fadeLoopVolume( 1, ofRandom( 0,1 ), ofRandom(0,3) );
+        
+        sm.fadeLoopVolume( 0, 0, ofRandom(0,3) );
+        sm.fadeLoopVolume( 1, 0, ofRandom(0,3) );
     }
     
-//	if (key=='s')
-//		savedPose = camera.getGlobalTransformMatrix();
-//	
-//	if (key=='l')
-//		camera.setTransformMatrix(savedPose);
-	
+    if ( key == 'b' ) {
+        fluid.onFadeForceUpAndDown( 1, 0, 10 );
+    }
+    
 }
 
 //--------------------------------------------------------------
