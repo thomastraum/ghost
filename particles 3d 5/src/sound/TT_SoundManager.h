@@ -11,6 +11,7 @@
 
 #pragma once 
 #include "ofMain.h"
+#include "AppEvents.h"
 #include "TT_SoundPlayer.h"
 
 class TT_SoundManager {
@@ -22,7 +23,7 @@ public:
     
     TT_SoundManager()
     {
-        
+        ofAddListener( LoopEventDispatcher,this,&TT_SoundManager::onLoopChange );
     }
     
     //--------------------------------------------
@@ -45,16 +46,17 @@ public:
     //--------------------------------------------
     void fadeLoopVolume( int _id, float _volume, float _duration=0.5 )
     {
-        cout << "fadeLoopVolume id: " << _id << " v: " << _volume << " d: " << _duration << endl;
+        ofLogNotice( "TT" ) << "fadeLoopVolume id: " << _id << " v: " << _volume << " d: " << _duration;
         loops[_id]->fadeVolume( _volume, _duration );
     }
     
-    //-------------------------------------------- 
+    //-------------------------------------------- EVENTS
     
-    // Add custom event system, where we listen for events and decide which one we play
-    // new user event
-    //  loop through event sounds
-    // 
+    void onLoopChange( LoopEvent & args )
+    {
+//        ofLogNotice( "TT" ) << "TT_SoundManager::onLoopChange ";
+        fadeLoopVolume( args.sound_id, args.volume, args.duration );
+    }
     
     
 protected:

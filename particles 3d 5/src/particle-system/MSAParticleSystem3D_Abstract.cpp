@@ -107,7 +107,6 @@ void MSAParticleSystem3D_Abstract::windowResized( ofResizeEventArgs&args )
 }
 
 // -----------------------------------------------------  PARTICLES
-
 void MSAParticleSystem3D_Abstract::addParticles( Vec3f _pos, int _count )
 {
     int max_x = width;

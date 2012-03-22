@@ -1,5 +1,5 @@
 //
-//  MSAParticleSystem3D_tt.h
+//  MSAParticleSystem3D_Groups.h
 //  particles 3d 3
 //
 //  Created by Thomas Eberwein on 16/02/2012.
@@ -16,7 +16,7 @@
 #pragma once
 #include "MSAParticleSystem3D_Abstract.h"
 
-class MSAParticleSystem3D_tt : public MSAParticleSystem3D_Abstract {
+class MSAParticleSystem3D_Groups : public MSAParticleSystem3D_Abstract {
 
 private :
     
@@ -28,7 +28,7 @@ private :
     
 public:
     
-    MSAParticleSystem3D_tt(){
+    MSAParticleSystem3D_Groups(){
         active_group = 0;
         quads = 0;
         lines = 0;

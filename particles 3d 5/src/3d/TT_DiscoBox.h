@@ -65,7 +65,6 @@ public:
     //--------------------------------------------------------------- 
     void onTimerFinished( float &_duration )
     {
-        cout << "onTimerFinished " << _duration << endl;
         ofRemoveListener(timer.onTimerFinished,this,&TT_DiscoBox::onTimerFinished);
         fadeToColor( start,  _duration );
     }

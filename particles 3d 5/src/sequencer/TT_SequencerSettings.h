@@ -37,11 +37,17 @@ public:
         _gui.addSlider( "BoxFlash Color G", b_para.color.g,0,1);
         _gui.addSlider( "BoxFlash Color B", b_para.color.b,0,1);
         _gui.addSlider( "BoxFlash Duration", b_para.duration,0,5);
+        
+        _gui.addTitle( "SoundLoop" );
+        _gui.addSlider( "SoundLoop ID", l_para.sound_id,0,1);
+        _gui.addSlider( "SoundLoop volume", l_para.volume,0,1);
+        _gui.addSlider( "SoundLoop pan", l_para.pan,0,1);
+        _gui.addSlider( "SoundLoop duration", l_para.duration,0,4);
+        
     }
     
     void setXMLFilename( string _name )
     {
-        //    xml_filename = _xml_filename;
         gui_page->setXMLName( _name );
     }
     

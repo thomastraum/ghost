@@ -22,11 +22,12 @@ class ForceFromSide : public BaseForceAnimated {
 public:
     
     ForceFromSide() {
+        
         steps_min = 5;
         steps_max = 15;
-        
         dir = 1;
         left_right = false;
+        
     };
     
     void update()

@@ -31,8 +31,10 @@ public:
     int     sound_id;
     float   volume;
     float   pan;
+    float   duration;
     
-    LoopEvent( int _id, float _volume, float _pan ): sound_id( _id ), volume( _volume ), pan(_pan) {}
+    LoopEvent( int _id, float _volume, float _pan, float _duration ) 
+        : sound_id( _id ), volume( _volume ), pan(_pan), duration(_duration) {}
 };
 
 class SoundFxEvent {    
@@ -66,12 +68,21 @@ public:
     BoxFlashEvent( ofFloatColor _color, float _duration ): color( _color ), duration( _duration ) {}
 };
 
-extern ofEvent<ForceEvent> ForceEventDispatcher;
-extern ofEvent<LoopEvent> LoopEventDispatcher;
-extern ofEvent<SoundFxEvent> SoundFxEventDispatcher;
-extern ofEvent<EmitParticlesEvent> EmitParticlesEventDispatcher;
-extern ofEvent<BoxFlashEvent> BoxFlashEventDispatcher;
+class PGravEvent {    
+    
+public:
+    
+    float   gravity;
+    
+    PGravEvent( float _gravity ): gravity( _gravity ) {}
+    
+};
 
-
+extern ofEvent<ForceEvent>          ForceEventDispatcher;
+extern ofEvent<LoopEvent>           LoopEventDispatcher;
+extern ofEvent<SoundFxEvent>        SoundFxEventDispatcher;
+extern ofEvent<EmitParticlesEvent>  EmitParticlesEventDispatcher;
+extern ofEvent<BoxFlashEvent>       BoxFlashEventDispatcher;
+extern ofEvent<PGravEvent>          PGravEventDispatcher;
 
 #endif

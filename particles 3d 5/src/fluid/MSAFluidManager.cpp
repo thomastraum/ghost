@@ -66,6 +66,8 @@ void MSAFluidManager::update()
         forces[i]->update();
     }
     
+//    addRandomPosForce();
+    
 	fluidsolver.update();
 }
 
@@ -76,6 +78,15 @@ void MSAFluidManager::draw()
         ofColor(255,255,255);
         fluidDrawer.draw(0, 0, getWindowWidth(), getWindowHeight());
     }
+}
+
+//-------------------------------------------------------------------------- FORCES
+void MSAFluidManager::addRandomPosForce()
+{
+    Vec2f pos = Vec2f( Rand::randFloat( 0,1), Rand::randFloat(0,1) );
+    Vec2f vel = Vec2f( Rand::randVec2f() ) * fixedforce_power;
+    //    Vec2f vel = Vec2f( Rand::randFloat( 0,1), Rand::randFloat(0,1) ) * fixedforce_power;
+    addToFluid( pos, vel );
 }
 
 //-------------------------------------------------------------------------- HELPERS
@@ -125,16 +136,15 @@ void MSAFluidManager::addSettings( ofxSimpleGuiToo & _gui )
 	_gui.addToggle("fs.wrapX", fluidsolver.wrap_x);
 	_gui.addToggle("fs.wrapY", fluidsolver.wrap_y);
     
-    _gui.addSlider( "Fluid Strength", fixedforce_power, 0, 0.1);
+    _gui.addSlider( "Fluid Strength", fixedforce_power, 0, 0.3);
     
     for ( int i=0;i<forces.size(); i++ ) {
-        forces[i]->addSettings( _gui);
+        forces[i]->addSettings( _gui );
     }
 }
 
 void MSAFluidManager::setXMLFilename( string _name )
 {
-//    xml_filename = _xml_filename;
     gui_page->setXMLName( _name );
 }
 

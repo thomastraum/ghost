@@ -23,14 +23,14 @@ public:
     
     void onForceEvent( ForceEvent &args )
     {
-        cout << "MSAFluidManagerApp::ForceEvent " << args.force_id << " " << args.strength << " " << args.duration << endl;
+        ofLogNotice("TT") << "MSAFluidManagerApp::ForceEvent " << args.force_id << " " << args.strength << " " << args.duration;
         onFadeForceUpAndDown( args.force_id, args.strength , args.duration );
     }
     
     void onFadeForceUpAndDown( int _id, float _strength, float _duration )
     {
         if ( _id >= forces.size() ) {
-            ofLogError() << "onFadeForceUpAndDown _id " << _id << " does not exist";
+            ofLogError("TT") << "onFadeForceUpAndDown _id " << _id << " does not exist";
         } else {
             forces[_id]->fadeForceUpAndDown( _strength, _duration );
         }

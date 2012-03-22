@@ -1,6 +1,9 @@
 
 **priorities**
+gravity event
+sound fx event
 emitt particles
+random pos force
 fog flashing
 Monolake north
 fluxion prospect one

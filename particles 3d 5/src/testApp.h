@@ -7,7 +7,8 @@
 #include "TT_DiscoBoxApp.h"
 #include "TT_Fog.h"
 //#include "MSAParticleSystem3D.h"
-#include "MSAParticleSystem3D_tt.h"
+//#include "MSAParticleSystem3D_Groups.h"
+#include "MSAParticleSystemEvented.h"
 
 //#include "MSAFluidManager.h"
 #include "MSAFluidManagerApp.h"
@@ -52,7 +53,7 @@ private:
 
     //---------------------------------------------- Particles
     
-    MSAParticleSystem3D_tt ps;
+    MSAParticleSystemEvented ps;
     
     //---------------------------------------------- FLUID
     MSAFluidManagerApp          fluid;

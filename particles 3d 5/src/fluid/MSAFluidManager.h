@@ -51,6 +51,9 @@ public:
     void setXMLFilename( string _name );
     ofxSimpleGuiPage *  gui_page;
 
+    
+    void addRandomPosForce();
+    
 };
 
 

@@ -40,6 +40,9 @@ void testApp::setup(){
 //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
     
     seq.start();
+    
+    ofSetLogLevel(OF_LOG_ERROR);
+    ofSetLogLevel( "TT", OF_LOG_NOTICE );
 }
 
 //--------------------------------------------------------------

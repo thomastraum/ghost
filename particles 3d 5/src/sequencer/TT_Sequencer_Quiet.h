@@ -20,9 +20,29 @@ private:
     void makeGentlePush()
     {
         if ( ofRandom(0,1) > prob ) {
+            
+            // pick a random force //
+            f_para.force_id = floor(ofRandom(0,4));
             triggerForceEvent();
+            
+//            ofColor col = ofColor::fromHsb(128, 255, 255); //b_para.color.getHsb();
+//            col.setHue( ofRandom(0,0.1) );
+//            b_para.color = col;
+            
             triggerBoxFlashEvent();
         }
+    }
+    
+    void makeLoopChange()
+    {
+        l_para.volume = ofRandom(1);
+        triggerLoopEvent();
+    }
+    
+    void changeGrav()
+    {
+        pgrav_para.gravity = ofRandom(-1,1);
+        triggerPGravEvent();
     }
     
 public:
@@ -47,7 +67,8 @@ public:
     //-------------------------------------------------------------------
     void onFullNote( int &beats )
     {
-        
+        makeLoopChange();
+        changeGrav();
     }
 
 };

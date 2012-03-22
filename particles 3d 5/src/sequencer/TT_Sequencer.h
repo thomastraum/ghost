@@ -28,6 +28,7 @@ struct LoopEventParameters {
     int     sound_id;
     float   volume;
     float   pan;
+    float   duration;
 };
 
 struct SoundFxEventParameters {
@@ -44,6 +45,10 @@ struct EmitParticlesEventParameters {
 struct BoxFlashEventParameters {
     ofFloatColor    color;
     float           duration;
+};
+
+struct PGravEventParameters {
+    float   gravity;
 };
 
 //----------------------------------------------------------------------
@@ -65,6 +70,7 @@ protected:
     SoundFxEventParameters          s_para;
     EmitParticlesEventParameters    e_para;
     BoxFlashEventParameters         b_para;
+    PGravEventParameters            pgrav_para;
     
     void triggerForceEvent()
     {
@@ -73,7 +79,7 @@ protected:
     }
     void triggerLoopEvent()
     {
-        LoopEvent event = LoopEvent( l_para.sound_id, l_para.volume, l_para.pan );
+        LoopEvent event = LoopEvent( l_para.sound_id, l_para.volume, l_para.pan, l_para.duration );
         ofNotifyEvent(LoopEventDispatcher, event);
     }
     void triggerSoundFxEvent()
@@ -90,6 +96,12 @@ protected:
     {
         BoxFlashEvent event = BoxFlashEvent( b_para.color, b_para.duration );
         ofNotifyEvent(BoxFlashEventDispatcher, event);
+    }
+    
+    void triggerPGravEvent()
+    {
+        PGravEvent event = PGravEvent( pgrav_para.gravity );
+        ofNotifyEvent(PGravEventDispatcher, event);
     }
     
     //----------------------------------------------------------------------

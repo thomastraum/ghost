@@ -79,22 +79,21 @@ public:
     //---------------------------------------------------------------
     void quarterNote() 
     {
-        cout << "quarterNote: " << endl;
-        
+//        cout << "quarterNote: " << endl;
         ofNotifyEvent(onQuarterNote, beats);
     };
     
     //---------------------------------------------------------------
 	void halfNote()
     {
-        cout << "-- halfNote" << endl;
+//        cout << "-- halfNote" << endl;
         ofNotifyEvent(onHalfNote, beats);
     };
     
     //---------------------------------------------------------------
 	void fullNote()
     {
-        cout << "---- fullNote" << endl;
+//        cout << "---- fullNote" << endl;
         ofNotifyEvent(onFullNote, beats);
     }; 
     

@@ -234,6 +234,7 @@
 		645C92F1151A1AFE0033C2ED /* TT_SequencerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SequencerSettings.h; sourceTree = "<group>"; };
 		645C92F2151A957B0033C2ED /* TT_Sequencer_Quiet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer_Quiet.h; sourceTree = "<group>"; };
 		645C92F3151A9D760033C2ED /* TT_DiscoBoxApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_DiscoBoxApp.h; sourceTree = "<group>"; };
+		64A73589151B3DFD00976E90 /* MSAParticleSystemEvented.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystemEvented.h; sourceTree = "<group>"; };
 		64B505701517798B00154113 /* TT_SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundPlayer.h; sourceTree = "<group>"; };
 		64B5057115177A1400154113 /* TT_SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundManager.h; sourceTree = "<group>"; };
 		64B5057215179CB400154113 /* TT_DiscoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_DiscoBox.h; sourceTree = "<group>"; };
@@ -277,7 +278,7 @@
 		E9DFBE5414ED45430086BD51 /* MSAParticleGroup3DMesh_Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Lines.h; sourceTree = "<group>"; };
 		E9E0831814ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleSystem3D_Abstract.cpp; sourceTree = "<group>"; };
 		E9E0831914ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_Abstract.h; sourceTree = "<group>"; };
-		E9E0831B14ED605D00DEFFE7 /* MSAParticleSystem3D_tt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_tt.h; sourceTree = "<group>"; };
+		E9E0831B14ED605D00DEFFE7 /* MSAParticleSystem3D_Groups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_Groups.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -833,7 +834,8 @@
 			children = (
 				E9E0831814ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.cpp */,
 				E9E0831914ED595300DEFFE7 /* MSAParticleSystem3D_Abstract.h */,
-				E9E0831B14ED605D00DEFFE7 /* MSAParticleSystem3D_tt.h */,
+				E9E0831B14ED605D00DEFFE7 /* MSAParticleSystem3D_Groups.h */,
+				64A73589151B3DFD00976E90 /* MSAParticleSystemEvented.h */,
 			);
 			name = "particle-system";
 			sourceTree = "<group>";
