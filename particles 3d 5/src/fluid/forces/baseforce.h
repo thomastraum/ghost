@@ -7,12 +7,9 @@
 //
 
 #pragma once
-
 #include "MSACore.h"
 #include "MSATimer.h"
 #include "ofxSimpleGuiToo.h"
-
-//#include "MSAFluidManager.h"
 
 using namespace MSA;
 
@@ -27,6 +24,8 @@ public:
     };
     
     virtual void    setup( MSAFluidManager * manager );
+    void            addToFluid( Vec2f origin, Vec2f vel );
+    
     //--------------------------------------------------------- Empty virtual functions
     virtual void    update(){};
     virtual void    draw(){};
@@ -36,27 +35,14 @@ public:
     //---------------------------------------------------------
     void            enable( bool _is_enabled );
     bool            isEnabled();
-    
     void            setOrigin( Vec2f _origin );
     void            setStrength( float _strength );
-    
-    void            addToFluid( Vec2f origin, Vec2f vel );
-    
-    // ------------------------------------------------------- Getter / Setter
-    void setInstanceName( string _instance_name ) {
-        instance_name = _instance_name;
-    };
-    
-    string  getInstanceName( string _instance_name ) {
-        return instance_name;
-    };
+    void            setInstanceName( string _instance_name ) { instance_name = _instance_name; };
+    string          getInstanceName( string _instance_name ) { return instance_name; };
 
-    
     // ------------------------------------------------------- Settings
     virtual void    addSettings( ofxSimpleGuiToo & _gui );
 
-    
-    
 protected:
     
     string  instance_name;

@@ -24,9 +24,10 @@ public:
     TT_SoundManager()
     {
         ofAddListener( LoopEventDispatcher,this,&TT_SoundManager::onLoopChange );
+        ofAddListener( SoundFxEventDispatcher,this,&TT_SoundManager::onSoundFxEvent );
     }
     
-    //--------------------------------------------
+    //---------------------------------------------------------------- Managing
     void addLoop( string _path )
     {
         TT_SoundPlayer * loop = new TT_SoundPlayer();
@@ -42,20 +43,36 @@ public:
         event_sounds.push_back( event_sound );
     }
     
-    
-    //--------------------------------------------
-    void fadeLoopVolume( int _id, float _volume, float _duration=0.5 )
-    {
-        ofLogNotice( "TT" ) << "fadeLoopVolume id: " << _id << " v: " << _volume << " d: " << _duration;
-        loops[_id]->fadeVolume( _volume, _duration );
-    }
-    
-    //-------------------------------------------- EVENTS
-    
+    //---------------------------------------------------------------- Events
     void onLoopChange( LoopEvent & args )
     {
 //        ofLogNotice( "TT" ) << "TT_SoundManager::onLoopChange ";
         fadeLoopVolume( args.sound_id, args.volume, args.duration );
+    }
+    
+    //---------------------------------------------------------------- 
+    void onSoundFxEvent( SoundFxEvent & args )
+    {
+        ofLogNotice( "TT" ) << "TT_SoundManager::onSoundFxEvent ";
+        playEventSound( args.sound_id, args.volume );
+    }
+    
+    //---------------------------------------------------------------- Work the Sounds
+    void fadeLoopVolume( int _id, float _volume, float _duration=0.5 )
+    {
+//        ofLogNotice( "TT" ) << "fadeLoopVolume id: " << _id << " v: " << _volume << " d: " << _duration;
+        loops[_id]->fadeVolume( _volume, _duration );
+    }
+    
+    //-------------------------------------------- 
+    void playEventSound( int _id, float _volume )
+    {
+        ofLogNotice( "TT" ) << "playEventSound id: " << _id << " v: " << _volume;
+        ofSoundPlayer * snd =  event_sounds[_id];
+        if ( !snd->getIsPlaying() ) {
+            snd->play();
+            snd->setVolume(_volume);
+        }
     }
     
     

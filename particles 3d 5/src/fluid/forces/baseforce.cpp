@@ -13,7 +13,7 @@ void BaseForce::setup( MSAFluidManager * _manager )
 {
     manager = _manager;
     
-    strength = .016;
+    strength = 0;
     
     origin = Vec2f(0,0);
     vel = Vec2f(0,0);
@@ -54,6 +54,6 @@ void BaseForce::addToFluid( Vec2f _origin, Vec2f _vel )
 void BaseForce::addSettings( ofxSimpleGuiToo & _gui )
 {
     _gui.addTitle( instance_name ).setNewColumn(true);
-	_gui.addSlider( instance_name + " Strength", strength, -.1, 0.1).setSmoothing(slider_smoothing);
+//	_gui.addSlider( instance_name + " Strength", strength, -.1, 0.1).setSmoothing(slider_smoothing);
     _gui.addToggle( instance_name + " Enabled", is_enabled );
 }

@@ -25,17 +25,22 @@ private:
             f_para.force_id = floor(ofRandom(0,4));
             triggerForceEvent();
             
-//            ofColor col = ofColor::fromHsb(128, 255, 255); //b_para.color.getHsb();
-//            col.setHue( ofRandom(0,0.1) );
-//            b_para.color = col;
+//            s_para.sound_id = floor(ofRandom(0,3));
+//            s_para.volume = 1;
+//            triggerSoundFxEvent();
             
-            triggerBoxFlashEvent();
+            makeDiscoSoundBeat();
         }
     }
     
     void makeLoopChange()
     {
-        l_para.volume = ofRandom(1);
+        l_para.volume = ofRandom(0.2,1);
+        triggerLoopEvent();
+        
+        // fade stormy loop down.
+        l_para.sound_id = 0;
+        l_para.volume = ofRandom(0,0.2);
         triggerLoopEvent();
     }
     
@@ -44,6 +49,17 @@ private:
         pgrav_para.gravity = ofRandom(-1,1);
         triggerPGravEvent();
     }
+
+    void makeDiscoSoundBeat()
+    {
+        triggerBoxFlashEvent();
+        
+        s_para.sound_id = 3;
+        s_para.volume = 1;
+        triggerSoundFxEvent();
+    }
+    
+    
     
 public:
     

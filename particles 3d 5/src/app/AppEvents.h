@@ -34,7 +34,7 @@ public:
     float   duration;
     
     LoopEvent( int _id, float _volume, float _pan, float _duration ) 
-        : sound_id( _id ), volume( _volume ), pan(_pan), duration(_duration) {}
+        : sound_id(_id), volume(_volume), pan(_pan), duration(_duration) {}
 };
 
 class SoundFxEvent {    
@@ -45,7 +45,8 @@ public:
     float   volume;
     float   duration;
     
-    SoundFxEvent( int _id, float _volume, float _duration ): sound_id( _id ), volume( _volume ), duration(_duration) {}
+    SoundFxEvent( int _id, float _volume, float _duration ): 
+        sound_id( _id ), volume( _volume ), duration(_duration) {}
 };
 
 class EmitParticlesEvent {    

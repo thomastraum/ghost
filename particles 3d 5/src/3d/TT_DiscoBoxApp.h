@@ -25,6 +25,7 @@ public:
     {
         cout << "TT_DiscoBoxApp::onBoxFlashEvent " << endl;
         flashUp( args.color, args.duration );
+        
     }
 };
 

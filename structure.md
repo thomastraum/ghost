@@ -1,10 +1,12 @@
 
 **priorities**
-gravity event
-sound fx event
+> gravity event
+> sound fx event
 emitt particles
+camera
 random pos force
 fog flashing
+
 Monolake north
 fluxion prospect one
 

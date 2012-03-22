@@ -36,6 +36,11 @@ void testApp::setup(){
     sm.addLoop( "sounds/storm-tt-loop.wav" );
     sm.addLoop( "sounds/synths-tt-loop.wav" );
     
+    sm.addEventSound("sounds/clarinet-jitter.wav");
+    sm.addEventSound("sounds/clarinet-force-change-2.wav");
+    sm.addEventSound("sounds/clarinet-soft.wav");
+    sm.addEventSound("sounds/monolake-hall-1.wav");
+    
 //    box.fadeToColor( ofFloatColor(1,0,1), 10);
 //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
     
@@ -159,11 +164,9 @@ void testApp::keyPressed(int key){
         box.flashUp( ofFloatColor( ofRandom(0,1),ofRandom(0,1),ofRandom(0,1) ), 0.4);
     
     if ( key == 'v' ) {
-//        sm.fadeLoopVolume( 0, ofRandom( 0,1 ), ofRandom(0,3) );
-//        sm.fadeLoopVolume( 1, ofRandom( 0,1 ), ofRandom(0,3) );
-        
         sm.fadeLoopVolume( 0, 0, ofRandom(0,3) );
-        sm.fadeLoopVolume( 1, 0, ofRandom(0,3) );
+//        sm.fadeLoopVolume( 1, 0, ofRandom(0,3) );
+        sm.playEventSound( 1, 1 );
     }
     
     if ( key == 'b' ) {
