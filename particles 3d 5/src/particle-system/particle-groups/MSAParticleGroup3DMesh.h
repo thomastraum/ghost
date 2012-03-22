@@ -47,15 +47,7 @@ public:
             it++;
         }
     };
-    
-    //-------------------------------------------------------------------------
-    // implemented in child classes
-    virtual void addParticleToMesh( TT_Custom_MSAParticle3D * _p ){};
-    
-    //-------------------------------------------------------------------------
-    // implemented in child classes
-    virtual void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ){};
-    
+
     //-------------------------------------------------------------------------
     void resizeParticleGroup()
     {
@@ -72,6 +64,15 @@ public:
             it++;
         }
     }
+
+    //-------------------------------------------------------------------------
+    // implemented in child classes
+    virtual void addParticleToMesh( TT_Custom_MSAParticle3D * _p ){};
+    
+    //-------------------------------------------------------------------------
+    // implemented in child classes
+    virtual void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ){};
+    
 
     
 };

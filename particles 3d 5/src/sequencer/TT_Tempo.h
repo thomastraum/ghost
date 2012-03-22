@@ -27,8 +27,7 @@ public:
 
     TT_Tempo() {
         
-        BPM = 60;
-//        time_signature = 4;
+        BPM = 50;
         measure = 4;
         half_measure = measure/2;
         
@@ -40,17 +39,26 @@ public:
     ofEvent<int> onHalfNote;
     ofEvent<int> onFullNote;
     
+    //---------------------------------------------------------------
     void start()
     {
         timer.start();
     }
     
+    //---------------------------------------------------------------
     void stop()
     {
         timer.stop();
         beats = 0;
     }
     
+    void setBPM( int _BPM )
+    {
+        BPM = _BPM;
+        beat_second = (float)60/BPM;
+    }
+    
+    //---------------------------------------------------------------
     void update(){
         
         if( timer.getSeconds() / beat_second > beats ) {
@@ -64,12 +72,11 @@ public:
             if ( beats % measure == 0 )
                 fullNote();
             
-            if (beats >= BPM )
-                beats = 0;
         }
 
     };
     
+    //---------------------------------------------------------------
     void quarterNote() 
     {
         cout << "quarterNote: " << endl;
@@ -77,12 +84,14 @@ public:
         ofNotifyEvent(onQuarterNote, beats);
     };
     
+    //---------------------------------------------------------------
 	void halfNote()
     {
         cout << "-- halfNote" << endl;
         ofNotifyEvent(onHalfNote, beats);
     };
     
+    //---------------------------------------------------------------
 	void fullNote()
     {
         cout << "---- fullNote" << endl;

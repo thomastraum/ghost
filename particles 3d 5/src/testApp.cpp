@@ -39,7 +39,7 @@ void testApp::setup(){
 //    box.fadeToColor( ofFloatColor(1,0,1), 10);
 //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
     
-    tempo.start();
+    seq.start();
 }
 
 //--------------------------------------------------------------
@@ -50,7 +50,7 @@ void testApp::update()
     
     if ( shaker.isShaking() ) shaker.stopShaking();
 
-    tempo.update();
+    seq.update();
 
 }
 
@@ -187,6 +187,8 @@ void testApp::addAppSettings()
     ps.addSettings( gui );
 //    sm.addSettings( gui );
     
+    seq.addSettings(gui);
+    
 }
 
 //-------------------------------------------------------------- 
@@ -212,10 +214,11 @@ void testApp::loadXMLSettingsFromPath( string _path )
     setXMLFilename( _path + "schnitzel.xml" );
     ps.setXMLFilename( _path + "Particle TT.xml" );
     fluid.setXMLFilename( _path + "MSAFluidManager_settings.xml" );
+    seq.setXMLFilename(_path + "sequencer-1.xml");
     
     loadXMLSettings();
     
-//	gui.setAutoSave(false);
+	gui.setAutoSave(false);
 //    gui.show();
 }
 

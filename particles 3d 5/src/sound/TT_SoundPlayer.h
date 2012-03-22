@@ -132,19 +132,4 @@ public:
     
 };
 
-//  OLD
-////---------------------------------------------------------------
-//void update() 
-//{
-//    if( vol_timer.isTimerRunning() ) {
-//        sound.setVolume( vol_start + ((vol_target-vol_start) * vol_timer.getDiffN()) );
-//    }
-//    
-//    if( pan_timer.isTimerRunning() ) {
-//        sound.setPan( pan_start + ((pan_target-pan_start) * pan_timer.getDiffN()) );            
-//        cout << "_pan: " << sound.getPan() << endl;
-//    }
-//    
-//}
-
 #endif

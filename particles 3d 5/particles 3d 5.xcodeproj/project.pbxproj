@@ -52,6 +52,7 @@
 		6458042714E2FA48008B8410 /* TT_3D_Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458041C14E2FA48008B8410 /* TT_3D_Plane.cpp */; };
 		6458042914E2FA48008B8410 /* MSAParticleGroup3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458042214E2FA48008B8410 /* MSAParticleGroup3D.cpp */; };
 		6458046614E2FA81008B8410 /* ofxGrabCam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458045D14E2FA81008B8410 /* ofxGrabCam.cpp */; };
+		645C92EB1519D6B60033C2ED /* AppEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 645C92EA1519D6B60033C2ED /* AppEvents.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -228,6 +229,11 @@
 		6458045D14E2FA81008B8410 /* ofxGrabCam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGrabCam.cpp; sourceTree = "<group>"; };
 		6458045E14E2FA81008B8410 /* ofxGrabCam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxGrabCam.h; sourceTree = "<group>"; };
 		645C92E715195DB00033C2ED /* TT_Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer.h; sourceTree = "<group>"; };
+		645C92E91519D5E80033C2ED /* AppEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEvents.h; sourceTree = "<group>"; };
+		645C92EA1519D6B60033C2ED /* AppEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppEvents.cpp; sourceTree = "<group>"; };
+		645C92F1151A1AFE0033C2ED /* TT_SequencerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SequencerSettings.h; sourceTree = "<group>"; };
+		645C92F2151A957B0033C2ED /* TT_Sequencer_Quiet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer_Quiet.h; sourceTree = "<group>"; };
+		645C92F3151A9D760033C2ED /* TT_DiscoBoxApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_DiscoBoxApp.h; sourceTree = "<group>"; };
 		64B505701517798B00154113 /* TT_SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundPlayer.h; sourceTree = "<group>"; };
 		64B5057115177A1400154113 /* TT_SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundManager.h; sourceTree = "<group>"; };
 		64B5057215179CB400154113 /* TT_DiscoBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_DiscoBox.h; sourceTree = "<group>"; };
@@ -639,6 +645,7 @@
 				E9137AF214F1182800FF3BA8 /* TT_Box.h */,
 				E9137AF514F134C400FF3BA8 /* TT_BoxGui.h */,
 				64B5057215179CB400154113 /* TT_DiscoBox.h */,
+				645C92F3151A9D760033C2ED /* TT_DiscoBoxApp.h */,
 			);
 			path = 3d;
 			sourceTree = "<group>";
@@ -693,11 +700,22 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		645C92E81519D5DC0033C2ED /* app */ = {
+			isa = PBXGroup;
+			children = (
+				645C92E91519D5E80033C2ED /* AppEvents.h */,
+				645C92EA1519D6B60033C2ED /* AppEvents.cpp */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
 		64B5059515193F4E00154113 /* sequencer */ = {
 			isa = PBXGroup;
 			children = (
 				64B5059615193F8400154113 /* TT_Tempo.h */,
 				645C92E715195DB00033C2ED /* TT_Sequencer.h */,
+				645C92F1151A1AFE0033C2ED /* TT_SequencerSettings.h */,
+				645C92F2151A957B0033C2ED /* TT_Sequencer_Quiet.h */,
 			);
 			path = sequencer;
 			sourceTree = "<group>";
@@ -779,6 +797,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				645C92E81519D5DC0033C2ED /* app */,
 				64B5059515193F4E00154113 /* sequencer */,
 				6410F2DA150ED78E00371424 /* sound */,
 				E99C54BC14EFD82900358B40 /* preset-manager */,
@@ -952,6 +971,7 @@
 				6410F380150EE18500371424 /* ofxEasingQuint.cpp in Sources */,
 				6410F381150EE18500371424 /* ofxEasingSine.cpp in Sources */,
 				6410F382150EE18500371424 /* ofxTween.cpp in Sources */,
+				645C92EB1519D6B60033C2ED /* AppEvents.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

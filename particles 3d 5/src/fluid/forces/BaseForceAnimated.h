@@ -44,7 +44,7 @@ public:
         timer.stopTimer();
         timer.setDuration( _duration );
         timer.startTimer();
-        enable( true );
+//        enable( true );
         
     }
     

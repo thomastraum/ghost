@@ -4,7 +4,7 @@
 #include "ofxGrabCam.h"
 #include "ofxSimpleGuiToo.h"
 
-#include "TT_DiscoBox.h"
+#include "TT_DiscoBoxApp.h"
 #include "TT_Fog.h"
 //#include "MSAParticleSystem3D.h"
 #include "MSAParticleSystem3D_tt.h"
@@ -22,7 +22,7 @@
 
 #include "TT_Presets.h"
 
-#include "TT_Tempo.h"
+#include "TT_Sequencer_Quiet.h"
 
 class testApp : public ofBaseApp{
 
@@ -44,12 +44,11 @@ private:
     int     width;
     int     height;
     
-    TT_DiscoBox box;
+    TT_DiscoBoxApp  box;
+	ofEasyCam       camera;
+    TT_Fog          fog;
     
-	ofEasyCam   camera;
-    TT_Fog      fog;
-    
-    void        buildScene();
+    void            buildScene();
 
     //---------------------------------------------- Particles
     
@@ -79,8 +78,8 @@ private:
     void        nextPreset();
     TT_Presets  my_presets;
     
-    //---------------------------------------------- Presets    
-    TT_Tempo    tempo;
+    //---------------------------------------------- Sequencer    
+    TT_Sequencer_Quiet    seq;
     
 };
 
