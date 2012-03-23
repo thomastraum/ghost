@@ -50,7 +50,6 @@ public:
     void addSettings( ofxSimpleGuiToo & _gui );
     void setXMLFilename( string _name );
     ofxSimpleGuiPage *  gui_page;
-
     
     void addRandomPosForce();
     

@@ -25,7 +25,9 @@ public:
     {
         gui_page = & _gui.addPage( "Sequencer Settings" );
         
-        _gui.addSlider( "Probability", prob, 0,1 );
+        _gui.addSlider( "Prob nice", prob, 0,1 );
+        _gui.addSlider( "Prob mean", burstprob, 0,1 );
+//        _gui.addSlider( "BPM", tempo.BPM, 0,200 );
         
         _gui.addTitle( "Force Settings" );
         _gui.addSlider( "Force ID", f_para.force_id,0,3);

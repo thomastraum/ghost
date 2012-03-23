@@ -76,8 +76,9 @@ public:
         float radius = _p->getRadius();
         pos_vec3f = _p->getPosition();
         pos =  ofVec3f( pos_vec3f.x, pos_vec3f.y, pos_vec3f.z );
+
 //        color.a = _p->getAlpha();
-        color = ofFloatColor(1,1,1, _p->getAlpha());
+//        color = ofFloatColor(1,1,1, _p->getAlpha());
         
         top     = ofVec3f( pos.x-radius, pos.y-radius, pos.z );
         right   = ofVec3f( pos.x+radius, pos.y-radius, pos.z );

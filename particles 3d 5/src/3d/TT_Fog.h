@@ -42,6 +42,9 @@ public:
         glEnable(GL_FOG);
     }
     
+    void setColor( ofFloatColor _c ) { color = _c; }
+    ofFloatColor getColor() { return color; };
+    
     void defineStartAndEnd( int _start, int _end )
     {
         start   = _start;

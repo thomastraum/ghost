@@ -69,6 +69,17 @@ public:
     BoxFlashEvent( ofFloatColor _color, float _duration ): color( _color ), duration( _duration ) {}
 };
 
+class FogFlashEvent {    
+    
+public:
+    
+    ofFloatColor    color;
+    float           duration;
+    
+    FogFlashEvent( ofFloatColor _color, float _duration ): color( _color ), duration( _duration ) {}
+};
+
+
 class PGravEvent {    
     
 public:
@@ -84,6 +95,7 @@ extern ofEvent<LoopEvent>           LoopEventDispatcher;
 extern ofEvent<SoundFxEvent>        SoundFxEventDispatcher;
 extern ofEvent<EmitParticlesEvent>  EmitParticlesEventDispatcher;
 extern ofEvent<BoxFlashEvent>       BoxFlashEventDispatcher;
+extern ofEvent<FogFlashEvent>       FogFlashEventDispatcher;
 extern ofEvent<PGravEvent>          PGravEventDispatcher;
 
 #endif

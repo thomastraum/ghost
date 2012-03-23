@@ -14,7 +14,6 @@
 
 class TT_Tempo {
     
-    int         BPM;
     int         time_signature; // = TIME_SIGNATURE;
     int         measure; // = MEASURE;
     int         half_measure;
@@ -34,6 +33,8 @@ public:
         beats = 0;
         beat_second = (float)60/BPM;
     }
+    
+    int BPM;
     
     ofEvent<int> onQuarterNote;
     ofEvent<int> onHalfNote;

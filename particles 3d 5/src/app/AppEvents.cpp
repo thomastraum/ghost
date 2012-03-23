@@ -14,4 +14,5 @@ ofEvent<LoopEvent>          LoopEventDispatcher;
 ofEvent<SoundFxEvent>       SoundFxEventDispatcher;
 ofEvent<EmitParticlesEvent> EmitParticlesEventDispatcher;
 ofEvent<BoxFlashEvent>      BoxFlashEventDispatcher;
+ofEvent<FogFlashEvent>       FogFlashEventDispatcher;
 ofEvent<PGravEvent>         PGravEventDispatcher;

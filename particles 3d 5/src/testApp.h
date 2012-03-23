@@ -5,7 +5,7 @@
 #include "ofxSimpleGuiToo.h"
 
 #include "TT_DiscoBoxApp.h"
-#include "TT_Fog.h"
+#include "TT_FogAnimated.h"
 //#include "MSAParticleSystem3D.h"
 //#include "MSAParticleSystem3D_Groups.h"
 #include "MSAParticleSystemEvented.h"
@@ -47,7 +47,7 @@ private:
     
     TT_DiscoBoxApp  box;
 	ofEasyCam       camera;
-    TT_Fog          fog;
+    TT_FogAnimated  fog;
     
     void            buildScene();
 

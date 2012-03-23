@@ -241,6 +241,7 @@
 		64B50593151905B100154113 /* BaseForceAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseForceAnimated.h; sourceTree = "<group>"; };
 		64B50594151912F500154113 /* MSAFluidManagerApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidManagerApp.h; sourceTree = "<group>"; };
 		64B5059615193F8400154113 /* TT_Tempo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Tempo.h; sourceTree = "<group>"; };
+		64CCC52E151C1B3E00223BA4 /* TT_FogAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_FogAnimated.h; sourceTree = "<group>"; };
 		64F45A6F1512C78600B35B0C /* TT_Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Timer.h; sourceTree = "<group>"; };
 		64F45A7A1514CBFF00B35B0C /* TT_SoundPlayer_gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundPlayer_gui.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
@@ -642,6 +643,7 @@
 				6458041C14E2FA48008B8410 /* TT_3D_Plane.cpp */,
 				6458041D14E2FA48008B8410 /* TT_3D_Plane.h */,
 				E902C86C14EC13D2000B2A40 /* TT_Fog.h */,
+				64CCC52E151C1B3E00223BA4 /* TT_FogAnimated.h */,
 				E9137AF314F1199300FF3BA8 /* TT_Box.cpp */,
 				E9137AF214F1182800FF3BA8 /* TT_Box.h */,
 				E9137AF514F134C400FF3BA8 /* TT_BoxGui.h */,

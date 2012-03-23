@@ -56,13 +56,14 @@ struct PGravEventParameters {
 
 class TT_Sequencer {
     
-    TT_Tempo    tempo;
-    
     //----------------------------------------------------------------------
 protected:
     
+    TT_Tempo    tempo;
+    
     // General probability to be used in child classes
     float prob;
+    float burstprob;
     
     // Event Parameters structs
     ForceEventParameters            f_para;

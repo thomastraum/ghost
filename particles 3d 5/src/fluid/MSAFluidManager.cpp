@@ -66,7 +66,7 @@ void MSAFluidManager::update()
         forces[i]->update();
     }
     
-//    addRandomPosForce();
+    addRandomPosForce();
     
 	fluidsolver.update();
 }
