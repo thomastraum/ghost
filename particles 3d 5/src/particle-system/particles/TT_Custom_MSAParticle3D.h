@@ -18,6 +18,7 @@ public:
         
     TT_Custom_MSAParticle3D ()               : Physics::Particle3D() { 
         wrapping_enabled = false;
+        is_fadeout_enabled = false;
         color = Color::black();
         constraint=0;
         solvable = false;
@@ -25,6 +26,7 @@ public:
     
     TT_Custom_MSAParticle3D ( Vec3f _pos )   : Physics::Particle3D( _pos ) { 
         wrapping_enabled = false;
+        is_fadeout_enabled = false;
         color = Color::black();
         constraint=0;
         solvable = false;
@@ -36,17 +38,13 @@ public:
 	
     void update()
     {
-		//cout << _pos.x << "  " << _oldPos.x << endl;
-		
-		//wrap();
-        
-//        if (is_fadeout_enabled) {
-//            alpha*=0.9;
-//            if ( alpha <= 0.1 ) {
-//                is_fadeout_enabled = false;
-//                kill();
-//            }
-//        }
+        // fade out a bit (and kill if alpha == 0);
+        if (is_fadeout_enabled) {
+            alpha *= 0.99f;
+            if( alpha < 0.1f ) {
+                kill();
+            }
+        }
     }
     
     //----------------------------------------------------------------- COLOR
@@ -62,9 +60,9 @@ public:
     }
     
     //----------------------------------------------------------------- ALPHA
-    TT_Custom_MSAParticle3D * enableFadeOut( bool _is_fadeout_enabled )
+    TT_Custom_MSAParticle3D * enableFadeOut()
     {
-        is_fadeout_enabled = _is_fadeout_enabled;
+        is_fadeout_enabled = true;
         return this;
     }
     

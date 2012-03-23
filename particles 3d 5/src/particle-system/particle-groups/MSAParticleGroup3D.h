@@ -52,13 +52,18 @@ protected:
     float                                   drag_min;
     float                                   drag_max;
     
+    float                                   alpha_min;
+    float                                   alpha_max;
+    
     int                                     particle_default_color;
     
+    bool                                    enable_fadeout;
     bool                                    enable_collision;
     bool                                    enable_wrapping;
     
     vector<TT_Custom_MSAParticle3D*>        group;
     
     string                                  instance_name;
+    
     
 };

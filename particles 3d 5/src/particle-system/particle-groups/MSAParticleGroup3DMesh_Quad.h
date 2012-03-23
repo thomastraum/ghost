@@ -16,15 +16,17 @@ private:
     ofImage     texture;
     ofVbo       vbo;
     
-    ofColor     color;
-    ofVec3f     pos, top, right, bottom, left;
+    ofFloatColor    color;
+    Vec3f           pos_vec3f;
+    ofVec3f         pos, top, right, bottom, left;
     
 public:
     
     MSAParticleGroup3DMesh_Quad() {
         
-        color = ofColor(255,255,255 );
+        color = ofFloatColor(1,1,1,1 );
         mesh.clear();
+        
         ofDisableArbTex();
 //        texture.loadImage("dot-8-black.png");
         texture.loadImage("dot-8.png");
@@ -44,7 +46,8 @@ public:
     void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
     {
         float radius = _p->getRadius();
-        pos =  ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z );
+        pos_vec3f = _p->getPosition();
+        pos =  ofVec3f( pos_vec3f.x, pos_vec3f.y, pos_vec3f.z );
         
         top     = ofVec3f( pos.x-radius, pos.y-radius, pos.z );
         right   = ofVec3f( pos.x+radius, pos.y-radius, pos.z );
@@ -71,7 +74,10 @@ public:
     void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index )
     {
         float radius = _p->getRadius();
-        pos =  ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z );
+        pos_vec3f = _p->getPosition();
+        pos =  ofVec3f( pos_vec3f.x, pos_vec3f.y, pos_vec3f.z );
+//        color.a = _p->getAlpha();
+        color = ofFloatColor(1,1,1, _p->getAlpha());
         
         top     = ofVec3f( pos.x-radius, pos.y-radius, pos.z );
         right   = ofVec3f( pos.x+radius, pos.y-radius, pos.z );
@@ -79,10 +85,18 @@ public:
         left    = ofVec3f( pos.x-radius, pos.y+radius, pos.z );
         
         int i = index * 4;
+        mesh.setColor( i, color );
         mesh.setVertex( i++, top );
+        
+        mesh.setColor( i, color );
         mesh.setVertex( i++, right );
+
+        mesh.setColor( i, color );
         mesh.setVertex( i++, bottom );
+        
+        mesh.setColor( i, color );
         mesh.setVertex( i++, left );
+        
     }
     
     //---------------------------------------------------------------
@@ -104,8 +118,8 @@ public:
         
         texture.getTextureReference().bind();
         vbo.setMesh( mesh, GL_STATIC_DRAW );
-        vbo.draw( GL_QUADS, 0, mesh.getNumVertices() );
-        texture.getTextureReference().unbind();		// new in OF006
+        vbo.draw( GL_QUADS, 0, group.size() ); //mesh.getNumVertices() );
+        texture.getTextureReference().unbind();
         
 //        glDisable(GL_ALPHA_TEST);
 //        glDisable(GL_DEPTH_TEST);

@@ -67,12 +67,12 @@ public:
     //-------------------------------------------- 
     void playEventSound( int _id, float _volume )
     {
-        ofLogNotice( "TT" ) << "playEventSound id: " << _id << " v: " << _volume;
         ofSoundPlayer * snd =  event_sounds[_id];
         if ( !snd->getIsPlaying() ) {
             snd->play();
             snd->setVolume(_volume);
         }
+        ofLogNotice( "TT" ) << "playEventSound id: " << _id << " v: " << _volume;
     }
     
     

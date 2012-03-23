@@ -13,10 +13,14 @@ class MSAParticleGroup3DMesh_PointSprites : public MSAParticleGroup3DMesh {
 
 private:
 
-    ofImage     texture;
-    ofVbo       vbo;
+    ofImage         texture;
+    ofVbo           vbo;
     
-    int         gl_point_size;
+    ofFloatColor    color;
+    Vec3f           pos_vec3f;
+    ofVec3f         pos;
+    
+    int             gl_point_size;
 
 public:
     
@@ -24,11 +28,10 @@ public:
         
         mesh.setMode(OF_PRIMITIVE_POINTS);
         ofDisableArbTex();
-//        texture.loadImage("ps-1.png");
-//        texture.loadImage("pt-8-black.png");
         texture.loadImage("pt-8.png");
         
         gl_point_size = 4;
+        color = ofFloatColor(1,1,1,1 );
     }
     
     //---------------------------------------------------------------
@@ -41,14 +44,21 @@ public:
     //---------------------------------------------------------------
     void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
     {
-        mesh.addVertex( ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
-        mesh.addColor( ofColor(255,255,255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
+        pos_vec3f = _p->getPosition();
+        pos =  ofVec3f( pos_vec3f.x, pos_vec3f.y, pos_vec3f.z );
+        mesh.addVertex( pos );
+        mesh.addColor( color ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
     }
     
     //---------------------------------------------------------------
     void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ) 
     {
-        mesh.setVertex( index, ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
+        pos_vec3f   = _p->getPosition();
+        color.a     = _p->getAlpha();
+        
+        pos = ofVec3f( pos_vec3f.x, pos_vec3f.y, pos_vec3f.z );
+        mesh.setVertex( index, pos );
+        mesh.setColor( index, color );
     };
     
     //---------------------------------------------------------------
@@ -65,8 +75,8 @@ public:
         
         texture.getTextureReference().bind();
         vbo.setMesh( mesh, GL_STATIC_DRAW );
-        vbo.draw( GL_POINTS, 0, mesh.getNumVertices() );
-        texture.getTextureReference().unbind();		// new in OF006
+        vbo.draw( GL_POINTS, 0, group.size() ); //mesh.getNumVertices() );
+        texture.getTextureReference().unbind();
         
 //        glDisable(GL_ALPHA_TEST);
 //        glDisable(GL_DEPTH_TEST);

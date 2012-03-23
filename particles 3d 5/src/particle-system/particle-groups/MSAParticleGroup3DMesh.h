@@ -42,9 +42,14 @@ public:
         int i=0;
         while( it != group.end() ) {
             TT_Custom_MSAParticle3D * p = *it;
-            updateIndexWithParticle( p, i );
-            i++;
-            it++;
+            if ( p->isDead() ) {
+                it = group.erase(it);
+//                deleteIndex( i );
+            } else {   
+                updateIndexWithParticle( p, i );
+                i++;
+                it++;
+            }
         }
     };
 
@@ -65,13 +70,20 @@ public:
         }
     }
 
-    //-------------------------------------------------------------------------
+    //------------------------------------------------------------------------- Virtual
     // implemented in child classes
     virtual void addParticleToMesh( TT_Custom_MSAParticle3D * _p ){};
     
     //-------------------------------------------------------------------------
     // implemented in child classes
     virtual void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ){};
+    
+    //-------------------------------------------------------------------------
+    // implemented in child classes
+    virtual void deleteIndex( int index )
+    {
+//        mesh.deleteVertex( index );
+    };
     
 
     

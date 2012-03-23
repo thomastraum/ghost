@@ -41,6 +41,10 @@ void testApp::setup(){
     sm.addEventSound("sounds/clarinet-soft.wav");
     sm.addEventSound("sounds/monolake-hall-1.wav");
     
+    sm.addEventSound("sounds/damage-big-1.wav");
+    sm.addEventSound("sounds/damage-heavy-1.wav");
+    sm.addEventSound("sounds/damage-normal-1.wav");
+    
 //    box.fadeToColor( ofFloatColor(1,0,1), 10);
 //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
     

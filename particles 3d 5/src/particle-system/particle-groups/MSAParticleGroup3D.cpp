@@ -25,6 +25,9 @@ void MSAParticleGroup3D::setup()
     enable_collision = false;
     enable_wrapping = true;
     
+    alpha_min = 0.99;
+    alpha_max = 2;
+    
     cout << "MSAParticleGroup3D setup called" << endl;
 }
 
@@ -65,6 +68,7 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
 	float mass		= ofRandom( mass_min, mass_max );
 	float bounce	= ofRandom( bounce_min, bounce_max );
     float drag      = ofRandom(drag_min, drag_max);
+    float alpha     = ofRandom( alpha_min, alpha_max );
     
     if (enable_collision) {
         _p->enableCollision();
@@ -76,12 +80,15 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
         _p->setWrap(true, true);
     }
     
+    if ( enable_fadeout )
+        _p->enableFadeOut();
+    
     _p->setBounce(bounce);
 	_p->setMass(mass)->setDrag(drag)->makeFree();
+    _p->setAlpha(alpha);
     
     // give them a push
     _p->setVelocity( Vec3f(ofRandom(-100,100),ofRandom(-10,10),0 ) );
-    
 }
 
 void MSAParticleGroup3D::resizeParticleGroup()
@@ -124,4 +131,9 @@ void MSAParticleGroup3D::addSettings( ofxSimpleGuiToo & _gui )
     _gui.addToggle( instance_name + " wrapping", enable_wrapping );
     
     
+//	_gui.addSlider( instance_name + " drag min", drag_min, 0.1, 1);
+//	_gui.addSlider( instance_name + " drag max", drag_max, 0.1, 1);
+    
+    _gui.addToggle( instance_name + " enableFadeOut", enable_fadeout );
+
 }

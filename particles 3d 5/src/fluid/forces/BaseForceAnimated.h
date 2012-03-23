@@ -23,8 +23,12 @@ class BaseForceAnimated : public BaseForce {
     
     void setFadeTarget( float _target )
     {
-        start = strength;
-        target = _target;
+        if ( timer.isTimerRunning() ) {
+            target = _target;
+        } else {
+            start = strength;
+            target = _target;
+        }
     }
     
 public:
@@ -34,30 +38,34 @@ public:
         start = 0;
         target = 0;
         
-        ofAddListener( timer.onTimerUpdated,this,&BaseForceAnimated::onTimerUpdated );
+        //        ofAddListener( timer.onTimerUpdated,this,&BaseForceAnimated::onTimerUpdated );
     }
     
     //---------------------------------------------------------------
     void fadeForce( float _target, float _duration)
     {
         setFadeTarget( _target );
+        
         timer.stopTimer();
         timer.setDuration( _duration );
         timer.startTimer();
-//        enable( true );
         
+        ofRemoveListener( timer.onTimerUpdated,this,&BaseForceAnimated::onTimerUpdatedBackAndForth );
+        ofAddListener( timer.onTimerUpdated,this,&BaseForceAnimated::onTimerUpdated );
     }
     
     //---------------------------------------------------------------
     void fadeForceUpAndDown( float _target, float _duration)
     {
-        if ( timer.isTimerRunning() ) return;
+        setFadeTarget( _target );
         
-        fadeForce( _target, _duration );
-
-        ofRemoveListener( timer.onTimerFinished,this,&BaseForceAnimated::onTimerFinished );
-        ofAddListener( timer.onTimerFinished,this,&BaseForceAnimated::onTimerFinished );
-
+        timer.stopTimer();
+        timer.setDuration( _duration );
+        timer.startTimer();
+        
+        ofRemoveListener( timer.onTimerUpdated,this,&BaseForceAnimated::onTimerUpdated );
+        ofAddListener( timer.onTimerUpdated,this,&BaseForceAnimated::onTimerUpdatedBackAndForth );
+        
     }
     
     //---------------------------------------------------------------
@@ -67,10 +75,9 @@ public:
     }
     
     //--------------------------------------------------------------- 
-    void onTimerFinished( float &_duration )
+    void onTimerUpdatedBackAndForth( float &p )
     {
-        ofRemoveListener(timer.onTimerFinished,this,&BaseForceAnimated::onTimerFinished);
-        fadeForce( start,  _duration );
+        strength = start + ((target-start) * sin(PI*p));
     }
 };
 

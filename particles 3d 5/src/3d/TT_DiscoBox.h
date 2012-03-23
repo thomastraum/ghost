@@ -26,15 +26,20 @@ protected:
     //---------------------------------------------------------------
     void setColTarget( ofFloatColor _target )
     {
-        start   = getColor();
-        target  = _target;
+        
+        if ( timer.isTimerRunning() ) {
+            target = _target;
+        } else {
+            start   = getColor();
+            target  = _target;
+        }
     }
     
 public:
     
     TT_DiscoBox()
     {
-        ofAddListener( timer.onTimerUpdated,this,&TT_DiscoBox::onTimerUpdated );
+//        ofAddListener( timer.onTimerUpdated,this,&TT_DiscoBox::onTimerUpdated );
     }
 
     //---------------------------------------------------------------
@@ -44,16 +49,21 @@ public:
         timer.stopTimer();
         timer.setDuration( _duration );
         timer.startTimer();
+        
+        ofRemoveListener( timer.onTimerUpdated,this,&TT_DiscoBox::onTimerUpdatedBackAndForth );
+        ofAddListener( timer.onTimerUpdated,this,&TT_DiscoBox::onTimerUpdated );
     };
     
     //---------------------------------------------------------------
     void flashUp( ofFloatColor _col, float _duration )
     {
-        if ( timer.isTimerRunning() ) return;
+        setColTarget( _col );
+        timer.stopTimer();
+        timer.setDuration( _duration );
+        timer.startTimer();
         
-        fadeToColor( _col, _duration);
-        ofRemoveListener( timer.onTimerFinished,this,&TT_DiscoBox::onTimerFinished );
-        ofAddListener( timer.onTimerFinished,this,&TT_DiscoBox::onTimerFinished );
+        ofRemoveListener( timer.onTimerUpdated,this,&TT_DiscoBox::onTimerUpdated );
+        ofAddListener( timer.onTimerUpdated,this,&TT_DiscoBox::onTimerUpdatedBackAndForth );
     }
     
     //---------------------------------------------------------------
@@ -62,11 +72,10 @@ public:
         setColor( start.getLerped(target, p) );
     }
     
-    //--------------------------------------------------------------- 
-    void onTimerFinished( float &_duration )
+    //---------------------------------------------------------------
+    void onTimerUpdatedBackAndForth( float &p )
     {
-        ofRemoveListener(timer.onTimerFinished,this,&TT_DiscoBox::onTimerFinished);
-        fadeToColor( start,  _duration );
+        setColor( start.getLerped(target, sin(PI*p)) );
     }
 };
 

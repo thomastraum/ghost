@@ -17,8 +17,6 @@
 
 class MSAParticleSystemEvented : public MSAParticleSystem3D_Groups {
     
-    
-    
 public:
     
     MSAParticleSystemEvented() {

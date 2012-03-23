@@ -22,14 +22,44 @@ private:
         if ( ofRandom(0,1) > prob ) {
             
             // pick a random force //
-            f_para.force_id = floor(ofRandom(0,4));
-            triggerForceEvent();
+//            f_para.force_id = floor(ofRandom(0,4));
+//            triggerForceEvent();
             
-//            s_para.sound_id = floor(ofRandom(0,3));
-//            s_para.volume = 1;
-//            triggerSoundFxEvent();
+            
+            if (  ofRandom(1) < 0.5) { 
+                ForceEvent event = ForceEvent(floor(ofRandom(0,2) ), 0.03, 6 );
+                ofNotifyEvent(ForceEventDispatcher, event);
+            } else {
+                ForceEvent event = ForceEvent( floor(ofRandom(2,4)), 0.01, 3 );
+                ofNotifyEvent(ForceEventDispatcher, event);
+            }
+            
+            s_para.sound_id = floor(ofRandom(0,3));
+            s_para.volume = 1;
+            triggerSoundFxEvent();
             
             makeDiscoSoundBeat();
+            changeGravNice();
+        }
+    }
+    
+    void makeBigPush()
+    {
+        if ( ofRandom(0,1) > .95 ) {
+            
+            cout << "big push" << endl;
+            
+            ForceEvent event = ForceEvent( floor(ofRandom(0,4)), ofRandom(0.7,2), 1 );
+            ofNotifyEvent(ForceEventDispatcher, event);
+            
+            SoundFxEvent snd = SoundFxEvent( floor(ofRandom(4,7)), 1, 1 );
+            ofNotifyEvent(SoundFxEventDispatcher, snd);
+            
+            BoxFlashEvent flash = BoxFlashEvent( ofColor::red, 1 );
+            ofNotifyEvent(BoxFlashEventDispatcher, flash);
+            
+            PGravEvent rise = PGravEvent( ofRandom( 1, 3) );
+            ofNotifyEvent( PGravEventDispatcher, rise );
         }
     }
     
@@ -44,10 +74,12 @@ private:
         triggerLoopEvent();
     }
     
-    void changeGrav()
+    void changeGravNice()
     {
-        pgrav_para.gravity = ofRandom(-1,1);
-        triggerPGravEvent();
+        if ( ofRandom(0,1) > prob ) {
+            pgrav_para.gravity = ofRandom(0.2,1);
+            triggerPGravEvent();
+        }
     }
 
     void makeDiscoSoundBeat()
@@ -57,6 +89,7 @@ private:
         s_para.sound_id = 3;
         s_para.volume = 1;
         triggerSoundFxEvent();
+        
     }
     
     
@@ -71,7 +104,6 @@ public:
     //-------------------------------------------------------------------  Event Listeners
     void onQuarterNote( int &beats ) 
     {
-        
     }
     
     //-------------------------------------------------------------------
@@ -84,7 +116,8 @@ public:
     void onFullNote( int &beats )
     {
         makeLoopChange();
-        changeGrav();
+        makeBigPush();
+        
     }
 
 };
