@@ -5,7 +5,7 @@
 # *.perspectivev3
 *.pyc 
 *~.nib/
-build/
+# build/
 
 
 #----------------------- tt
@@ -14,14 +14,12 @@ xcuserdata
 *.mode2v3
 .xcodeproj
 !*.xcodeproj/project.pbxproj
-*!.frag
-*!.vert
+
+bin/data/*
+!bin/data/shaders
 
 #-------dir specific
 *.app
-
-# Textmate - if you build your xcode projects with it
-*.tm_build_errors
 
 # old skool
 .svn
