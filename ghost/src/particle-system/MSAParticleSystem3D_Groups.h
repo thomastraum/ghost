@@ -8,13 +8,18 @@
 
 //----------------------------------------------------------
 // Implements MSAParticleSystem3D_Abstract
-// allows multipls groups. 
+// allows multiple groups. 
 // 
 //----------------------------------------------------------
 
 
 #pragma once
 #include "MSAParticleSystem3D_Abstract.h"
+#include "MSAParticleGroups3D_Quads.h"
+#include "MSAParticleGroup3DMesh_Quad.h"
+#include "MSAParticleGroup3DMesh_PointSprites.h"
+#include "MSAParticleGroup3D_PointSpritesShader.h"
+#include "MSAParticleGroup3DMesh_Lines.h"
 
 class MSAParticleSystem3D_Groups : public MSAParticleSystem3D_Abstract {
 
@@ -58,9 +63,9 @@ protected :
     
     void createParticleGroups() 
     {
-        quads = new MSAParticleGroup3DMesh_Quad();
+        quads = new MSAParticleGroup3D_PointSpritesShader();
         quads->setup();
-        quads->setInstanceName( "Quads" );
+        quads->setInstanceName( "PS Shader" );
         groups.push_back(quads);
         
         lines = new MSAParticleGroup3DMesh_Lines(); 

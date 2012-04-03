@@ -7,12 +7,15 @@
 *~.nib/
 build/
 
+
 #----------------------- tt
 xcuserdata
 *.mode1v3
 *.mode2v3
 .xcodeproj
 !*.xcodeproj/project.pbxproj
+*!.frag
+*!.vert
 
 #-------dir specific
 *.app

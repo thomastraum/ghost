@@ -12,6 +12,10 @@
 class MSAParticleGroup3DMesh_PointSprites : public MSAParticleGroup3DMesh {
 
 private:
+    
+    int             gl_point_size;
+    
+protected:
 
     ofImage         texture;
     ofVbo           vbo;
@@ -19,8 +23,6 @@ private:
     ofFloatColor    color;
     Vec3f           pos_vec3f;
     ofVec3f         pos;
-    
-    int             gl_point_size;
 
 public:
     

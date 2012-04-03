@@ -2,10 +2,7 @@
 #pragma once
 #include "ofMain.h"
 #include "MSAPhysics3D.h"
-#include "MSAParticleGroups3D_Quads.h"
-#include "MSAParticleGroup3DMesh_Quad.h"
-#include "MSAParticleGroup3DMesh_PointSprites.h"
-#include "MSAParticleGroup3DMesh_Lines.h"
+#include "MSAParticleGroup3D.h"
 
 using namespace MSA;
 

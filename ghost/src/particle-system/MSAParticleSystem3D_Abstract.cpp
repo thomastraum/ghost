@@ -45,7 +45,7 @@ void MSAParticleSystem3D_Abstract::resizeScene()
 // ----------------------------------------------------- 
 void MSAParticleSystem3D_Abstract::createParticleGroups()
 {
-    defaultgroup = new MSAParticleGroup3DMesh_Quad();
+    defaultgroup = new MSAParticleGroup3D();
     defaultgroup->setup();
     groups.push_back(defaultgroup);
 }
