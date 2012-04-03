@@ -15,12 +15,11 @@
 
 class TT_Sequencer_Quiet : public TT_SequencerSettings {
 
-    
 private:
     
     void makeGentlePush()
     {            
-        if (  ofRandom(1) < 0.5) { 
+        if ( ofRandom(1) < 0.5 ) { 
             ForceEvent event = ForceEvent(floor(ofRandom(0,2) ), 0.03, 4 );
             ofNotifyEvent(ForceEventDispatcher, event);
         } else {
@@ -28,9 +27,8 @@ private:
             ofNotifyEvent(ForceEventDispatcher, event);
         }
         
-        s_para.sound_id = floor(ofRandom(0,3));
-        s_para.volume = 1;
-        triggerSoundFxEvent();
+        SoundFxEvent fx = SoundFxEvent( floor(ofRandom(0,3)), 1,1 );
+        ofNotifyEvent(SoundFxEventDispatcher, fx);
         
         makeDiscoSoundBeat();
         changeGravNice();
@@ -80,43 +78,44 @@ private:
         FogFlashEvent fog_flash = FogFlashEvent( f, 3 );
         ofNotifyEvent( FogFlashEventDispatcher, fog_flash );
         
-        pgrav_para.gravity = ofRandom(-2,2);
-        triggerPGravEvent();
+        PGravEvent grav = PGravEvent( ofRandom(-2,2) );
+        ofNotifyEvent( PGravEventDispatcher, grav );
         
     }
     
     void makeLoopChange()
     {
-        l_para.volume = ofRandom(0.2,1);
-        triggerLoopEvent();
+//        l_para.volume = ofRandom(0.2,1);
+        
+        LoopEvent loop_nice = LoopEvent( 1, ofRandom(0.2,1), .5, 0 );
+        ofNotifyEvent( LoopEventDispatcher, loop_nice );
         
         // fade stormy loop down.
-        l_para.sound_id = 0;
-        l_para.volume = ofRandom(0,0.2);
-        triggerLoopEvent();
+        LoopEvent loop_storm = LoopEvent( 0,  ofRandom(0,0.2), .5, 0 );
+        ofNotifyEvent( LoopEventDispatcher, loop_storm );
+        
     }
     
     void makeLoopChangeStormy()
     {
-        l_para.sound_id = 0;
-        l_para.volume = ofRandom(0.3,1);
-        triggerLoopEvent();
+        LoopEvent loop_storm = LoopEvent( 0, ofRandom(0.3,1), .5, 0 );
+        ofNotifyEvent( LoopEventDispatcher, loop_storm );
         
         // fade nice loop down.
-        l_para.sound_id = 1;
-        l_para.volume = ofRandom(0,0.1);
-        triggerLoopEvent();
+        LoopEvent loop_nice = LoopEvent( 1, ofRandom(0,0.1), .5, 0 );
+        ofNotifyEvent( LoopEventDispatcher, loop_nice );
+        
     }
     
     void changeGravNice()
     {
-        pgrav_para.gravity = ofRandom(0.2,.5);
-        triggerPGravEvent();        
+        PGravEvent grav = PGravEvent( ofRandom(-0.1,.5) );
+        ofNotifyEvent( PGravEventDispatcher, grav );       
     }
 
     void makeDiscoSoundBeat()
     {
-        ofFloatColor c = ofFloatColor( b_para.color.r,b_para.color.g, b_para.color.b, 1 );
+        ofFloatColor c = ofFloatColor( ofRandom(.8,1), ofRandom(.8,1), ofRandom(.8,1), 1 );
         
 //        ofFloatColor c = ofFloatColor( ofRandom(0, 1),ofRandom(0, 1),ofRandom(0, 1));
 //        c.setHsb( ofRandom(0,1), 1, 1 );
@@ -127,9 +126,8 @@ private:
         BoxFlashEvent event = BoxFlashEvent( c, 2 );
         ofNotifyEvent(BoxFlashEventDispatcher, event);
         
-        s_para.sound_id = 3;
-        s_para.volume = 1;
-        triggerSoundFxEvent();
+        SoundFxEvent fx = SoundFxEvent( 3, 1, 1 );
+        ofNotifyEvent(SoundFxEventDispatcher, fx);
         
     }
     

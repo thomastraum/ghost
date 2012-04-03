@@ -109,7 +109,6 @@ protected:
 public:
     
     TT_Sequencer() {
-
         ofAddListener(tempo.onQuarterNote,this,&TT_Sequencer::onQuarterNote);
         ofAddListener(tempo.onHalfNote,this,&TT_Sequencer::onHalfNote);
         ofAddListener(tempo.onFullNote,this,&TT_Sequencer::onFullNote);
@@ -117,7 +116,6 @@ public:
         f_para.force_id = 0;
         f_para.strength = 0;
         f_para.duration = 0;
-        
     }
     
     void start()
