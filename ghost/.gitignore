@@ -9,11 +9,12 @@
 
 
 #----------------------- tt
-xcuserdata
+#xcuserdata
 *.mode1v3
 *.mode2v3
-.xcodeproj
-!*.xcodeproj/project.pbxproj
+
+#.xcodeproj
+#!*.xcodeproj/project.pbxproj
 
 bin/data/*
 !bin/data/shaders
