@@ -89,8 +89,8 @@ void MSAParticleSystem3D::draw()
 // ----------------------------------------------------- PARTICLE MANAGMENT
 void MSAParticleSystem3D::addParticles( Vec3f _pos, int _count)
 {
-    int max_x = width;
-    int max_y = height;
+    int max_x = width/2;
+    int max_y = height/2;
     
     for(int i=0; i<_count; i++)
 		addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(max_x/2,-max_x/2)) ); // + Rand::randVec3f() * 300 );

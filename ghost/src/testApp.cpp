@@ -18,6 +18,8 @@ void testApp::setup(){
     ps.addUpdater( &fluid_updater );
     ps.addUpdater( &shaker );
 
+    camera.setTarget(cam_target);
+    
     //-------------------------------------         SETTINGS
     
     addAppSettings();
@@ -59,6 +61,7 @@ void testApp::update()
 {
     ps.update();
     fluid.update();
+    cam_target.update();
     
     if ( shaker.isShaking() ) shaker.stopShaking();
 
@@ -75,9 +78,9 @@ void testApp::draw()
     
     ofBackground(0, 0, 0);
     
+    camera.setDistance(width);
     camera.begin();
-    ofTranslate( 0,0, -width);
-    
+        
     fog.draw();
     
     ofSetColor(255,255,255);
@@ -89,6 +92,7 @@ void testApp::draw()
     ofPopMatrix();
     
     ps.draw();
+    cam_target.draw();
     
     camera.end();
     
@@ -176,6 +180,12 @@ void testApp::keyPressed(int key){
     if ( key == 'b' ) {
         fluid.onFadeForceUpAndDown( 1, 0, 10 );
     }
+    
+    if (key=='n')
+		savedPose = camera.getGlobalTransformMatrix();
+	
+	if (key=='m')
+		camera.setTransformMatrix(savedPose);
     
 }
 

@@ -1,11 +1,14 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxGrabCam.h"
+//#include "ofxGrabCam.h"
 #include "ofxSimpleGuiToo.h"
 
+//------------------------------------------------ 3D
 #include "TT_DiscoBoxApp.h"
 #include "TT_FogAnimated.h"
+#include "TT_CamTarget_Vibrate.h"
+
 //#include "MSAParticleSystem3D.h"
 //#include "MSAParticleSystem3D_Groups.h"
 #include "MSAParticleSystemEvented.h"
@@ -45,9 +48,13 @@ private:
     int     width;
     int     height;
     
-    TT_DiscoBoxApp  box;
-	ofEasyCam       camera;
-    TT_FogAnimated  fog;
+    //---------------------------------------------- 3D
+    
+    TT_DiscoBoxApp          box;
+	ofEasyCam               camera;
+    TT_FogAnimated          fog;
+    TT_CamTarget_Vibrate    cam_target;
+    ofMatrix4x4             savedPose;
     
     void            buildScene();
 
