@@ -29,7 +29,6 @@
 		641F057115452B0500B45D92 /* MSAPhysicsFluidUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 641F054115452B0500B45D92 /* MSAPhysicsFluidUpdater.cpp */; };
 		641F057215452B0500B45D92 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 641F054315452B0500B45D92 /* main.cpp */; };
 		641F057315452B0500B45D92 /* MSAPhysicsUpdater3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 641F054715452B0500B45D92 /* MSAPhysicsUpdater3D.cpp */; };
-		641F057415452B0500B45D92 /* MSAParticleSystem3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 641F054A15452B0500B45D92 /* MSAParticleSystem3D.cpp */; };
 		641F057515452B0500B45D92 /* MSAParticleSystem3D_Abstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 641F054C15452B0500B45D92 /* MSAParticleSystem3D_Abstract.cpp */; };
 		641F057615452B0500B45D92 /* MSAParticleGroup3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 641F055115452B0500B45D92 /* MSAParticleGroup3D.cpp */; };
 		641F057715452B0500B45D92 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 641F056915452B0500B45D92 /* testApp.cpp */; };
@@ -58,6 +57,8 @@
 		6458041814E2FA17008B8410 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458041214E2FA17008B8410 /* tinyxmlerror.cpp */; };
 		6458041914E2FA17008B8410 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458041314E2FA17008B8410 /* tinyxmlparser.cpp */; };
 		6458041A14E2FA17008B8410 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458041514E2FA17008B8410 /* ofxXmlSettings.cpp */; };
+		648992421546938B006D8942 /* pointsprites.frag in Sources */ = {isa = PBXBuildFile; fileRef = 648992401546938B006D8942 /* pointsprites.frag */; };
+		648992431546938B006D8942 /* pointsprites.vert in Sources */ = {isa = PBXBuildFile; fileRef = 648992411546938B006D8942 /* pointsprites.vert */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -160,8 +161,6 @@
 		641F054715452B0500B45D92 /* MSAPhysicsUpdater3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAPhysicsUpdater3D.cpp; sourceTree = "<group>"; };
 		641F054815452B0500B45D92 /* MSAPhysicsUpdater3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdater3D.h; sourceTree = "<group>"; };
 		641F054915452B0500B45D92 /* MSAPhysicsUpdaterShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterShake.h; sourceTree = "<group>"; };
-		641F054A15452B0500B45D92 /* MSAParticleSystem3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleSystem3D.cpp; sourceTree = "<group>"; };
-		641F054B15452B0500B45D92 /* MSAParticleSystem3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D.h; sourceTree = "<group>"; };
 		641F054C15452B0500B45D92 /* MSAParticleSystem3D_Abstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleSystem3D_Abstract.cpp; sourceTree = "<group>"; };
 		641F054D15452B0500B45D92 /* MSAParticleSystem3D_Abstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_Abstract.h; sourceTree = "<group>"; };
 		641F054E15452B0500B45D92 /* MSAParticleSystem3D_Groups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_Groups.h; sourceTree = "<group>"; };
@@ -178,7 +177,6 @@
 		641F055A15452B0500B45D92 /* MSAParticleGroup3DMesh_Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Quad.h; sourceTree = "<group>"; };
 		641F055B15452B0500B45D92 /* MSAParticleGroups3D_Quads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroups3D_Quads.h; sourceTree = "<group>"; };
 		641F055D15452B0500B45D92 /* TT_Custom_MSAParticle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Custom_MSAParticle3D.h; sourceTree = "<group>"; };
-		641F055F15452B0500B45D92 /* TT_Sequencer copy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TT_Sequencer copy.h"; sourceTree = "<group>"; };
 		641F056015452B0500B45D92 /* TT_Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer.h; sourceTree = "<group>"; };
 		641F056115452B0500B45D92 /* TT_Sequencer_Quiet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer_Quiet.h; sourceTree = "<group>"; };
 		641F056215452B0500B45D92 /* TT_SequencerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SequencerSettings.h; sourceTree = "<group>"; };
@@ -271,6 +269,9 @@
 		6458041314E2FA17008B8410 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		6458041514E2FA17008B8410 /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		6458041614E2FA17008B8410 /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
+		648992401546938B006D8942 /* pointsprites.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = pointsprites.frag; sourceTree = "<group>"; };
+		648992411546938B006D8942 /* pointsprites.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = pointsprites.vert; sourceTree = "<group>"; };
+		648992441546E539006D8942 /* TT_CamTargetAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTargetAnimated.h; sourceTree = "<group>"; };
 		648AC59C15458A02001C4590 /* TT_CamTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTarget.h; sourceTree = "<group>"; };
 		648AC5A91545A658001C4590 /* TT_CamTarget_Vibrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTarget_Vibrate.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
@@ -379,6 +380,7 @@
 				641F052E15452B0500B45D92 /* TT_BoxGui.h */,
 				648AC59C15458A02001C4590 /* TT_CamTarget.h */,
 				648AC5A91545A658001C4590 /* TT_CamTarget_Vibrate.h */,
+				648992441546E539006D8942 /* TT_CamTargetAnimated.h */,
 				641F052F15452B0500B45D92 /* TT_DiscoBox.h */,
 				641F053015452B0500B45D92 /* TT_DiscoBoxApp.h */,
 				641F053115452B0500B45D92 /* TT_Fog.h */,
@@ -426,8 +428,6 @@
 			isa = PBXGroup;
 			children = (
 				641F054515452B0500B45D92 /* msa-physics-updater */,
-				641F054A15452B0500B45D92 /* MSAParticleSystem3D.cpp */,
-				641F054B15452B0500B45D92 /* MSAParticleSystem3D.h */,
 				641F054C15452B0500B45D92 /* MSAParticleSystem3D_Abstract.cpp */,
 				641F054D15452B0500B45D92 /* MSAParticleSystem3D_Abstract.h */,
 				641F054E15452B0500B45D92 /* MSAParticleSystem3D_Groups.h */,
@@ -452,6 +452,7 @@
 		641F055015452B0500B45D92 /* particle-groups */ = {
 			isa = PBXGroup;
 			children = (
+				6489923F1546938B006D8942 /* shaders */,
 				641F055115452B0500B45D92 /* MSAParticleGroup3D.cpp */,
 				641F055215452B0500B45D92 /* MSAParticleGroup3D.h */,
 				641F055315452B0500B45D92 /* MSAParticleGroup3D_Lines.h */,
@@ -478,10 +479,9 @@
 		641F055E15452B0500B45D92 /* sequencer */ = {
 			isa = PBXGroup;
 			children = (
-				641F055F15452B0500B45D92 /* TT_Sequencer copy.h */,
 				641F056015452B0500B45D92 /* TT_Sequencer.h */,
-				641F056115452B0500B45D92 /* TT_Sequencer_Quiet.h */,
 				641F056215452B0500B45D92 /* TT_SequencerSettings.h */,
+				641F056115452B0500B45D92 /* TT_Sequencer_Quiet.h */,
 				641F056315452B0500B45D92 /* TT_Tempo.h */,
 			);
 			path = sequencer;
@@ -739,6 +739,16 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		6489923F1546938B006D8942 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				648992401546938B006D8942 /* pointsprites.frag */,
+				648992411546938B006D8942 /* pointsprites.vert */,
+			);
+			name = shaders;
+			path = bin/data/shaders;
+			sourceTree = SOURCE_ROOT;
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,10 +979,11 @@
 				641F057115452B0500B45D92 /* MSAPhysicsFluidUpdater.cpp in Sources */,
 				641F057215452B0500B45D92 /* main.cpp in Sources */,
 				641F057315452B0500B45D92 /* MSAPhysicsUpdater3D.cpp in Sources */,
-				641F057415452B0500B45D92 /* MSAParticleSystem3D.cpp in Sources */,
 				641F057515452B0500B45D92 /* MSAParticleSystem3D_Abstract.cpp in Sources */,
 				641F057615452B0500B45D92 /* MSAParticleGroup3D.cpp in Sources */,
 				641F057715452B0500B45D92 /* testApp.cpp in Sources */,
+				648992421546938B006D8942 /* pointsprites.frag in Sources */,
+				648992431546938B006D8942 /* pointsprites.vert in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

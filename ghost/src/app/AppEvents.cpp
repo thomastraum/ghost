@@ -9,10 +9,12 @@
 #include <iostream>
 #include "AppEvents.h"
 
-ofEvent<ForceEvent>         ForceEventDispatcher;
-ofEvent<LoopEvent>          LoopEventDispatcher;
-ofEvent<SoundFxEvent>       SoundFxEventDispatcher;
-ofEvent<EmitParticlesEvent> EmitParticlesEventDispatcher;
-ofEvent<BoxFlashEvent>      BoxFlashEventDispatcher;
-ofEvent<FogFlashEvent>       FogFlashEventDispatcher;
-ofEvent<PGravEvent>         PGravEventDispatcher;
+ofEvent<ForceEvent>             ForceEventDispatcher;
+ofEvent<LoopEvent>              LoopEventDispatcher;
+ofEvent<SoundFxEvent>           SoundFxEventDispatcher;
+ofEvent<EmitParticlesEvent>     EmitParticlesEventDispatcher;
+ofEvent<BoxFlashEvent>          BoxFlashEventDispatcher;
+ofEvent<FogFlashEvent>          FogFlashEventDispatcher;
+ofEvent<PGravEvent>             PGravEventDispatcher;
+ofEvent<CamTargetAnimateEvent>  CamTargetAnimateEventDispatcher;
+

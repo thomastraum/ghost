@@ -58,7 +58,6 @@ public:
         addParticles( _pos, _count );
     };
     
-    
 protected :
     
     void createParticleGroups() 
@@ -81,11 +80,26 @@ protected :
         active_group = quads;
     }
     
+    // -----------------------------------------------------  PARTICLES
+    // override
     void addParticle( Vec3f _pos )
     {
         TT_Custom_MSAParticle3D * p = createParticle(_pos);
         active_group->addParticle( p );
         p->release();
     }
+    
+    // override
+    void addParticles( Vec3f _pos, int _count )
+    {
+        int max_x = width*2;
+        int max_y = height;
+        
+        for(int i=0; i<_count; i++)
+            addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(max_y,-max_y*1.2)) );
+            //addParticle( Vec3f( _pos.x , _pos.y, _pos.z ) ); // + Rand::randVec3f() * 300 );
+    };
+    
+    
 
 };

@@ -66,7 +66,6 @@ void testApp::update()
     if ( shaker.isShaking() ) shaker.stopShaking();
 
     seq.update();
-
 }
 
 //--------------------------------------------------------------
@@ -91,15 +90,14 @@ void testApp::draw()
     ofBox( 0,0,0, 10 );
     ofPopMatrix();
     
-    ps.draw();
     cam_target.draw();
+    ps.draw();
     
     camera.end();
     
     fluid.draw();
     gui.draw();
 //    sm.draw();
-    
 //    ofDisableAlphaBlending();
 }
 
@@ -111,7 +109,7 @@ void testApp::buildScene()
     
     fog.defineStartAndEnd( width, width*1.8 );
     
-    box.width = width;
+    box.width = width*2;
     box.height = height;
     
     box.build();    
@@ -181,11 +179,11 @@ void testApp::keyPressed(int key){
         fluid.onFadeForceUpAndDown( 1, 0, 10 );
     }
     
-    if (key=='n')
-		savedPose = camera.getGlobalTransformMatrix();
-	
-	if (key=='m')
-		camera.setTransformMatrix(savedPose);
+//    if (key=='n')
+//		savedPose = camera.getGlobalTransformMatrix();
+//	
+//	if (key=='m')
+//		camera.setTransformMatrix(savedPose);
     
 }
 

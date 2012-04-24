@@ -9,6 +9,7 @@
 #ifndef particles_3d_5_TT_DiscoBoxApp_h
 #define particles_3d_5_TT_DiscoBoxApp_h
 
+#pragma once
 #include "AppEvents.h"
 #include "TT_DiscoBox.h"
 
@@ -25,7 +26,6 @@ public:
     {
         cout << "TT_DiscoBoxApp::onBoxFlashEvent " << endl;
         flashUp( args.color, args.duration );
-        
     }
 };
 

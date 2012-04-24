@@ -12,6 +12,7 @@
 #pragma once
 #include "AppEvents.h"
 #include "TT_Fog.h"
+#include "TT_Timer.h"
 
 class TT_FogAnimated : public TT_Fog {
     

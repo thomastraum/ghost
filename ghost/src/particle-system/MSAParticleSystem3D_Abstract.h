@@ -19,8 +19,6 @@ public:
     void update();
     void draw();
     
-    void addParticles( Vec3f _pos, int _count );
-    
     void addUpdater( Physics::ParticleUpdater3D * _updater );
     void killAll();
     
@@ -35,9 +33,11 @@ protected:
     
     vector<MSAParticleGroup3D*> groups;
     
-    // overload these if you want to add your own particle groups // 
+    // overload these if you want to add your own particle groups and 
+    // where to put them
     virtual void createParticleGroups();
     virtual void addParticle( Vec3f _pos );
+    virtual void addParticles( Vec3f _pos, int _count );
     
     TT_Custom_MSAParticle3D *   createParticle( Vec3f _pos );
     

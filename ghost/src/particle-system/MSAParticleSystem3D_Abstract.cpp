@@ -38,7 +38,7 @@ void MSAParticleSystem3D_Abstract::resizeScene()
 {
     // set world dimensions, not essential, but speeds up collision
     int offset = 0; //260;
-	physics.setWorldSize(Vec3f(-offset-width, -offset-height, -width), Vec3f(offset+width, offset+height, width));
+	physics.setWorldSize(Vec3f(-offset-width*2, -offset-height, -width), Vec3f(offset+width*2, offset+height, width));
 	physics.setSectorCount(SECTOR_COUNT);
 }
 
@@ -109,12 +109,8 @@ void MSAParticleSystem3D_Abstract::windowResized( ofResizeEventArgs&args )
 // -----------------------------------------------------  PARTICLES
 void MSAParticleSystem3D_Abstract::addParticles( Vec3f _pos, int _count )
 {
-    int max_x = width;
-    int max_y = height;
-    
     for(int i=0; i<_count; i++)
-        addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(max_x,-max_x)) );
-    //		addParticle( Vec3f( _pos.x , _pos.y, _pos.z ) ); // + Rand::randVec3f() * 300 );
+		addParticle( Vec3f( _pos.x , _pos.y, _pos.z ) ); // + Rand::randVec3f() * 300 );
 };
 
 void MSAParticleSystem3D_Abstract::addParticle( Vec3f _pos )

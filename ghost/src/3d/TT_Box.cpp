@@ -24,6 +24,12 @@ void TT_Box::build()
     right.setOrientation(ofVec3f(0,90,0));
     
     back.setPosition(0, 0, -1);
+    
+    bottom.setColor(c);
+    left.setColor(c);
+    top.setColor(c);
+    right.setColor(c);
+    back.setColor(c);
 }
 
 
@@ -38,7 +44,7 @@ void TT_Box::drawBox()
     glEnable(GL_DEPTH_TEST);
     
     glPushMatrix();
-    setScale(width,height,height);
+    setScale(width,height,height*1.1);
     
     bottom.draw();
     left.draw();
@@ -54,6 +60,7 @@ void TT_Box::drawBox()
 
 void TT_Box::setColor( ofFloatColor _c )
 {
+//    c = ofFloatColor( 0.1,0.1,0.1,0.1);
     c = _c;
     bottom.setColor( _c );
     left.setColor( _c );

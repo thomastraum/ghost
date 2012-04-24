@@ -50,6 +50,10 @@ public:
         ofEnablePointSprites();
         ofEnableAlphaBlending();
         
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_ALPHA_TEST);
+        glAlphaFunc(GL_GREATER, 0.5);
+        
         texture.getTextureReference().bind();
         
         shader.begin();
@@ -65,6 +69,7 @@ public:
         
         texture.getTextureReference().unbind();
         
+        glDisable(GL_DEPTH_TEST);
         ofDisablePointSprites();
         ofDisableAlphaBlending();
     }

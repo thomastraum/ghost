@@ -22,9 +22,9 @@ class TT_Box : public ofNode {
 public:
     
     TT_Box() {
-        width = WIDTH;
-        height = HEIGHT;
-        c = ofFloatColor( 1,1,1,1);
+        width   = WIDTH;
+        height  = HEIGHT;
+        c       = ofFloatColor( 0.7,0.7,0.7,1);
     }
     
     int width;

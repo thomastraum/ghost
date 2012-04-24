@@ -3,16 +3,8 @@ feels like a limited space, from static particles to fast
 
 **priorities**
 
-Camera movement
-> move in and out to preset positions
-> FOV of cam 
-
 Set it up in the space
 > weird particle blob in the center > gldepthtest
-
-Work look of particles and scene
-> Test if the stage needs to be bigger
-> 
 
 Rigid body collision
 > create big demo collider particle
@@ -27,6 +19,13 @@ Particle design
 > maybe have trail particles?
 
 3D fluid
+
+Make scene resize event in testApp.cpp
+>	send custom resize event to particle system.
+
+Camera movement
+> move in and out to preset positions
+> FOV of cam 
 
 
 **Tracks**

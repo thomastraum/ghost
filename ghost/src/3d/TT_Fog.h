@@ -17,16 +17,20 @@ class TT_Fog  {
     int end;
     
     float   gui_smoothing;
+    float   density;
     
 public:
     
     ofFloatColor    color;
     
+    
     TT_Fog()
     {
+        // color is defined in presets //
         color = ofFloatColor( 1,1,1,1 );
         gui_smoothing = .5;
         start = 0;
+        density = 1;
     }
     
     void draw()
@@ -35,7 +39,7 @@ public:
         
         glFogi(GL_FOG_MODE, GL_LINEAR);
         glFogfv(GL_FOG_COLOR, fogColor);
-        glFogf(GL_FOG_DENSITY, 1);
+        glFogf(GL_FOG_DENSITY, density);
         glHint(GL_FOG_HINT, GL_DONT_CARE);
         glFogf(GL_FOG_START, start);
         glFogf(GL_FOG_END, end);
@@ -60,8 +64,9 @@ public:
         _gui.addSlider( "Fog Blue", color.b, 0,1).setSmoothing( gui_smoothing );
         _gui.addSlider( "Fog Alpha", color.a, 0,1).setSmoothing( gui_smoothing );
         
-//        _gui.addSlider( "Fog End", end, 0,10000).setSmoothing( gui_smoothing );
+        _gui.addSlider( "Fog End", end, 0,10000).setSmoothing( gui_smoothing );
         _gui.addSlider( "Fog Start", start, -1000,4500).setSmoothing( gui_smoothing );
+//        _gui.addSlider( "Fog Alpha", density, 0,1).setSmoothing( gui_smoothing );
     }
     
 };

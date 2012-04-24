@@ -7,7 +7,7 @@
 //------------------------------------------------ 3D
 #include "TT_DiscoBoxApp.h"
 #include "TT_FogAnimated.h"
-#include "TT_CamTarget_Vibrate.h"
+#include "TT_CamTargetAnimated.h"
 
 //#include "MSAParticleSystem3D.h"
 //#include "MSAParticleSystem3D_Groups.h"
@@ -52,9 +52,8 @@ private:
     
     TT_DiscoBoxApp          box;
 	ofEasyCam               camera;
+    TT_CamTargetAnimated    cam_target;
     TT_FogAnimated          fog;
-    TT_CamTarget_Vibrate    cam_target;
-    ofMatrix4x4             savedPose;
     
     void            buildScene();
 

@@ -79,7 +79,6 @@ public:
     FogFlashEvent( ofFloatColor _color, float _duration ): color( _color ), duration( _duration ) {}
 };
 
-
 class PGravEvent {    
     
 public:
@@ -90,12 +89,24 @@ public:
     
 };
 
-extern ofEvent<ForceEvent>          ForceEventDispatcher;
-extern ofEvent<LoopEvent>           LoopEventDispatcher;
-extern ofEvent<SoundFxEvent>        SoundFxEventDispatcher;
-extern ofEvent<EmitParticlesEvent>  EmitParticlesEventDispatcher;
-extern ofEvent<BoxFlashEvent>       BoxFlashEventDispatcher;
-extern ofEvent<FogFlashEvent>       FogFlashEventDispatcher;
-extern ofEvent<PGravEvent>          PGravEventDispatcher;
+// makes scene wobble
+class CamTargetAnimateEvent {
+    
+public:
+    
+    float   amp;
+    float   duration;
+    CamTargetAnimateEvent( float _amp, float _duration ): amp( _amp ), duration( _duration ) {}
+    
+};
+
+extern ofEvent<ForceEvent>              ForceEventDispatcher;
+extern ofEvent<LoopEvent>               LoopEventDispatcher;
+extern ofEvent<SoundFxEvent>            SoundFxEventDispatcher;
+extern ofEvent<EmitParticlesEvent>      EmitParticlesEventDispatcher;
+extern ofEvent<BoxFlashEvent>           BoxFlashEventDispatcher;
+extern ofEvent<FogFlashEvent>           FogFlashEventDispatcher;
+extern ofEvent<PGravEvent>              PGravEventDispatcher;
+extern ofEvent<CamTargetAnimateEvent>   CamTargetAnimateEventDispatcher;
 
 #endif

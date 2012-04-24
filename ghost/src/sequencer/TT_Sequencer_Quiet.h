@@ -19,7 +19,7 @@ private:
     
     void makeGentlePush()
     {            
-        if ( ofRandom(1) < 0.5 ) { 
+        if ( ofRandom(1) < 0.5 ) {
             ForceEvent event = ForceEvent(floor(ofRandom(0,2) ), 0.03, 4 );
             ofNotifyEvent(ForceEventDispatcher, event);
         } else {
@@ -36,9 +36,10 @@ private:
     
     void makeBigPush()
     {
-        cout << "big push" << endl;
-        
         if ( ofRandom(0,1) > 0.6 ) {
+            
+            ofLogNotice("TT") << "makeBigPush";
+            
             ForceEvent event = ForceEvent( floor(ofRandom(0,4)), ofRandom(0.7,2), .5 );
             ofNotifyEvent(ForceEventDispatcher, event);
             
@@ -57,6 +58,10 @@ private:
             ofColor f = ofFloatColor( .8 + ofRandom(0,.2), .8 + ofRandom(0,.2), .8 + ofRandom(0,.2) );
             FogFlashEvent fog_flash = FogFlashEvent( f, 1 );
             ofNotifyEvent( FogFlashEventDispatcher, fog_flash );
+            
+            CamTargetAnimateEvent wobble = CamTargetAnimateEvent( ofRandom(20,50), 4 );
+            ofNotifyEvent(CamTargetAnimateEventDispatcher, wobble);
+            
         }
     }
     

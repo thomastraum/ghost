@@ -43,8 +43,10 @@ public:
         
         roll_amount = -getPitch() - (ofSignedNoise(0, 0, t) * amp) * 0.1;
         roll(roll_amount);
-        
     }
+    
+    virtual float   getAmplitude(){ return amp; }; 
+    virtual void    setAmplitude( float _amp ){  amp = _amp; }; 
 
 };
 

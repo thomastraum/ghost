@@ -26,7 +26,6 @@ protected:
     //---------------------------------------------------------------
     void setColTarget( ofFloatColor _target )
     {
-        
         if ( timer.isTimerRunning() ) {
             target = _target;
         } else {
