@@ -10,7 +10,8 @@ void testApp::setup(){
     
     draw_debug = false;
     
-    buildScene();
+    box.build();
+    scaleScene();
     
     ps.setup();
     fluid.setup();
@@ -91,7 +92,12 @@ void testApp::draw()
     ofPopMatrix();
     
     cam_target.draw();
+    
+    
+//    ofPushMatrix();
+//    ofRotateY(90);
     ps.draw();
+//    ofPopMatrix();
     
     camera.end();
     
@@ -102,94 +108,16 @@ void testApp::draw()
 }
 
 //--------------------------------------------------------------
-void testApp::buildScene()
+void testApp::scaleScene()
 {
 	width = ofGetWidth();
 	height = ofGetHeight();
     
     fog.defineStartAndEnd( width, width*1.8 );
     
-    box.width = width*2;
-    box.height = height;
-    
-    box.build();    
-}
-
-//--------------------------------------------------------------
-void testApp::keyPressed(int key){
-    
-    if (key== 'd' )
-        draw_debug = ! draw_debug;
-    
-//	if (key=='c')
-//		camera.toggleCursorDraw();
-	
-//	if (key=='u')
-//		camera.toggleFixUpwards();
-    
-    if (key=='f')
-		ofToggleFullscreen();
-    
-//    if (key=='p')
-//        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
-    
-    if (key=='l')
-        ps.addLines( Vec3f( 0,0,0 ), 1000 );
-    
-    if (key=='q')
-        ps.addQuads( Vec3f( 0,0,0 ), 1000 );
-    
-    if (key=='p')
-        ps.addPoints( Vec3f( 0,0,0 ), 1000 );
-
-    if (key=='k')
-        ps.killAll();
-    
-    if (key=='[' )
-        gui.prevPage(); 
-    
-    if (key==']' )
-        gui.prevPage(); 
-    
-    if (key=='[' )
-        gui.prevPage(); 
-    
-    if (key=='[' )
-        gui.prevPage(); 
-    
-    if (key=='0' || '9' )
-        gui.setPage(key - '0');
-    
-    if ( key=='s' )
-        shaker.startShaking();
-    
-    if ( key == '.' )
-        nextPreset();
-    
-    if ( key == 'c' )
-        box.flashUp( ofFloatColor( ofRandom(0,1),ofRandom(0,1),ofRandom(0,1) ), 0.4);
-    
-    if ( key == 'v' ) {
-        sm.fadeLoopVolume( 0, 0, ofRandom(0,3) );
-//        sm.fadeLoopVolume( 1, 0, ofRandom(0,3) );
-        sm.playEventSound( 1, 1 );
-    }
-    
-    if ( key == 'b' ) {
-        fluid.onFadeForceUpAndDown( 1, 0, 10 );
-    }
-    
-//    if (key=='n')
-//		savedPose = camera.getGlobalTransformMatrix();
-//	
-//	if (key=='m')
-//		camera.setTransformMatrix(savedPose);
-    
-}
-
-//--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
-    buildScene();
+    box.width   = width*1.5;
+    box.height  = height;
+    box.depth   = width;
 }
 
 //-------------------------------------------------------------- SETTINGS
@@ -252,6 +180,82 @@ void testApp::nextPreset()
     loadXMLSettingsFromPath( preset_path + my_presets.getNextPresetName() );
 }
 
+//-------------------------------------------------------------- EVENTS
+void testApp::keyPressed(int key){
+    
+    if (key== 'd' )
+        draw_debug = ! draw_debug;
+    
+    //	if (key=='c')
+    //		camera.toggleCursorDraw();
+	
+    //	if (key=='u')
+    //		camera.toggleFixUpwards();
+    
+    if (key=='f')
+		ofToggleFullscreen();
+    
+    //    if (key=='p')
+    //        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
+    
+    if (key=='l')
+        ps.addLines( Vec3f( 0,0,0 ), 1000 );
+    
+    if (key=='q')
+        ps.addQuads( Vec3f( 0,0,0 ), 1000 );
+    
+    if (key=='p')
+        ps.addPoints( Vec3f( 0,0,0 ), 1000 );
+    
+    if (key=='k')
+        ps.killAll();
+    
+    if (key=='[' )
+        gui.prevPage(); 
+    
+    if (key==']' )
+        gui.prevPage(); 
+    
+    if (key=='[' )
+        gui.prevPage(); 
+    
+    if (key=='[' )
+        gui.prevPage(); 
+    
+    if (key=='0' || '9' )
+        gui.setPage(key - '0');
+    
+    if ( key=='s' )
+        shaker.startShaking();
+    
+    if ( key == '.' )
+        nextPreset();
+    
+    if ( key == 'c' )
+        box.flashUp( ofFloatColor( ofRandom(0,1),ofRandom(0,1),ofRandom(0,1) ), 0.4);
+    
+    if ( key == 'v' ) {
+        sm.fadeLoopVolume( 0, 0, ofRandom(0,3) );
+        //        sm.fadeLoopVolume( 1, 0, ofRandom(0,3) );
+        sm.playEventSound( 1, 1 );
+    }
+    
+    if ( key == 'b' ) {
+        fluid.onFadeForceUpAndDown( 1, 0, 10 );
+    }
+    
+    //    if (key=='n')
+    //		savedPose = camera.getGlobalTransformMatrix();
+    //	
+    //	if (key=='m')
+    //		camera.setTransformMatrix(savedPose);
+    
+}
+
+//--------------------------------------------------------------
+void testApp::windowResized(int w, int h){
+    scaleScene();
+}
 
 
 

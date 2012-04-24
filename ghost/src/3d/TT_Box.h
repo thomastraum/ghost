@@ -1,34 +1,36 @@
 //
 //  TT_Box.h
-//  particles 3d 5
+//  ghost
 //
-//  Created by Thomas Eberwein on 19/02/2012.
+//  Created by Thomas Eberwein on 24/04/2012.
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
 #pragma once
 #include "ofMain.h"
-#include "TT_3D_Plane.h"
 
 #define WIDTH 1
 #define HEIGHT 1
-
+#define DEPTH 1
 
 class TT_Box : public ofNode {
     
     ofFloatColor    c;
-    TT_3D_Plane     top, right, bottom, left, back;
     
 public:
     
     TT_Box() {
         width   = WIDTH;
         height  = HEIGHT;
+        depth   = DEPTH;
         c       = ofFloatColor( 0.7,0.7,0.7,1);
     }
     
-    int width;
-    int height;
+    ofMesh          mesh;
+    
+    int             width;
+    int             height;
+    int             depth;
     
     void            build();
     virtual void    customDraw();

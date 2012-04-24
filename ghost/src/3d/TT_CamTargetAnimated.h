@@ -45,7 +45,7 @@ public:
     }
     
     //---------------------------------------------------------------
-    void animate( float _amp, float _freq, float _duration )
+    void animate( float _amp, float _duration )
     {
         setAmplitudeTarget( _amp );
         timer.stopTimer();
@@ -63,7 +63,7 @@ public:
     void onCamTargetAnimateEvent( CamTargetAnimateEvent & args )
     {
         cout << "TT_CamTargetAnimated::onAnimateEvent " << endl;
-        animate( args.amp, args.freq, args.duration );
+        animate( args.amp, args.duration );
     }
     
 };

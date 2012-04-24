@@ -1,37 +1,75 @@
 //
 //  TT_Box.cpp
-//  particles 3d 5
+//  ghost
 //
-//  Created by Thomas Eberwein on 19/02/2012.
+//  Created by Thomas Eberwein on 24/04/2012.
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
 #include "TT_Box.h"
 
-
 void TT_Box::build()
 {
-    bottom.setPosition(0, -1, 0);
-    bottom.setOrientation(ofVec3f(90,0,0));
+    float h = 1;
     
-    left.setPosition(-1, 0, 0);
-    left.setOrientation(ofVec3f(0,90,0));
+    mesh.clear();
     
-    top.setPosition(0, 1, 0);
-    top.setOrientation(ofVec3f(90,0,0));
+    ofVec3f vertices[] = {
+        ofVec3f(+h,-h,+h), ofVec3f(+h,-h,-h), ofVec3f(+h,+h,-h), ofVec3f(+h,+h,+h),
+        ofVec3f(+h,+h,+h), ofVec3f(+h,+h,-h), ofVec3f(-h,+h,-h), ofVec3f(-h,+h,+h),
+        ofVec3f(+h,+h,+h), ofVec3f(-h,+h,+h), ofVec3f(-h,-h,+h), ofVec3f(+h,-h,+h),
+        ofVec3f(-h,-h,+h), ofVec3f(-h,+h,+h), ofVec3f(-h,+h,-h), ofVec3f(-h,-h,-h),
+        ofVec3f(-h,-h,+h), ofVec3f(-h,-h,-h), ofVec3f(+h,-h,-h), ofVec3f(+h,-h,+h),
+        ofVec3f(-h,-h,-h), ofVec3f(-h,+h,-h), ofVec3f(+h,+h,-h), ofVec3f(+h,-h,-h)
+    };
+    mesh.addVertices(vertices,24);
     
-    right.setPosition(1, 0, 0);
-    right.setOrientation(ofVec3f(0,90,0));
     
-    back.setPosition(0, 0, -1);
+    static ofFloatColor colors[] = {
+        c, c, c, c,
+        c, c, c, c,
+        c, c, c, c,
+        c, c, c, c
+    };
+    mesh.addColors( colors, 24 );
     
-    bottom.setColor(c);
-    left.setColor(c);
-    top.setColor(c);
-    right.setColor(c);
-    back.setColor(c);
+    static ofVec3f normals[] = {
+        ofVec3f(+1,0,0), ofVec3f(+1,0,0), ofVec3f(+1,0,0), ofVec3f(+1,0,0),
+        ofVec3f(0,+1,0), ofVec3f(0,+1,0), ofVec3f(0,+1,0), ofVec3f(0,+1,0),
+        ofVec3f(0,0,+1), ofVec3f(0,0,+1), ofVec3f(0,0,+1), ofVec3f(0,0,+1),
+        ofVec3f(-1,0,0), ofVec3f(-1,0,0), ofVec3f(-1,0,0), ofVec3f(-1,0,0),
+        ofVec3f(0,-1,0), ofVec3f(0,-1,0), ofVec3f(0,-1,0), ofVec3f(0,-1,0),
+        ofVec3f(0,0,-1), ofVec3f(0,0,-1), ofVec3f(0,0,-1), ofVec3f(0,0,-1)
+    };
+    mesh.addNormals(normals,24);
+    
+    static ofVec2f tex[] = {
+        ofVec2f(1,0), ofVec2f(0,0), ofVec2f(0,1), ofVec2f(1,1),
+        ofVec2f(1,1), ofVec2f(1,0), ofVec2f(0,0), ofVec2f(0,1),
+        ofVec2f(0,1), ofVec2f(1,1), ofVec2f(1,0), ofVec2f(0,0),
+        ofVec2f(0,0), ofVec2f(0,1), ofVec2f(1,1), ofVec2f(1,0),
+        ofVec2f(0,0), ofVec2f(0,1), ofVec2f(1,1), ofVec2f(1,0),
+        ofVec2f(0,0), ofVec2f(0,1), ofVec2f(1,1), ofVec2f(1,0)
+    };
+    mesh.addTexCoords(tex,24);
+    
+    static ofIndexType indices[] = {
+        0,1,2, // right top left
+        0,2,3, // right bottom right
+        4,5,6, // bottom top right
+        4,6,7, // bottom bottom left	
+        8,9,10, // back bottom right
+        8,10,11, // back top left
+        12,13,14, // left bottom right
+        12,14,15, // left top left
+        16,17,18, // ... etc
+        16,18,19,
+        20,21,22,
+        20,22,23
+    };
+    mesh.addIndices(indices,36);
+    mesh.setMode(OF_PRIMITIVE_TRIANGLES);
 }
-
 
 void TT_Box::customDraw()
 {
@@ -40,33 +78,27 @@ void TT_Box::customDraw()
 
 void TT_Box::drawBox()
 {
-//    ofEnableAlphaBlending();
+    //    ofEnableAlphaBlending();
     glEnable(GL_DEPTH_TEST);
     
     glPushMatrix();
-    setScale(width,height,height*1.1);
-    
-    bottom.draw();
-    left.draw();
-    top.draw();
-    right.draw();
-    back.draw();
-    
+    ofScale( width,height,depth );
+    mesh.draw();
     glPopMatrix();
     
-//    ofDisableAlphaBlending();
+    //    ofDisableAlphaBlending();
     glDisable(GL_DEPTH_TEST);
 }
 
 void TT_Box::setColor( ofFloatColor _c )
 {
-//    c = ofFloatColor( 0.1,0.1,0.1,0.1);
+    //    c = ofFloatColor( 0.1,0.1,0.1,0.1);
     c = _c;
-    bottom.setColor( _c );
-    left.setColor( _c );
-    top.setColor( _c );
-    right.setColor( _c );
-    back.setColor( _c );
+
+    for (int i=0; i<24; i++) {
+        mesh.setColor( i, _c );
+    }
+    
 }
 
 ofFloatColor TT_Box::getColor()

@@ -54,8 +54,7 @@ private:
 	ofEasyCam               camera;
     TT_CamTargetAnimated    cam_target;
     TT_FogAnimated          fog;
-    
-    void            buildScene();
+    void                    scaleScene();
 
     //---------------------------------------------- Particles
     
