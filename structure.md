@@ -4,7 +4,6 @@ feels like a limited space, from static particles to fast
 **priorities**
 
 Set it up in the space
-> weird particle blob in the center > gldepthtest
 
 Rigid body collision
 > create big demo collider particle
