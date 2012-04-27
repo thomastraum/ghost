@@ -20,13 +20,17 @@
 #include "MSAPhysicsFluidUpdater3D.h"
 #include "MSAPhysicsUpdaterShake.h"
 
+//------------------------------------------------ SOUND
 #include "TT_SoundPlayer.h"
 #include "TT_SoundPlayer_gui.h"
 #include "TT_SoundManager.h"
 
 #include "TT_Presets.h"
-
 #include "TT_Sequencer_Quiet.h"
+
+//------------------------------------------------ USERS
+#include "TT_User.h"
+#include "MSAPhysicsUpdaterCollision.h"
 
 class testApp : public ofBaseApp{
 
@@ -63,6 +67,11 @@ private:
     //---------------------------------------------- FLUID
     MSAFluidManagerApp          fluid;
     MSAPhysicsFluidUpdater3D    fluid_updater;
+    
+    
+    //---------------------------------------------- OTHER UPDATERS
+    
+    MSAPhysicsUpdaterCollision  user_collisions;
     MSAPhysicsUpdaterShake      shaker;
     
     //---------------------------------------------- SOUND MANAGER
@@ -87,5 +96,15 @@ private:
     //---------------------------------------------- Sequencer    
     TT_Sequencer_Quiet    seq;
     
+    //------------------------------------------------ USERS
+    TT_User               user;
+    
+    
+    
 };
+
+
+
+
+
 

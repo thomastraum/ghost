@@ -125,15 +125,11 @@
 		641F054F15452B0500B45D92 /* MSAParticleSystemEvented.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystemEvented.h; sourceTree = "<group>"; };
 		641F055115452B0500B45D92 /* MSAParticleGroup3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleGroup3D.cpp; sourceTree = "<group>"; };
 		641F055215452B0500B45D92 /* MSAParticleGroup3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D.h; sourceTree = "<group>"; };
-		641F055315452B0500B45D92 /* MSAParticleGroup3D_Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_Lines.h; sourceTree = "<group>"; };
 		641F055415452B0500B45D92 /* MSAParticleGroup3D_PointSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_PointSprites.h; sourceTree = "<group>"; };
 		641F055515452B0500B45D92 /* MSAParticleGroup3D_PointSpritesShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_PointSpritesShader.h; sourceTree = "<group>"; };
-		641F055615452B0500B45D92 /* MSAParticleGroup3D_PointSpritesVbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_PointSpritesVbo.h; sourceTree = "<group>"; };
 		641F055715452B0500B45D92 /* MSAParticleGroup3DMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh.h; sourceTree = "<group>"; };
 		641F055815452B0500B45D92 /* MSAParticleGroup3DMesh_Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Lines.h; sourceTree = "<group>"; };
-		641F055915452B0500B45D92 /* MSAParticleGroup3DMesh_PointSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_PointSprites.h; sourceTree = "<group>"; };
 		641F055A15452B0500B45D92 /* MSAParticleGroup3DMesh_Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Quad.h; sourceTree = "<group>"; };
-		641F055B15452B0500B45D92 /* MSAParticleGroups3D_Quads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroups3D_Quads.h; sourceTree = "<group>"; };
 		641F055D15452B0500B45D92 /* TT_Custom_MSAParticle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Custom_MSAParticle3D.h; sourceTree = "<group>"; };
 		641F056015452B0500B45D92 /* TT_Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer.h; sourceTree = "<group>"; };
 		641F056115452B0500B45D92 /* TT_Sequencer_Quiet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer_Quiet.h; sourceTree = "<group>"; };
@@ -250,6 +246,9 @@
 		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		E92CC37A154A07A20035ECEC /* MSAPhysicsUpdaterCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterCollision.h; sourceTree = "<group>"; };
+		E92CC37D154A0F7C0035ECEC /* TT_User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TT_User.h; path = users/TT_User.h; sourceTree = "<group>"; };
+		E92CC388154A184F0035ECEC /* MSAParticleGroup3D_Fixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_Fixed.h; sourceTree = "<group>"; };
 		E943CD01154754B80043DBDF /* TT_Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Box.h; sourceTree = "<group>"; };
 		E943CD04154754E90043DBDF /* TT_Box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TT_Box.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,6 +353,7 @@
 				641F054715452B0500B45D92 /* MSAPhysicsUpdater3D.cpp */,
 				641F054815452B0500B45D92 /* MSAPhysicsUpdater3D.h */,
 				641F054915452B0500B45D92 /* MSAPhysicsUpdaterShake.h */,
+				E92CC37A154A07A20035ECEC /* MSAPhysicsUpdaterCollision.h */,
 			);
 			path = "msa-physics-updater";
 			sourceTree = "<group>";
@@ -364,15 +364,12 @@
 				6489923F1546938B006D8942 /* shaders */,
 				641F055115452B0500B45D92 /* MSAParticleGroup3D.cpp */,
 				641F055215452B0500B45D92 /* MSAParticleGroup3D.h */,
-				641F055315452B0500B45D92 /* MSAParticleGroup3D_Lines.h */,
+				E92CC388154A184F0035ECEC /* MSAParticleGroup3D_Fixed.h */,
 				641F055415452B0500B45D92 /* MSAParticleGroup3D_PointSprites.h */,
 				641F055515452B0500B45D92 /* MSAParticleGroup3D_PointSpritesShader.h */,
-				641F055615452B0500B45D92 /* MSAParticleGroup3D_PointSpritesVbo.h */,
 				641F055715452B0500B45D92 /* MSAParticleGroup3DMesh.h */,
 				641F055815452B0500B45D92 /* MSAParticleGroup3DMesh_Lines.h */,
-				641F055915452B0500B45D92 /* MSAParticleGroup3DMesh_PointSprites.h */,
 				641F055A15452B0500B45D92 /* MSAParticleGroup3DMesh_Quad.h */,
-				641F055B15452B0500B45D92 /* MSAParticleGroups3D_Quads.h */,
 			);
 			path = "particle-groups";
 			sourceTree = "<group>";
@@ -743,6 +740,7 @@
 				641F056415452B0500B45D92 /* sound */,
 				641F056915452B0500B45D92 /* testApp.cpp */,
 				641F056A15452B0500B45D92 /* testApp.h */,
+				E92CC37C154A0F560035ECEC /* users */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -754,6 +752,14 @@
 				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
 			);
 			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		E92CC37C154A0F560035ECEC /* users */ = {
+			isa = PBXGroup;
+			children = (
+				E92CC37D154A0F7C0035ECEC /* TT_User.h */,
+			);
+			name = users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

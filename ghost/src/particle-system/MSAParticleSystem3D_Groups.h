@@ -15,11 +15,9 @@
 
 #pragma once
 #include "MSAParticleSystem3D_Abstract.h"
-#include "MSAParticleGroups3D_Quads.h"
-#include "MSAParticleGroup3DMesh_Quad.h"
-#include "MSAParticleGroup3DMesh_PointSprites.h"
 #include "MSAParticleGroup3D_PointSpritesShader.h"
 #include "MSAParticleGroup3DMesh_Lines.h"
+#include "MSAParticleGroup3D_Fixed.h"
 
 class MSAParticleSystem3D_Groups : public MSAParticleSystem3D_Abstract {
 
@@ -27,17 +25,17 @@ private :
     
     MSAParticleGroup3D * quads;
     MSAParticleGroup3D * lines;
-    MSAParticleGroup3D * points;
+    MSAParticleGroup3D * colliders;
     
     MSAParticleGroup3D * active_group;
     
 public:
     
     MSAParticleSystem3D_Groups(){
-        active_group = 0;
-        quads = 0;
-        lines = 0;
-        points = 0;
+        active_group    = 0;
+        quads           = 0;
+        lines           = 0;
+        colliders       = 0;
     };
     
     void addQuads( Vec3f _pos, int _count ) 
@@ -52,10 +50,10 @@ public:
         addParticles( _pos, _count );
     };
     
-    void addPoints( Vec3f _pos, int _count ) 
+    TT_Custom_MSAParticle3D * addCollider( Vec3f _pos ) 
     {
-        active_group = points;
-        addParticles( _pos, _count );
+        active_group = colliders;
+        return addParticle( _pos );
     };
     
 protected :
@@ -72,21 +70,22 @@ protected :
         lines->setInstanceName( "Lines" );
         groups.push_back(lines);
         
-        points = new MSAParticleGroup3DMesh_PointSprites();
-        points->setup();
-        points->setInstanceName( "Points" );
-        groups.push_back(points);
+        colliders = new MSAParticleGroup3D_Fixed(); 
+        colliders->setup();
+        colliders->setInstanceName( "Colliders" );
+        groups.push_back(colliders);
         
         active_group = quads;
     }
     
     // -----------------------------------------------------  PARTICLES
-    // override
-    void addParticle( Vec3f _pos )
+    // overriding from abstract
+    TT_Custom_MSAParticle3D * addParticle( Vec3f _pos )
     {
         TT_Custom_MSAParticle3D * p = createParticle(_pos);
         active_group->addParticle( p );
         p->release();
+        return p;
     }
     
     // override

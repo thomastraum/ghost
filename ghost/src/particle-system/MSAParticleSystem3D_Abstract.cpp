@@ -113,11 +113,13 @@ void MSAParticleSystem3D_Abstract::addParticles( Vec3f _pos, int _count )
 		addParticle( Vec3f( _pos.x , _pos.y, _pos.z ) ); // + Rand::randVec3f() * 300 );
 };
 
-void MSAParticleSystem3D_Abstract::addParticle( Vec3f _pos )
+TT_Custom_MSAParticle3D * MSAParticleSystem3D_Abstract::addParticle( Vec3f _pos )
 {
     TT_Custom_MSAParticle3D * p = createParticle(_pos);
     defaultgroup->addParticle( p );
     p->release();
+    
+    return p;
 }
 
 // ----------------------------------------------------- 

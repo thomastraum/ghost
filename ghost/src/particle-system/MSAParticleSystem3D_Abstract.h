@@ -35,9 +35,9 @@ protected:
     
     // overload these if you want to add your own particle groups and 
     // where to put them
-    virtual void createParticleGroups();
-    virtual void addParticle( Vec3f _pos );
-    virtual void addParticles( Vec3f _pos, int _count );
+    virtual void                        createParticleGroups();
+    virtual TT_Custom_MSAParticle3D *   addParticle( Vec3f _pos );
+    virtual void                        addParticles( Vec3f _pos, int _count );
     
     TT_Custom_MSAParticle3D *   createParticle( Vec3f _pos );
     

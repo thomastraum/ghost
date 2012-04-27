@@ -102,7 +102,6 @@ void MSAParticleGroup3D::resizeParticleGroup()
         group.erase( group.begin() + i );
         i--;
     }
-    
 }
 
 void MSAParticleGroup3D::killParticles()
@@ -130,10 +129,9 @@ void MSAParticleGroup3D::addSettings( ofxSimpleGuiToo & _gui )
     _gui.addToggle( instance_name + " collision", enable_collision );
     _gui.addToggle( instance_name + " wrapping", enable_wrapping );
     
-    
-//	_gui.addSlider( instance_name + " drag min", drag_min, 0.1, 1);
-//	_gui.addSlider( instance_name + " drag max", drag_max, 0.1, 1);
-    
     _gui.addToggle( instance_name + " enableFadeOut", enable_fadeout );
-
 }
+
+
+
+
