@@ -28,7 +28,7 @@ public:
     
     virtual void update( Physics::Particle3D * _p )
     {
-        
+        //
     }
     
     void checkCollisionWithThese( vector<TT_Custom_MSAParticle3D * > * _colliders )

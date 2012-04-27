@@ -14,12 +14,31 @@
 
 class TT_CamTarget : public ofNode {
     
+    bool draw_debug;
+    
 public:
+    
+    TT_CamTarget(){
+        draw_debug = false;
+        ofAddListener( ofEvents.keyPressed, this, &TT_CamTarget::keyPressedEvent );
+    }
     
     virtual void customDraw()
     {
-        ofSetColor( 255, 255, 0 );
-        ofBox( 0,0,0, 50 );
+        if ( draw_debug ) {
+            ofSetColor( 255, 255, 0 );
+            ofBox( 0,0,0, 50 );
+        }
+    }
+    
+    void keyPressedEvent( ofKeyEventArgs & args )
+    {
+        switch (args.key) {
+            case 'd':
+                draw_debug = !draw_debug;
+                break;
+        }
+
     }
     
     

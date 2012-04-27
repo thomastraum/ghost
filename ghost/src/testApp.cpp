@@ -91,10 +91,10 @@ void testApp::draw()
     ofSetColor(255,255,255);
     box.draw();
     
-    ofSetColor(255,0,0);
-    ofPushMatrix();
-    ofBox( 0,0,0, 10 );
-    ofPopMatrix();
+//    ofSetColor(255,0,0);
+//    ofPushMatrix();
+//    ofBox( 0,0,0, 1 );
+//    ofPopMatrix();
     
     cam_target.draw();
     
