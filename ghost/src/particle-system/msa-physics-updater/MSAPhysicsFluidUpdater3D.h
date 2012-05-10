@@ -45,7 +45,9 @@ public:
 //        vel3D_new.z = cos(rad)*_p->getVelocity().z + sin(rad)*vel_new.x;        
 //        vel3D_new = Vec3f( vel_new.x, vel_new.y, vel_new.z );
         
-        vel3D_new = Vec3f( vel_new.x, vel_new.y, _p->getVelocity().z );
+// fluid_vel.x+fluid_vel.y)*amplitude)
+        
+        vel3D_new = Vec3f( vel_new.x, vel_new.y, 0 ); // + vel_new.y) );//  _p->getVelocity().z );
         
         _p->addVelocity(vel3D_new);
     }

@@ -209,8 +209,10 @@ void testApp::keyPressed(int key){
     if (key=='q')
         ps.addQuads( Vec3f( 0,0,0 ), 1000 );
     
-    if (key=='p')
-        user.addJointParticle( ps.addCollider( Vec3f( 0,0,0 ) ) );
+    if (key=='p') {
+//        user.addJointParticle( ps.addCollider( Vec3f( 0,0,0 ) ) );
+        user_collisions.addToCollisionCheck( ps.addCollider(Vec3f(0,0,0)) );
+    }
     
     if (key=='k')
         ps.killAll();

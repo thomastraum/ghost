@@ -27,7 +27,6 @@ public:
         if ( updater ) updater->checkCollisionWithThese( &joint_particles );
     }
     
-    
     void addCollisionUpdater( MSAPhysicsUpdaterCollision * _updater )
     {
         updater = _updater;

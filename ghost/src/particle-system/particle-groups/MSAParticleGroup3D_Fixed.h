@@ -11,7 +11,18 @@
 #include "MSAParticleGroup3D.h"
 
 class MSAParticleGroup3D_Fixed : public MSAParticleGroup3D {
-
+    
+    ofMesh mesh;
+    
+public:
+    
+    MSAParticleGroup3D_Fixed() {
+        
+        mesh.clear();
+        mesh.setMode(OF_PRIMITIVE_POINTS);
+        
+    }
+    
     virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
         MSAParticleGroup3D::setParticleProperties( _p );
@@ -19,6 +30,7 @@ class MSAParticleGroup3D_Fixed : public MSAParticleGroup3D {
         _p->setRadius( radius );
         _p->makeFixed();
     }
+
     
     //--------------------------------------------------------------- SETTINGS
     void addSettings( ofxSimpleGuiToo & _gui )
@@ -28,5 +40,4 @@ class MSAParticleGroup3D_Fixed : public MSAParticleGroup3D {
         _gui.addSlider( "node max", node_max, 1, 600);
     }
     
-
 };
