@@ -19,6 +19,7 @@ void testApp::setup(){
     ps.addUpdater( &fluid_updater );
     ps.addUpdater( &shaker );
     ps.addUpdater( &user_collisions );
+    user_collisions.addParticleSystem(&ps);
 
     camera.setTarget(cam_target);
     

@@ -13,7 +13,9 @@ using namespace MSA;
 
 class MSAPhysicsUpdaterCollision : public Physics::ParticleUpdater3D {
     
-    vector<Physics::Particle3D * > colliders;
+    vector<Physics::Particle3D * >  colliders;
+    MSAParticleSystem3D_Groups *  psPtr;
+    
     
 private:
     
@@ -36,15 +38,15 @@ private:
         
         Vec3f deltaForce = delta * force;
         
-        if (a->isFree()) a->moveBy(deltaForce * a->getInvMass(), false);
-        if (b->isFree()) b->moveBy(deltaForce * -b->getInvMass(), false);
+//        if (a->isFree()) a->moveBy(deltaForce * a->getInvMass(), false);
+//        if (b->isFree()) b->moveBy(deltaForce * -b->getInvMass(), false);
         
 //        ofLogNotice("TT") << delta;
 //        ofLogNotice("TT") << force;
 //        ofLogNotice("TT") << deltaForce;
         
-        a->collidedWithParticle(b, deltaForce);
-        b->collidedWithParticle(a, -deltaForce);
+//        a->collidedWithParticle(b, deltaForce);
+//        b->collidedWithParticle(a, -deltaForce);
         
         return true;
         
@@ -63,12 +65,18 @@ public:
             
             Physics::Particle3D * pB = *it;
             if ( checkCollisionBetween( _pA, pB ) ) {
+                psPtr->addLines(Vec3f(0,0,0), 10);
                 _pA->kill();
 //                pB->kill();
                 break;
             }
             it++;
         }
+    }
+    
+    void addParticleSystem( MSAParticleSystem3D_Groups * _ps )
+    {
+        psPtr = _ps;
     }
     
     void addToCollisionCheck( TT_Custom_MSAParticle3D * _p )

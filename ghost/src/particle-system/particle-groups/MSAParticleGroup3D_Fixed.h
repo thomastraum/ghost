@@ -36,8 +36,8 @@ public:
     void addSettings( ofxSimpleGuiToo & _gui )
     {
         MSAParticleGroup3D::addSettings( _gui );
-        _gui.addSlider( "node min", node_min, 1, 200);
-        _gui.addSlider( "node max", node_max, 1, 600);
+        _gui.addSlider( instance_name + "node min", node_min, 1, 200);
+        _gui.addSlider( instance_name + "node max", node_max, 1, 600);
     }
     
 };
