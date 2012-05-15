@@ -65,8 +65,9 @@ public:
             
             Physics::Particle3D * pB = *it;
             if ( checkCollisionBetween( _pA, pB ) ) {
-                psPtr->addLines(Vec3f(0,0,0), 10);
-                _pA->kill();
+                psPtr->addLines( _pA->getPosition(), 1);
+                ofLogNotice("TT") << "collisison";
+//                _pA->kill();q
 //                pB->kill();
                 break;
             }
