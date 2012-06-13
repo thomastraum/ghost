@@ -37,6 +37,7 @@ public:
         : sound_id(_id), volume(_volume), pan(_pan), duration(_duration) {}
 };
 
+//------------------------------------------------------------------------
 class SoundFxEvent {    
     
 public:
@@ -49,6 +50,7 @@ public:
         sound_id( _id ), volume( _volume ), duration(_duration) {}
 };
 
+//------------------------------------------------------------------------
 class EmitParticlesEvent {    
     
 public:
@@ -59,6 +61,7 @@ public:
     EmitParticlesEvent( int _id, float _amount ): emitter_id( _id ), amount( _amount ) {}
 };
 
+//------------------------------------------------------------------------
 class BoxFlashEvent {    
     
 public:
@@ -69,6 +72,7 @@ public:
     BoxFlashEvent( ofFloatColor _color, float _duration ): color( _color ), duration( _duration ) {}
 };
 
+//------------------------------------------------------------------------
 class FogFlashEvent {    
     
 public:
@@ -79,6 +83,7 @@ public:
     FogFlashEvent( ofFloatColor _color, float _duration ): color( _color ), duration( _duration ) {}
 };
 
+//------------------------------------------------------------------------
 class PGravEvent {    
     
 public:
@@ -89,6 +94,7 @@ public:
     
 };
 
+//------------------------------------------------------------------------
 // makes scene wobble
 class CamTargetAnimateEvent {
     
@@ -100,6 +106,18 @@ public:
     
 };
 
+
+//------------------------------------------------------------------------
+class CollisionEvent {
+    
+public:
+    
+    ofVec3f position;
+    CollisionEvent( ofVec3f _position ): position(_position) {}
+    
+};
+
+
 extern ofEvent<ForceEvent>              ForceEventDispatcher;
 extern ofEvent<LoopEvent>               LoopEventDispatcher;
 extern ofEvent<SoundFxEvent>            SoundFxEventDispatcher;
@@ -108,5 +126,6 @@ extern ofEvent<BoxFlashEvent>           BoxFlashEventDispatcher;
 extern ofEvent<FogFlashEvent>           FogFlashEventDispatcher;
 extern ofEvent<PGravEvent>              PGravEventDispatcher;
 extern ofEvent<CamTargetAnimateEvent>   CamTargetAnimateEventDispatcher;
+extern ofEvent<CollisionEvent>          CollisionEventDispatcher;
 
 #endif

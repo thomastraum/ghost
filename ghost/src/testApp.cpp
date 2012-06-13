@@ -19,7 +19,6 @@ void testApp::setup(){
     ps.addUpdater( &fluid_updater );
     ps.addUpdater( &shaker );
     ps.addUpdater( &user_collisions );
-    user_collisions.addParticleSystem(&ps);
 
     camera.setTarget(cam_target);
     
@@ -60,7 +59,11 @@ void testApp::setup(){
     // set different log levels for different messages //
     ofSetLogLevel(OF_LOG_ERROR);
     ofSetLogLevel( "TT", OF_LOG_NOTICE );
+    
+    
 }
+
+
 
 //--------------------------------------------------------------
 void testApp::update()
@@ -205,10 +208,10 @@ void testApp::keyPressed(int key){
     //        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
     
     if (key=='l')
-        ps.addLines( Vec3f( 0,0,0 ), 1000 );
+        ps.addLines( Vec3f( 0,0,0 ), 1000, Vec3f(width,height,height) );
     
     if (key=='q')
-        ps.addQuads( Vec3f( 0,0,0 ), 1000 );
+        ps.addQuads( Vec3f( 0,0,0 ), 1000, Vec3f(width,height,height) );
     
     if (key=='p') {
 //        user.addJointParticle( ps.addCollider( Vec3f( 0,0,0 ) ) );

@@ -21,12 +21,20 @@ public:
     
     MSAParticleSystemEvented() {
         ofAddListener( PGravEventDispatcher,this,&MSAParticleSystemEvented::onPGravEvent );
+        ofAddListener( CollisionEventDispatcher,this,&MSAParticleSystemEvented::onCollisionEvent );
     }
     
     void onPGravEvent( PGravEvent & args )
     {
         ofLogNotice( "TT" ) << " gravity: " << args.gravity;
         gravity = args.gravity;
+    }
+    
+    
+    void onCollisionEvent( CollisionEvent & args )
+    {
+        ofLogNotice("TT") << " event collision " << args.position;
+        addLines( Vec3f( args.position.x, args.position.y, args.position.z ),10, Vec3f(10,10,10) ); 
     }
     
 };

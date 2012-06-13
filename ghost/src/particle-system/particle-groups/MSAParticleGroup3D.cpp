@@ -33,9 +33,9 @@ void MSAParticleGroup3D::setup()
 
 void MSAParticleGroup3D::update()
 {
-    if ( group.size() > max_particles ) {
-        resizeParticleGroup();
-    }
+//    if ( group.size() > max_particles ) {
+//        resizeParticleGroup();
+//    }
 }
 
 void MSAParticleGroup3D::draw()

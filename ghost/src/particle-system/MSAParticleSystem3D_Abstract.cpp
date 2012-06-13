@@ -57,7 +57,7 @@ void MSAParticleSystem3D_Abstract::update()
         prev_gravity = gravity;
         physics.setGravity( gravity );
     }
-    
+//    cout <<  "-------- numberOfParticles: ------ " << physics.numberOfParticles() << endl;
 	physics.update();
     
     for (int i=0; i<groups.size(); i++) {
@@ -66,6 +66,8 @@ void MSAParticleSystem3D_Abstract::update()
     
     // we show this number in the UI //
     numberOfParticles = physics.numberOfParticles();
+    
+    
 }
 
 // ----------------------------------------------------- DRAW

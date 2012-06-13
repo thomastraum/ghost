@@ -7,6 +7,8 @@
 //
 
 #pragma once
+#include "ofEvents.h"
+#include "AppEvents.h"
 #include "MSAPhysics3D.h"
 
 using namespace MSA;
@@ -14,14 +16,16 @@ using namespace MSA;
 class MSAPhysicsUpdaterCollision : public Physics::ParticleUpdater3D {
     
     vector<Physics::Particle3D * >  colliders;
-    MSAParticleSystem3D_Groups *  psPtr;
-    
+    bool collided;
     
 private:
     
+    
     bool checkCollisionBetween( Physics::Particle3D * a, Physics::Particle3D * b )
     {
-//        if(a->hasCollision() == false || b->hasCollision() == false) return false;
+        if (a==b) return false;
+        if (a->isFixed()) return false;
+        if (a->hasCollision() == false ) return false;
         
         if((a->collisionPlane & b->collisionPlane) == 0) {
             return false;
@@ -55,7 +59,11 @@ private:
     
 public:
     
-    MSAPhysicsUpdaterCollision(){};
+    MSAPhysicsUpdaterCollision(){
+        
+        collided = false;
+        
+    };
     
     virtual void update( Physics::Particle3D * _pA )
     {
@@ -65,19 +73,15 @@ public:
             
             Physics::Particle3D * pB = *it;
             if ( checkCollisionBetween( _pA, pB ) ) {
-                psPtr->addLines( _pA->getPosition(), 1);
-                ofLogNotice("TT") << "collisison";
-//                _pA->kill();q
-//                pB->kill();
+                Vec3f position = _pA->getPosition();
+                CollisionEvent e = CollisionEvent( ofVec3f(position.x,position.y,position.z) );
+                ofNotifyEvent( CollisionEventDispatcher, e );
+                _pA->kill();
                 break;
             }
             it++;
         }
-    }
-    
-    void addParticleSystem( MSAParticleSystem3D_Groups * _ps )
-    {
-        psPtr = _ps;
+        
     }
     
     void addToCollisionCheck( TT_Custom_MSAParticle3D * _p )

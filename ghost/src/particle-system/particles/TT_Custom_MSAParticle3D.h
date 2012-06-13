@@ -22,6 +22,7 @@ public:
         color = Color::black();
         constraint=0;
         solvable = false;
+        alpha = 1.0;
     }
     
     TT_Custom_MSAParticle3D ( Vec3f _pos )   : Physics::Particle3D( _pos ) { 
@@ -30,6 +31,7 @@ public:
         color = Color::black();
         constraint=0;
         solvable = false;
+        alpha = 1.0;
     }
     
 	void collidedWithEdgeOfWorld(Vec3f collisionForce) 
@@ -40,7 +42,7 @@ public:
     {
         // fade out a bit (and kill if alpha == 0);
         if (is_fadeout_enabled) {
-            alpha *= 0.99f;
+            alpha *= 0.9f;
             if( alpha < 0.1f ) {
                 kill();
             }

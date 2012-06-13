@@ -18,6 +18,8 @@ class MSAParticleGroup3D_PointSprites : public MSAParticleGroup3D {
     ofMesh      mesh;
     ofImage     texture;
     
+    Vec3f     position;    
+    
 public:
     
     MSAParticleGroup3D_PointSprites() {
@@ -48,9 +50,10 @@ public:
             TT_Custom_MSAParticle3D * p = *it;
             if( p->isDead() ) {
 //                mesh.removeVertex(i);
-                it = group.erase(it);
+//                it = group.erase(it);
             } else {
-                mesh.setVertex( i, ofVec3f( p->getPosition().x, p->getPosition().y, p->getPosition().z ) );
+                position = p->getPosition();
+                mesh.setVertex( i, ofVec3f( position.x, position.y, position.z ) );
                 i++;
                 it++;
             }

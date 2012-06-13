@@ -30,7 +30,13 @@ public:
     
     MSAParticleGroup3DMesh_Lines() {
         mesh.setMode( OF_PRIMITIVE_LINES );
-        color = ofFloatColor(1,1,1,1 );
+        color = ofFloatColor(1,0,1,1 );
+    }
+    
+    virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )
+    {
+        MSAParticleGroup3DMesh::setParticleProperties( _p );
+        _p->enableFadeOut();
     }
     
     void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
@@ -68,7 +74,7 @@ public:
         ofEnableAlphaBlending();
 //      glEnable(GL_DEPTH_TEST);
         glEnable(GL_LINE_SMOOTH);
-        
+        glLineWidth(3);
         vbo.setMesh( mesh, GL_STATIC_DRAW );
         vbo.draw( GL_LINES, 0, group.size() ); //mesh.getNumVertices() );
         

@@ -38,16 +38,16 @@ public:
         colliders       = 0;
     };
     
-    void addQuads( Vec3f _pos, int _count ) 
+    void addQuads( Vec3f _pos, int _count, Vec3f _range ) 
     {
         active_group = quads;
-        addParticles( _pos, _count );
+        addParticles( _pos, _count, _range );
     };
     
-    void addLines( Vec3f _pos, int _count ) 
+    void addLines( Vec3f _pos, int _count, Vec3f _range ) 
     {
         active_group = lines;
-        addParticles( _pos, _count );
+        addParticles( _pos, _count, _range );
     };
     
     TT_Custom_MSAParticle3D * addCollider( Vec3f _pos ) 
@@ -89,16 +89,18 @@ protected :
     }
     
     // override
-    void addParticles( Vec3f _pos, int _count )
+    void addParticles( Vec3f _center, int _count, Vec3f _range )
     {
-        int max_x = width*2;
-        int max_y = height;
+        Vec3f pos;
         
-        for(int i=0; i<_count; i++)
-            addParticle( Vec3f( _pos.x + ofRandom(-max_x, max_x), _pos.y + ofRandom(-max_y,max_y), _pos.z + ofRandom(max_x,-max_x)) );
-            //addParticle( Vec3f( _pos.x , _pos.y, _pos.z ) ); // + Rand::randVec3f() * 300 );
+        for(int i=0; i<_count; i++) {
+            
+            pos.x = _center.x + ofRandom( -_range.x, _range.x );
+            pos.y = _center.y + ofRandom( -_range.y, _range.y );
+            pos.z = _center.z + ofRandom( -_range.z, _range.z );
+            
+            addParticle( pos );
+        }
+        
     };
-    
-    
-
 };
