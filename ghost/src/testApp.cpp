@@ -59,8 +59,8 @@ void testApp::setup(){
     // set different log levels for different messages //
     ofSetLogLevel(OF_LOG_ERROR);
     ofSetLogLevel( "TT", OF_LOG_NOTICE );
-    
-    
+
+    ofSoundStopAll();
 }
 
 
@@ -69,6 +69,8 @@ void testApp::setup(){
 void testApp::update()
 {
     user.update();
+    user_collisions.calculateBoundingBox();
+    
     ps.update();
     fluid.update();
     cam_target.update();

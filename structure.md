@@ -5,24 +5,21 @@ feels like a limited space, from static particles to fast
 
 Set it up in the space
 
-Rigid body collision
-> create big demo collider particle
->> test collision and collision events
->>> Repel
->>> change color
+*Collision*
+collisions need to go from nice to extreme
 
+
+*Kinect*
 Add kinect tracking
-> new addon get events
 
 Particle design
 > maybe have trail particles?
 
-3D fluid
-
+*3D fluid*
 Make scene resize event in testApp.cpp
 >	send custom resize event to particle system.
 
-Camera movement
+*Camera movement*
 > move in and out to preset positions
 > FOV of cam 
 
