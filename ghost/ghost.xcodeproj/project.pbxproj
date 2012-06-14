@@ -648,8 +648,8 @@
 		6489923F1546938B006D8942 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				648992401546938B006D8942 /* pointsprites.frag */,
 				648992411546938B006D8942 /* pointsprites.vert */,
+				648992401546938B006D8942 /* pointsprites.frag */,
 			);
 			name = shaders;
 			path = bin/data/shaders;

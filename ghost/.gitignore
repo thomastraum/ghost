@@ -8,7 +8,6 @@
 build/
 *.xcuserdatad
 
-
 #----------------------- tt
 #xcuserdata
 *.mode1v3
@@ -16,9 +15,6 @@ build/
 
 #.xcodeproj
 #!*.xcodeproj/project.pbxproj
-
-bin/data/*
-!bin/data/shaders
 
 #-------dir specific
 *.app

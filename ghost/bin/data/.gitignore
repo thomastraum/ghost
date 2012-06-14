@@ -1,3 +1,6 @@
 # Ignore everything in here apart from the .gitignore file
 *
 !.gitignore
+!shaders
+!shaders/*.vert
+!shaders/*.frag

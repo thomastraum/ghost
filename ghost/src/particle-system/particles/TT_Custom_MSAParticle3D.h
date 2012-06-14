@@ -19,7 +19,7 @@ public:
     TT_Custom_MSAParticle3D ()               : Physics::Particle3D() { 
         wrapping_enabled = false;
         is_fadeout_enabled = false;
-        color = Color::black();
+        color = ofFloatColor::white;
         constraint=0;
         solvable = false;
         alpha = 1.0;
@@ -28,7 +28,7 @@ public:
     TT_Custom_MSAParticle3D ( Vec3f _pos )   : Physics::Particle3D( _pos ) { 
         wrapping_enabled = false;
         is_fadeout_enabled = false;
-        color = Color::black();
+        color = ofFloatColor::white;
         constraint=0;
         solvable = false;
         alpha = 1.0;
@@ -50,13 +50,13 @@ public:
     }
     
     //----------------------------------------------------------------- COLOR
-    TT_Custom_MSAParticle3D * setColor( Color _col )
+    TT_Custom_MSAParticle3D * setColor( ofFloatColor _col )
     {
         color = _col;
         return this;
     }
     
-    Color getColor() 
+    ofFloatColor getColor() 
     { 
         return color; 
     }
@@ -149,7 +149,7 @@ public:
 protected:
     
     Physics::Constraint3D * constraint;
-    Color                   color;
+    ofFloatColor            color;
     float                   alpha;
     bool                    is_fadeout_enabled;    
     bool                    wrapping_enabled;
