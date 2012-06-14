@@ -31,17 +31,17 @@ public:
     void addSettings( ofxSimpleGuiToo & _gui )
     {
         MSAParticleGroup3DMesh::addSettings( _gui );
-        _gui.addSlider( "node min", node_min, 1, 10);
-        _gui.addSlider( "node max", node_max, 1, 100);
+        _gui.addSlider( instance_name + " node min", node_min, 1, 10);
+        _gui.addSlider( instance_name + " node max", node_max, 1, 100);
     }
     
     //---------------------------------------------------------------    
     void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
         MSAParticleGroup3DMesh_PointSprites::setParticleProperties( _p );
+        
         float radius	= ofMap( _p->getMass(), mass_min, mass_max, node_min, node_max );
         _p->setRadius( radius );
-        _p->setColor( ofFloatColor(ofRandom(1),ofRandom(1),ofRandom(1), 1) );
         
         point_sizes[group.size()] = radius*2;
         
@@ -49,8 +49,8 @@ public:
         
         int i=group.size()*3;
         colors[i] = pcol.r; //ofRandom(1);
-        colors[i+1] = pcol.g; //ofRandom(1);
-        colors[i+2] = pcol.b; //ofRandom(1);
+        colors[++i] = pcol.g; //ofRandom(1);
+        colors[++i] = pcol.b; //ofRandom(1);
 //        colors[i+3] = .1;
         
     }

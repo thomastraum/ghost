@@ -20,22 +20,26 @@ void MSAParticleGroup3D::setup()
     drag_min = .90;
     drag_max = .99;
     
-    particle_default_color = 0xFFFFFF;
-    
     enable_collision = false;
     enable_wrapping = true;
     
     alpha_min = 0.99;
     alpha_max = 2;
     
+    maincolor[0] = 1.0;
+    maincolor[1] = 1.0;
+    maincolor[2] = 1.0;
+    maincolor[3] = 1.0;
+    c_range = 0;
+    
     cout << "MSAParticleGroup3D setup called" << endl;
 }
 
 void MSAParticleGroup3D::update()
 {
-//    if ( group.size() > max_particles ) {
-//        resizeParticleGroup();
-//    }
+    if ( group.size() > max_particles ) {
+        resizeParticleGroup();
+    }
 }
 
 void MSAParticleGroup3D::draw()
@@ -49,7 +53,7 @@ void MSAParticleGroup3D::draw()
         } else {
             ofPushStyle();
             ofFill();
-            ofSetHexColor( particle_default_color );
+            ofSetColor( p->getColor() );
             ofCircle( p->getPosition().x, p->getPosition().y, p->getPosition().z, p->getRadius() );
             ofPopStyle();
             it++;
@@ -86,10 +90,18 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
     _p->setBounce(bounce);
 	_p->setMass(mass)->setDrag(drag)->makeFree();
     _p->setAlpha(alpha);
+    _p->setColor( getColor() );
     
     // give them a push
     _p->setVelocity( Vec3f(ofRandom(-100,100),ofRandom(-10,10),0 ) );
+    
 }
+
+ofFloatColor MSAParticleGroup3D::getColor()
+{
+    return ofFloatColor(maincolor[0] + ofRandom(-c_range,c_range),maincolor[1]+ ofRandom(-c_range,c_range),maincolor[2]+ ofRandom(-c_range,c_range), maincolor[3]);
+}
+
 
 void MSAParticleGroup3D::resizeParticleGroup()
 {
@@ -130,6 +142,10 @@ void MSAParticleGroup3D::addSettings( ofxSimpleGuiToo & _gui )
     _gui.addToggle( instance_name + " wrapping", enable_wrapping );
     
     _gui.addToggle( instance_name + " enableFadeOut", enable_fadeout );
+    
+    _gui.addColorPicker(instance_name + "Main Color", maincolor);
+    _gui.addSlider(instance_name + "color variation", c_range, 0, 1);
+    
 }
 
 

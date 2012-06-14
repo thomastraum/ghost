@@ -25,6 +25,7 @@ private :
     
     MSAParticleGroup3D * quads;
     MSAParticleGroup3D * lines;
+    MSAParticleGroup3D * collided;
     MSAParticleGroup3D * colliders;
     
     MSAParticleGroup3D * active_group;
@@ -47,6 +48,12 @@ public:
     void addLines( Vec3f _pos, int _count, Vec3f _range ) 
     {
         active_group = lines;
+        addParticles( _pos, _count, _range );
+    };
+    
+    void addCollided( Vec3f _pos, int _count, Vec3f _range ) 
+    {
+        active_group = collided;
         addParticles( _pos, _count, _range );
     };
     
@@ -74,6 +81,11 @@ protected :
         colliders->setup();
         colliders->setInstanceName( "Colliders" );
         groups.push_back(colliders);
+        
+        collided = new MSAParticleGroup3D_PointSpritesShader(); 
+        collided->setup();
+        collided->setInstanceName( "Collided" );
+        groups.push_back(collided);
         
         active_group = quads;
     }

@@ -33,8 +33,8 @@ public:
     
     void onCollisionEvent( CollisionEvent & args )
     {
-        ofLogNotice("TT") << " event collision " << args.position;
-        addLines( Vec3f( args.position.x, args.position.y, args.position.z ),10, Vec3f(10,10,10) ); 
+//        ofLogNotice("TT") << " event collision " << args.position;
+        addCollided( Vec3f( args.position.x, args.position.y, args.position.z ),10, Vec3f(10,10,10) ); 
     }
     
 };

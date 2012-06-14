@@ -15,15 +15,6 @@ using namespace MSA;
 class TT_Custom_MSAParticle3D : public Physics::Particle3D {
 
 public:
-        
-    TT_Custom_MSAParticle3D ()               : Physics::Particle3D() { 
-        wrapping_enabled = false;
-        is_fadeout_enabled = false;
-        color = ofFloatColor::white;
-        constraint=0;
-        solvable = false;
-        alpha = 1.0;
-    }
     
     TT_Custom_MSAParticle3D ( Vec3f _pos )   : Physics::Particle3D( _pos ) { 
         wrapping_enabled = false;
@@ -33,16 +24,12 @@ public:
         solvable = false;
         alpha = 1.0;
     }
-    
-	void collidedWithEdgeOfWorld(Vec3f collisionForce) 
-	{
-	}
-	
+
     void update()
     {
         // fade out a bit (and kill if alpha == 0);
         if (is_fadeout_enabled) {
-            alpha *= 0.9f;
+            alpha *= 0.97f;
             if( alpha < 0.1f ) {
                 kill();
             }
@@ -145,7 +132,8 @@ public:
         
     }
     
-    
+    void collidedWithEdgeOfWorld(Vec3f collisionForce) {}
+	
 protected:
     
     Physics::Constraint3D * constraint;

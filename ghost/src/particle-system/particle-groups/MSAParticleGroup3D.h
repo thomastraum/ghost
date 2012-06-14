@@ -36,6 +36,8 @@ public:
     
 protected:
     
+    virtual ofFloatColor    getColor();
+    
     int                                     max_particles;
     
     //------------------------------------------------- Settings for particle group
@@ -55,11 +57,12 @@ protected:
     float                                   alpha_min;
     float                                   alpha_max;
     
-    int                                     particle_default_color;
-    
     bool                                    enable_fadeout;
     bool                                    enable_collision;
     bool                                    enable_wrapping;
+    
+    float                                   maincolor[4];
+    float                                   c_range;
     
     vector<TT_Custom_MSAParticle3D*>        group;
     
