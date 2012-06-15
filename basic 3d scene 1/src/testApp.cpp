@@ -47,23 +47,6 @@ void testApp::draw(){
 
 void testApp::drawParticles()
 {
-//    vector<Particle*>::iterator it = particles.begin();
-//    vector<Particle*>::iterator end = particles.end();
-//    
-//    while ( it != particles.end() ) {
-//        
-//        Particle * p = *it;
-//        if ( ofRandom(1) > .9 ) {
-//            it = particles.erase(it);
-////            end = particles.end();
-//        } else {
-//            ofSetColor(255, 255, 0);
-//            ofCircle( p->x, p->y, p->z, 10);
-//            
-//            it++;
-//        }
-//    }
-//    if ( ofRandom(1) < .1 ) addSomeNewOnes();
 
     int i=0;
     int max = particles.size();
@@ -90,10 +73,6 @@ void testApp::drawParticles()
 
 }
 
-void testApp::deleteSome()
-{
-    
-}
 void testApp::addSomeNewOnes()
 {
     int max = ofRandom(4);

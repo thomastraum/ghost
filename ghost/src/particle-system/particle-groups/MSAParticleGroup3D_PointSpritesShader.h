@@ -17,9 +17,10 @@ class MSAParticleGroup3D_PointSpritesShader : public MSAParticleGroup3DMesh_Poin
 private:
     
     ofShader shader;
-    float    point_sizes[30000];
-    float    colors[30000*3];
     
+    vector<float> point_sizes;
+    vector<float> colors;
+
 public:
     
     MSAParticleGroup3D_PointSpritesShader() {
@@ -43,21 +44,28 @@ public:
         float radius	= ofMap( _p->getMass(), mass_min, mass_max, node_min, node_max );
         _p->setRadius( radius );
         
-        point_sizes[group.size()] = radius*2;
+        point_sizes.push_back( radius*2 );
         
         ofFloatColor pcol = _p->getColor();
-        
-        int i=group.size()*3;
-        colors[i] = pcol.r; //ofRandom(1);
-        colors[++i] = pcol.g; //ofRandom(1);
-        colors[++i] = pcol.b; //ofRandom(1);
-//        colors[i+3] = .1;
+        colors.push_back(pcol.r);
+        colors.push_back(pcol.g);
+        colors.push_back(pcol.b);
         
     }
     
+    //--------------------------------------------------------------- 
     virtual void deleteInMesh( int _index )
     {
-        point_sizes[_index]=0;
+        // delete index on mesh
+        MSAParticleGroup3DMesh_PointSprites::deleteInMesh(_index);
+        
+        // delete point size
+        point_sizes.erase(point_sizes.begin()+_index);
+        
+        // delete color
+        colors.erase( colors.begin() + (_index*3) );
+        colors.erase( colors.begin() + (_index*3) );
+        colors.erase( colors.begin() + (_index*3) );
     }
     
     //---------------------------------------------------------------
@@ -74,16 +82,16 @@ public:
         
         shader.begin();
         
-        shader.setUniformTexture("texture", texture, texture.getTextureReference().getTextureData().textureID);
+        shader.setUniformTexture( "texture", texture, texture.getTextureReference().getTextureData().textureID );
         
         GLint loc = shader.getAttributeLocation( "point_size" );
         GLint color = shader.getAttributeLocation( "col" );
         
         glEnableVertexAttribArray(loc);
-        glVertexAttribPointer(loc,1,GL_FLOAT,0,0,point_sizes);
+        glVertexAttribPointer( loc,1,GL_FLOAT,0,0,point_sizes.data() );
         
         glEnableVertexAttribArray(color);
-        glVertexAttribPointer(color,3,GL_FLOAT,0,0,colors);
+        glVertexAttribPointer( color,3,GL_FLOAT,0,0,colors.data() );
         
         vbo.setMesh( mesh, GL_STATIC_DRAW );
         vbo.draw( GL_POINTS, 0, mesh.getNumVertices() ); //group.size() );
