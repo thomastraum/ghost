@@ -55,6 +55,11 @@ public:
         
     }
     
+    virtual void deleteInMesh( int _index )
+    {
+        point_sizes[_index]=0;
+    }
+    
     //---------------------------------------------------------------
     virtual void draw()
     {
@@ -81,7 +86,7 @@ public:
         glVertexAttribPointer(color,3,GL_FLOAT,0,0,colors);
         
         vbo.setMesh( mesh, GL_STATIC_DRAW );
-        vbo.draw( GL_POINTS, 0, group.size() );
+        vbo.draw( GL_POINTS, 0, mesh.getNumVertices() ); //group.size() );
         
         shader.end();
         

@@ -9,7 +9,13 @@ void testApp::setup(){
 	ofEnableSmoothing();
 	ofBackground(100, 100, 100);
     
-    buildScene();
+    for ( int i=0; i<100; i++ ) {
+        Particle * p = new Particle();
+        p->x = ofRandom( -ofGetWidth()/2, ofGetWidth()/2 );
+        p->y = ofRandom( -ofGetHeight()/2, ofGetHeight()/2 );
+        p->z = ofRandom( -ofGetHeight()/2, ofGetHeight()/2 );
+        particles.push_back( p );
+    }
     
 }
 
@@ -24,43 +30,14 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     
-//    ofEnableAlphaBlending();
-//    glEnable(GL_DEPTH_TEST);    
-//    glEnable(GL_LIGHTING);
-    
-//    camera.begin();
-//    ofTranslate( 0,0, -width);
-//    
-//    plane_top.draw();
-//    plane_left.draw();
-//    plane_right.draw();
-//    plane_back.draw();
-//    plane_bottom.draw();
-//    
-//    ofSetColor(255,0,0);
-//    ofBox( 0,0,0, 10 );
-//
-//    camera.end();
-
-    
     camera.begin();
-    ofTranslate( 0,0, -ofGetWidth() );
-    
-    //    fog.draw();
-    
-    //    ofSetColor(255,255,255);
-    //    box.draw();
-    
-    //    plane_top.draw();
-    //    plane_left.draw();
-    //    plane_right.draw();
-    //    plane_back.draw();
-    //    plane_bottom.draw();
     
     ofSetColor(255,0,0);
     ofPushMatrix();
     ofBox( 0,0,0, 50 );
     ofPopMatrix();
+    
+    drawParticles();
     
     //    ps.draw();
     
@@ -68,65 +45,71 @@ void testApp::draw(){
     
 }
 
-//--------------------------------------------------------------
-void testApp::buildScene()
+void testApp::drawParticles()
 {
-	width = ofGetWidth();
-	height = ofGetHeight();
+//    vector<Particle*>::iterator it = particles.begin();
+//    vector<Particle*>::iterator end = particles.end();
+//    
+//    while ( it != particles.end() ) {
+//        
+//        Particle * p = *it;
+//        if ( ofRandom(1) > .9 ) {
+//            it = particles.erase(it);
+////            end = particles.end();
+//        } else {
+//            ofSetColor(255, 255, 0);
+//            ofCircle( p->x, p->y, p->z, 10);
+//            
+//            it++;
+//        }
+//    }
+//    if ( ofRandom(1) < .1 ) addSomeNewOnes();
+
+    int i=0;
+    int max = particles.size();
+    vector<Particle*>::iterator it = particles.begin();
     
-    plane_bottom.width = width;
-    plane_bottom.height = height;
-    
-    plane_left.width = height;
-    plane_left.height = height;
-    
-    plane_top.width = width;
-    plane_top.height = height;
-    
-    plane_right.width = height;
-    plane_right.height = height;
-    
-    plane_back.width = width;
-    plane_back.height = height;
-    
-    
-    // Position planes
-//    plane_bottom.rotate(90, plane_bottom.getXAxis() );
-    //    plane_bottom.move(0, height, 0);
-    plane_bottom.setPosition(0, -height, 0);
-    plane_bottom.setOrientation(ofVec3f(90,0,0));
-    
-    
-//    plane_left.rotate(90, plane_left.getYAxis() );
-//    plane_left.move(-width,0, 0);
-    plane_left.setPosition(-width, 0, 0);
-    plane_left.setOrientation(ofVec3f(0,90,0));
-    
+    while ( i < max ) {
         
-//    plane_top.rotate(90, plane_bottom.getXAxis() );
-//    plane_top.move(0, -height, 0);
-    plane_top.setPosition(0, height, 0);
-    plane_top.setOrientation(ofVec3f(90,0,0));
+        Particle * p = particles[i];
+        
+        if ( ofRandom(1) > .9 ) {
+            it = particles.erase(it);
+            max = particles.size();
+            //            end = particles.end();
+        } else {
+            ofSetColor(255, 255, 0);
+            ofCircle( p->x, p->y, p->z, 10);
+            
+            if ( ofRandom(1) < .1 ) addSomeNewOnes();
+            i++;
+            it++;
+        }
+    }
+
+
+}
+
+void testApp::deleteSome()
+{
     
+}
+void testApp::addSomeNewOnes()
+{
+    int max = ofRandom(4);
     
-//    plane_right.rotate(90, plane_right.getYAxis() );
-//    plane_right.move(width, 0, 0);
-    plane_right.setPosition(width, 0, 0);
-    plane_right.setOrientation(ofVec3f(0,90,0));
-    
-//    plane_back.move(0, 0, -height);
-    plane_back.setPosition(0, 0, -height);
-    
+    for ( int i=0; i<max; i++ ) {
+        Particle * p = new Particle();
+        p->x = ofRandom( -ofGetWidth()/2, ofGetWidth()/2 );
+        p->y = ofRandom( -ofGetHeight()/2, ofGetHeight()/2 );
+        p->z = ofRandom( -ofGetHeight()/2, ofGetHeight()/2 );
+        particles.push_back( p );
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
 	
-	if (key=='c')
-		camera.toggleCursorDraw();
-	
-	if (key=='u')
-		camera.toggleFixUpwards();
     
     if (key=='f')
 		ofToggleFullscreen();
@@ -141,5 +124,4 @@ void testApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void testApp::windowResized(int w, int h){
-    buildScene();
 }

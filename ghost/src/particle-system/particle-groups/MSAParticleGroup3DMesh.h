@@ -44,7 +44,7 @@ public:
             TT_Custom_MSAParticle3D * p = *it;
             if ( p->isDead() ) {
                 it = group.erase(it);
-//                deleteIndex( i );
+                deleteInMesh( i );
             } else {   
                 updateIndexWithParticle( p, i );
                 i++;
@@ -80,9 +80,10 @@ public:
     
     //-------------------------------------------------------------------------
     // implemented in child classes
-    virtual void deleteIndex( int index )
+    virtual void deleteInMesh( int _index )
     {
-//        mesh.deleteVertex( index );
+        vector<ofVec3f>& verts = mesh.getVertices();
+        verts.erase(verts.begin()+_index);
     };
     
 

@@ -39,18 +39,21 @@ public:
         MSAParticleGroup3D::setParticleProperties( _p );
         
         mesh.addVertex( ofVec3f( _p->getPosition().x, _p->getPosition().y, _p->getPosition().z ) );
-        mesh.addColor( ofColor( 255, 255, 255 ) ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
+        mesh.addColor( _p->getColor() ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
     }
     
     virtual void update() {
         
         vector<TT_Custom_MSAParticle3D*>::iterator it = group.begin();
         int i=0;
+        
+        ofLogNotice("TT") << group.size();
+        
         while( it != group.end() ) {
             TT_Custom_MSAParticle3D * p = *it;
             if( p->isDead() ) {
 //                mesh.removeVertex(i);
-//                it = group.erase(it);
+                it = group.erase(it);
             } else {
                 position = p->getPosition();
                 mesh.setVertex( i, ofVec3f( position.x, position.y, position.z ) );

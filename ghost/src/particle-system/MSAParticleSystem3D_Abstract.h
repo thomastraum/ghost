@@ -16,7 +16,7 @@ public:
     };
     
     void setup();
-    void update();
+    virtual void update();
     void draw();
     
     void addUpdater( Physics::ParticleUpdater3D * _updater );
