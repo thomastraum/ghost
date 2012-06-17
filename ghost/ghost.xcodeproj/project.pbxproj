@@ -227,6 +227,7 @@
 		648992441546E539006D8942 /* TT_CamTargetAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTargetAnimated.h; sourceTree = "<group>"; };
 		648AC59C15458A02001C4590 /* TT_CamTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTarget.h; sourceTree = "<group>"; };
 		648AC5A91545A658001C4590 /* TT_CamTarget_Vibrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTarget_Vibrate.h; sourceTree = "<group>"; };
+		648E3A55158D644300FF34CE /* MSAParticleGroup3DMesh_LongLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_LongLines.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -367,6 +368,7 @@
 				641F055515452B0500B45D92 /* MSAParticleGroup3D_PointSpritesShader.h */,
 				641F055715452B0500B45D92 /* MSAParticleGroup3DMesh.h */,
 				641F055815452B0500B45D92 /* MSAParticleGroup3DMesh_Lines.h */,
+				648E3A55158D644300FF34CE /* MSAParticleGroup3DMesh_LongLines.h */,
 				641F055A15452B0500B45D92 /* MSAParticleGroup3DMesh_Quad.h */,
 			);
 			path = "particle-groups";

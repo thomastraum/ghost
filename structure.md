@@ -1,13 +1,27 @@
 feels like a limited space, from static particles to fast
 
+*Sunday*
+
+shaders
+
+*Monday*
+
+
+
+*Tuesday*
+
+kinect integration
+
 
 **priorities**
 
 Set it up in the space
 
 *Collision*
-collisions need to go from nice to extreme
 
+collisions need to go from nice to extreme
+* simple sound collisions
+* stick to body
 
 *Kinect*
 Add kinect tracking

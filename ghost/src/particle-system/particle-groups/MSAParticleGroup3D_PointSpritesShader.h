@@ -54,11 +54,8 @@ public:
     }
     
     //--------------------------------------------------------------- 
-    virtual void deleteInMesh( int _index )
+    virtual void deleteInMesh( TT_Custom_MSAParticle3D * _p, int _index )
     {
-        // delete index on mesh
-        MSAParticleGroup3DMesh_PointSprites::deleteInMesh(_index);
-        
         // delete point size
         point_sizes.erase(point_sizes.begin()+_index);
         
@@ -66,17 +63,27 @@ public:
         colors.erase( colors.begin() + (_index*3) );
         colors.erase( colors.begin() + (_index*3) );
         colors.erase( colors.begin() + (_index*3) );
+        
+        // delete index on mesh
+        MSAParticleGroup3DMesh_PointSprites::deleteInMesh( _p, _index);
     }
     
     //---------------------------------------------------------------
     virtual void draw()
     {
         ofEnablePointSprites();
-        ofEnableAlphaBlending();
+//        ofEnableAlphaBlending();
+//        
+//        glEnable(GL_DEPTH_TEST);
+//        glEnable(GL_ALPHA_TEST);
+//        glAlphaFunc(GL_GREATER, 0.5);
         
-        glEnable(GL_DEPTH_TEST);
-        glEnable(GL_ALPHA_TEST);
-        glAlphaFunc(GL_GREATER, 0.5);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        
+        // IMPORTANT: disable depth mask writing to prevent wierd looking edges while  using transparency!
+        // ------------------------------------------------------------------------------------------------
+        glDepthMask(GL_FALSE);
         
         texture.getTextureReference().bind();
         
@@ -100,9 +107,11 @@ public:
         
         texture.getTextureReference().unbind();
         
+        glDepthMask(GL_TRUE);
+        
         glDisable(GL_DEPTH_TEST);
         ofDisablePointSprites();
-        ofDisableAlphaBlending();
+//        ofDisableAlphaBlending();
     }
     
 };

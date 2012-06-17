@@ -210,10 +210,10 @@ void testApp::keyPressed(int key){
     //        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
     
     if (key=='l')
-        ps.addLines( Vec3f( 0,0,0 ), 1000, Vec3f(width,height,height*2) );
+        ps.addLines( Vec3f( 0,0,0 ), 100, Vec3f(20,20,20), Vec3f( 100,100,1000) );
     
     if (key=='q')
-        ps.addQuads( Vec3f( 0,0,0 ), 1000, Vec3f(width,height,height*2) );
+        ps.addQuads( Vec3f( 0,0,0 ), 1000, Vec3f(width,height,height*2), Vec3f( 100,100,1000) );
     
     if (key=='p') {
 //        user.addJointParticle( ps.addCollider( Vec3f( 0,0,0 ) ) );

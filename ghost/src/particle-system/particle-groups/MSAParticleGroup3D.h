@@ -36,7 +36,7 @@ public:
     
 protected:
     
-    virtual ofFloatColor    getColor();
+    virtual ofFloatColor                    getColor();
     
     int                                     max_particles;
     

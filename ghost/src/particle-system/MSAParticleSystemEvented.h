@@ -58,7 +58,7 @@ public:
         if (fresh_cache) {
 			for ( vector<Vec3f>::iterator it = collided_cache_pos.begin(); it != collided_cache_pos.end(); it++) {
                 Vec3f pos = *it;
-                addCollided( pos,10, Vec3f(10,10,10) ); 
+                addCollided( pos,1, Vec3f(0,0,0), Vec3f( 100,100,1000) ); 
             }
             collided_cache_pos.clear();
             fresh_cache = 0;

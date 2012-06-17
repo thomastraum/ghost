@@ -17,6 +17,7 @@
 #include "MSAParticleSystem3D_Abstract.h"
 #include "MSAParticleGroup3D_PointSpritesShader.h"
 #include "MSAParticleGroup3DMesh_Lines.h"
+#include "MSAParticleGroup3DMesh_LongLines.h"
 #include "MSAParticleGroup3D_Fixed.h"
 
 class MSAParticleSystem3D_Groups : public MSAParticleSystem3D_Abstract {
@@ -39,28 +40,28 @@ public:
         colliders       = 0;
     };
     
-    void addQuads( Vec3f _pos, int _count, Vec3f _range ) 
+    void addQuads( Vec3f _pos, int _count, Vec3f _range, Vec3f _speed ) 
     {
         active_group = quads;
-        addParticles( _pos, _count, _range );
+        addParticles( _pos, _count, _range, _speed );
     };
     
-    void addLines( Vec3f _pos, int _count, Vec3f _range ) 
+    void addLines( Vec3f _pos, int _count, Vec3f _range, Vec3f _speed ) 
     {
         active_group = lines;
-        addParticles( _pos, _count, _range );
+        addParticles( _pos, _count, _range, _speed );
     };
     
-    void addCollided( Vec3f _pos, int _count, Vec3f _range ) 
+    void addCollided( Vec3f _pos, int _count, Vec3f _range, Vec3f _speed ) 
     {
         active_group = collided;
-        addParticles( _pos, _count, _range );
+        addParticles( _pos, _count, _range, _speed );
     };
     
     TT_Custom_MSAParticle3D * addCollider( Vec3f _pos ) 
     {
         active_group = colliders;
-        return addParticle( _pos );
+        return addParticle( _pos, Vec3f(100,100,1000) );
     };
     
 protected :
@@ -72,7 +73,7 @@ protected :
         quads->setInstanceName( "PS Shader" );
         groups.push_back(quads);
         
-        lines = new MSAParticleGroup3DMesh_Lines(); 
+        lines = new MSAParticleGroup3DMesh_LongLines(); 
         lines->setup();
         lines->setInstanceName( "Lines" );
         groups.push_back(lines);
@@ -82,7 +83,7 @@ protected :
         colliders->setInstanceName( "Colliders" );
         groups.push_back(colliders);
         
-        collided = new MSAParticleGroup3D_PointSpritesShader(); 
+        collided = new MSAParticleGroup3DMesh_LongLines(); 
         collided->setup();
         collided->setInstanceName( "Collided" );
         groups.push_back(collided);
@@ -92,16 +93,19 @@ protected :
     
     // -----------------------------------------------------  PARTICLES
     // overriding from abstract
-    TT_Custom_MSAParticle3D * addParticle( Vec3f _pos )
+    TT_Custom_MSAParticle3D * addParticle( Vec3f _pos, Vec3f _speed )
     {
         TT_Custom_MSAParticle3D * p = createParticle(_pos);
+        
+        p->setVelocity(_speed);
+        
         active_group->addParticle( p );
         p->release();
         return p;
     }
     
-    // override
-    void addParticles( Vec3f _center, int _count, Vec3f _range )
+    // overriding from abstract //
+    void addParticles( Vec3f _center, int _count, Vec3f _range, Vec3f _speed )
     {
         Vec3f pos;
         
@@ -111,7 +115,7 @@ protected :
             pos.y = _center.y + ofRandom( -_range.y, _range.y );
             pos.z = _center.z + ofRandom( -_range.z, _range.z );
             
-            addParticle( pos );
+            addParticle( pos, _speed );
         }
         
     };

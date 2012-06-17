@@ -35,8 +35,8 @@ public:
     
     virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
-        MSAParticleGroup3DMesh::setParticleProperties( _p );
         _p->enableFadeOut();
+        MSAParticleGroup3DMesh::setParticleProperties( _p );
     }
     
     void addParticleToMesh( TT_Custom_MSAParticle3D * _p )

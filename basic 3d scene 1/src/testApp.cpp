@@ -48,28 +48,47 @@ void testApp::draw(){
 void testApp::drawParticles()
 {
 
-    int i=0;
-    int max = particles.size();
-    vector<Particle*>::iterator it = particles.begin();
+//    int i=0;
+//    int max = particles.size();
+//    vector<Particle*>::iterator it = particles.begin();
+//    
+//    while ( i < max ) {
+//        
+//        Particle * p = particles[i];
+//        
+//        if ( ofRandom(1) > .9 ) {
+//            it = particles.erase(it);
+//            max = particles.size();
+//            //            end = particles.end();
+//        } else {
+//            ofSetColor(255, 255, 0);
+//            ofCircle( p->x, p->y, p->z, 10);
+//            
+//            if ( ofRandom(1) < .1 ) addSomeNewOnes();
+//            i++;
+//            it++;
+//        }
+//    }
+
     
-    while ( i < max ) {
+    vector<Particle*>::iterator it = particles.end()-1;
+    int i = particles.size();
+    
+    while ( it > 0 ) {
         
-        Particle * p = particles[i];
+//        cout << i << endl;
         
+        Particle * p = *it;
         if ( ofRandom(1) > .9 ) {
-            it = particles.erase(it);
-            max = particles.size();
-            //            end = particles.end();
+            particles.erase(it);
         } else {
             ofSetColor(255, 255, 0);
             ofCircle( p->x, p->y, p->z, 10);
-            
-            if ( ofRandom(1) < .1 ) addSomeNewOnes();
-            i++;
-            it++;
+//            if ( ofRandom(1) < .1 ) addSomeNewOnes();
         }
+        i--;
+        it--;
     }
-
 
 }
 

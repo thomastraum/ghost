@@ -8,13 +8,32 @@
 
 #pragma once
 #include "MSAPhysics3D.h"
-//#include "MSACore.h"
 
 using namespace MSA;
 
 class TT_Custom_MSAParticle3D : public Physics::Particle3D {
 
+protected:
+    
+    Physics::Constraint3D * constraint;
+    ofFloatColor            color;
+    float                   alpha;
+    bool                    is_fadeout_enabled;    
+    bool                    wrapping_enabled;
+    bool                    solvable;
+    
+    //----------------------------------------------------------------- LONG LINES
+    void enableSavePosition()
+    {
+        save_position = true;
+    }
+    
+    
 public:
+    
+    vector<Vec3f>           pos;
+    int                     pos_length;
+    bool                    save_position;
     
     TT_Custom_MSAParticle3D ( Vec3f _pos )   : Physics::Particle3D( _pos ) { 
         wrapping_enabled = false;
@@ -23,8 +42,9 @@ public:
         constraint=0;
         solvable = false;
         alpha = 1.0;
+        save_position = false;
     }
-
+    
     void update()
     {
         // fade out a bit (and kill if alpha == 0);
@@ -34,8 +54,27 @@ public:
                 kill();
             }
         }
+        
+        if ( save_position ) {
+            for( int i=pos_length-1; i>0; i-- ){
+                pos[i] = pos[i-1];
+            }
+//            pos[1] = pos[0] - (getVelocity()*2);
+            pos[0] = getPosition();
+        }
+        
     }
     
+    //----------------------------------------------------------------- LONG LINES
+    void setNumberOfSavedPositions( int _num )
+    {
+        for( int i=0; i<_num; i++ ){
+            pos.push_back( getPosition() );
+        }
+        pos_length = _num;
+        enableSavePosition();
+    }
+
     //----------------------------------------------------------------- COLOR
     TT_Custom_MSAParticle3D * setColor( ofFloatColor _col )
     {
@@ -134,13 +173,4 @@ public:
     
     void collidedWithEdgeOfWorld(Vec3f collisionForce) {}
 	
-protected:
-    
-    Physics::Constraint3D * constraint;
-    ofFloatColor            color;
-    float                   alpha;
-    bool                    is_fadeout_enabled;    
-    bool                    wrapping_enabled;
-    bool                    solvable;
-    
 };
