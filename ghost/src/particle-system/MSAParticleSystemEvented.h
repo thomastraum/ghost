@@ -19,8 +19,8 @@ class MSAParticleSystemEvented : public MSAParticleSystem3D_Groups {
     
 protected:
     
-    vector<Vec3f>   collided_cache_pos;
-    bool            fresh_cache;
+    vector<Physics::Particle3D*>        collided_particles;
+    bool                                fresh_cache;
     
 public:
     
@@ -41,14 +41,14 @@ public:
 //        ofLogNotice("TT") << " event collision " << args.position;
 //        addCollided( Vec3f( args.position.x, args.position.y, args.position.z ),10, Vec3f(10,10,10) ); 
         
-        cacheCollided( Vec3f( args.position.x, args.position.y, args.position.z ) );
+        cacheCollided( args.p );
         fresh_cache = true;
         
     }
     
-    void cacheCollided( Vec3f _pos )
+    void cacheCollided( Physics::Particle3D * p )
     {
-        collided_cache_pos.push_back(_pos);
+        collided_particles.push_back(p);
     }
 
     void update()
@@ -56,12 +56,13 @@ public:
         MSAParticleSystem3D_Groups::update();
         
         if (fresh_cache) {
-			for ( vector<Vec3f>::iterator it = collided_cache_pos.begin(); it != collided_cache_pos.end(); it++) {
-                Vec3f pos = *it;
-                addCollided( pos,1, Vec3f(0,0,0), Vec3f( 100,100,1000) ); 
+			for ( vector<Physics::Particle3D*>::iterator it = collided_particles.begin(); it != collided_particles.end(); it++) {
+                Physics::Particle3D * p = *it;
+                addCollided( p->getPosition(),3, Vec3f(4,4,4), p->getVelocity()*ofRandom(1) );
+                p->kill();
             }
-            collided_cache_pos.clear();
-            fresh_cache = 0;
+            collided_particles.clear();
+            fresh_cache = false;
         }
     }
     

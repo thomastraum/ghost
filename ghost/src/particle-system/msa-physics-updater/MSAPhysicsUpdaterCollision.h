@@ -34,10 +34,8 @@ public:
             
             Physics::Particle3D * pB = *it;
             if ( checkCollisionBetween( _pA, pB ) ) {
-                Vec3f position = _pA->getPosition();
-                CollisionEvent e = CollisionEvent( ofVec3f(position.x,position.y,position.z) ); //, _pA, pB );
+                CollisionEvent e = CollisionEvent( _pA ); //, _pA, pB );
                 ofNotifyEvent( CollisionEventDispatcher, e );
-                _pA->kill();
                 break;
             }
             it++;

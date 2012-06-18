@@ -12,6 +12,7 @@
 #pragma once
 #include "ofMain.h"
 #include "ofEvents.h"
+#include "TT_Custom_MSAParticle3D.h"
 
 class ForceEvent {
 
@@ -112,8 +113,9 @@ class CollisionEvent {
     
 public:
     
-    ofVec3f position;
-    CollisionEvent( ofVec3f _position ): position(_position) {}
+//    ofVec3f position;
+    Physics::Particle3D * p;
+    CollisionEvent( Physics::Particle3D * _p ): p(_p) {}
     
 };
 
