@@ -34,13 +34,13 @@ public:
     void startTimer()
     {
         start();
-	    ofAddListener(ofEvents.update, this, &TT_Timer::update);
+	    ofAddListener(ofEvents().update, this, &TT_Timer::update);
 	}
     
 	void stopTimer()
     {
         stop();
-	    ofRemoveListener(ofEvents.update, this, &TT_Timer::update);
+	    ofRemoveListener(ofEvents().update, this, &TT_Timer::update);
 	}
 
     void setDuration( float _duration )

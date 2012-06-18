@@ -15,7 +15,7 @@ void MSAPhysicsFluidUpdater::setup(const MSA::FluidSolver * _solver)
     fluid_influence = 0.6f;
     
 	setWindowSize( Vec2f( ofGetWidth(), ofGetHeight() ) );
-    ofAddListener(ofEvents.windowResized, this, &MSAPhysicsFluidUpdater::windowResized);
+    ofAddListener(ofEvents().windowResized, this, &MSAPhysicsFluidUpdater::windowResized);
 }
 
 //--------------------------------------------------------------------- Update

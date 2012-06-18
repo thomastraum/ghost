@@ -9,7 +9,7 @@ void MSAParticleSystem3D_Abstract::setup()
 	width           = ofGetWidth();
 	height          = ofGetHeight();
     
-	ofAddListener(ofEvents.windowResized, this, &MSAParticleSystem3D_Abstract::windowResized);
+	ofAddListener(ofEvents().windowResized, this, &MSAParticleSystem3D_Abstract::windowResized);
     
     initScene();
     

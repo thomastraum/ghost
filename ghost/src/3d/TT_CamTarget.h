@@ -20,7 +20,7 @@ public:
     
     TT_CamTarget(){
         draw_debug = false;
-        ofAddListener( ofEvents.keyPressed, this, &TT_CamTarget::keyPressedEvent );
+        ofAddListener( ofEvents().keyPressed, this, &TT_CamTarget::keyPressedEvent );
     }
     
     virtual void customDraw()
@@ -38,9 +38,7 @@ public:
                 draw_debug = !draw_debug;
                 break;
         }
-
     }
-    
     
 };
 

@@ -102,24 +102,24 @@
 		641F053115452B0500B45D92 /* TT_Fog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Fog.h; sourceTree = "<group>"; };
 		641F053215452B0500B45D92 /* TT_FogAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_FogAnimated.h; sourceTree = "<group>"; };
 		641F053415452B0500B45D92 /* AppEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppEvents.cpp; sourceTree = "<group>"; };
-		641F053515452B0500B45D92 /* AppEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppEvents.h; sourceTree = "<group>"; };
+		641F053515452B0500B45D92 /* AppEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppEvents.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		641F053815452B0500B45D92 /* baseforce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = baseforce.cpp; sourceTree = "<group>"; };
 		641F053915452B0500B45D92 /* baseforce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseforce.h; sourceTree = "<group>"; };
-		641F053A15452B0500B45D92 /* BaseForceAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseForceAnimated.h; sourceTree = "<group>"; };
+		641F053A15452B0500B45D92 /* BaseForceAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BaseForceAnimated.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		641F053B15452B0500B45D92 /* ForceFromSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForceFromSide.h; sourceTree = "<group>"; };
 		641F053C15452B0500B45D92 /* sinewaveforce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sinewaveforce.cpp; sourceTree = "<group>"; };
 		641F053D15452B0500B45D92 /* sinewaveforce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sinewaveforce.h; sourceTree = "<group>"; };
 		641F053E15452B0500B45D92 /* MSAFluidManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAFluidManager.cpp; sourceTree = "<group>"; };
 		641F053F15452B0500B45D92 /* MSAFluidManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidManager.h; sourceTree = "<group>"; };
 		641F054015452B0500B45D92 /* MSAFluidManagerApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAFluidManagerApp.h; sourceTree = "<group>"; };
-		641F054115452B0500B45D92 /* MSAPhysicsFluidUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAPhysicsFluidUpdater.cpp; sourceTree = "<group>"; };
+		641F054115452B0500B45D92 /* MSAPhysicsFluidUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = MSAPhysicsFluidUpdater.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		641F054215452B0500B45D92 /* MSAPhysicsFluidUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsFluidUpdater.h; sourceTree = "<group>"; };
 		641F054315452B0500B45D92 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		641F054615452B0500B45D92 /* MSAPhysicsFluidUpdater3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsFluidUpdater3D.h; sourceTree = "<group>"; };
 		641F054715452B0500B45D92 /* MSAPhysicsUpdater3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAPhysicsUpdater3D.cpp; sourceTree = "<group>"; };
 		641F054815452B0500B45D92 /* MSAPhysicsUpdater3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdater3D.h; sourceTree = "<group>"; };
 		641F054915452B0500B45D92 /* MSAPhysicsUpdaterShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterShake.h; sourceTree = "<group>"; };
-		641F054C15452B0500B45D92 /* MSAParticleSystem3D_Abstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MSAParticleSystem3D_Abstract.cpp; sourceTree = "<group>"; };
+		641F054C15452B0500B45D92 /* MSAParticleSystem3D_Abstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = MSAParticleSystem3D_Abstract.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		641F054D15452B0500B45D92 /* MSAParticleSystem3D_Abstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_Abstract.h; sourceTree = "<group>"; };
 		641F054E15452B0500B45D92 /* MSAParticleSystem3D_Groups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystem3D_Groups.h; sourceTree = "<group>"; };
 		641F054F15452B0500B45D92 /* MSAParticleSystemEvented.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleSystemEvented.h; sourceTree = "<group>"; };
@@ -130,14 +130,14 @@
 		641F055815452B0500B45D92 /* MSAParticleGroup3DMesh_Lines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Lines.h; sourceTree = "<group>"; };
 		641F055A15452B0500B45D92 /* MSAParticleGroup3DMesh_Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Quad.h; sourceTree = "<group>"; };
 		641F055D15452B0500B45D92 /* TT_Custom_MSAParticle3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Custom_MSAParticle3D.h; sourceTree = "<group>"; };
-		641F056015452B0500B45D92 /* TT_Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer.h; sourceTree = "<group>"; };
+		641F056015452B0500B45D92 /* TT_Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TT_Sequencer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		641F056115452B0500B45D92 /* TT_Sequencer_Quiet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Sequencer_Quiet.h; sourceTree = "<group>"; };
 		641F056215452B0500B45D92 /* TT_SequencerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SequencerSettings.h; sourceTree = "<group>"; };
 		641F056315452B0500B45D92 /* TT_Tempo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Tempo.h; sourceTree = "<group>"; };
 		641F056515452B0500B45D92 /* TT_SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundManager.h; sourceTree = "<group>"; };
-		641F056615452B0500B45D92 /* TT_SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundPlayer.h; sourceTree = "<group>"; };
+		641F056615452B0500B45D92 /* TT_SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TT_SoundPlayer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		641F056715452B0500B45D92 /* TT_SoundPlayer_gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_SoundPlayer_gui.h; sourceTree = "<group>"; };
-		641F056815452B0500B45D92 /* TT_Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Timer.h; sourceTree = "<group>"; };
+		641F056815452B0500B45D92 /* TT_Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TT_Timer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		641F056915452B0500B45D92 /* testApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testApp.cpp; sourceTree = "<group>"; };
 		641F056A15452B0500B45D92 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
 		641F057915452BF000B45D92 /* TT_Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Presets.h; sourceTree = "<group>"; };
@@ -225,9 +225,10 @@
 		648992401546938B006D8942 /* pointsprites.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = pointsprites.frag; sourceTree = "<group>"; };
 		648992411546938B006D8942 /* pointsprites.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = pointsprites.vert; sourceTree = "<group>"; };
 		648992441546E539006D8942 /* TT_CamTargetAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTargetAnimated.h; sourceTree = "<group>"; };
-		648AC59C15458A02001C4590 /* TT_CamTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTarget.h; sourceTree = "<group>"; };
+		648AC59C15458A02001C4590 /* TT_CamTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TT_CamTarget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		648AC5A91545A658001C4590 /* TT_CamTarget_Vibrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTarget_Vibrate.h; sourceTree = "<group>"; };
 		648E3A55158D644300FF34CE /* MSAParticleGroup3DMesh_LongLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_LongLines.h; sourceTree = "<group>"; };
+		64E9F213158EB60B00D4BB7F /* MSAParticleGroup3DMesh_Cubes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_Cubes.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -246,7 +247,7 @@
 		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
-		E92CC37A154A07A20035ECEC /* MSAPhysicsUpdaterCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPhysicsUpdaterCollision.h; sourceTree = "<group>"; };
+		E92CC37A154A07A20035ECEC /* MSAPhysicsUpdaterCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MSAPhysicsUpdaterCollision.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E92CC37D154A0F7C0035ECEC /* TT_User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TT_User.h; path = users/TT_User.h; sourceTree = "<group>"; };
 		E92CC388154A184F0035ECEC /* MSAParticleGroup3D_Fixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3D_Fixed.h; sourceTree = "<group>"; };
 		E943CD01154754B80043DBDF /* TT_Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_Box.h; sourceTree = "<group>"; };
@@ -370,6 +371,7 @@
 				641F055815452B0500B45D92 /* MSAParticleGroup3DMesh_Lines.h */,
 				648E3A55158D644300FF34CE /* MSAParticleGroup3DMesh_LongLines.h */,
 				641F055A15452B0500B45D92 /* MSAParticleGroup3DMesh_Quad.h */,
+				64E9F213158EB60B00D4BB7F /* MSAParticleGroup3DMesh_Cubes.h */,
 			);
 			path = "particle-groups";
 			sourceTree = "<group>";

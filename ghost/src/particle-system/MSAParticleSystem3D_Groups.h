@@ -18,6 +18,7 @@
 #include "MSAParticleGroup3D_PointSpritesShader.h"
 #include "MSAParticleGroup3DMesh_Lines.h"
 #include "MSAParticleGroup3DMesh_LongLines.h"
+#include "MSAParticleGroup3DMesh_Cubes.h"
 #include "MSAParticleGroup3D_Fixed.h"
 
 class MSAParticleSystem3D_Groups : public MSAParticleSystem3D_Abstract {
@@ -83,7 +84,8 @@ protected :
         colliders->setInstanceName( "Colliders" );
         groups.push_back(colliders);
         
-        collided = new MSAParticleGroup3DMesh_LongLines(); 
+//        collided = new MSAParticleGroup3DMesh_LongLines();
+        collided = new MSAParticleGroup3DMesh_Cubes(); 
         collided->setup();
         collided->setInstanceName( "Collided" );
         groups.push_back(collided);

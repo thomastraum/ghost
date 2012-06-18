@@ -93,7 +93,7 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
     _p->setColor( getColor() );
     
     // give them a push
-    _p->setVelocity( Vec3f(ofRandom(-100,100),ofRandom(-100,100), ofRandom(-100,100) ) );
+//    _p->setVelocity( Vec3f(ofRandom(-100,100),ofRandom(-100,100), ofRandom(-100,100) ) );
     
 }
 
@@ -129,8 +129,8 @@ void MSAParticleGroup3D::addSettings( ofxSimpleGuiToo & _gui )
 {
     _gui.addTitle( instance_name + " Settings"); //.setNewColumn(true);
     
-	_gui.addSlider( instance_name + " mass min", mass_min, 0.1, 1);
-	_gui.addSlider( instance_name + " mass max", mass_max, 0.1, 1);
+	_gui.addSlider( instance_name + " mass min", mass_min, 0, 1);
+	_gui.addSlider( instance_name + " mass max", mass_max, 0, 1);
     
 	_gui.addSlider( instance_name + " drag min", drag_min, 0.1, 1);
 	_gui.addSlider( instance_name + " drag max", drag_max, 0.1, 1);

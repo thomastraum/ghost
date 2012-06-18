@@ -9,7 +9,6 @@
 #ifndef particles_3d_5_MSAParticleSystemEvented_h
 #define particles_3d_5_MSAParticleSystemEvented_h
 
-
 #pragma once
 #include "ofMain.h"
 #include "AppEvents.h"
@@ -35,15 +34,10 @@ public:
         gravity = args.gravity;
     }
     
-    
     void onCollisionEvent( CollisionEvent & args )
     {
-//        ofLogNotice("TT") << " event collision " << args.position;
-//        addCollided( Vec3f( args.position.x, args.position.y, args.position.z ),10, Vec3f(10,10,10) ); 
-        
         cacheCollided( args.p );
         fresh_cache = true;
-        
     }
     
     void cacheCollided( Physics::Particle3D * p )
@@ -58,7 +52,7 @@ public:
         if (fresh_cache) {
 			for ( vector<Physics::Particle3D*>::iterator it = collided_particles.begin(); it != collided_particles.end(); it++) {
                 Physics::Particle3D * p = *it;
-                addCollided( p->getPosition(),3, Vec3f(4,4,4), p->getVelocity()*ofRandom(1) );
+                addCollided( p->getPosition(),3, Vec3f(4,4,4), p->getVelocity() + Vec3f(0,0,ofRandom(-1000,1000)) );
                 p->kill();
             }
             collided_particles.clear();
@@ -67,7 +61,5 @@ public:
     }
     
 };
-
-
 
 #endif
