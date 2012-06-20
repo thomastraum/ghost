@@ -79,7 +79,7 @@ void TT_Box::customDraw()
 void TT_Box::drawBox()
 {
     //    ofEnableAlphaBlending();
-    glEnable(GL_DEPTH_TEST);
+//    glEnable(GL_DEPTH_TEST);
     
     glPushMatrix();
     ofScale( width,height,depth );
@@ -87,7 +87,7 @@ void TT_Box::drawBox()
     glPopMatrix();
     
     //    ofDisableAlphaBlending();
-    glDisable(GL_DEPTH_TEST);
+//    glDisable(GL_DEPTH_TEST);
 }
 
 void TT_Box::setColor( ofFloatColor _c )

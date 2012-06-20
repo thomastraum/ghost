@@ -14,7 +14,7 @@
 #include "TT_BoxGui.h"
 #include "TT_Timer.h"
 
-class TT_DiscoBox : public TT_Box {
+class TT_DiscoBox : public TT_BoxGui {
     
     ofFloatColor    start;
     ofFloatColor    target;

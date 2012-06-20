@@ -4,6 +4,9 @@
 void testApp::setup(){    
     
     ofSetLogLevel(OF_LOG_ERROR);
+    ofSetLogLevel( "TT", OF_LOG_ERROR ); //OF_LOG_NOTICE );
+    ofSetLogLevel( "TT-NI", OF_LOG_NOTICE );
+
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 	ofEnableSmoothing();
@@ -60,10 +63,6 @@ void testApp::setup(){
     //    box.fadeToColor( ofFloatColor(1,0,1), 10);
     //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
     
-    // set different log levels for different messages //
-    ofSetLogLevel(OF_LOG_ERROR);
-    ofSetLogLevel( "TT", OF_LOG_NOTICE );
-
     ofSoundStopAll();
 }
 
@@ -71,6 +70,7 @@ void testApp::setup(){
 void testApp::update()
 {
     oniPlayer.update();
+    userManager.update();
     
     user_collisions.calculateBoundingBox();
     
@@ -94,10 +94,13 @@ void testApp::draw()
     fog.draw();
     
     ofSetColor(255,255,255);
+    
+    
+    glEnable(GL_DEPTH_TEST);
     box.draw();
-    
     cam_target.draw();
-    
+    userManager.draw();
+    glDisable(GL_DEPTH_TEST);
     
     ps.draw();
     
@@ -117,11 +120,16 @@ void testApp::scaleScene()
 	width = ofGetWidth();
 	height = ofGetHeight();
     
-    fog.defineStartAndEnd( width, width*1.8 );
+//    fog.defineStart( width );
     
     box.width   = width*1.5;
     box.height  = height;
-    box.depth   = width;
+
+//    box.depth   = 2000; //width*4;
+    
+//    box.width   = 3000;
+//    box.height  = 1500;
+//    box.depth   = 4000;
 }
 
 //-------------------------------------------------------------- SETTINGS
@@ -144,9 +152,11 @@ void testApp::addAppSettings()
 //-------------------------------------------------------------- 
 void testApp::addMainSettings()
 {
-//    box.addSettings( gui );
+    box.addSettings( gui );
     fog.addSettings( gui );
     fluid_updater.addSettings(gui);
+    userManager.addSettings(gui);
+    
     main_page = & gui.currentPage();
 }
 

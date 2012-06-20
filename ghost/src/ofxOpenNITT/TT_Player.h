@@ -22,7 +22,6 @@ class TT_Player {
 
 protected:
     
-    
     //--------------------------------------------------------------
     void exit( ofEventArgs & arg )
     {
@@ -36,6 +35,9 @@ protected:
             case 'd':
                 draw_debug = !draw_debug;
                 break;
+                
+            case 'x':
+                openNIPlayer.stop();
                 
             default:
                 break;
@@ -121,9 +123,8 @@ public:
         
         ofLogNotice() << getUserStatusAsString(event.userStatus) << " for user " << event.id << " from device " << event.deviceID;
         
-        // the event.id is 1 when the index in the vector is 0
-        // we just use the vector index of 0 as better suited for us 
-        
+        // the event.id is 1 while the index in the vector is 0
+        // we just use the vector index of 0 as better suited for us
         if ( event.userStatus == USER_SKELETON_FOUND ) {
             TT_NewUserEvent new_user = TT_NewUserEvent( &openNIPlayer.getTrackedUser(event.id-1), event.id-1 );
             ofNotifyEvent(TT_NewUserDispatcher, new_user);

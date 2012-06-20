@@ -62,7 +62,7 @@ public:
     
     void onCamTargetAnimateEvent( CamTargetAnimateEvent & args )
     {
-        cout << "TT_CamTargetAnimated::onAnimateEvent " << endl;
+        ofLogNotice("TT") << "TT_CamTargetAnimated::onAnimateEvent " << endl;
         animate( args.amp, args.duration );
     }
     

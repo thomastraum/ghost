@@ -55,6 +55,11 @@ public:
         end     = _end;
     }
     
+    void defineStart( int _start )
+    {
+        start   = _start;
+    }
+    
     void addSettings( ofxSimpleGuiToo & _gui )
     {
 //        _gui.addColorPicker("Fog Color Red", &color.r);        
@@ -64,7 +69,7 @@ public:
         _gui.addSlider( "Fog Blue", color.b, 0,1).setSmoothing( gui_smoothing );
         _gui.addSlider( "Fog Alpha", color.a, 0,1).setSmoothing( gui_smoothing );
         
-        _gui.addSlider( "Fog End", end, 0,10000).setSmoothing( gui_smoothing );
+        _gui.addSlider( "Fog End", end, 0,5000).setSmoothing( gui_smoothing );
         _gui.addSlider( "Fog Start", start, -1000,4500).setSmoothing( gui_smoothing );
 //        _gui.addSlider( "Fog Alpha", density, 0,1).setSmoothing( gui_smoothing );
     }

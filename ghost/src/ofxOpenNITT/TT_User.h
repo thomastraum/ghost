@@ -12,6 +12,7 @@
 #pragma once
 #include "ofxOpenNI.h"
 #include "TT_JointParticle.h"
+#include "MSAParticleGroup3D_Fixed.h"
 
 class TT_User {
     
@@ -25,13 +26,12 @@ class TT_User {
 public:
     
     //--------------------------------------------------------------
-    TT_User( ofxOpenNIUser * _niuser, XnUserID _id ){
+    TT_User( ofxOpenNIUser * _niuser, XnUserID _id, ofVec3f _scale, ofVec3f _offset ){
         niuser = _niuser;
         id = _id;
         
-        scale.makeScaleMatrix(ofVec3f(1,1,-1) );
-        // I made those up
-        trans.makeTranslationMatrix(ofVec3f(0,0,1500));
+        scale.makeScaleMatrix( _scale ); //ofVec3f(1,1,-1) );
+        trans.makeTranslationMatrix( _offset ); //ofVec3f(0,-100,1000));
         
         initParticles();
     }
@@ -41,8 +41,10 @@ public:
         
         vector<TT_JointParticle*>::iterator it = particles.begin();
         while ( it != particles.end() ) {
-            delete * it;  
+//            delete * it;
+            TT_JointParticle * p = *it;
             it = particles.erase(it);
+            p->release();
         }
     
         ofLogNotice( "TT-NI" ) << "deleted user " << id;
@@ -68,7 +70,7 @@ public:
                 TT_JointParticle * p = new TT_JointParticle( Vec3f( 0,0,0 ) );
                 particles.push_back(p);
                 p->joint_type = joint.getType();
-            }
+//            }
         }
     }
     
@@ -100,33 +102,11 @@ public:
         vector<TT_JointParticle*>::iterator it = particles.begin();
         while( it != particles.end() ) {
             TT_JointParticle * p = *it;
-            ofSetColor( 255,255,255);
+            ofSetColor( 255,255,255 );
             pos = p->getPosition();
-            ofCircle( pos.x,pos.y, pos.z, 20 );
+            ofCircle( pos.x,pos.y, pos.z, p->getRadius()*2 );
             it++;
         }
-        
-//        for(int j = 0; j < niuser->getNumJoints(); j++){
-//            ofxOpenNIJoint & joint = niuser->getJoint((Joint)j);
-//            
-//            if (j==0) {
-//                ofSetColor( 255,0,0);
-//                ofLogNotice("TT") << "getWorldPosition:      " << joint.getWorldPosition();
-//                ofLogNotice("TT") << "translateToAppSpace:      " << translateToAppSpace( joint.getWorldPosition() ); 
-////                ofLogNotice("TT") << "getProjectivePosition:      " << joint.getProjectivePosition(); // * multiplyVec;
-//            } else {
-//                ofSetColor( 255,255,255);
-//            }
-//            
-//            ofCircle( translateToAppSpace( joint.getWorldPosition() ) , 20 ); 
-//            
-//            //do something with the joint, or:
-//            if(joint.isParent()){ // ie., it's like a limb...
-//                // ...do something with the "limb"
-//                ofSetColor( 255,255,0);
-//                ofLine( translateToAppSpace(joint.getWorldPosition()), translateToAppSpace(joint.getParent().getWorldPosition()) );
-//            }
-//        }
     }
     
     //--------------------------------------------------------------

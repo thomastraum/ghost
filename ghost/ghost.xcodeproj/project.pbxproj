@@ -173,6 +173,7 @@
 		64333F111592428D003C6AEC /* TT_User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_User.h; sourceTree = "<group>"; };
 		64333F121592428D003C6AEC /* TT_UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_UserManager.h; sourceTree = "<group>"; };
 		64333F1A1592450E003C6AEC /* TT_JointParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_JointParticle.h; sourceTree = "<group>"; };
+		64333F2115928314003C6AEC /* TT_UserManagerGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_UserManagerGui.h; sourceTree = "<group>"; };
 		6458035714E2FA08008B8410 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		6458035A14E2FA08008B8410 /* ChanTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanTraits.h; sourceTree = "<group>"; };
 		6458035B14E2FA08008B8410 /* CinderMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderMath.h; sourceTree = "<group>"; };
@@ -471,10 +472,10 @@
 				E943CD04154754E90043DBDF /* TT_Box.cpp */,
 				E943CD01154754B80043DBDF /* TT_Box.h */,
 				641F052E15452B0500B45D92 /* TT_BoxGui.h */,
+				641F052F15452B0500B45D92 /* TT_DiscoBox.h */,
 				648AC59C15458A02001C4590 /* TT_CamTarget.h */,
 				648AC5A91545A658001C4590 /* TT_CamTarget_Vibrate.h */,
 				648992441546E539006D8942 /* TT_CamTargetAnimated.h */,
-				641F052F15452B0500B45D92 /* TT_DiscoBox.h */,
 				641F053015452B0500B45D92 /* TT_DiscoBoxApp.h */,
 				641F053115452B0500B45D92 /* TT_Fog.h */,
 				641F053215452B0500B45D92 /* TT_FogAnimated.h */,
@@ -648,6 +649,7 @@
 				64333F101592428D003C6AEC /* TT_PlayerEvents.h */,
 				64333F111592428D003C6AEC /* TT_User.h */,
 				64333F121592428D003C6AEC /* TT_UserManager.h */,
+				64333F2115928314003C6AEC /* TT_UserManagerGui.h */,
 			);
 			path = ofxOpenNITT;
 			sourceTree = "<group>";

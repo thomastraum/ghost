@@ -82,11 +82,6 @@ public:
         
     }
     
-    void checkCollisionWithThese( vector<TT_Custom_MSAParticle3D * > * _colliders )
-    {
-//        colliders = _colliders;
-    }
-    
 private:
     
     bool checkCollisionBetween( Physics::Particle3D * a, Physics::Particle3D * b )

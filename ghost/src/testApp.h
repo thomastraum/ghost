@@ -31,7 +31,7 @@
 
 //------------------------------------------------ OFXOPENNI
 #include "TT_Player.h"
-#include "TT_UserManager.h"
+#include "TT_UserManagerGui.h"
 #include "MSAPhysicsUpdaterCollision.h"
 
 class testApp : public ofBaseApp{
@@ -100,8 +100,8 @@ private:
     
     //------------------------------------------------ OFXOPENNI
     
-    TT_Player       oniPlayer;
-    TT_UserManager  userManager;
+    TT_Player           oniPlayer;
+    TT_UserManagerGui   userManager;
     
     
 };

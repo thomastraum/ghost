@@ -36,11 +36,13 @@ public:
     
     void addSettings( ofxSimpleGuiToo & _gui )
     {
-        _gui.addTitle( "Box Colors" );
-        _gui.addSlider( "Box Red", color.r, 0,1).setSmoothing( gui_smoothing );
-        _gui.addSlider( "Box Green", color.g, 0,1).setSmoothing( gui_smoothing );
-        _gui.addSlider( "Box Blue", color.b, 0,1).setSmoothing( gui_smoothing );
-        _gui.addSlider( "Box Alpha", color.a, 0,1).setSmoothing( gui_smoothing );
+        _gui.addTitle( "Box Settings" );
+//        _gui.addSlider( "Box Red", color.r, 0,1).setSmoothing( gui_smoothing );
+//        _gui.addSlider( "Box Green", color.g, 0,1).setSmoothing( gui_smoothing );
+//        _gui.addSlider( "Box Blue", color.b, 0,1).setSmoothing( gui_smoothing );
+//        _gui.addSlider( "Box Alpha", color.a, 0,1).setSmoothing( gui_smoothing );
+
+        _gui.addSlider( "Box Depth", depth, 1000,4000).setSmoothing( gui_smoothing );
     }
     
 };

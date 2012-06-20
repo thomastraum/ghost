@@ -24,7 +24,7 @@ public:
 
     void onBoxFlashEvent( BoxFlashEvent & args )
     {
-        cout << "TT_DiscoBoxApp::onBoxFlashEvent " << endl;
+        ofLogNotice("TT") << "TT_DiscoBoxApp::onBoxFlashEvent " << endl;
         flashUp( args.color, args.duration );
     }
 };

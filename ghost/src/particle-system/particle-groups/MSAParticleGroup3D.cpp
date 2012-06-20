@@ -32,7 +32,7 @@ void MSAParticleGroup3D::setup()
     maincolor[3] = 1.0;
     c_range = 0;
     
-    cout << "MSAParticleGroup3D setup called" << endl;
+    ofLogNotice("TT") << "MSAParticleGroup3D setup called" << endl;
 }
 
 void MSAParticleGroup3D::update()

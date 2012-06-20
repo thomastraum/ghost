@@ -9,9 +9,9 @@
 #pragma once
 #include "ofMain.h"
 
-#define WIDTH 1
-#define HEIGHT 1
-#define DEPTH 1
+#define TT_BOX_WIDTH 1
+#define TT_BOX_HEIGHT 1
+#define TT_BOX_DEPTH 1
 
 class TT_Box : public ofNode {
     
@@ -20,10 +20,11 @@ class TT_Box : public ofNode {
 public:
     
     TT_Box() {
-        width   = WIDTH;
-        height  = HEIGHT;
-        depth   = DEPTH;
+        width   = TT_BOX_WIDTH;
+        height  = TT_BOX_HEIGHT;
+        depth   = TT_BOX_DEPTH;
         c       = ofFloatColor( 0.7,0.7,0.7,1);
+//        c       = ofFloatColor( ofRandom(1),ofRandom(1),ofRandom(1),1);
     }
     
     ofMesh          mesh;

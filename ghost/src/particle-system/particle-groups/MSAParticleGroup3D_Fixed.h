@@ -12,15 +12,9 @@
 
 class MSAParticleGroup3D_Fixed : public MSAParticleGroup3D {
     
-    ofMesh mesh;
-    
 public:
     
     MSAParticleGroup3D_Fixed() {
-        
-        mesh.clear();
-        mesh.setMode(OF_PRIMITIVE_POINTS);
-        
     }
     
     virtual void setParticleProperties( TT_Custom_MSAParticle3D * _p )

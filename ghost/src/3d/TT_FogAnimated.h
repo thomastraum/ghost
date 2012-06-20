@@ -84,7 +84,7 @@ public:
     
     void onFogFlashEvent( FogFlashEvent & args )
     {
-        cout << "TT_FogAnimated::onFogFlashEvent " << endl;
+        ofLogNotice("TT") << "TT_FogAnimated::onFogFlashEvent " << endl;
         flashUp( args.color, args.duration );
     }
     

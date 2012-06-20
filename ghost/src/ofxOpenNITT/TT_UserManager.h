@@ -17,15 +17,20 @@
 class TT_UserManager {
     
     vector<TT_User*>    users;
-    
+        
 public:
     
     TT_UserManager(){
+        
         ofAddListener( TT_UserLostEventDispatcher,this,&TT_UserManager::deleteUser );
         ofAddListener( TT_NewUserDispatcher,this,&TT_UserManager::createNewUser );
+        
+        offset = ofVec3f(0,-100,1000);
+        scale = ofVec3f( 1,1,-1 );
     }
     
     //--------------------------------------------------------------
+    // Update positions of user joints with the joint particles
     void update() 
     {
         vector<TT_User*>::iterator it = users.begin();
@@ -37,46 +42,21 @@ public:
     }
     
     //--------------------------------------------------------------
+    // Draw positions of joint particles
     void draw() 
     {   
-
         vector<TT_User*>::iterator it = users.begin();
         while( it != users.end() ) {
             TT_User * u = *it;
             u->draw();
             it++;
         }
-        
-        
-//        ofPushStyle();
-//        glEnable(GL_DEPTH_TEST);
-//        
-////        glMatrixMode(GL_PROJECTION);
-////        ofPushMatrix();
-////
-////        float flipped[] = {
-////            1, 0, 0, 0,
-////            0, 1, 0, 0, 
-////            0, 0, 1, 0,
-////            0, 0, 0, 1
-////        };
-////        glMultMatrixf( flipped );
-//        
-//        vector<TT_User*>::iterator it = users.begin();
-//        while( it != users.end() ) {
-//            TT_User * u = *it;
-//            u->draw();
-//            it++;
-//        }
-////        glLoadIdentity();
-////        glMatrixMode(GL_PROJECTION);
-////        ofPopMatrix();
-//        
-//        glDisable(GL_DEPTH_TEST);
-//        ofPopStyle();
     }
     
 protected:
+    
+    ofVec3f scale;
+    ofVec3f offset;
     
     //--------------------------------------------------------------
     void createNewUser( TT_NewUserEvent & event ) 
@@ -87,7 +67,7 @@ protected:
         // Sometimes we can get a new user event twice for the same user //
         deleteUser( event.id );
         
-        TT_User * user = new TT_User( event.user, event.id );
+        TT_User * user = new TT_User( event.user, event.id, scale, offset );
         users.push_back( user );
     }
     

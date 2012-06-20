@@ -29,7 +29,6 @@ private :
     MSAParticleGroup3D * lines;
     MSAParticleGroup3D * collided;
     MSAParticleGroup3D * colliders;
-    
     MSAParticleGroup3D * active_group;
     
 public:
