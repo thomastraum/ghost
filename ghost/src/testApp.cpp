@@ -22,7 +22,7 @@ void testApp::setup(){
 
     camera.setTarget(cam_target);
     
-    //-------------------------------------         SETTINGS
+    //--------------------------------------------------- SETTINGS
     
     addAppSettings();
     preset_path     = "presets/";
@@ -35,7 +35,7 @@ void testApp::setup(){
 //    fog.setup();
 //    ofToggleFullscreen();
     
-    //-------------------------------------         SOUNDS
+    //--------------------------------------------------- SOUNDS
 
     sm.addLoop( "sounds/storm-tt-loop.wav" );
     sm.addLoop( "sounds/synths-tt-loop.wav" );
@@ -49,12 +49,16 @@ void testApp::setup(){
     sm.addEventSound("sounds/damage-heavy-1.wav");
     sm.addEventSound("sounds/damage-normal-1.wav");
     
-//    box.fadeToColor( ofFloatColor(1,0,1), 10);
-//    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
-    
     seq.start();
     
-    user.addCollisionUpdater( &user_collisions );
+    //--------------------------------------------------- OFXOPENNI
+    oniPlayer.play("openni/test.oni");
+    
+    
+    //--------------------------------------------------- MISC
+    
+    //    box.fadeToColor( ofFloatColor(1,0,1), 10);
+    //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
     
     // set different log levels for different messages //
     ofSetLogLevel(OF_LOG_ERROR);
@@ -63,12 +67,11 @@ void testApp::setup(){
     ofSoundStopAll();
 }
 
-
-
 //--------------------------------------------------------------
 void testApp::update()
 {
-    user.update();
+    oniPlayer.update();
+    
     user_collisions.calculateBoundingBox();
     
     ps.update();
@@ -82,11 +85,7 @@ void testApp::update()
 
 //--------------------------------------------------------------
 void testApp::draw()
-{
-//    ofEnableAlphaBlending();
-//    glEnable(GL_DEPTH_TEST);
-//    glEnable(GL_LIGHTING);
-    
+{    
     ofBackground(0, 0, 0);
     
     camera.setDistance(width);
@@ -97,25 +96,19 @@ void testApp::draw()
     ofSetColor(255,255,255);
     box.draw();
     
-//    ofSetColor(255,0,0);
-//    ofPushMatrix();
-//    ofBox( 0,0,0, 1 );
-//    ofPopMatrix();
-    
     cam_target.draw();
     
     
-//    ofPushMatrix();
-//    ofRotateY(90);
     ps.draw();
-//    ofPopMatrix();
     
     camera.end();
     
     fluid.draw();
     gui.draw();
 //    sm.draw();
-//    ofDisableAlphaBlending();
+    
+    oniPlayer.draw();
+
 }
 
 //--------------------------------------------------------------
@@ -216,7 +209,6 @@ void testApp::keyPressed(int key){
         ps.addQuads( Vec3f( 0,0,0 ), 1000, Vec3f(width,height,height*2), Vec3f( 100,100,1000) );
     
     if (key=='p') {
-//        user.addJointParticle( ps.addCollider( Vec3f( 0,0,0 ) ) );
         user_collisions.addToCollisionCheck( ps.addCollider(Vec3f(0,0,0)) );
     }
     

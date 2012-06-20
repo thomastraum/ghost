@@ -28,8 +28,10 @@
 #include "TT_Presets.h"
 #include "TT_Sequencer_Quiet.h"
 
-//------------------------------------------------ USERS
-#include "TT_User.h"
+
+//------------------------------------------------ OFXOPENNI
+#include "TT_Player.h"
+#include "TT_UserManager.h"
 #include "MSAPhysicsUpdaterCollision.h"
 
 class testApp : public ofBaseApp{
@@ -89,16 +91,17 @@ private:
     
     string              preset_path;
     
-    //---------------------------------------------- Presets
+    //------------------------------------------------ Presets
     void        nextPreset();
     TT_Presets  my_presets;
     
-    //---------------------------------------------- Sequencer    
+    //------------------------------------------------ Sequencer    
     TT_Sequencer_Quiet    seq;
     
-    //------------------------------------------------ USERS
-    TT_User               user;
+    //------------------------------------------------ OFXOPENNI
     
+    TT_Player       oniPlayer;
+    TT_UserManager  userManager;
     
     
 };
