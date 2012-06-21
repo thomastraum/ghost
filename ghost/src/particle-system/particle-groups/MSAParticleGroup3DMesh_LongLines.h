@@ -20,26 +20,26 @@ private:
     ofVbo       vbo;
     
     // !! different types in the PS !! //
-    
     Vec3f           pos_vec3f;
     ofVec3f         pos;
-    
     Vec3f           prev_pos_vec3f;
     ofVec3f         prev_pos;
     
     ofFloatColor    color;
+    int             line_length;
     
 public:
     
     MSAParticleGroup3DMesh_LongLines() {
         mesh.setMode( OF_PRIMITIVE_LINES );
         color = ofFloatColor(1,0,1,1 );
+        line_length = 10;
     }
     
     void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
 //        _p->enableFadeOut();
-        _p->setNumberOfSavedPositions( 20 );
+        _p->setNumberOfSavedPositions( line_length ); //(int)ofRandom(line_length/2, line_length) );
         
         MSAParticleGroup3DMesh::setParticleProperties( _p );        
     }
@@ -96,7 +96,7 @@ public:
         ofEnableAlphaBlending();
         //      glEnable(GL_DEPTH_TEST);
         glEnable(GL_LINE_SMOOTH);
-        glLineWidth(2);
+        glLineWidth(3);
         vbo.setMesh( mesh, GL_STATIC_DRAW );
         vbo.draw( GL_LINES, 0, mesh.getNumVertices() );
         

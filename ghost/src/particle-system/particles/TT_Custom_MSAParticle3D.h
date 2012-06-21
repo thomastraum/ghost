@@ -49,7 +49,7 @@ public:
     {
         // fade out a bit (and kill if alpha == 0);
         if (is_fadeout_enabled) {
-            alpha *= 0.97f;
+            alpha *= 0.94f;
             if( alpha < 0.1f ) {
                 kill();
             }

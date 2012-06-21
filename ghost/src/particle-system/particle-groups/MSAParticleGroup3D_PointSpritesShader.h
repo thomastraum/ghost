@@ -109,7 +109,7 @@ public:
         
         glDepthMask(GL_TRUE);
         
-        glDisable(GL_DEPTH_TEST);
+//        glDisable(GL_DEPTH_TEST);
         ofDisablePointSprites();
 //        ofDisableAlphaBlending();
     }

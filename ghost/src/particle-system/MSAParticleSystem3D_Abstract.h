@@ -20,6 +20,7 @@ public:
     void draw();
     
     void addUpdater( Physics::ParticleUpdater3D * _updater );
+    void removeUpdater( Physics::ParticleUpdater3D * _updater );
     void killAll();
     
     //---------------------------------------------------- EVENTS

@@ -92,6 +92,12 @@ void MSAParticleSystem3D_Abstract::addUpdater( Physics::ParticleUpdater3D * _upd
     physics.addUpdater(_updater);
 }
 
+void MSAParticleSystem3D_Abstract::removeUpdater( Physics::ParticleUpdater3D * _updater )
+{
+//    physics.addUpdater(_updater);
+}
+
+
 // ----------------------------------------------------- 
 void MSAParticleSystem3D_Abstract::killAll()
 {

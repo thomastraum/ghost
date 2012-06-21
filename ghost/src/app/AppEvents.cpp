@@ -18,4 +18,6 @@ ofEvent<FogFlashEvent>          FogFlashEventDispatcher;
 ofEvent<PGravEvent>             PGravEventDispatcher;
 ofEvent<CamTargetAnimateEvent>  CamTargetAnimateEventDispatcher;
 ofEvent<CollisionEvent>         CollisionEventDispatcher;
+ofEvent<AddUpdaterEvent>        AddUpdaterEventDispatcher;
+ofEvent<RemoveUpdaterEvent>     RemoveUpdaterEventDispatcher;
 

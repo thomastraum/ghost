@@ -26,6 +26,10 @@ public:
     MSAParticleSystemEvented() {
         ofAddListener( PGravEventDispatcher,this,&MSAParticleSystemEvented::onPGravEvent );
         ofAddListener( CollisionEventDispatcher,this,&MSAParticleSystemEvented::onCollisionEvent );
+        
+        ofAddListener( AddUpdaterEventDispatcher,this,&MSAParticleSystemEvented::onAddUpdater );
+        ofAddListener( RemoveUpdaterEventDispatcher,this,&MSAParticleSystemEvented::onRemoveUpdater );
+        
     }
     
     void onPGravEvent( PGravEvent & args )
@@ -45,6 +49,17 @@ public:
         collided_particles.push_back(p);
     }
 
+    void onAddUpdater( AddUpdaterEvent & e )
+    {
+        ofLogNotice( "TT-NI" ) << "MSAParticleSystemEvented::onAddUpdater";
+        addUpdater( e.updater );
+    }
+    
+    void onRemoveUpdater( RemoveUpdaterEvent & e )
+    {
+//        removeUpdater( e.updater);
+    }
+    
     void update()
     {
         MSAParticleSystem3D_Groups::update();
@@ -52,8 +67,11 @@ public:
         if (fresh_cache) {
 			for ( vector<Physics::Particle3D*>::iterator it = collided_particles.begin(); it != collided_particles.end(); it++) {
                 Physics::Particle3D * p = *it;
-                addCollided( p->getPosition(),3, Vec3f(4,4,4), p->getVelocity() + Vec3f(0,0,ofRandom(-1000,1000)) );
+                // pos, how many, emitsize, speed //
+                addLines( p->getPosition(), 5, Vec3f(40,40,40), p->getVelocity() + Vec3f(0,0,ofRandom(-1000,1000)) );
+                addCollided( p->getPosition(),10, Vec3f(40,40,40), Vec3f(0,0,0) );
                 p->kill();
+//                p->setSize(
             }
             collided_particles.clear();
             fresh_cache = false;

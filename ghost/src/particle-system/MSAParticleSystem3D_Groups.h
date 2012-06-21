@@ -84,7 +84,8 @@ protected :
         groups.push_back(colliders);
         
 //        collided = new MSAParticleGroup3DMesh_LongLines();
-        collided = new MSAParticleGroup3DMesh_Cubes(); 
+//        collided = new MSAParticleGroup3DMesh_Cubes();
+        collided = new MSAParticleGroup3D_PointSpritesShader();
         collided->setup();
         collided->setInstanceName( "Collided" );
         groups.push_back(collided);
@@ -98,7 +99,7 @@ protected :
     {
         TT_Custom_MSAParticle3D * p = createParticle(_pos);
         
-        p->setVelocity(_speed);
+        p->addVelocity(_speed);
         
         active_group->addParticle( p );
         p->release();

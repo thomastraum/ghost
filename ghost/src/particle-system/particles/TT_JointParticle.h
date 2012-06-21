@@ -17,7 +17,10 @@ class TT_JointParticle : public TT_Custom_MSAParticle3D {
     
 public:
     
-    TT_JointParticle ( Vec3f _pos ) : TT_Custom_MSAParticle3D( _pos ) {}
+    TT_JointParticle ( Vec3f _pos ) : TT_Custom_MSAParticle3D( _pos ) {
+    
+        makeFixed();
+    }
     
     Joint joint_type;
     
@@ -30,9 +33,9 @@ public:
     
     void matchJointToRadius()
     {
-        int base_size = 80;
-        int mid_size = 100;
-        int big_size = 130;
+        int base_size = 100;
+        int mid_size = 120;
+        int big_size = 200;
         
         switch ( joint_type ) {
                 

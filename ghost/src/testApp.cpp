@@ -202,7 +202,8 @@ void testApp::keyPressed(int key){
         ps.addQuads( Vec3f( 0,0,0 ), 1000, Vec3f(width,height,height*2), Vec3f( 100,100,1000) );
     
     if (key=='p') {
-        user_collisions.addToCollisionCheck( ps.addCollider(Vec3f(0,0,0)) );
+        Vec3f pos = Vec3f( ofRandom(-ofGetWidth(), ofGetWidth() ),ofRandom(-ofGetHeight(), ofGetHeight()),ofRandom(-ofGetWidth(), ofGetWidth()) );
+        user_collisions.addToCollisionCheck( ps.addCollider(pos) );
     }
     
     if (key=='k')

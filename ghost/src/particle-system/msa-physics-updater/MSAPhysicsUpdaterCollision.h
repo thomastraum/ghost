@@ -15,6 +15,8 @@
 using namespace MSA;
 
 class MSAPhysicsUpdaterCollision : public Physics::ParticleUpdater3D {
+
+protected:
     
     vector<Physics::Particle3D*>  colliders;
     Vec3f min;
@@ -25,8 +27,15 @@ public:
     MSAPhysicsUpdaterCollision() {
         min = Vec3f( 0,0,0 );
         max = Vec3f( 0,0,0 );
+    };
+    
+    ~MSAPhysicsUpdaterCollision() {
         
-        
+        vector<Physics::Particle3D*>::iterator it = colliders.begin();
+        while ( it != colliders.end() ) {
+            it = colliders.erase(it);
+        }
+        ofLogNotice( "TT-NI" ) << "deleted colliders ";
         
     };
     
@@ -41,6 +50,7 @@ public:
                 CollisionEvent e = CollisionEvent( _pA ); //, _pA, pB );
                 ofNotifyEvent( CollisionEventDispatcher, e );
                 it = colliders.end();
+                
             } else {
                 it++;
             }
@@ -80,6 +90,7 @@ public:
     void addToCollisionCheck( TT_Custom_MSAParticle3D * _p )
     {
         colliders.push_back( _p );
+        ofLogNotice( "TT-NI" ) << "got one added ";
     }
     
     void removeFromCollisionCheck( TT_Custom_MSAParticle3D * _p )
@@ -91,7 +102,6 @@ private:
     
     bool checkCollisionBetween( Physics::Particle3D * a, Physics::Particle3D * b )
     {
-        
         if( a==b ) return false;
         if (a->isFixed()) return false;
         // only collide the ones which have collision enabled.
@@ -101,8 +111,7 @@ private:
         Vec3f a_pos = a->getPosition();
         if (a_pos.x > max.x || a_pos.x < min.x  ) return false;
         if (a_pos.y > max.y || a_pos.y < min.y  ) return false;
-        if (a_pos.z > max.z || a_pos.z < min.z  ) return false;
-        
+        if (a_pos.z > max.z || a_pos.z < min.z  ) return false;        
         
         if((a->collisionPlane & b->collisionPlane) == 0) {
             return false;
@@ -119,7 +128,7 @@ private:
         
         Vec3f deltaForce = delta * force;
         
-        if (a->isFree()) a->moveBy(deltaForce * a->getInvMass(), false);
+//        if (a->isFree()) a->moveBy(deltaForce * a->getInvMass(), false);
         //        if (b->isFree()) b->moveBy(deltaForce * -b->getInvMass(), false);
         
         //        a->collidedWithParticle(b, deltaForce);
@@ -127,5 +136,6 @@ private:
         
         return true;
     }
+    
 };
 

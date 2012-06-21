@@ -80,7 +80,7 @@ public:
             ofPushStyle();
             ofPushMatrix();
             ofSetColor(255, 255, 255);
-            openNIPlayer.drawDebug(0, ofGetHeight()-draw_height, draw_width, draw_height );
+            openNIPlayer.drawDebug(ofGetWidth()-draw_width, ofGetHeight()-draw_height, draw_width, draw_height );
             ofPopMatrix();
             ofPopStyle();
         }

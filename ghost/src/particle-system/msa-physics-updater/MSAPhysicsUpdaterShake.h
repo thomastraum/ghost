@@ -28,7 +28,7 @@ public:
     void update( Physics::Particle3D * _p ) 
     {
         if ( shake_me )
-            _p->addVelocity( Vec3f( ofRandom( -strength, strength ), ofRandom( -strength, strength ), 0 ) );
+            _p->addVelocity( Vec3f( ofRandom( -strength, strength ), ofRandom( -strength, strength ), ofRandom( -strength, strength ) ) );
     }
     
     void toggleShake()

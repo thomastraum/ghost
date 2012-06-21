@@ -11,15 +11,14 @@
 
 #pragma once
 #include "ofxOpenNI.h"
-#include "TT_UserEvents.h"
 #include "TT_JointParticle.h"
-#include "MSAParticleGroup3D_Fixed.h"
+//#include "MSAParticleGroup3D_Fixed.h"
+#include "MSAPhysicsUpdaterCollision.h"
 
-class TT_User {
+class TT_User : public MSAPhysicsUpdaterCollision {
     
     ofxOpenNIUser * niuser;
     XnUserID        id;
-    
     ofMatrix4x4     trans, scale;
     
     vector<TT_JointParticle*> particles;
@@ -38,29 +37,22 @@ public:
     }
     
     //--------------------------------------------------------------
-    // delete this shit
+    // delete this user
     ~TT_User() {
         
         vector<TT_JointParticle*>::iterator it = particles.begin();
         while ( it != particles.end() ) {
 //            delete * it;
             TT_JointParticle * p = *it;
-            p->kill();
-            
-            // Fire an event for the colliders so they can remove the pointer from their vector array //
-            TT_RemoveJointParticleEvent e = TT_RemoveJointParticleEvent( p );
-            ofNotifyEvent( TT_RemoveJointParticleEventDispatcher, e );
-            
             it = particles.erase(it);
             p->release();
         }
-    
         ofLogNotice( "TT-NI" ) << "deleted user " << id;
     }
     
     //--------------------------------------------------------------
     // create collider particles only for the joints we want
-    // fire events to make them register in the collider
+    // add those to the parent collider vector array
     void initParticles()
     {
         for(int i = 0; i < niuser->getNumJoints(); i++){
@@ -82,16 +74,15 @@ public:
                 particles.push_back(p);
                 p->setJointType( joint.getType() );
                 
-                // Fire an event for the colliders so they can add it to their vector array //
-                TT_NewJointParticleEvent e = TT_NewJointParticleEvent( p );
-                ofNotifyEvent(TT_NewJointParticleEventDispatcher, e);
+                // adding those to parent class //
+                MSAPhysicsUpdaterCollision::addToCollisionCheck( p );
             }
         }
     }
     
     //--------------------------------------------------------------
     // get the right jointtype by looking in the saved joint type property of the particle 
-    void update() 
+    void updateJointParticle() 
     {
         int i = 0;
         ofPoint point;
@@ -99,7 +90,6 @@ public:
         while( it != particles.end() ){
             
             TT_JointParticle * p = *it;
-            
             ofxOpenNIJoint & joint = niuser->getJoint( p->joint_type );
         
             point = translateToAppSpace( joint.getWorldPosition() );
@@ -108,6 +98,7 @@ public:
             it++;
         }
         
+        MSAPhysicsUpdaterCollision::calculateBoundingBox();
     }
     
     //--------------------------------------------------------------

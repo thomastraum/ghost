@@ -119,6 +119,25 @@ public:
     
 };
 
+//------------------------------------------------------------------------
+class AddUpdaterEvent {
+    
+public:
+    
+    Physics::ParticleUpdater3D * updater;
+    AddUpdaterEvent( Physics::ParticleUpdater3D * _updater ): updater(_updater) {}
+    
+};
+
+class RemoveUpdaterEvent {
+    
+public:
+    
+    Physics::ParticleUpdater3D * updater;
+    RemoveUpdaterEvent( Physics::ParticleUpdater3D * _updater ): updater(_updater) {}
+    
+};
+
 
 extern ofEvent<ForceEvent>              ForceEventDispatcher;
 extern ofEvent<LoopEvent>               LoopEventDispatcher;
@@ -129,5 +148,7 @@ extern ofEvent<FogFlashEvent>           FogFlashEventDispatcher;
 extern ofEvent<PGravEvent>              PGravEventDispatcher;
 extern ofEvent<CamTargetAnimateEvent>   CamTargetAnimateEventDispatcher;
 extern ofEvent<CollisionEvent>          CollisionEventDispatcher;
+extern ofEvent<AddUpdaterEvent>         AddUpdaterEventDispatcher;
+extern ofEvent<RemoveUpdaterEvent>      RemoveUpdaterEventDispatcher;
 
 #endif
