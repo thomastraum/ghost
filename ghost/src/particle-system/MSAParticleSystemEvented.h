@@ -86,7 +86,7 @@ public:
                    addLines( p->getPosition(), 1, Vec3f(0,0,0), p->getVelocity() + Vec3f(100,100,250) );
                 }
                 addCollided( p->getPosition(),1, Vec3f(10,10,10), Vec3f(100,100,100) ); //Vec3f(0,0,0) );
-//                p->kill();
+                p->kill();
             }
             collided_particles.clear();
             fresh_cache = false;
