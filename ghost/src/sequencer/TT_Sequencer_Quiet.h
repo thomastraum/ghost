@@ -30,6 +30,9 @@ private:
         SoundFxEvent fx = SoundFxEvent( floor(ofRandom(0,3)), 1,1 );
         ofNotifyEvent(SoundFxEventDispatcher, fx);
         
+        CamTargetAnimateEvent wobble = CamTargetAnimateEvent( ofRandom(1,3), 2 );
+        ofNotifyEvent(CamTargetAnimateEventDispatcher, wobble);
+        
         makeDiscoSoundBeat();
         changeGravNice();
     }
@@ -59,7 +62,7 @@ private:
             FogFlashEvent fog_flash = FogFlashEvent( f, 1 );
             ofNotifyEvent( FogFlashEventDispatcher, fog_flash );
             
-            CamTargetAnimateEvent wobble = CamTargetAnimateEvent( ofRandom(20,50), 4 );
+            CamTargetAnimateEvent wobble = CamTargetAnimateEvent( ofRandom(10,30), 4 );
             ofNotifyEvent(CamTargetAnimateEventDispatcher, wobble);
             
         }

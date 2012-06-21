@@ -83,6 +83,18 @@ protected:
         
         AddUpdaterEvent new_user_collision_updater = AddUpdaterEvent( user );
         ofNotifyEvent(AddUpdaterEventDispatcher, new_user_collision_updater);
+        
+        SoundFxEvent fx = SoundFxEvent( 7, 1, 1 );
+        ofNotifyEvent(SoundFxEventDispatcher, fx);
+        
+        // trigger some particles //
+        Vec3f pos = Vec3f( user->getCenter().x, user->getCenter().y, user->getCenter().z );
+        Vec3f range = pos; // + ( Vec3f( ofRandom(-1,1), ofRandom(-1,1), ofRandom(-1,1) ) * 50 );
+        Vec3f speed =  Vec3f( ofRandom(-1,1), ofRandom(-1,1), ofRandom(-1,1) ) * 200;
+        
+        ParticleBurstEvent burst = ParticleBurstEvent( pos, 50, range, speed );
+        ofNotifyEvent(ParticleBurstEventDispatcher, burst );
+        
     }
     
     //--------------------------------------------------------------
@@ -101,10 +113,7 @@ protected:
         while( it != users.end() ) {
             TT_User * u = *it;
             if( u->getID() == _id ) {
-                
-//                RemoveUpdaterEvent remove_updaterevent = RemoveUpdaterEvent( u );
-//                ofNotifyEvent(RemoveUpdaterEventDispatcher, remove_updaterevent);
-            
+                u->kill();
                 it = users.erase(it);
                 u->release();
                 

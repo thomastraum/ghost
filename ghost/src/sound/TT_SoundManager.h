@@ -53,7 +53,7 @@ public:
     //---------------------------------------------------------------- 
     void onSoundFxEvent( SoundFxEvent & args )
     {
-        ofLogNotice( "TT" ) << "TT_SoundManager::onSoundFxEvent ";
+        ofLogNotice( "TT-SOUND" ) << "TT_SoundManager::onSoundFxEvent ";
         playEventSound( args.sound_id, args.volume );
     }
     
@@ -72,7 +72,7 @@ public:
             snd->play();
             snd->setVolume(_volume);
         }
-        ofLogNotice( "TT" ) << "playEventSound id: " << _id << " v: " << _volume;
+        ofLogNotice( "TT-SOUND" ) << "playEventSound id: " << _id << " v: " << _volume;
     }
     
     

@@ -252,6 +252,7 @@
 		648AC59C15458A02001C4590 /* TT_CamTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TT_CamTarget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		648AC5A91545A658001C4590 /* TT_CamTarget_Vibrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_CamTarget_Vibrate.h; sourceTree = "<group>"; };
 		648E3A55158D644300FF34CE /* MSAParticleGroup3DMesh_LongLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_LongLines.h; sourceTree = "<group>"; };
+		64CCCF5B15933BBE00801659 /* MSAParticleGroup3DMesh_PointSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAParticleGroup3DMesh_PointSprites.h; sourceTree = "<group>"; };
 		64D06F9315923DF70013359A /* libusb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libusb.h; sourceTree = "<group>"; };
 		64D06F9515923DF70013359A /* XnCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XnCommon.h; sourceTree = "<group>"; };
 		64D06F9615923DF70013359A /* XnV3DVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XnV3DVector.h; sourceTree = "<group>"; };
@@ -551,6 +552,7 @@
 				641F055115452B0500B45D92 /* MSAParticleGroup3D.cpp */,
 				641F055215452B0500B45D92 /* MSAParticleGroup3D.h */,
 				E92CC388154A184F0035ECEC /* MSAParticleGroup3D_Fixed.h */,
+				64CCCF5B15933BBE00801659 /* MSAParticleGroup3DMesh_PointSprites.h */,
 				641F055515452B0500B45D92 /* MSAParticleGroup3D_PointSpritesShader.h */,
 				641F055715452B0500B45D92 /* MSAParticleGroup3DMesh.h */,
 				641F055815452B0500B45D92 /* MSAParticleGroup3DMesh_Lines.h */,

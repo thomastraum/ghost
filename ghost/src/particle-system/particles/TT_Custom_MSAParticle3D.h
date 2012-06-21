@@ -49,7 +49,7 @@ public:
     {
         // fade out a bit (and kill if alpha == 0);
         if (is_fadeout_enabled) {
-            alpha *= 0.94f;
+            alpha *= 0.99f;
             if( alpha < 0.1f ) {
                 kill();
             }
@@ -173,4 +173,10 @@ public:
     
     void collidedWithEdgeOfWorld(Vec3f collisionForce) {}
 	
+    void collidedWithParticle(Physics::Particle3D *other, Vec3f collisionForce)
+    {
+//        setColor( ofFloatColor( 1,0,0 ) );
+//        setRadius( 100 );
+        
+    }
 };

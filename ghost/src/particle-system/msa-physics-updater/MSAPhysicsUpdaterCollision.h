@@ -31,13 +31,21 @@ public:
     
     ~MSAPhysicsUpdaterCollision() {
         
-        vector<Physics::Particle3D*>::iterator it = colliders.begin();
-        while ( it != colliders.end() ) {
-            it = colliders.erase(it);
-        }
-        ofLogNotice( "TT-NI" ) << "deleted colliders ";
+        kill();
         
     };
+    
+    void kill()
+    {
+        vector<Physics::Particle3D*>::iterator it = colliders.begin();
+        while ( it != colliders.end() ) {
+            //            delete * it;
+            Physics::Particle3D * p = *it;
+            it = colliders.erase(it);
+            p->release();
+        }
+        ofLogNotice( "TT-NI" ) << "deleted collider ";
+    }
     
     virtual void update( Physics::Particle3D * _pA )
     {
@@ -87,10 +95,10 @@ public:
         }
     }
     
+
     void addToCollisionCheck( TT_Custom_MSAParticle3D * _p )
     {
         colliders.push_back( _p );
-        ofLogNotice( "TT-NI" ) << "got one added ";
     }
     
     void removeFromCollisionCheck( TT_Custom_MSAParticle3D * _p )
@@ -128,10 +136,10 @@ private:
         
         Vec3f deltaForce = delta * force;
         
-//        if (a->isFree()) a->moveBy(deltaForce * a->getInvMass(), false);
+        if (a->isFree()) a->moveBy(deltaForce * a->getInvMass(), false);
         //        if (b->isFree()) b->moveBy(deltaForce * -b->getInvMass(), false);
         
-        //        a->collidedWithParticle(b, deltaForce);
+        a->collidedWithParticle(b, deltaForce);
         //        b->collidedWithParticle(a, -deltaForce);
         
         return true;

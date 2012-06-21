@@ -20,4 +20,5 @@ ofEvent<CamTargetAnimateEvent>  CamTargetAnimateEventDispatcher;
 ofEvent<CollisionEvent>         CollisionEventDispatcher;
 ofEvent<AddUpdaterEvent>        AddUpdaterEventDispatcher;
 ofEvent<RemoveUpdaterEvent>     RemoveUpdaterEventDispatcher;
+ofEvent<ParticleBurstEvent>     ParticleBurstEventDispatcher;
 

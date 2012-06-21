@@ -40,34 +40,34 @@ public:
         switch ( joint_type ) {
                 
             case JOINT_TORSO:
-                _radius = big_size;
+                _radius = base_size;
                 break;
             case JOINT_HEAD:
-                _radius = mid_size;
+                _radius = base_size;
                 break;
             case JOINT_LEFT_ELBOW:
-                _radius = base_size;
+                _radius = mid_size;
                 break;
             case JOINT_LEFT_HAND:
-                _radius = base_size;
+                _radius = mid_size;
                 break;
             case JOINT_RIGHT_ELBOW:
-                _radius = base_size;
+                _radius = mid_size;
                 break;
             case JOINT_RIGHT_HAND:
-                _radius = base_size;
+                _radius = mid_size;
                 break;
             case JOINT_LEFT_KNEE:
-                _radius = base_size;
+                _radius = big_size;
                 break;
             case JOINT_LEFT_FOOT:
-                _radius = mid_size;
+                _radius = big_size;
                 break;
             case JOINT_RIGHT_KNEE:
-                _radius = base_size;
+                _radius = big_size;
                 break;
             case JOINT_RIGHT_FOOT:
-                _radius = mid_size;
+                _radius = big_size;
                 break;
             default:
                 break;

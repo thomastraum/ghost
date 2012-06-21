@@ -32,8 +32,8 @@ public:
     void addSettings( ofxSimpleGuiToo & _gui )
     {
         MSAParticleGroup3DMesh::addSettings( _gui );
-        _gui.addSlider( instance_name + " node min", node_min, 1, 10);
-        _gui.addSlider( instance_name + " node max", node_max, 1, 100);
+        _gui.addSlider( instance_name + " node min", node_min, 1, 100);
+        _gui.addSlider( instance_name + " node max", node_max, 1, 300);
     }
     
     //---------------------------------------------------------------    
@@ -52,9 +52,26 @@ public:
         colors.push_back(pcol.b);
         
     }
+    //---------------------------------------------------------------
+    void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
+    {
+        pos_vec3f = _p->getPosition();
+        pos =  ofVec3f( pos_vec3f.x, pos_vec3f.y, pos_vec3f.z );
+        mesh.addVertex( pos );
+    }
+    
+    void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ) 
+    {
+        pos_vec3f   = _p->getPosition();
+        
+        pos = ofVec3f( pos_vec3f.x, pos_vec3f.y, pos_vec3f.z );
+        mesh.setVertex( index, pos );
+        point_sizes[index] = _p->getRadius();
+//        colors[index*3] = _p->getColor();
+    };
     
     //--------------------------------------------------------------- 
-    virtual void deleteInMesh( TT_Custom_MSAParticle3D * _p, int _index )
+    void deleteInMesh( TT_Custom_MSAParticle3D * _p, int _index )
     {
         // delete point size
         point_sizes.erase(point_sizes.begin()+_index);

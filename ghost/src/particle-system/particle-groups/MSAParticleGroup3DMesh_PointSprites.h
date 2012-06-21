@@ -30,30 +30,30 @@ public:
         
         mesh.setMode(OF_PRIMITIVE_POINTS);
         ofDisableArbTex();
-        texture.loadImage("pt-8.png");
+        texture.loadImage("pt-11.png");
         
         gl_point_size = 4;
         color = ofFloatColor(1,1,1,1 );
     }
     
     //---------------------------------------------------------------
-    void addSettings( ofxSimpleGuiToo & _gui )
+    virtual void addSettings( ofxSimpleGuiToo & _gui )
     {
         MSAParticleGroup3DMesh::addSettings( _gui );
         _gui.addSlider( "Point Size", gl_point_size, 1, 50);
     }
     
     //---------------------------------------------------------------
-    void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
+    virtual void addParticleToMesh( TT_Custom_MSAParticle3D * _p )
     {
         pos_vec3f = _p->getPosition();
         pos =  ofVec3f( pos_vec3f.x, pos_vec3f.y, pos_vec3f.z );
         mesh.addVertex( pos );
-        mesh.addColor( color ); //ofColor(ofRandom(0,255),ofRandom(0,255),ofRandom(0,255)) );
+        mesh.addColor( color ); 
     }
     
     //---------------------------------------------------------------
-    void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ) 
+    virtual void updateIndexWithParticle( TT_Custom_MSAParticle3D * _p, int index ) 
     {
         pos_vec3f   = _p->getPosition();
         color.a     = _p->getAlpha();

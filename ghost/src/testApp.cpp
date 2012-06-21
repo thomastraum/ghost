@@ -43,6 +43,7 @@ void testApp::setup(){
     sm.addEventSound("sounds/damage-big-1.wav");
     sm.addEventSound("sounds/damage-heavy-1.wav");
     sm.addEventSound("sounds/damage-normal-1.wav");
+    sm.addEventSound("sounds/enter-2.wav");
     
     seq.start();
     
@@ -55,7 +56,7 @@ void testApp::setup(){
     //    box.fadeToColor( ofFloatColor(1,0,1), 10);
     //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
     
-    ofSoundStopAll();
+//    ofSoundStopAll();
 }
 
 //--------------------------------------------------------------
@@ -80,13 +81,13 @@ void testApp::draw()
 {    
     ofBackground(0, 0, 0);
     
+    camera.setPosition(0, -50, 0);
     camera.setDistance(width);
     camera.begin();
         
     fog.draw();
     
     ofSetColor(255,255,255);
-    
     
     glEnable(GL_DEPTH_TEST);
     box.draw();
@@ -196,10 +197,10 @@ void testApp::keyPressed(int key){
     //        ps.addParticles( Vec3f( 0,0,0 ), 1000 );
     
     if (key=='l')
-        ps.addLines( Vec3f( 0,0,0 ), 100, Vec3f(20,20,20), Vec3f( 100,100,1000) );
+        ps.addLines( Vec3f( 0,0,0 ), 100, Vec3f(20,20,20), Vec3f( 100,100,100) );
     
     if (key=='q')
-        ps.addQuads( Vec3f( 0,0,0 ), 1000, Vec3f(width,height,height*2), Vec3f( 100,100,1000) );
+        ps.addQuads( Vec3f( 0,0,0 ), 1000, Vec3f(width,height*1.3,box.depth), Vec3f( 100,100,1000) );
     
     if (key=='p') {
         Vec3f pos = Vec3f( ofRandom(-ofGetWidth(), ofGetWidth() ),ofRandom(-ofGetHeight(), ofGetHeight()),ofRandom(-ofGetWidth(), ofGetWidth()) );

@@ -33,7 +33,7 @@ public:
     MSAParticleGroup3DMesh_LongLines() {
         mesh.setMode( OF_PRIMITIVE_LINES );
         color = ofFloatColor(1,0,1,1 );
-        line_length = 10;
+        line_length = 14;
     }
     
     void setParticleProperties( TT_Custom_MSAParticle3D * _p )

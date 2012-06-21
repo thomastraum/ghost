@@ -98,10 +98,10 @@ protected :
     TT_Custom_MSAParticle3D * addParticle( Vec3f _pos, Vec3f _speed )
     {
         TT_Custom_MSAParticle3D * p = createParticle(_pos);
-        
-        p->addVelocity(_speed);
-        
         active_group->addParticle( p );
+        
+        p->addVelocity( Vec3f( ofRandom( -_speed.x, _speed.x ), ofRandom( -_speed.y, _speed.y ), ofRandom( -_speed.z, _speed.z ) ));
+        
         p->release();
         return p;
     }

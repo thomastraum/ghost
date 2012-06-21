@@ -38,16 +38,31 @@ public:
     
     //--------------------------------------------------------------
     // delete this user
-    ~TT_User() {
+    ~TT_User(){
+        kill();
+    }
+    
+    //--------------------------------------------------------------
+    // clean up
+    void kill() {
+        
+        MSAPhysicsUpdaterCollision::kill();
         
         vector<TT_JointParticle*>::iterator it = particles.begin();
         while ( it != particles.end() ) {
 //            delete * it;
             TT_JointParticle * p = *it;
             it = particles.erase(it);
-            p->release();
+            // DO NOT release here. was already released in parent
+//          p->release();
         }
         ofLogNotice( "TT-NI" ) << "deleted user " << id;
+    }
+    
+    //--------------------------------------------------------------
+    ofVec3f getCenter()
+    {
+        return translateToAppSpace( niuser->getCenter() );
     }
     
     //--------------------------------------------------------------
@@ -60,11 +75,11 @@ public:
             ofxOpenNIJoint & joint = niuser->getJoint((Joint)i);
             
             if ( joint.getType() == JOINT_TORSO ||
-                joint.getType() == JOINT_HEAD ||
-                joint.getType() == JOINT_LEFT_ELBOW || 
-                joint.getType() == JOINT_LEFT_HAND || 
-                joint.getType() == JOINT_RIGHT_ELBOW || 
-                joint.getType() == JOINT_RIGHT_HAND || 
+//                joint.getType() == JOINT_HEAD ||
+//                joint.getType() == JOINT_LEFT_ELBOW || 
+//                joint.getType() == JOINT_LEFT_HAND || 
+//                joint.getType() == JOINT_RIGHT_ELBOW || 
+//                joint.getType() == JOINT_RIGHT_HAND || 
                 joint.getType() == JOINT_LEFT_KNEE || 
                 joint.getType() == JOINT_LEFT_FOOT ||
                 joint.getType() == JOINT_RIGHT_KNEE ||

@@ -12,6 +12,7 @@
 #pragma once
 #include "ofMain.h"
 #include "AppEvents.h"
+#include "TT_PlayerEvents.h"
 #include "MSAParticleSystem3D_Groups.h"
 
 class MSAParticleSystemEvented : public MSAParticleSystem3D_Groups {
@@ -24,12 +25,17 @@ protected:
 public:
     
     MSAParticleSystemEvented() {
+        
         ofAddListener( PGravEventDispatcher,this,&MSAParticleSystemEvented::onPGravEvent );
         ofAddListener( CollisionEventDispatcher,this,&MSAParticleSystemEvented::onCollisionEvent );
         
         ofAddListener( AddUpdaterEventDispatcher,this,&MSAParticleSystemEvented::onAddUpdater );
         ofAddListener( RemoveUpdaterEventDispatcher,this,&MSAParticleSystemEvented::onRemoveUpdater );
         
+        ofAddListener( ParticleBurstEventDispatcher,this,&MSAParticleSystemEvented::onParticleBurst );
+        
+//        ofAddListener( TT_UserLostEventDispatcher,this,&MSAParticleSystemEvented::onUserDeleted );
+//        ofAddListener( TT_NewUserDispatcher,this,&MSAParticleSystemEvented::onUserCreated );
     }
     
     void onPGravEvent( PGravEvent & args )
@@ -53,11 +59,18 @@ public:
     {
         ofLogNotice( "TT-NI" ) << "MSAParticleSystemEvented::onAddUpdater";
         addUpdater( e.updater );
+//        addQuads( Vec3f( 0,0,0 ), 2000, Vec3f(width,height,height*2), Vec3f( 100,100,100) );
     }
     
     void onRemoveUpdater( RemoveUpdaterEvent & e )
     {
 //        removeUpdater( e.updater);
+    }
+
+    void onParticleBurst( ParticleBurstEvent & e )
+    {
+        addLines( e.pos, e.count, e.range, e.speed );
+        
     }
     
     void update()
@@ -68,13 +81,16 @@ public:
 			for ( vector<Physics::Particle3D*>::iterator it = collided_particles.begin(); it != collided_particles.end(); it++) {
                 Physics::Particle3D * p = *it;
                 // pos, how many, emitsize, speed //
-                addLines( p->getPosition(), 5, Vec3f(40,40,40), p->getVelocity() + Vec3f(0,0,ofRandom(-1000,1000)) );
-                addCollided( p->getPosition(),10, Vec3f(40,40,40), Vec3f(0,0,0) );
-                p->kill();
-//                p->setSize(
+                
+                if(ofRandom(1) < 1 ) {
+                   addLines( p->getPosition(), 1, Vec3f(0,0,0), p->getVelocity() + Vec3f(100,100,250) );
+                }
+                addCollided( p->getPosition(),1, Vec3f(10,10,10), Vec3f(100,100,100) ); //Vec3f(0,0,0) );
+//                p->kill();
             }
             collided_particles.clear();
             fresh_cache = false;
+
         }
     }
     

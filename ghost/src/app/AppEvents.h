@@ -119,7 +119,7 @@ public:
     
 };
 
-//------------------------------------------------------------------------
+//------------------------------------------------------------------------ USER STUFF
 class AddUpdaterEvent {
     
 public:
@@ -129,6 +129,7 @@ public:
     
 };
 
+//------------------------------------------------------------------------
 class RemoveUpdaterEvent {
     
 public:
@@ -138,6 +139,20 @@ public:
     
 };
 
+//------------------------------------------------------------------------ PARTICLE BURST
+class ParticleBurstEvent {
+    
+public:
+    
+    Vec3f pos;
+    int     count;
+    Vec3f range;
+    Vec3f speed;
+    
+    ParticleBurstEvent( Vec3f _pos, int _count, Vec3f _range, Vec3f _speed): 
+        pos(_pos), count(_count), range(_range), speed(_speed) {}
+    
+};
 
 extern ofEvent<ForceEvent>              ForceEventDispatcher;
 extern ofEvent<LoopEvent>               LoopEventDispatcher;
@@ -150,5 +165,6 @@ extern ofEvent<CamTargetAnimateEvent>   CamTargetAnimateEventDispatcher;
 extern ofEvent<CollisionEvent>          CollisionEventDispatcher;
 extern ofEvent<AddUpdaterEvent>         AddUpdaterEventDispatcher;
 extern ofEvent<RemoveUpdaterEvent>      RemoveUpdaterEventDispatcher;
+extern ofEvent<ParticleBurstEvent>      ParticleBurstEventDispatcher;
 
 #endif
