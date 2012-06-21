@@ -10,6 +10,7 @@
 #include "ofEvents.h"
 #include "AppEvents.h"
 #include "MSAPhysics3D.h"
+#include "TT_UserEvents.h"
 
 using namespace MSA;
 
@@ -24,6 +25,9 @@ public:
     MSAPhysicsUpdaterCollision() {
         min = Vec3f( 0,0,0 );
         max = Vec3f( 0,0,0 );
+        
+        
+        
     };
     
     virtual void update( Physics::Particle3D * _pA )
@@ -36,9 +40,10 @@ public:
             if ( checkCollisionBetween( _pA, pB ) ) {
                 CollisionEvent e = CollisionEvent( _pA ); //, _pA, pB );
                 ofNotifyEvent( CollisionEventDispatcher, e );
-                break;
+                it = colliders.end();
+            } else {
+                it++;
             }
-            it++;
         }
         
     }

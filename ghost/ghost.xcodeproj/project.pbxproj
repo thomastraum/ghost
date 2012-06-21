@@ -21,6 +21,7 @@
 		6423C9A414E56ED600B9C6A0 /* MSAFluidDrawerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C98414E56ED500B9C6A0 /* MSAFluidDrawerBase.cpp */; };
 		6423C9A514E56ED600B9C6A0 /* MSAFluidSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6423C98914E56ED500B9C6A0 /* MSAFluidSolver.cpp */; };
 		64333F141592428D003C6AEC /* TT_PlayerEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64333F0F1592428D003C6AEC /* TT_PlayerEvents.cpp */; };
+		64333F2415929E7F003C6AEC /* TT_UserEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64333F2315929E7F003C6AEC /* TT_UserEvents.cpp */; };
 		645803EE14E2FA08008B8410 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458035C14E2FA08008B8410 /* Color.cpp */; };
 		645803EF14E2FA08008B8410 /* MSACoreGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458036314E2FA08008B8410 /* MSACoreGL.cpp */; };
 		645803F214E2FA08008B8410 /* MSAObjCPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6458037414E2FA08008B8410 /* MSAObjCPointer.cpp */; };
@@ -174,6 +175,8 @@
 		64333F121592428D003C6AEC /* TT_UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_UserManager.h; sourceTree = "<group>"; };
 		64333F1A1592450E003C6AEC /* TT_JointParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_JointParticle.h; sourceTree = "<group>"; };
 		64333F2115928314003C6AEC /* TT_UserManagerGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_UserManagerGui.h; sourceTree = "<group>"; };
+		64333F2215929C9D003C6AEC /* TT_UserEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT_UserEvents.h; sourceTree = "<group>"; };
+		64333F2315929E7F003C6AEC /* TT_UserEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TT_UserEvents.cpp; sourceTree = "<group>"; };
 		6458035714E2FA08008B8410 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		6458035A14E2FA08008B8410 /* ChanTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChanTraits.h; sourceTree = "<group>"; };
 		6458035B14E2FA08008B8410 /* CinderMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderMath.h; sourceTree = "<group>"; };
@@ -650,6 +653,8 @@
 				64333F111592428D003C6AEC /* TT_User.h */,
 				64333F121592428D003C6AEC /* TT_UserManager.h */,
 				64333F2115928314003C6AEC /* TT_UserManagerGui.h */,
+				64333F2315929E7F003C6AEC /* TT_UserEvents.cpp */,
+				64333F2215929C9D003C6AEC /* TT_UserEvents.h */,
 			);
 			path = ofxOpenNITT;
 			sourceTree = "<group>";
@@ -1336,6 +1341,7 @@
 				64D0702115923DF70013359A /* ofxOpenNI.cpp in Sources */,
 				64D0702215923DF70013359A /* ofxOpenNITypes.cpp in Sources */,
 				64333F141592428D003C6AEC /* TT_PlayerEvents.cpp in Sources */,
+				64333F2415929E7F003C6AEC /* TT_UserEvents.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

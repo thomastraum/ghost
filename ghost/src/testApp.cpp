@@ -11,11 +11,10 @@ void testApp::setup(){
 	ofSetFrameRate(60);
 	ofEnableSmoothing();
     
-    draw_debug = false;
-    
     box.build();
     scaleScene();
     
+    //--------------------------------------------------- Particle System
     ps.setup();
     fluid.setup();
     fluid_updater.setup( fluid.getSolver() );
@@ -30,13 +29,6 @@ void testApp::setup(){
     addAppSettings();
     preset_path     = "presets/";
     loadXMLSettingsFromPath( preset_path + my_presets.getNextPresetName() );
-    
-    //-------------------------------------
-    
-//    camera.setNearClip( 2*width );
-//    camera.setFarClip( -2*width );
-//    fog.setup();
-//    ofToggleFullscreen();
     
     //--------------------------------------------------- SOUNDS
 
@@ -196,15 +188,6 @@ void testApp::nextPreset()
 
 //-------------------------------------------------------------- EVENTS
 void testApp::keyPressed(int key){
-    
-    if (key== 'd' )
-        draw_debug = ! draw_debug;
-    
-    //	if (key=='c')
-    //		camera.toggleCursorDraw();
-	
-    //	if (key=='u')
-    //		camera.toggleFixUpwards();
     
     if (key=='f')
 		ofToggleFullscreen();

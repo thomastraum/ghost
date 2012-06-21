@@ -21,6 +21,56 @@ public:
     
     Joint joint_type;
     
+    void setJointType( Joint _joint_type )
+    {
+        joint_type = _joint_type;
+        matchJointToRadius();
+    }
+    
+    
+    void matchJointToRadius()
+    {
+        int base_size = 80;
+        int mid_size = 100;
+        int big_size = 130;
+        
+        switch ( joint_type ) {
+                
+            case JOINT_TORSO:
+                _radius = big_size;
+                break;
+            case JOINT_HEAD:
+                _radius = mid_size;
+                break;
+            case JOINT_LEFT_ELBOW:
+                _radius = base_size;
+                break;
+            case JOINT_LEFT_HAND:
+                _radius = base_size;
+                break;
+            case JOINT_RIGHT_ELBOW:
+                _radius = base_size;
+                break;
+            case JOINT_RIGHT_HAND:
+                _radius = base_size;
+                break;
+            case JOINT_LEFT_KNEE:
+                _radius = base_size;
+                break;
+            case JOINT_LEFT_FOOT:
+                _radius = mid_size;
+                break;
+            case JOINT_RIGHT_KNEE:
+                _radius = base_size;
+                break;
+            case JOINT_RIGHT_FOOT:
+                _radius = mid_size;
+                break;
+            default:
+                break;
+        }
+    }
+    
 };
 
 

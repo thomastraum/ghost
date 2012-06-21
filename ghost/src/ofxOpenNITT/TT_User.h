@@ -11,6 +11,7 @@
 
 #pragma once
 #include "ofxOpenNI.h"
+#include "TT_UserEvents.h"
 #include "TT_JointParticle.h"
 #include "MSAParticleGroup3D_Fixed.h"
 
@@ -37,12 +38,19 @@ public:
     }
     
     //--------------------------------------------------------------
+    // delete this shit
     ~TT_User() {
         
         vector<TT_JointParticle*>::iterator it = particles.begin();
         while ( it != particles.end() ) {
 //            delete * it;
             TT_JointParticle * p = *it;
+            p->kill();
+            
+            // Fire an event for the colliders so they can remove the pointer from their vector array //
+            TT_RemoveJointParticleEvent e = TT_RemoveJointParticleEvent( p );
+            ofNotifyEvent( TT_RemoveJointParticleEventDispatcher, e );
+            
             it = particles.erase(it);
             p->release();
         }
@@ -51,6 +59,8 @@ public:
     }
     
     //--------------------------------------------------------------
+    // create collider particles only for the joints we want
+    // fire events to make them register in the collider
     void initParticles()
     {
         for(int i = 0; i < niuser->getNumJoints(); i++){
@@ -67,14 +77,20 @@ public:
                 joint.getType() == JOINT_LEFT_FOOT ||
                 joint.getType() == JOINT_RIGHT_KNEE ||
                 joint.getType() == JOINT_RIGHT_FOOT ) {
+                
                 TT_JointParticle * p = new TT_JointParticle( Vec3f( 0,0,0 ) );
                 particles.push_back(p);
-                p->joint_type = joint.getType();
-//            }
+                p->setJointType( joint.getType() );
+                
+                // Fire an event for the colliders so they can add it to their vector array //
+                TT_NewJointParticleEvent e = TT_NewJointParticleEvent( p );
+                ofNotifyEvent(TT_NewJointParticleEventDispatcher, e);
+            }
         }
     }
     
     //--------------------------------------------------------------
+    // get the right jointtype by looking in the saved joint type property of the particle 
     void update() 
     {
         int i = 0;
@@ -84,7 +100,6 @@ public:
             
             TT_JointParticle * p = *it;
             
-            // get the right jointtype by looking in the saved joint type property of the particle 
             ofxOpenNIJoint & joint = niuser->getJoint( p->joint_type );
         
             point = translateToAppSpace( joint.getWorldPosition() );
@@ -96,6 +111,7 @@ public:
     }
     
     //--------------------------------------------------------------
+    // draws them for debug.
     void draw() 
     {
         Vec3f pos;
@@ -110,6 +126,7 @@ public:
     }
     
     //--------------------------------------------------------------
+    // this brings the points into our coordinate system
     ofVec3f translateToAppSpace( ofVec3f _point )
     {
         ofVec3f newPoint = _point * scale * trans;
@@ -117,6 +134,7 @@ public:
     }
     
     //--------------------------------------------------------------
+    // id is used on deletion of a user, matching the ID in openNI
     XnUserID getID()
     {
         return id;
