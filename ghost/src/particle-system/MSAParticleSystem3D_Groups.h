@@ -78,10 +78,10 @@ protected :
         lines->setInstanceName( "Lines" );
         groups.push_back(lines);
         
-        colliders = new MSAParticleGroup3D_Fixed(); 
-        colliders->setup();
-        colliders->setInstanceName( "Colliders" );
-        groups.push_back(colliders);
+//        colliders = new MSAParticleGroup3D_Fixed(); 
+//        colliders->setup();
+//        colliders->setInstanceName( "Colliders" );
+//        groups.push_back(colliders);
         
 //        collided = new MSAParticleGroup3DMesh_LongLines();
 //        collided = new MSAParticleGroup3DMesh_Cubes();

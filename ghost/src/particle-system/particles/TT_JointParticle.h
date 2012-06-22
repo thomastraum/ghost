@@ -34,13 +34,13 @@ public:
     void matchJointToRadius()
     {
         int base_size = 50;
-        int mid_size = 50;
-        int big_size = 50;
+        int mid_size = 70;
+        int big_size = 150;
         
         switch ( joint_type ) {
                 
             case JOINT_TORSO:
-                _radius = base_size;
+                _radius = big_size;
                 break;
             case JOINT_HEAD:
                 _radius = base_size;

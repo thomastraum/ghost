@@ -123,6 +123,10 @@ protected:
         ofLogNotice("TT-NI") << "TT_UserManager::deleteUser ---------------------------- ";
         ofLogNotice("TT-NI") << event.user->getDebugInfo();
         
+        
+        SoundFxEvent fx = SoundFxEvent( 8, 1, 1 );
+        ofNotifyEvent(SoundFxEventDispatcher, fx);
+        
         deleteUser( event.id );
     }
     

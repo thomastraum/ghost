@@ -49,7 +49,7 @@ public:
     TT_Player() {
         
         openNIPlayer.setup();
-//        openNIPlayer.start();
+        openNIPlayer.start();
         openNIPlayer.addDepthGenerator();
         openNIPlayer.addImageGenerator();
         openNIPlayer.setRegister(true);

@@ -20,7 +20,7 @@ void testApp::setup(){
     fluid_updater.setup( fluid.getSolver() );
     ps.addUpdater( &fluid_updater );
     ps.addUpdater( &shaker );
-    ps.addUpdater( &user_collisions );
+//    ps.addUpdater( &user_collisions );
 
     camera.setTarget(cam_target);
     
@@ -44,11 +44,12 @@ void testApp::setup(){
     sm.addEventSound("sounds/damage-heavy-1.wav");
     sm.addEventSound("sounds/damage-normal-1.wav");
     sm.addEventSound("sounds/enter-2.wav");
+    sm.addEventSound("sounds/clarinet user lost.wav");
     
     seq.start();
     
     //--------------------------------------------------- OFXOPENNI
-    oniPlayer.play("openni/test.oni");
+//    oniPlayer.play("openni/test.oni");
     
     
     //--------------------------------------------------- MISC
@@ -57,19 +58,23 @@ void testApp::setup(){
     //    box.flashUp( ofFloatColor(ofRandom(0,1),ofRandom(0,1),ofRandom(0,1)), 2.0 );
     
 //    ofSoundStopAll();
+    
+    ps.addQuads( Vec3f( 0,0,0 ), 12000, Vec3f(width,height*1.3,box.depth), Vec3f( 100,100,1000) );
 }
 
 //--------------------------------------------------------------
 void testApp::update()
 {
+    float p = userManager.getDistancePercent();
     oniPlayer.update();
     userManager.update();
-//    seq.setNiceProb( 1-userManager.getDistancePercent() );
-//    seq.setMeanProb(userManager.getDistancePercent() );
+    seq.setNiceProb( 1-p );
+    seq.setMeanProb(p);
     
     user_collisions.calculateBoundingBox();
     
     ps.update();
+    ps.setMeanProb( p );
     fluid.update();
     cam_target.update();
     

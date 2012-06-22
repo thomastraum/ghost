@@ -21,6 +21,7 @@ protected:
     
     vector<Physics::Particle3D*>        collided_particles;
     bool                                fresh_cache;
+    float                               burstprob;
     
 public:
     
@@ -34,8 +35,7 @@ public:
         
         ofAddListener( ParticleBurstEventDispatcher,this,&MSAParticleSystemEvented::onParticleBurst );
         
-//        ofAddListener( TT_UserLostEventDispatcher,this,&MSAParticleSystemEvented::onUserDeleted );
-//        ofAddListener( TT_NewUserDispatcher,this,&MSAParticleSystemEvented::onUserCreated );
+        burstprob = 1;
     }
     
     void onPGravEvent( PGravEvent & args )
@@ -81,13 +81,12 @@ public:
                 Physics::Particle3D * p = *it;
                 // pos, how many, emitsize, speed //
                 
-//                if(ofRandom(1) < 1 ) {
-                   addLines( p->getPosition(), 1, Vec3f(0,0,0), p->getVelocity() + Vec3f(100,100,100) );
-//                }
+                float intensity = 100; // + 100*burstprob;
+                addLines( p->getPosition(), 1, Vec3f(0,0,0), p->getVelocity() + Vec3f(intensity,intensity,intensity) );
                 addCollided( p->getPosition(),1, Vec3f(5,5,5), Vec3f(0,0,0) ); //Vec3f(0,0,0) );
                 
-                addQuads( p->getPosition(), 1, Vec3f(10,10,10), Vec3f( 50,50,50) );
-                p->kill();
+//                addQuads( p->getPosition(), 1, Vec3f(10,10,10), Vec3f( 50,50,50) );
+//                p->kill();
             }
             collided_particles.clear();
             fresh_cache = false;
@@ -95,6 +94,10 @@ public:
         }
     }
     
+    void setMeanProb( float _burstprob )
+    {
+        burstprob = 1-_burstprob;
+    }
 };
 
 #endif

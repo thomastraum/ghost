@@ -39,7 +39,7 @@ private:
     
     void makeBigPush()
     {
-        if ( ofRandom(0,1) > 0.6 ) {
+        if ( ofRandom(0,1) > 0.3 ) {
             
             ofLogNotice("TT") << "makeBigPush";
             
@@ -62,7 +62,7 @@ private:
             FogFlashEvent fog_flash = FogFlashEvent( f, 1 );
             ofNotifyEvent( FogFlashEventDispatcher, fog_flash );
             
-            CamTargetAnimateEvent wobble = CamTargetAnimateEvent( ofRandom(10,30), 4 );
+            CamTargetAnimateEvent wobble = CamTargetAnimateEvent( ofRandom(5,20), 4 );
             ofNotifyEvent(CamTargetAnimateEventDispatcher, wobble);
             
         }
@@ -70,7 +70,7 @@ private:
     
     void makeMediumPush()
     {
-        if (  ofRandom(1) < 0.5) { 
+        if (  ofRandom(1) < 0.7) { 
             ForceEvent event = ForceEvent(floor(ofRandom(0,2) ), 0.2, 4 );
             ofNotifyEvent(ForceEventDispatcher, event);
         } else {
@@ -181,13 +181,16 @@ public:
     //-------------------------------------------------------------------   Set Probabilities
     void setNiceProb( float _prob )
     {
-        prob = _prob;
+        prob = .5+ (_prob * .5);
     }
     
     void setMeanProb( float _burstprob )
     {
-        burstprob = _burstprob;
+        burstprob = .5*_burstprob;
     }
+    
+    //---------
+    
     
 };
 
