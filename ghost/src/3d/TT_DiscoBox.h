@@ -44,6 +44,8 @@ public:
     //---------------------------------------------------------------
     void fadeToColor( ofFloatColor _col, float _duration )
     {
+        cout << "color" << _col;
+        
         setColTarget( _col );
         timer.stopTimer();
         timer.setDuration( _duration );

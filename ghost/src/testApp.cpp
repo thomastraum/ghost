@@ -64,6 +64,8 @@ void testApp::update()
 {
     oniPlayer.update();
     userManager.update();
+//    seq.setNiceProb( 1-userManager.getDistancePercent() );
+//    seq.setMeanProb(userManager.getDistancePercent() );
     
     user_collisions.calculateBoundingBox();
     
@@ -74,6 +76,7 @@ void testApp::update()
     if ( shaker.isShaking() ) shaker.stopShaking();
 
     seq.update();
+    
 }
 
 //--------------------------------------------------------------

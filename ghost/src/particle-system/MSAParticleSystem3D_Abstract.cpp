@@ -78,12 +78,12 @@ void MSAParticleSystem3D_Abstract::draw()
         groups[i]->draw(); 
     }
     
-    // draw mouse //
-    ofPushStyle();
-    ofFill();
-    ofSetColor( 255,0,255 );
-    ofCircle( mouse_node.getPosition().x, mouse_node.getPosition().y, mouse_node.getPosition().z, mouse_node.getRadius() );
-    ofPopStyle();
+//    // draw mouse //
+//    ofPushStyle();
+//    ofFill();
+//    ofSetColor( 255,0,255 );
+//    ofCircle( mouse_node.getPosition().x, mouse_node.getPosition().y, mouse_node.getPosition().z, mouse_node.getRadius() );
+//    ofPopStyle();
 }
 
 // ----------------------------------------------------- PUBLIC
@@ -96,7 +96,6 @@ void MSAParticleSystem3D_Abstract::removeUpdater( Physics::ParticleUpdater3D * _
 {
 //    physics.addUpdater(_updater);
 }
-
 
 // ----------------------------------------------------- 
 void MSAParticleSystem3D_Abstract::killAll()

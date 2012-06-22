@@ -58,6 +58,7 @@ protected:
     float                                   alpha_max;
     
     bool                                    enable_fadeout;
+    float                                   fade_out_speed;
     bool                                    enable_collision;
     bool                                    enable_wrapping;
     

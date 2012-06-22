@@ -70,7 +70,6 @@ public:
     void onParticleBurst( ParticleBurstEvent & e )
     {
         addLines( e.pos, e.count, e.range, e.speed );
-        
     }
     
     void update()
@@ -82,11 +81,13 @@ public:
                 Physics::Particle3D * p = *it;
                 // pos, how many, emitsize, speed //
                 
-                if(ofRandom(1) < 1 ) {
-                   addLines( p->getPosition(), 1, Vec3f(0,0,0), p->getVelocity() + Vec3f(100,100,250) );
-                }
-                addCollided( p->getPosition(),1, Vec3f(10,10,10), Vec3f(100,100,100) ); //Vec3f(0,0,0) );
-//                p->kill();
+//                if(ofRandom(1) < 1 ) {
+                   addLines( p->getPosition(), 1, Vec3f(0,0,0), p->getVelocity() + Vec3f(100,100,100) );
+//                }
+                addCollided( p->getPosition(),1, Vec3f(5,5,5), Vec3f(0,0,0) ); //Vec3f(0,0,0) );
+                
+                addQuads( p->getPosition(), 1, Vec3f(10,10,10), Vec3f( 50,50,50) );
+                p->kill();
             }
             collided_particles.clear();
             fresh_cache = false;

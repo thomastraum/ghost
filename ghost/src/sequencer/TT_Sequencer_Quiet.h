@@ -150,7 +150,7 @@ public:
     //-------------------------------------------------------------------  Event Listeners
     void onQuarterNote( int &beats ) 
     {
-
+        
     }
     
     //-------------------------------------------------------------------
@@ -176,7 +176,19 @@ public:
             makeBigPush();
         }
     }
-
+    
+    
+    //-------------------------------------------------------------------   Set Probabilities
+    void setNiceProb( float _prob )
+    {
+        prob = _prob;
+    }
+    
+    void setMeanProb( float _burstprob )
+    {
+        burstprob = _burstprob;
+    }
+    
 };
 
 

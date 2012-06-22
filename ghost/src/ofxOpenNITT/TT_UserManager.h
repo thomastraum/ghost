@@ -19,6 +19,9 @@ class TT_UserManager {
     
     vector<TT_User*>    users;
     bool                draw_debug;
+    
+    int current_user_distance;
+    int user_max_distance;
         
 public:
     
@@ -36,22 +39,34 @@ public:
         scale = ofVec3f( 1,1,-1 );
         
         draw_debug = false;
+        user_max_distance = -1730;
     }
     
     //--------------------------------------------------------------
     // Update positions of user joints with the joint particles
+    // update distance
     void update() 
     {
+        ofVec3f center;
+        current_user_distance = user_max_distance;
+        
         vector<TT_User*>::iterator it = users.begin();
         while( it != users.end() ) {
             TT_User * u = *it;
             u->updateJointParticle();
+            
+            // calculate distance //
+            center = u->getCenter();
+            if ( center.z > current_user_distance && center.z < 0 ) {
+                current_user_distance = center.z;
+            }
+            
             it++;
         }
     }
     
     //--------------------------------------------------------------
-    // Draw positions of joint particles
+    // Draw positions of joint particles in debug mode
     void draw() 
     {   
         if( draw_debug ) {
@@ -62,6 +77,11 @@ public:
                 it++;
             }
         }
+    }
+    
+    float getDistancePercent()
+    {
+        return (float)current_user_distance / user_max_distance;
     }
     
 protected:
@@ -136,6 +156,7 @@ protected:
         }
     }
     
+
 };
 
 #endif

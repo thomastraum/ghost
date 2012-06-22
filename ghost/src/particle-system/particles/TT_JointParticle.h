@@ -33,9 +33,9 @@ public:
     
     void matchJointToRadius()
     {
-        int base_size = 100;
-        int mid_size = 120;
-        int big_size = 200;
+        int base_size = 50;
+        int mid_size = 50;
+        int big_size = 50;
         
         switch ( joint_type ) {
                 

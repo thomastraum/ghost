@@ -75,11 +75,11 @@ public:
             ofxOpenNIJoint & joint = niuser->getJoint((Joint)i);
             
             if ( joint.getType() == JOINT_TORSO ||
-//                joint.getType() == JOINT_HEAD ||
-//                joint.getType() == JOINT_LEFT_ELBOW || 
-//                joint.getType() == JOINT_LEFT_HAND || 
-//                joint.getType() == JOINT_RIGHT_ELBOW || 
-//                joint.getType() == JOINT_RIGHT_HAND || 
+                joint.getType() == JOINT_HEAD ||
+                joint.getType() == JOINT_LEFT_ELBOW || 
+                joint.getType() == JOINT_LEFT_HAND || 
+                joint.getType() == JOINT_RIGHT_ELBOW || 
+                joint.getType() == JOINT_RIGHT_HAND || 
                 joint.getType() == JOINT_LEFT_KNEE || 
                 joint.getType() == JOINT_LEFT_FOOT ||
                 joint.getType() == JOINT_RIGHT_KNEE ||
@@ -120,6 +120,9 @@ public:
     // draws them for debug.
     void draw() 
     {
+        ofSetColor(255, 0, 255);
+        ofCircle( getCenter(), 100 );
+        
         Vec3f pos;
         vector<TT_JointParticle*>::iterator it = particles.begin();
         while( it != particles.end() ) {

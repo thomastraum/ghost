@@ -88,19 +88,19 @@ public:
     //---------------------------------------------------------------
     virtual void draw()
     {
+        glEnable(GL_DEPTH_TEST);
+        
         ofEnablePointSprites();
-//        ofEnableAlphaBlending();
+        ofEnableAlphaBlending();
 //        
-//        glEnable(GL_DEPTH_TEST);
-//        glEnable(GL_ALPHA_TEST);
-//        glAlphaFunc(GL_GREATER, 0.5);
+        glEnable(GL_ALPHA_TEST);
+        glAlphaFunc(GL_GREATER, 0.5);
         
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        
+//        glEnable(GL_BLEND);
+//        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         // IMPORTANT: disable depth mask writing to prevent wierd looking edges while  using transparency!
         // ------------------------------------------------------------------------------------------------
-        glDepthMask(GL_FALSE);
+//        glDepthMask(GL_FALSE);
         
         texture.getTextureReference().bind();
         
@@ -124,11 +124,12 @@ public:
         
         texture.getTextureReference().unbind();
         
-        glDepthMask(GL_TRUE);
+//        glDepthMask(GL_TRUE);
         
-//        glDisable(GL_DEPTH_TEST);
+        ofDisableAlphaBlending();
         ofDisablePointSprites();
-//        ofDisableAlphaBlending();
+        
+        glDisable(GL_DEPTH_TEST);
     }
     
 };

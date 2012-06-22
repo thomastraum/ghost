@@ -84,8 +84,11 @@ void MSAParticleGroup3D::setParticleProperties( TT_Custom_MSAParticle3D * _p )
         _p->setWrap(true, true);
     }
     
-    if ( enable_fadeout )
+    if ( enable_fadeout ) {
         _p->enableFadeOut();
+        _p->fade_out_speed = fade_out_speed;
+    }
+    
     
     _p->setBounce(bounce);
 	_p->setMass(mass)->setDrag(drag)->makeFree();
@@ -101,7 +104,6 @@ ofFloatColor MSAParticleGroup3D::getColor()
 {
     return ofFloatColor(maincolor[0] + ofRandom(-c_range,c_range),maincolor[1]+ ofRandom(-c_range,c_range),maincolor[2]+ ofRandom(-c_range,c_range), 1);
 }
-
 
 void MSAParticleGroup3D::resizeParticleGroup()
 {
@@ -135,13 +137,11 @@ void MSAParticleGroup3D::addSettings( ofxSimpleGuiToo & _gui )
 	_gui.addSlider( instance_name + " drag min", drag_min, 0.1, 1);
 	_gui.addSlider( instance_name + " drag max", drag_max, 0.1, 1);
     
-//    _gui.addSlider( "bounce min", bounce_min, 0, 1);
-//	_gui.addSlider( "bounce max", bounce_max, 0, 1);
-    
     _gui.addToggle( instance_name + " collision", enable_collision );
     _gui.addToggle( instance_name + " wrapping", enable_wrapping );
     
     _gui.addToggle( instance_name + " enableFadeOut", enable_fadeout );
+    _gui.addSlider( instance_name + " fade_out_speed", fade_out_speed, .85, .99);
     
     _gui.addColorPicker(instance_name + "Main Color", maincolor);
     _gui.addSlider(instance_name + "color variation", c_range, 0, 1);

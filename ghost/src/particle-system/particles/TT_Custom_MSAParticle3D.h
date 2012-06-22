@@ -34,6 +34,7 @@ public:
     vector<Vec3f>           pos;
     int                     pos_length;
     bool                    save_position;
+    float                   fade_out_speed;
     
     TT_Custom_MSAParticle3D ( Vec3f _pos )   : Physics::Particle3D( _pos ) { 
         wrapping_enabled = false;
@@ -43,13 +44,14 @@ public:
         solvable = false;
         alpha = 1.0;
         save_position = false;
+        fade_out_speed = 0.97f;
     }
     
     void update()
     {
         // fade out a bit (and kill if alpha == 0);
         if (is_fadeout_enabled) {
-            alpha *= 0.99f;
+            alpha *= fade_out_speed;
             if( alpha < 0.1f ) {
                 kill();
             }

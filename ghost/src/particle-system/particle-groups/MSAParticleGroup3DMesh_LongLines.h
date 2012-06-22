@@ -38,7 +38,7 @@ public:
     
     void setParticleProperties( TT_Custom_MSAParticle3D * _p )
     {
-//        _p->enableFadeOut();
+        _p->enableFadeOut();
         _p->setNumberOfSavedPositions( line_length ); //(int)ofRandom(line_length/2, line_length) );
         
         MSAParticleGroup3DMesh::setParticleProperties( _p );        
@@ -96,7 +96,7 @@ public:
         ofEnableAlphaBlending();
         //      glEnable(GL_DEPTH_TEST);
         glEnable(GL_LINE_SMOOTH);
-        glLineWidth(3);
+        glLineWidth(2);
         vbo.setMesh( mesh, GL_STATIC_DRAW );
         vbo.draw( GL_LINES, 0, mesh.getNumVertices() );
         
