@@ -121,9 +121,9 @@ private:
         if (a_pos.y > max.y || a_pos.y < min.y  ) return false;
         if (a_pos.z > max.z || a_pos.z < min.z  ) return false;        
         
-        if((a->collisionPlane & b->collisionPlane) == 0) {
-            return false;
-        }
+//        if((a->collisionPlane & b->collisionPlane) == 0) {
+//            return false;
+//        }
         //        printf("same planes %i %i\n", a->collisionPlane, b->collisionPlane);
         
         float restLength = b->getRadius() + a->getRadius();

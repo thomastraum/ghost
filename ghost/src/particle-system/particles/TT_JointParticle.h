@@ -35,7 +35,7 @@ public:
     {
         int base_size = 50;
         int mid_size = 70;
-        int big_size = 150;
+        int big_size = 125;
         
         switch ( joint_type ) {
                 

@@ -49,13 +49,13 @@ public:
     TT_Player() {
         
         openNIPlayer.setup();
-        openNIPlayer.start();
         openNIPlayer.addDepthGenerator();
         openNIPlayer.addImageGenerator();
         openNIPlayer.setRegister(true);
         openNIPlayer.setMirror(true);
         openNIPlayer.addUserGenerator();
         openNIPlayer.setMaxNumUsers(4);
+        openNIPlayer.start();
         
 	    ofAddListener(ofEvents().exit, this, &TT_Player::exit);
 	    ofAddListener(ofEvents().keyPressed, this, &TT_Player::keyPressed);

@@ -59,7 +59,7 @@ void testApp::setup(){
     
 //    ofSoundStopAll();
     
-    ps.addQuads( Vec3f( 0,0,0 ), 12000, Vec3f(width,height*1.3,box.depth), Vec3f( 100,100,1000) );
+    ps.addQuads( Vec3f( 0,0,0 ), 10000, Vec3f(width,height*1.3,box.depth), Vec3f( 100,100,1000) );
 }
 
 //--------------------------------------------------------------
