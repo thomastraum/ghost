@@ -1,6 +1,8 @@
 **User Guide**
 
 *Main App*
+
+'f' for fullscreen
 'd' switches on debug view where you see the kinect and the skeletons
 'k' kills all particles
 'q' adds particles
